@@ -50,3 +50,6 @@ class Solution:
         for i in xrange(len(can)):
             if not res or res[len(res)-1] <= can[i]:
                 self.dfs(can,cursum+can[i],target,res+[can[i]])
+
+
+For the combination_sum2, just change the start index from i to the i+1
