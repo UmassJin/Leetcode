@@ -3,7 +3,7 @@
 #Note:
 #Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
 #The solution set must not contain duplicate triplets.
-
+#198ms
 
 class Solution:
     # @return a list of lists of length 3, [[val1,val2,val3]]
