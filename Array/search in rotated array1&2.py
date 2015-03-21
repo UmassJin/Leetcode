@@ -25,6 +25,62 @@ class Solution:
                 if target > A[mid] and target <= A[right]:
                     left = mid+1
                 else:
+                    
+     
+Follow up for "Search in Rotated Sorted Array":
+What if duplicates are allowed?
+Would this affect the run-time complexity? How and why?
+Write a function to determine if a given target is in the array.
+
+class Solution:
+    # @param A a list of integers
+    # @param target an integer
+    # @return a boolean
+    # 70ms
+    def search(self, A, target):
+        left = 0
+        right = len(A) - 1
+        return self.inter_search(A, left, right, target)
+        
+    def inter_search(self,A, left, right,target):    
+        while left <= right:
+            mid = (left + right) /2
+            if target == A[mid]:
+                return True
+            if A[mid] > A[left]:
+                if target < A[mid] and target >= A[left]:
+                    right = mid -1
+                else:
+                    left = mid+1
+            elif A[mid] < A[right]:
+                if target > A[mid] and target <= A[right]:
+                    left = mid+1
+                else:
+                    right = mid -1
+            elif A[mid] == A[left] or A[mid] == A[right]:
+                 return (self.inter_search(A, left, mid-1, target) or self.inter_search(A, mid+1, right, target))
+        return False   
+    
+    # 57ms
+    def search(self,A,target):
+        left, right = 0, len(A)-1
+        
+        while left <= right:
+            mid = (left+right)/2
+            if A[mid]==target: return True
+            if A[mid] > A[left]:
+                if A[left]<=target < A[mid]:
+                    right = mid -1
+                else:
+                    left = mid +1
+            elif A[mid] < A[left]:
+                if A[mid]<target <= A[right]:
+                    left= mid +1
+                else:
+                    right = mid -1
+            else:
+                left +=1
+        return False
                     right = mid -1
         return -1            
                     
