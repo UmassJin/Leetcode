@@ -1,6 +1,6 @@
 1. K closest points:
   Find the K closest points to the origin in a 2D plane, given an array containing N points.
-2.Maximum Sum/Production Subarray 
+2.Maximum Sum/Production Subarray --> Check the answer in Array/
 3.Pow(x,n)
 4 Text Justification
 5.Valid Number
