@@ -48,3 +48,49 @@ class Solution:
         result.insert(0,[])
         
         return result    
+
+Subset II
+Given a collection of integers that might contain duplicates, S, return all possible subsets.
+Note:
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.
+For example,
+If S = [1,2,2], a solution is:
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+
+class Solution:
+    # @param num, a list of integer
+    # @return a list of lists of integer
+    def subsetsWithDup(self, S):
+        def dfs(depth, start, valuelist):
+            if valuelist not in res:
+                res.append(valuelist)
+            if depth == len(S): return
+            for i in range(start, len(S)):
+                dfs(depth+1, i+1, valuelist+[S[i]])
+        S.sort()
+        res = []
+        dfs(0, 0, [])
+        return res
+    
+    # Method2, Iteration
+    # if S[i] is same to S[i - 1], then it needn't to be added 
+    # to all of the subset, just add it to the last l subsets 
+    # which are created by adding S[i - 1]
+    def subsetsWithDup(self, S):
+        S.sort()
+        result = [[]]
+        
+        for i in xrange(len(S)):
+            if i == 0 or S[i] != S[i-1]:
+                l = len(result)
+            for j in xrange(len(result)-l,len(result)):
+                result.append(result[j]+[S[i]])
+        return result
