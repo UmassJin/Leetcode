@@ -30,7 +30,8 @@ class Solution:
                     array[element] = min(array[element], array[element-1]) + triangle[line][element]
         return min(array)            
         
-Method 2        
+Method 2 (Better)
+# Search from the bottom to top 
     def minimumTotal(self, triangle):
         length = len(triangle)
         minlist = triangle[length-1]
