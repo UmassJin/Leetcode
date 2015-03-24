@@ -1,7 +1,9 @@
 1. Array [] 
 Check the Spiral Matrix usage
 
-2. enumerate(sequence,start=0)
+2.
+```python
+enumerate(sequence,start=0)
 seasons = ['a','b','c','d']
 for idx, ele in enumerate(seasons):
     print "idx: %d, ele: %s" %(idx, ele)
@@ -9,6 +11,7 @@ Output:
 idx: 0, ele: a
 idx: 1, ele: b
 idx: 2, ele: c
+```
 
 3. Two methods to get the random list
 ```python
