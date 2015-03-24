@@ -27,13 +27,13 @@
 * initialize: ```dp[-1][j] = triangle[-1][j]```
 * answer: ```dp[0][0]``` (比较奇怪，因为是由下至上)
 
-#####[Unique Path](./Array/Unique-Path-1%262.py) |
+#####[Unique Path](./Array/Unique-Path-1%262.py) 
 * state: ```dp[x][y]```表示从起点走到 (x,y) 的path数
 * function: ```dp[x][y] = dp[x-1][y] + dp[x][y-1]``` | ```if 障碍, dp[x][y] = 0```
 * initialize: ```dp[0][y] = 1, dp[x][0] = 1```
 * answer: ```dp[M-1][N-1]```
 
-#####[Minimum Path Sum](./Leetcode/Minimum_Path_Sum.py)
+#####[Minimum Path Sum](./Array/Minimum_Path_Sum.py)
 * state: ```dp[x][y]```表示从起点走到x,y的minimum path sum
 * function: ```dp[x][y] = min(dp[x-1][y], dp[x][y-1]) + grid[x][y]```
 * initialize: ```dp[0][0] = grid[0][0], dp[x][0] = dp[x-1][0] + grid[x][0], dp[0][y] = dp[0][y-1] + grid[0][y]```
