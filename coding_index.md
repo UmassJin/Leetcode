@@ -38,3 +38,60 @@
 * function: ```dp[x][y] = min(dp[x-1][y], dp[x][y-1]) + grid[x][y]```
 * initialize: ```dp[0][0] = grid[0][0], dp[x][0] = dp[x-1][0] + grid[x][0], dp[0][y] = dp[0][y-1] + grid[0][y]```
 * answer: ```dp[M-1][N-1]``
+
+-----
+
+####2. One Sequence DP 40%
+* state: ```dp[i]```表示前i个位置/数字/字母，以第i个为...
+* function: ```dp[i] = dp[j] ...j``` 是i之前的一个位置
+* initialize: ```dp[0] = ...```
+* answer: ```dp[N-1]```
+* 复杂度一般为O(n^2)
+
+######[Climbing Stairs](./Array/ClimbingStairs.py)
+* state: ```dp[i]```表示爬到前i个台阶时的方法数
+* function: ```dp[i] = dp[i-1] + dp[i-2]```
+* initialize: ```dp[0] = 1, dp[1] = 2```
+* answer: ```dp[N-1]```
+
+######[Jump Game](./Leetcode/Jump_Game.py) | [Jump Game II](./Leetcode/Jump_Game_II.py)
+* state: ```dp[i]```表示能否跳到第i个位置O(n^2) (还有一种O(n)的dp, 见方法2) | dp[i]表示跳到这个位置最少需要多少步.
+* function: ```dp[i] = for j in (i-1 ... 0) if dp[j] and j能跳到i)``` | ```min(dp[j] + 1, j < i and j能跳到i)```
+* initialize: ```dp[0] = True``` | ```dp[0] = 0```
+* answer: ```dp[N-1]```
+
+######[Palindrome Partitioning II](./Leetcode/Palindrome_Partitioning_II.py)
+* state: ```dp[i]```表示前i-1个字符组成的字符串需要最少几次cut
+* function: ```dp[i] = min( dp[j]+1, j<i and j+1 ~ i 这一段是一个palindrome```) (这里需要用另外一个数组来储存是否是palindrome))
+* initialize: ```dp[0] = N-1```最少N-1次cut就行了
+* answer: ```dp[N]-1```(这里有些不一样，主要原因是)
+
+######[Word Break](./Leetcode/Word_Break.py)
+* state: ```dp[i]```表示前i-1个字符能否被完美切分
+* function： ```dp[i] = for j in (i-1 ... 0) if dp[j] and j ~ i是一个字典中的单词)```
+* initialize: ```dp[0] = True```
+* answer: ```dp[N]``` (这里也是比较特殊，因为是i-1个字符，不能从0算起)
+
+  注意j的枚举 -> 枚举单词长度
+  O(NL) N: 字符串长度  L:最长单词的长度
+
+######[Longest Increasing Subsequence 最长上升子序列](./Interviews/Longest_Increasing_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)
+* state: ~~```dp[i]```表示前i个数字中最长的LIS长度(错误)~~ ```dp[i]```表示第i个数字结尾的LIS长度(正确)
+* function: ```dp[i] = max(dp[j]+1, j<i and a[j] <= a[i])```
+* initialize: ```dp[0..n-1] = 1```
+* answer: ```max(dp[0..n-1])```
+任何一个位置都可能为开始, 所以所有都要初始化为1, 因为最少LIS是1
+
+######[Decode Ways](./Leetcode/Decode_Ways.py)
+* state: ```dp[i]```表示前i-1个数字的DW
+* function:  
+
+  ```python
+  dp[i]   = 0        # if A[i] == 0 and A[i-1] not in [1,2]
+         += dp[i-1]  # if A[i] != 0
+         += dp[i-2]  # if 10 <= int(A[i-2:i]) <= 26
+  ```
+* initialize: ```dp[0] = 1```
+* answer: ```dp[N]``` (这里比较特殊，因为是前i-1个数字，且dp[0]只是作为一个起始数字来的)
+
+-----
