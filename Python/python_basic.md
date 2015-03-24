@@ -1,7 +1,7 @@
 1. Array [] 
 Check the Spiral Matrix usage
 
-2.
+2. Use enumerate 
 ```python
 enumerate(sequence,start=0)
 seasons = ['a','b','c','d']
