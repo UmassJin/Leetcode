@@ -1,7 +1,7 @@
 ##Leetcode Order by Frequency
 | ID | QUESTION | DIFFICULTY | FREQENCY | DATA STRUCTURES | ALGORITHMS |
 |---|:---:|---:|---:|---|---|
-| 1 | [Two Sum](./Leetcode/Array/2sum.py) | 2 | 5 | array, set | sort, two pointers |
+| 1 | [Two Sum](/Leetcode/Array/2sum.py) | 2 | 5 | array, set | sort, two pointers |
 | 8 | [String to Integer (atoi)](./Leetcode/String_to_Integer_atoi.py) | 2 | 5 | string | math |
 | 15 | [3Sum](./Leetcode/3Sum.py) | 3 | 5 | array | two pointers |
 | 20 | [Valid Parentheses](./Leetcode/Valid_Parentheses.py) | 2 | 5 | string | stack |
