@@ -60,7 +60,7 @@
 * initialize: ```dp[0] = True``` | ```dp[0] = 0```
 * answer: ```dp[N-1]```
 
-######[Palindrome Partitioning II](./Leetcode/Palindrome_Partitioning_II.py)
+######[Palindrome Partitioning II](./Array/Palindrome_Partitioning_II.py)
 * state: ```dp[i]```表示前i-1个字符组成的字符串需要最少几次cut
 * function: ```dp[i] = min( dp[j]+1, j<i and j+1 ~ i 这一段是一个palindrome```) (这里需要用另外一个数组来储存是否是palindrome))
 * initialize: ```dp[0] = N-1```最少N-1次cut就行了
@@ -95,3 +95,17 @@
 * answer: ```dp[N]``` (这里比较特殊，因为是前i-1个数字，且dp[0]只是作为一个起始数字来的)
 
 -----
+
+###DFS
+主要想法是先搜索到不能再底层然后再往上走
+#####复杂度问题
+* 组合的话就是O(n^2)
+* 排列的话就是(n!)
+
+
+#####[Palindrome Partitioning](./Array/Palindrome_Partitioning.py)
+* Add the recursion function, palindrome_helper function 
+* From the first letter, go through each substr, check whehter this is the palindrome and whether
+  the rest part of string is palindrome 
+* For loop we go through the input string should from [1 : length+1]
+* when pass the string to the bottom recursion, should pass strlist + [rest_string]
