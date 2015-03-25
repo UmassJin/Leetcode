@@ -43,7 +43,12 @@ class Solution:
             path_list = new_list
         return res
     
-    #Use the recursion and DFS    
+    # Use the recursion and DFS    
+    # Note: 
+    # 1) Use the DFS combined with DP for the issue
+    # 2) DP: dp[i] get the True/False check if s[:i] could cut the word or not  
+    # 3) DFS: go though the string from the end to start, for example "catsenddog"
+    #    first find the "dog", then check "catsend" for the corresponding word 
     def wordBreak(self, s, dict):
         self.result = []
         dp = self.word_break_dp(s,dict)
