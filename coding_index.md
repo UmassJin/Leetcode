@@ -54,7 +54,7 @@
 * initialize: ```dp[0] = 1, dp[1] = 2```
 * answer: ```dp[N-1]```
 
-######[Jump Game](./Leetcode/Jump_Game.py) | [Jump Game II](./Leetcode/Jump_Game_II.py)
+######[Jump Game](./Array/JumpGame.py) | [Jump Game II](./Array/JumpGameII.py)
 * state: ```dp[i]```表示能否跳到第i个位置O(n^2) (还有一种O(n)的dp, 见方法2) | dp[i]表示跳到这个位置最少需要多少步.
 * function: ```dp[i] = for j in (i-1 ... 0) if dp[j] and j能跳到i)``` | ```min(dp[j] + 1, j < i and j能跳到i)```
 * initialize: ```dp[0] = True``` | ```dp[0] = 0```
