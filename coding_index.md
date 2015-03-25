@@ -60,13 +60,14 @@
 * initialize: ```dp[0] = True``` | ```dp[0] = 0```
 * answer: ```dp[N-1]```
 
-######[Palindrome Partitioning II](./Array/Palindrome_Partitioning_II.py)
-* state: ```dp[i]```表示前i-1个字符组成的字符串需要最少几次cut
+######[Palindrome Partitioning II](./Array/Palindrome_PartitioningII.py)
+* state: ```dp[i]```表示从s[0]到s[i]的子串中回文的数目是多少
 * function: ```dp[i] = min( dp[j]+1, j<i and j+1 ~ i 这一段是一个palindrome```) (这里需要用另外一个数组来储存是否是palindrome))
 * initialize: ```dp[0] = N-1```最少N-1次cut就行了
-* answer: ```dp[N]-1```(这里有些不一样，主要原因是)
+* answer: ```dp[N]-1```(这里有些不一样，用回文的数目减去1得到min cut数目)
+* There is the other good answer, need to understand 
 
-######[Word Break](./Leetcode/Word_Break.py)
+######[Word Break](./Array/word_break.py)
 * state: ```dp[i]```表示前i-1个字符能否被完美切分
 * function： ```dp[i] = for j in (i-1 ... 0) if dp[j] and j ~ i是一个字典中的单词)```
 * initialize: ```dp[0] = True```
@@ -74,6 +75,9 @@
 
   注意j的枚举 -> 枚举单词长度
   O(NL) N: 字符串长度  L:最长单词的长度
+
+######[Word Break](./Array/word_breakII.py)
+* Combine the DFS and DP 
 
 ######[Longest Increasing Subsequence 最长上升子序列](./Interviews/Longest_Increasing_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)
 * state: ~~```dp[i]```表示前i个数字中最长的LIS长度(错误)~~ ```dp[i]```表示第i个数字结尾的LIS长度(正确)
