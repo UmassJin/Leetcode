@@ -33,7 +33,7 @@
 * initialize: ```dp[0][y] = 1, dp[x][0] = 1```
 * answer: ```dp[M-1][N-1]```
 
-#####[Minimum Path Sum](./Array/Minimum_Path_Sum.py)
+#####[Minimum Path Sum](./Array/MinimumPathSum.py)
 * state: ```dp[x][y]```表示从起点走到x,y的minimum path sum
 * function: ```dp[x][y] = min(dp[x-1][y], dp[x][y-1]) + grid[x][y]```
 * initialize: ```dp[0][0] = grid[0][0], dp[x][0] = dp[x-1][0] + grid[x][0], dp[0][y] = dp[0][y-1] + grid[0][y]```
