@@ -6,6 +6,7 @@ Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 
 Reference:
 https://leetcode.com/discuss/9476/solution-does-not-need-table-palindrome-right-uses-only-space
 http://yucoding.blogspot.com/2013/08/leetcode-question-133-palindrome.html
+http://chaoren.is-programmer.com/posts/43805
 
 class Solution:
     # @param s, a string
