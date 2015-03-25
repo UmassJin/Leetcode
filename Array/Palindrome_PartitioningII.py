@@ -28,4 +28,15 @@ class Solution:
                     p[i][j] = True
                     dp[i] = min(dp[j+1] + 1, dp[i])  # Note: here is dp[j+1]
         return dp[0]-1            
-            
+
+    # Method 2 
+    def minCut(self,s):
+        length = len(s)
+        isPal = [[False for i in xrange(len(s))] for j in xrange(len(s))]
+        dp = [ i + 1 for i in xrange(length)]
+        for j in xrange(length):
+            for i in reversed(xrange(j+1)):
+                if s[i] == s[j] and (j-i<2 or isPal[i+1][j-1]):
+                    isPal[i][j] = True
+                    dp[j] = min(dp[j], dp[i - 1] + 1) if i > 0 else min(dp[j], 1) # i == 0
+        return dp[length - 1] - 1
