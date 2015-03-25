@@ -25,7 +25,8 @@ class Solution:
         for i in xrange(1,len(s)+1):  # Note: here should be 1 to len(s) + 1
             substr = s[:i]
             if (self.is_palindrome(substr)):
-                self.get_partition(s[i:], str_list + [substr], result)
+                self.get_partition(s[i:], str_list + [substr], result) 
+                # Note: Here we pass str_list + [substr] instead of [str_list,substr]
         
     def is_palindrome(self, s): 
         i = 0; j = len(s)-1
