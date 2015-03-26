@@ -166,6 +166,7 @@
   ```
 * initialize: ```dp[0][0] = True```
 * answer: ```dp[M][N]```
+* Better Solution: check later https://leetcode.com/discuss/19973/8ms-c-solution-using-bfs-with-explanation
 
 -----
 
