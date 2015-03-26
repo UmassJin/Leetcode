@@ -129,7 +129,7 @@
 * initialize: ```dp[i][j] = 0, dp[0][j] = 0```
 * answer: ```max(dp[0...len(a)][0...len(b)])```
 
-######[Edit Distance](./Leetcode/Edit_Distance.py)
+######[Edit Distance](./Array/Edit_Distance.py)
 * state: dp[i][j] a的前i个字符配上b的前j个字符最少要用几次编辑使得他们相等
 * function:  
 
@@ -140,8 +140,8 @@
 * initialize: ```dp[i][0] = i, dp[0][j] = j```
 * answer: ```dp[M][N]```
 
-######[Distinct Subsequence](./Leetcode/Distinct_Subsequences.py)(需要再领会一下)
-* state: ```dp[i][j]```表示T的前i个字符和S的前j个字符的DS个数
+######[Distinct Subsequence](./Array/Distinct_Subsequences.py)
+* state: ```dp[i][j]```表示T的前i-1个字符和S的前j-1个字符的DS个数
 * function:  
 
   ```python
@@ -155,7 +155,7 @@
   S[:j]必定也至少和T[:i]有x种匹配方法，但尤其当S[j-1]==T[i-1]的时候，需要再加上S[:j-1]和T[:i-1]的匹配方法数  
   注意分清M,i和N,j对应T和S，这个很特殊因为必须是S的子串和T相同
 
-######[Interleaving String](./Leetcode/Interleaving_String.py)
+######[Interleaving String](./Array/Interleaving_String.py)
 * state: ```dp[i][j]```表示s1的前i个字符配上s2的前j个字符在s3的前i+j个字符是不是IS
 * function:  
 
