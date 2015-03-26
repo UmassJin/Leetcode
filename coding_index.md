@@ -76,7 +76,7 @@
   注意j的枚举 -> 枚举单词长度
   O(NL) N: 字符串长度  L:最长单词的长度
 
-######[Word Break](./Array/word_breakII.py)
+######[Word Break II](./Array/word_breakII.py)
 * Combine the DFS and DP 
 
 ######[Longest Increasing Subsequence 最长上升子序列](./Interviews/Longest_Increasing_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)
@@ -86,10 +86,9 @@
 * answer: ```max(dp[0..n-1])```
 任何一个位置都可能为开始, 所以所有都要初始化为1, 因为最少LIS是1
 
-######[Decode Ways](./Leetcode/Decode_Ways.py)
+######[Decode Ways](./Array/Decode_Ways.py)
 * state: ```dp[i]```表示前i-1个数字的DW
 * function:  
-
   ```python
   dp[i]   = 0        # if A[i] == 0 and A[i-1] not in [1,2]
          += dp[i-1]  # if A[i] != 0
@@ -97,6 +96,113 @@
   ```
 * initialize: ```dp[0] = 1```
 * answer: ```dp[N]``` (这里比较特殊，因为是前i-1个数字，且dp[0]只是作为一个起始数字来的)
+
+-----
+
+####3. Two Sequences DP 40%
+* state: ```dp[i][j]```代表了第一个sequence的前i个数字/字符配上第二个的sequence的前j个...
+* function: ```dp[i][j] =``` 研究第i-1个和第j-1个的匹配关系
+* initialize: ```dp[i][0], dp[0][j]```
+* answer: ```dp[len(s1)][len(s2)]```
+* 复杂度一般为O(m*n)
+
+######[Longest Common Subsequence](./Interviews/Longest_Common_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/)
+* state: ```dp[i][j]```表示前i个字符配上前j个字符的LCS的长度
+* function:  
+
+  ```python
+  dp[i][j] = dp[i-1][j-1] + 1           # if a[i-1] == b[j-1]
+           = max(dp[i][j-1],dp[i-1][j]) # if a[i-1] != b[j-1]
+  ```
+* initialize: ```dp[i][0] = 0, dp[0][j] = 0```
+* answer: ```dp[M][N]```
+
+######[Longest Common Substring](./Interviews/Longest_Common_Substring.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/longest-common-substring/)
+* state: ```dp[i][j]```表示前i个字符配上前j个字符的LCS的长度(一定以第i个和第j个结尾的LCS)
+* function:  
+
+  ```python
+  dp[i][j] = dp[i-1][j-1] + 1 # if a[i-1] == b[j-1]
+           = 0                # if a[i-1] != b[j-1]
+  ```
+* initialize: ```dp[i][j] = 0, dp[0][j] = 0```
+* answer: ```max(dp[0...len(a)][0...len(b)])```
+
+######[Edit Distance](./Leetcode/Edit_Distance.py)
+* state: dp[i][j] a的前i个字符配上b的前j个字符最少要用几次编辑使得他们相等
+* function:  
+
+  ```python
+  dp[i][j] = dp[i-1][j-1]                                    # if a[i] == b[j]
+           = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])) + 1  # if a[i] != b[j]
+  ```
+* initialize: ```dp[i][0] = i, dp[0][j] = j```
+* answer: ```dp[M][N]```
+
+######[Distinct Subsequence](./Leetcode/Distinct_Subsequences.py)(需要再领会一下)
+* state: ```dp[i][j]```表示T的前i个字符和S的前j个字符的DS个数
+* function:  
+
+  ```python
+  dp[i][j] = dp[i][j-1] + dp[i-1][j-1] # if T[i-1] == S[j-1]
+           = dp[i][j-1]                # if T[i-1] != S[j-1]
+  ```
+* initialize: ```dp[i][0] = 0, dp[0][j] = 1```
+* answer: ```dp[M][N]```
+
+  大概意思就是， 因为算的是S的子串和T匹配的方法， 所以一旦S[:j-1]和T[:i]有x种匹配方法时  
+  S[:j]必定也至少和T[:i]有x种匹配方法，但尤其当S[j-1]==T[i-1]的时候，需要再加上S[:j-1]和T[:i-1]的匹配方法数  
+  注意分清M,i和N,j对应T和S，这个很特殊因为必须是S的子串和T相同
+
+######[Interleaving String](./Leetcode/Interleaving_String.py)
+* state: ```dp[i][j]```表示s1的前i个字符配上s2的前j个字符在s3的前i+j个字符是不是IS
+* function:  
+
+  ```python
+  dp[i][j] = True  # if dp[i-1][j] and s1[i-1] == s3[i-1+j]
+           = True  # if dp[i][j-1] and s2[j-1] == s3[i+j-1]
+           = False # else
+  ```
+* initialize: ```dp[0][0] = True```
+* answer: ```dp[M][N]```
+
+-----
+
+####4. Interval DP
+* state: ```dp[i][j]``` 代表从i到j这一段区间...
+* function: ```dp[i][j] = max/min/sum(dp[i][k], dp[k+1][j])```
+* initialize: ```dp[i][i] = ?```
+* answer: ```dp[1][n]```
+
+######[Merge Stone 石子归并](http://wikioi.com/problem/1048/)
+
+-----
+
+####5. Tree DP
+######Binary Tree Maximum Path Sum
+
+-----
+
+####6. States Compressing DP(不需要知道)
+####7. Knapsack
+
+
+###总结
+
+####复杂度
+直接看循环嵌套层数
+
+####关于取dp[N]还是dp[N-1]还有dp[N]-1
+1. 首先先分析dp维度，Matrix和Two Sequence dp都是二维，One Sequence是一维
+2. Matrix dp一般都是初始(0,0)跳到(M-1,N-1)所以取的是```dp[M-1][N-1]```
+3. 如果dp[i]或者dp[i][j]表示前i个什么的时候，需要以N/MN作为结尾，主要原因是这种情况下前0个字符串是没有意义的，至少从1开始，所以取dp的时候也是从dp[1]开始才有意义，所以dp[i]的含义是前i-1个东西的性质，而```dp[0] or dp[0][0]```需要强制赋值
+4. 至于dp[N] - 1纯粹是因为Palindrome题目比较特殊，实际我们算的cut-1才是结果
+
+####已知dp问题然后回问满足dp条件的结果
+一般这种情况就是根据已知的dp matrix和结论，从最后开始往前回溯，满足的就挑进去，不满足的就不放来解决.
+
+-----
+
 
 -----
 
