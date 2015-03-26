@@ -8,6 +8,9 @@ s2 = "dbbca",
 When s3 = "aadbbcbcac", return true.
 When s3 = "aadbbbaccc", return false.
 
+Better Solution:
+https://leetcode.com/discuss/19973/8ms-c-solution-using-bfs-with-explanation
+
     # Note:
     # 1. dp[i][j] means whether s1[:i] and s2[:j] is interleave with s3[:i+j]
     # 2. dp[0...M][0...N] = False
