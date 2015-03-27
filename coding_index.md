@@ -241,4 +241,7 @@
 
 ###Two Pointer
 #####[Valid Palindrome](./Array/Valid_Palindrome.py)
-
+* Pyhon: isalnum()
+* lower()
+* no need to check len at the beginning 
+* condition: left < right, not the left <= right, since if left == right, which means they point to the same number, return True
