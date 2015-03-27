@@ -107,7 +107,7 @@
 * answer: ```dp[len(s1)][len(s2)]```
 * 复杂度一般为O(m*n)
 
-######[Longest Common Subsequence](./Interviews/Longest_Common_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/)
+######[Longest Common Subsequence](./Experience/Longest_Common_Subsequence.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/)
 * state: ```dp[i][j]```表示前i个字符配上前j个字符的LCS的长度
 * function:  
 
