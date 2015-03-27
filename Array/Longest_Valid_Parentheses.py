@@ -42,6 +42,7 @@ class Solution:
     # more left brackets than right brackets. Therefore, we know each right bracket will guarantee to 
     # find a left bracket to form a pair.
     
+    # Reference: https://leetcode.com/discuss/21880/people-conclusion-cannot-done-with-space-solution-time-space
     def longestValidParentheses(self, s):
         maxvalue = 0; depth = 0; start = -1
         for i, char in enumerate(s):
