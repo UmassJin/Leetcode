@@ -208,7 +208,7 @@
 
 -----
 
-###DFS
+###DFS & Backtracking 
 主要想法是先搜索到不能再底层然后再往上走
 #####复杂度问题
 * 组合的话就是O(n^2)
@@ -221,3 +221,12 @@
   the rest part of string is palindrome 
 * For loop we go through the input string should from [1 : length+1]
 * when pass the string to the bottom recursion, should pass strlist + [rest_string]
+
+-----
+
+###Data Structure
+##### Stack 
+#####[Longest Valid Parentheses](./Array/Longest_Valid_Parentheses.py)
+* Use two methods to solve the problem
+* First, use the Stack to record the "("
+* Second, iterarate the string for two times, from start to end and from end to start 
