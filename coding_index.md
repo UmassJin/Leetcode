@@ -236,3 +236,9 @@
 * Use the math method to compare the first number and last number
 * Then in the next step, reduce this two numbers
 
+
+-----
+
+###Two Pointer
+#####[Valid Palindrome](./Array/Valid_Palindrome.py)
+
