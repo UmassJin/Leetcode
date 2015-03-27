@@ -18,3 +18,32 @@ So O(n * m^2)
               0                # if a[i] != b[j]
 4. max(dp[0...M][0...N])
 """
+def Longest_Common_Substring(a,b):
+    lengtha = len(a)
+    lengthb = len(b)
+    
+    dp = [[0 for j in xrange(lengthb+1)] for i in xrange(lengtha+1)]
+    maxlength = 0
+    res = (maxlength, None)
+
+    for i in xrange(1,lengtha+1):
+        for j in xrange(1,lengthb+1):
+            if a[i-1] == b[j-1]:
+                dp[i][j] = dp[i-1][j-1]+1
+                if dp[i][j] > maxlength:
+                    maxlength = dp[i][j]
+                    res = (dp[i][j],i)
+            else:
+                dp[i][j] = 0
+    word = []
+    i = res[1]
+    print "i: ", i
+    for j in xrange(i-res[0],i):
+        word.append(a[j])
+    string = ''.join(word)
+    print "word: ", string
+    print "maxlength: ", maxlength
+
+print Longest_Common_Substring("abc", "abz")
+print Longest_Common_Substring("abcdefgabyzzkabcde", "zzzzzzgabyzzabcabcdefg")
+print Longest_Common_Substring("GeeksforGeeks", "GeeksQuiz")
