@@ -236,6 +236,11 @@
 * Use the math method to compare the first number and last number
 * Then in the next step, reduce this two numbers
 
+#####[Add Binary](./Array/Add_Binary.py)
+* 解题思路:
+* Go through the number a and b from the last digit 
+* Have two variables: one is bit: sum %2, one is carry sum/2
+* Insert the bit into result, check the last carry value 
 
 -----
 
