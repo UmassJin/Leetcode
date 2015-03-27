@@ -225,5 +225,14 @@
 ##### Stack 
 #####[Longest Valid Parentheses](./Array/Longest_Valid_Parentheses.py)
 * Use two methods to solve the problem
-* First, use the Stack to record the "("
+* First, use the Stack to record the "(", maintain the variable "last", record the last unusage ')'
 * Second, iterarate the string for two times, from start to end and from end to start 
+
+-----
+
+###Math 
+#####[Palindrome Number](./Array/Palindrome_Number.py)
+* Since the requirement is DO NOT use the extra space, should not transfer the number to string 
+* Use the math method to compare the first number and last number
+* Then in the next step, reduce this two numbers
+
