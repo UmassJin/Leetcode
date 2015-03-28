@@ -14,7 +14,7 @@ class Solution:
         dict = {}
         
         for member in strs:
-            newword = ''.join(sorted(member))
+            newword = ''.join(sorted(member)) # Note: here we need to join the member into string 
             if newword not in dict:
                 dict[newword] = [member]
             else:
@@ -22,6 +22,6 @@ class Solution:
         
         for key in dict:
             if len(dict[key]) >= 2:
-                result.extend(dict[key])
+                result.extend(dict[key])  # Note: Here not use the append, use extend 
         
         return result 
