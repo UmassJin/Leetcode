@@ -1,5 +1,5 @@
 Reference:
-http://blog.csdn.net/v_july_v/article/details/7041827
+[从头彻尾理解KMP算法] (http://blog.csdn.net/v_july_v/article/details/7041827)
 
 ### 1. KMP定义
 * 假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置
