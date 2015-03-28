@@ -24,7 +24,26 @@ a_1 = new_t[0:1300]     #pick the first 1300
 a_2 = new_t[1300:]      #pick the last 200
 ```
 ####4. String Method 
-#####1) str.strip([chars])
+#####Remove the leading chars or the 
+1) str.lstrip([chars])
+Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped:
+```python
+>>> '   spacious   '.lstrip()
+'spacious   '
+>>> 'www.example.com'.lstrip('cmowz.')
+'example.com'
+```
+
+2) str.rstrip([chars])
+Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped:
+```python
+>>> '   spacious   '.rstrip()
+'   spacious'
+>>> 'mississippi'.rstrip('ipz')
+'mississ'
+```
+
+3) str.strip([chars])
 Return a copy of the string with the leading and trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped:
 ```python
 >>> '   spacious   '.strip()
