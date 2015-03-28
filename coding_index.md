@@ -266,6 +266,6 @@
 #####[String to Integer (atoi)] (./Array/String_to_Integer.py)
 * 思路: 注意去除前后空格，注意第一个字符是sign, 注意最大最小值的比较 
 * Coding Note:
-* str.strip()
-* imin, imax = -1<<31, (1<<31)-1, use this method to get the max/mix value
-* Learn to use enumerate() function 
+* 1）str.strip()
+* 2）imin, imax = -1<<31, (1<<31)-1, use this method to get the max/mix value
+* 3) Learn to use enumerate() function 
