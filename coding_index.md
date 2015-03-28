@@ -228,6 +228,11 @@
 * First, use the Stack to record the "(", maintain the variable "last", record the last unusage ')'
 * Second, iterarate the string for two times, from start to end and from end to start 
 
+##### Hashtable 
+#####[Anagrams](./Array/Anagrams.py)
+* Save the SORTED string as the key in the dictionary 
+* Save each string as the value (put into a list), then push them into the list 
+* Note: use the ''.join and list.extend instead of list.append 
 -----
 
 ###Math 
