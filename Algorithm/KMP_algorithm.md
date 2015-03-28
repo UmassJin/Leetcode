@@ -66,3 +66,39 @@ def nextfuc(self,p):
                 k = nextarr[k] 
         return nextarr
 ```
+
+Implement strStr()
+```python
+    def nextfuc(self,p):
+        length = len(p)
+        nextarr = [0] * length
+        nextarr[0] = -1
+        k = -1
+        j = 0
+        while j < length - 1:
+            if k == -1 or p[k] == p[j]:
+                k += 1
+                j += 1
+                nextarr[j] = k
+            else:
+                k = nextarr[k]
+        return nextarr
+    
+    def strStr(self, haystack, needle):
+        if needle == "": return 0
+        nextarr = self.nextfuc(needle)
+        i = 0; j = 0
+        lengthh = len(haystack)
+        lengthn = len(needle)
+        
+        while i < lengthh and j < lengthn:
+            if j == -1 or haystack[i] == needle[j]:
+                i += 1
+                j += 1
+            else:
+                j = nextarr[j]
+        if j == lengthn:        
+            return i - j
+        else:
+            return -1
+```        
