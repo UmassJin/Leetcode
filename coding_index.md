@@ -256,3 +256,9 @@
 * lower()
 * no need to check len at the beginning 
 * condition: left < right, not the left <= right, since if left == right, which means they point to the same number, return True
+
+-----
+
+###String 
+#####[Implement strStr()](./Array/Implement_strStr().py)
+* Note: KMP algorithm (http://blog.csdn.net/v_july_v/article/details/7041827)
