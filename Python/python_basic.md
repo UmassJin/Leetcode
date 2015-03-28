@@ -25,7 +25,7 @@ a_2 = new_t[1300:]      #pick the last 200
 ```
 ####4. String Method 
 #####Remove the leading chars or the 
-1) str.lstrip([chars])
+######1) str.lstrip([chars])
 Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped:
 ```python
 >>> '   spacious   '.lstrip()
