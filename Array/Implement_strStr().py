@@ -28,7 +28,8 @@ class Solution:
         
         return -1  
 
-# Use the [KMP algorithm] (./Algorithm/KMP_algorithm.md)
+# Use the [KMP algorithm]
+# https://github.com/UmassJin/Leetcode/blob/master/Algorithm/KMP_algorithm.md
     def nextfuc(self,p):
         length = len(p)
         nextarr = [0] * length
