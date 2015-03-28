@@ -7,6 +7,8 @@ The signature of the function had been updated to return the index instead of th
 If you still see your function signature returns a char * or String, please click the reload button  
 to reset your code definition.
 
+Reference:http://yucoding.blogspot.com/2013/01/leetcode-question-34-implement-strstr.html
+
 class Solution:
     # @param haystack, a string
     # @param needle, a string
