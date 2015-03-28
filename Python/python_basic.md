@@ -34,7 +34,7 @@ Return a copy of the string with leading characters removed. The chars argument 
 'example.com'
 ```
 
-2) str.rstrip([chars])
+######2) str.rstrip([chars])
 Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped:
 ```python
 >>> '   spacious   '.rstrip()
@@ -43,7 +43,7 @@ Return a copy of the string with trailing characters removed. The chars argument
 'mississ'
 ```
 
-3) str.strip([chars])
+######3) str.strip([chars])
 Return a copy of the string with the leading and trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped:
 ```python
 >>> '   spacious   '.strip()
