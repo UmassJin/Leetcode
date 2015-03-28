@@ -32,3 +32,4 @@ Return a copy of the string with the leading and trailing characters removed. Th
 >>> 'www.example.com'.strip('cmowz.')
 'example'
 ```
+Usage: [String to Integer (atoi)]
