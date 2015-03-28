@@ -45,4 +45,20 @@ next 数组考虑的是除当前字符外的最长相同前缀后缀，所以通
 
 * 若p[k] == p[j]，则next[j + 1 ] = next [j] + 1 = k + 1；
 * 若p[k ] ≠ p[j]，如果此时p[ next[k] ] == p[j ]，则next[ j + 1 ] =  next[k] + 1，否则继续递归前缀索引k = next[k]，而后重复此过程。 相当于在字符p[j+1]之前不存在长度为k+1的前缀"p0 p1, …, pk-1 pk"跟后缀“pj-k pj-k+1, …, pj-1 pj"相等，那么是否可能存在另一个值t+1 < k+1，使得长度更小的前缀 “p0 p1, …, pt-1 pt” 等于长度更小的后缀 “pj-t pj-t+1, …, pj-1 pj” 呢？如果存在，那么这个t+1 便是next[ j+1]的值，此相当于利用已经求得的next 数组（next [0, ..., k, ..., j]）进行P串前缀跟P串后缀的匹配。
-* 
+
+'''python
+    def nextfuc(self,p):
+        length = len(p)
+        nextarr = [0] * length
+        nextarr[0] = -1
+        k = -1
+        j = 0
+        while j < length - 1:
+            if k == -1 or p[k] == p[j]:
+                k += 1
+                j += 1
+                nextarr[j] = k
+            else:
+                k = nextarr[k]
+        return nextarr
+'''
