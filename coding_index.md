@@ -232,7 +232,8 @@
 #####[Anagrams](./Array/Anagrams.py)
 * Save the SORTED string as the key in the dictionary 
 * Save each string as the value (put into a list), then push them into the list 
-* Note: use the ''.join and list.extend instead of list.append 
+* Use the ''.join and list.extend instead of list.append 
+
 -----
 
 ###Math 
