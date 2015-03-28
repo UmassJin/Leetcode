@@ -262,3 +262,8 @@
 ###String 
 #####[Implement strStr()](./Array/Implement_strStr().py)
 * Note: [KMP algorithm](http://blog.csdn.net/v_july_v/article/details/7041827)
+
+#####[String to Integer (atoi)] (./Array/String_to_Integer.py)
+* Note: 1) str.strip()
+* imin, imax = -1<<31, (1<<31)-1, use this method to get the max/mix value
+* Learn to use enumerate() function 
