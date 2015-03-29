@@ -288,3 +288,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 #####[Compare Version Numbers] (./Array/Compare_Version_Numbers.py)
 * Use str.split('.')
 * Use Build-in function all() 
+
+#####[Count and Say] (./Array/Count_and_Say.py)
+* 思路: use the helper function to get the new result string from the old one
+* Go through the string one time and use the curr to record the current character and amount value 
