@@ -292,3 +292,4 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 #####[Count and Say] (./Array/Count_and_Say.py)
 * 思路: use the helper function to get the new result string from the old one
 * Go through the string one time and use the curr to record the current character and amount value 
+* [Prove the count should less than 10] (https://leetcode.com/discuss/6762/how-to-proof-the-count-is-always-less-than-10)
