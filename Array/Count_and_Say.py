@@ -8,6 +8,9 @@ Given an integer n, generate the nth sequence.
 
 Note: The sequence of integers will be represented as a string.
 
+# How to prove the count should less than 10
+# https://leetcode.com/discuss/6762/how-to-proof-the-count-is-always-less-than-10
+
 class Solution:
     # @return a string
     def countAndSay(self, n):
