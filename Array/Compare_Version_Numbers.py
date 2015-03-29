@@ -9,3 +9,31 @@ Here is an example of version numbers ordering:
 
 0.1 < 1.1 < 1.2 < 13.37
 
+class Solution:
+    # @param version1, a string
+    # @param version2, a string
+    # @return an integer
+    def compareVersion(self, version1, version2):
+        str_ver1 = version1.split('.')
+        str_ver2 = version2.split('.')
+        
+        for i in xrange(min(len(str_ver1),len(str_ver2))):
+            if int(str_ver1[i]) > int(str_ver2[i]):
+                return 1
+            elif int(str_ver1[i]) < int(str_ver2[i]):
+                return -1
+        
+        if len(str_ver1) > len(str_ver2):
+            if all(int(num) == 0 for num in str_ver1[len(str_ver2):]):
+                return 0
+            else:
+                return 1
+                
+        if len(str_ver1) < len(str_ver2):
+            if all( int(num) == 0 for num in str_ver2[len(str_ver1):]):
+                return 0
+            else:
+                return -1
+        
+        if len(str_ver1) == len(str_ver2): return 0
+        
