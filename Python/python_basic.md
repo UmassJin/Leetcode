@@ -52,3 +52,16 @@ Return a copy of the string with the leading and trailing characters removed. Th
 'example'
 ```
 Usage: [String to Integer (atoi)] (../Array/String_to_Integer.py)
+
+
+####5. Build-in function
+##### all(iterable)
+Return True if all elements of the iterable are true (or if the iterable is empty). Equivalent to:
+```python
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+```
+
