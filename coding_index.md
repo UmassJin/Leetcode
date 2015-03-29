@@ -219,6 +219,9 @@
 * For loop we go through the input string should from [1 : length+1]
 * when pass the string to the bottom recursion, should pass strlist + [rest_string]
 
+#####[Letter Combinations of a Phone Number](./Array/Letter_Combinations_of_a_Phone_Number.py)
+* Use the recursion and iteration two methods 
+* Iteration: the initialization should use [''] rather than []
 -----
 
 ###Data Structure
