@@ -276,7 +276,7 @@
 * 2）imin, imax = -1<<31, (1<<31)-1, use this method to get the max/mix value
 * 3) Learn to use enumerate() function 
 
-#####[Wildcard_Matching] (./Array/Wildcard_Matching.py)
+#####[Wildcard Matching] (./Array/Wildcard_Matching.py)
 Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-question-123-wildcard-matching.html)
 * Definiton of '?' and '*', '?' could match any single char, '*' match any sequqnce of chars 
 * Example isMatch("abebdcd","?b*cd") → True
@@ -284,3 +284,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * Example isMatch("abebdcbd","?b*cd") → False
     a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
 *  We need the variable 'ss', since for the example isMatch("hi","*?")
+
+#####[Compare Version Numbers] (./Array/Compare_Version_Numbers.py)
+* Use str.split('.')
+* Use Build-in function all() 
