@@ -37,3 +37,4 @@ class Solution:
         
         if len(str_ver1) == len(str_ver2): return 0
         
+# Note: in-build function all() usage 
