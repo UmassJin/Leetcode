@@ -52,6 +52,7 @@ Return a copy of the string with the leading and trailing characters removed. Th
 'example'
 ```
 Usage: [String to Integer (atoi)] (../Array/String_to_Integer.py)
+[Simply Path](../Array/Simplify_Path.py)
 
 
 ####5. Build-in function
