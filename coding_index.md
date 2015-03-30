@@ -293,3 +293,10 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * 思路: use the helper function to get the new result string from the old one
 * Go through the string one time and use the curr to record the current character and amount value 
 * [Prove the count should less than 10] (https://leetcode.com/discuss/6762/how-to-proof-the-count-is-always-less-than-10)
+
+#####[Simplify Path] (./Array/Simplify_Path.py)
+* Use a stack to store the path 
+* Initialization is: stack = ['/'], used for the example '/..'
+* first split the input string based on the '/'
+* If input char is '.' or '/' or '', continue, if '..', pop the value in stack
+* Check the '/' at last if len(stack)>1, delete the last '/'
