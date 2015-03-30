@@ -321,3 +321,17 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
      'IV' --> 4; 'IX' --> 9; 'XI' --> 11
 * 4) [Roman to Integer table] (http://literacy.kent.edu/Minigrants/Cinci/romanchart.htm)
 * 5) Only one small-value symbol may be subtracted from any large-value symbol.[7]
+
+#####[Text_Justification] (./Array/Text_Justification.py)
+* Notes:
+* 1. 很好的思路，use cur_len + len(word) + len(res) 去判断
+* 2. extra_space 去除了每个单词之间必须有的空格
+     each_extra 加上了每个单词之间必须有的空格
+     rest_spaces 除了每个单词之间必须有的空格和多余的空格，还剩下多少空格需要填补
+* 3. 注意思想，如何加上多余的空格
+* 4. after one loop, the res need to clean
+* 5. Add the last word, for example here is "example", could not add into the first line,
+     add into the next line 
+* 6. 最后是一定会append多余的一行的,没必要再check了, 直接append, 但是这里需要用
+     ' '.join, not the ''.join
+* 7. 需要check长度为1，因为在下面计算中len(res)-1
