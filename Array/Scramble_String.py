@@ -1,3 +1,4 @@
+"""
 Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
 
 Below is one possible representation of s1 = "great":
@@ -35,6 +36,7 @@ We say that "rgtae" is a scrambled string of "great".
 
 Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.
 
+"""
 class Solution:
     # @return a boolean
     def isScramble(self, s1, s2):
