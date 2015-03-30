@@ -318,4 +318,6 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
      be treated separately. In the above example, 1,000 = M, 900 = CM, and 3 = III. Therefore, 1903 = MCMIII.[4]
 * 2) The symbols "I", "X", "C", and "M" can be repeated three times in succession, but no more. (They may appear more than          three times if they appear non-sequentially, such as XXXIX.) "D", "L", and "V" can never be repeated.[5][6]
 * 3) "I" can be subtracted from "V" and "X" only. "X" can be subtracted from "L" and "C" only. "C" can be subtracted from "D"       and "M" only. "V", "L", and "D" can never be subtracted[6]
+     'IV' --> 4; 'IX' --> 9; 'XI' --> 11
+     [Roman to Integer table] (http://literacy.kent.edu/Minigrants/Cinci/romanchart.htm)
 * 4) Only one small-value symbol may be subtracted from any large-value symbol.[7]
