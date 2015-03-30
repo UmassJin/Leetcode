@@ -168,6 +168,20 @@
 * answer: ```dp[M][N]```
 * Better Solution: check later https://leetcode.com/discuss/19973/8ms-c-solution-using-bfs-with-explanation
 
+######[Regular Expression Matching](./Array/Interleaving_String.py)
+* state: ```dp[i][j]``` 表示```s[0:i-1]```是否能和 ```p[0:j-1]```匹配
+* initialize:  ``` dp[0][0] = True ```
+* function: 
+```python
+dp[i][j] =  dp[i-1][j-1] and s[i-1][j-1]  if p[j-1] != '.' and p[j-1] != '*'
+            dp[i-1][j-1]                  if p[j-1] == '.'
+            dp[i][j-1]  or dp[i][j-2]     if p[j-1] == '*' 匹配0个或者1个元素 
+            匹配0个元素，即消去p[j-2]，此时p[0: j-1] = p[0: j-3]
+            匹配1个元素，此时p[0: j-1] = p[0: j-2]
+            dp[i-1][j] and (s[i-1] = p [j-2] or p[j-2] == '.')
+```
+* answer: ```dp[M][N]```
+
 -----
 
 ####4. Interval DP
