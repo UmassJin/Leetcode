@@ -300,3 +300,8 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * first split the input string based on the '/'
 * If input char is '.' or '/' or '', continue, if '..', pop the value in stack
 * Check the '/' at last if len(stack)>1, delete the last '/'
+
+#####[Restore IP Addresses] (./Array/Restore_IP_Addresses.py)
+* Use the DFS
+* corner case: ip should not be 001, 000, should consider the "010010"-->'0.1.0.010' case
+* ip number should be in [0,255]
