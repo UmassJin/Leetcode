@@ -306,7 +306,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * corner case: ip should not be 001, 000, should consider the "010010"-->'0.1.0.010' case
 * ip number should be in [0,255]
 
-#####[Reverse Words in a StringII](../Array/Reverse_Words_in_a_StringII.py)
+#####[Reverse Words in a StringII](./Array/Reverse_Words_in_a_StringII.py)
 * 1) enumerate usage
 * 2) zip usage 
 * 3) reverse the whole string and then reverse each word 
