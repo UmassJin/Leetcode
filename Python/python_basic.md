@@ -66,3 +66,23 @@ def all(iterable):
     return True
 ```
 
+##### 1) zip(iterable,..)
+This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
+
+The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
+
+zip() in conjunction with the * operator can be used to unzip a list:
+```python
+>>> x = [1, 2, 3]
+>>> y = [4, 5, 6]
+>>> zipped = zip(x, y)
+>>> zipped
+[(1, 4), (2, 5), (3, 6)]
+# Note: here is not (1,4),(1,5),(1,6),(2,4)....
+>>> x2, y2 = zip(*zipped)
+>>> x == list(x2) and y == list(y2)
+True
+```
+Usage 
+[Reverse Words in a StringII](../Array/Reverse_Words_in_a_StringII.py)
+
