@@ -335,3 +335,11 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * 6. 最后是一定会append多余的一行的,没必要再check了, 直接append, 但是这里需要用
      ' '.join, not the ''.join
 * 7. 需要check长度为1，因为在下面计算中len(res)-1
+
+#####[Scramble String] (./Array/Scramble_String.py)
+* Condition: 
+* 1) length_s1 != length_s2
+* 2) s1 == s2, s1与s2完全相等
+* 3) sorted(s1) 与 sorted(s2)是不是相等
+* 4) 比较s1[:i] s2[:i] and s1[i:],s2[i:]
+# 5) 比较s1[:i], s2[length_s2-i:] and s1[i:],s2[length_s2:-i]
