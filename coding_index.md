@@ -181,6 +181,8 @@ dp[i][j] =  dp[i-1][j-1] and s[i-1][j-1]  if p[j-1] != '.' and p[j-1] != '*'
             dp[i-1][j] and (s[i-1] = p [j-2] or p[j-2] == '.')
 ```
 * answer: ```dp[M][N]```
+* Reference: [Leetcode artical](http://articles.leetcode.com/2011/09/regular-expression-matching.html)
+*            [Good Analysis] (http://bangbingsyb.blogspot.com/2014/11/leetcode-regular-expression-matching.html)
 
 -----
 
