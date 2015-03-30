@@ -9,3 +9,35 @@ L: ["foo", "bar"]
 You should return the indices: [0,9].
 (order does not matter).
 
+class Solution:
+    # @param S, a string
+    # @param L, a list of string
+    # @return a list of integer
+    def findSubstring(self, S, L):
+        wordnum = len(L)
+        wordlen = len(L[0])
+        result = []
+        dic_global = {}
+        for i in L:
+            if i not in dic_global:
+                dic_global[i] = 1
+            else:
+                dic_global[i] += 1
+        
+        for i in xrange(len(S)-wordlen*wordnum+1):  # Note: here is "len(S)-wordlen*wordnum+1"
+            j = 0
+            dict = {}
+            while j < wordnum:
+                word = S[i+wordlen*j:i+wordlen*j+wordlen] 
+                if word not in dic_global:
+                    break
+                if word not in dict:
+                    dict[word] = 1
+                else:
+                    dict[word] += 1
+                if dict[word] > dic_global[word]:
+                    break
+                j += 1
+            
+            if j == wordnum: result.append(i) # Note: here need to add "j == wordnum"
+        return result 
