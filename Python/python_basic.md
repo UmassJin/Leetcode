@@ -64,7 +64,7 @@ TypeError: 'tuple' object does not support item assignment
 <type 'tuple'>
 ```
 * Delete the whole tuple: ```del t2```
-* 
+
 ##### Basic Tuple operations:
 Tuples respond to the + and * operators much like strings; they mean concatenation and repetition here too, except that the result is a new tuple, not a string.
 In fact, tuples respond to all of the general sequence operations we used on strings in the prior chapter :
@@ -78,7 +78,18 @@ In fact, tuples respond to all of the general sequence operations we used on str
 | for x in (1, 2, 3): print x,|	1 2 3 |	Iteration
 
 ##### Build-in Tuple function 
-
+|SN	| Function with Description
+|---|:---:|
+1	| cmp(tuple1, tuple2)
+  | Compares elements of both tuples.
+2	| len(tuple)
+  | Gives the total length of the tuple.
+3	| max(tuple)
+  | Returns item from the tuple with max value.
+4	| min(tuple)
+  | Returns item from the tuple with min value.
+5	| tuple(seq)
+  | Converts a list into tuple.
 
 ####2. Use enumerate 
 ```python
