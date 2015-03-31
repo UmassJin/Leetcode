@@ -14,8 +14,49 @@ empty = []
 ```
 * A list within another list is nested. 
 
+##### Lists are mutable:
+* ```numbers[1] = 5```
+* Any integer expression can be used as an index.
+* If you try to read or write an element that does not exist, you get an IndexError.
+* If an index has a negative value, it counts backward from the end of the list.
 
+##### Traversing a list
+```Python
+for cheese in cheeses:
+    print cheese
 
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+```    
+* Use the enumerate 
+```python
+>>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+>>> list(enumerate(seasons))
+[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+>>> list(enumerate(seasons, start=1))
+[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+>>> for i, char in enumerate(list):
+...    print ("i: ", i)
+...    print ("char: ", char)
+... 
+i:  0
+char:  12
+i:  1
+char:  56
+i:  2
+char:  good
+```
+
+##### List Operations
+| Python Expression |	Results	| Description
+|:---|:---|:---|
+| len([1, 2, 3])	| 3 |	Length
+| [1, 2, 3] + [4, 5, 6]	 | [1, 2, 3, 4, 5, 6]	| Concatenation
+| ['Hi!'] * 4 | 	['Hi!', 'Hi!', 'Hi!', 'Hi!']	| Repetition
+| 3 in [1, 2, 3]	|True	| Membership
+| for x in [1, 2, 3]: print x,|	1 2 3	| Iteration
+    
+    
 ####2. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
