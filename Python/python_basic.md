@@ -278,7 +278,7 @@ This function leaves the original list unmodified. Here’s how it is used:
 ##### Debugging
 * Careless use of lists (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them:
 
-* Don’t forget that most list methods modify the argument and return None. This is the opposite of the string methods, which return a new string and leave the original alone.
+1) Don’t forget that most list methods modify the argument and return None. This is the opposite of the string methods, which return a new string and leave the original alone.
 * If you are used to writing string code like this:
 ```word = word.strip()```
 * It is tempting to write list code like this:
@@ -288,10 +288,10 @@ This function leaves the original list unmodified. Here’s how it is used:
 * Before using list methods and operators, you should read the documentation carefully and then test them in interactive mode. The methods and operators that lists share with other sequences (like strings) are documented at http://docs.python.org/2/library/stdtypes.html#typesseq. 
 * The methods and operators that only apply to mutable sequences are documented at http://docs.python.org/2/library/stdtypes.html#typesseq-mutable.
 
-* Pick an idiom and stick with it.
+2) Pick an idiom and stick with it.
 * Part of the problem with lists is that there are too many ways to do things. For example, to remove an element from a list, you can use pop, remove, del, or even a slice assignment.
 * To add an element, you can use the append method or the + operator. Assuming that t is a list and x is a list element, these are right:
-* 
+
 ```
 t.append(x)
 t = t + [x]
@@ -302,7 +302,8 @@ t + [x]                # WRONG!
 t = t + x              # WRONG!
 ```
 * Try out each of these examples in interactive mode to make sure you understand what they do. Notice that only the last one causes a runtime error; the other three are legal, but they do the wrong thing.
-Make copies to avoid aliasing.
+
+3) Make copies to avoid aliasing.
 * If you want to use a method like sort that modifies the argument, but you need to keep the original list as well, you can make a copy.
 ```
 orig = t[:]
