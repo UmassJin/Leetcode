@@ -79,7 +79,7 @@ In fact, tuples respond to all of the general sequence operations we used on str
 
 ##### Build-in Tuple function 
 |SN	| Function with Description
-|---|:---:|
+|---|:---|
 1	| cmp(tuple1, tuple2)
   | Compares elements of both tuples.
 2	| len(tuple)
