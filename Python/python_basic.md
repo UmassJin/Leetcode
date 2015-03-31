@@ -97,6 +97,77 @@ char:  good
 
 ```
     
+##### List Methods
+* list.append(x)
+```
+>>> t = ['a', 'b', 'c']
+>>> t.append('d')
+>>> print t
+['a', 'b', 'c', 'd']
+```
+* list.extend(list2)
+```
+>>> t1 = ['a', 'b', 'c']
+>>> t2 = ['d', 'e']
+>>> t1.extend(t2)
+>>> print t1
+['a', 'b', 'c', 'd', 'e']
+```
+* list.insert(index, x)
+* list.remove(x)
+```
+>>> t = ['a', 'b', 'c']
+>>> t.remove('b')
+>>> print t
+['a', 'c']
+```
+* list.pop([i]): by default, it pop the last element in the list 
+```
+>>> t = ['a', 'b', 'c']
+>>> x = t.pop(1)
+>>> print t
+['a', 'c']
+>>> print x
+b
+```
+* list.index(x)
+```
+>>> list
+[12, 56, 'good']
+>>> 
+>>> list.index(56)
+1
+```
+* list.count(x)
+```
+>>> list
+[12, 56, 'good']
+>>> 
+>>> list.count(12)
+1
+```
+* list.sort()
+```
+>>> t = ['d', 'c', 'e', 'b', 'a']
+>>> t.sort()
+>>> print t
+['a', 'b', 'c', 'd', 'e']
+```
+* list.reverse()
+```
+[66.25, -1, 333, 1, 1234.5, 333]
+>>> a.reverse()
+>>> a
+[333, 1234.5, 1, 333, -1, 66.25]
+```
+* del element 
+```
+>>> t = ['a', 'b', 'c']
+>>> del t[1]
+>>> print t
+['a', 'c']
+```
+
 ####2. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
