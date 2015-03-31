@@ -55,7 +55,47 @@ char:  good
 | ['Hi!'] * 4 | 	['Hi!', 'Hi!', 'Hi!', 'Hi!']	| Repetition
 | 3 in [1, 2, 3]	|True	| Membership
 | for x in [1, 2, 3]: print x,|	1 2 3	| Iteration
+
+* slicing, s[1:2], based on the 0, include the 1 and exclude 2 
+* s == t, equal if all of the characters are the same. s is t ? no guarantee. 
+* t = s[:]  # list slices ALWAYS make copies 
+* slicing mutable objects ALWAYS makes new objects (list)
+  slicing immutable objects entirely MAY or MAY NOT make a new object (tuple)
+* t =s   assignments in python NEVER make copies 
     
+```python
+>>> s = t
+>>> s
+[10, 20, 30, 40, 50, 60]
+>>> t
+[10, 20, 30, 40, 50, 60]
+>>> id(s)
+4493599448
+>>> id(t)
+4493599448
+>>> p = t[:]
+>>> id(p)
+4493789160
+>>> id(t)
+4493599448
+
+>>> tuple1 = 'abd','dfaf'
+>>> tuple1
+('abd', 'dfaf')
+>>> tuple2 = tuple1[:]
+>>> tuple2
+('abd', 'dfaf')
+>>> id(tuple2)
+4302721352
+>>> id(tuple1)
+4302721352
+>>> tuple3 = tuple1
+>>> id(tuple3)
+4302721352
+>>> id(tuple1)
+4302721352
+
+```
     
 ####2. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
