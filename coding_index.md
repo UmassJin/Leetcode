@@ -184,6 +184,25 @@ dp[i][j] =  dp[i-1][j-1] and s[i-1][j-1]  if p[j-1] != '.' and p[j-1] != '*'
 * Reference: [Leetcode artical](http://articles.leetcode.com/2011/09/regular-expression-matching.html)
 *            [Good Analysis] (http://bangbingsyb.blogspot.com/2014/11/leetcode-regular-expression-matching.html)
 
+Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
+######Wildcard Matching 
+* '?' Matches any single character.
+* '*' Matches any sequence of characters (including the empty sequence).
+* isMatch("ab", "?*") → true
+* isMatch("aab", "c*a*b") → false
+* Example isMatch("abebdcd","?b*cd") → True
+*    a-->'?'; b-->b; '*'-->'ebd';'cd'-->'cd'
+* Example isMatch("abebdcbd","?b*cd") → False
+*    a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
+
+######Regular Expression Matching 
+* '.' Matches any single character.
+* '*' Matches zero or more of the preceding element.
+
+* isMatch("ab", ".*") → true
+* '.*' could match any strng, since * means zero or more of the preceding element, so here maybe 0 or more '.'
+* isMatch("aab", "c*a*b") → true 
+* here is true since c maybe have 0 times 
 -----
 
 ####4. Interval DP
