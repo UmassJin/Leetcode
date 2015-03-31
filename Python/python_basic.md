@@ -1,5 +1,84 @@
-####1. Array
-Spiral Matrix
+###Data Structures 
+####1. Tuples 
+* A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
+* It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
+
+##### Definition:
+```python
+# A tuple consists of a number o fvalues seperated by commas 
+>>> t = 123,4456,'hello'
+>>> t
+(123, 4456, 'hello')
+# Tuples may be nested 
+>>> t1 = 123,234,(234,90,'world')
+>>> t1
+(123, 234, (234, 90, 'world'))
+# Tuples are immutable:
+>>> t1[0] = 999
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+# But tuple can contain mutable objects 
+>>> t2 = [1,2,3],[1,3,2]
+>>> t2
+([1, 2, 3], [1, 3, 2])
+>>> type(t2)
+<type 'tuple'>
+>>> empty = ()
+>>> singleton = 'hello',    # <-- note trailing comma
+>>> len(empty)
+0
+>>> len(singleton)
+1
+>>> singleton
+('hello',)
+```
+* The statement t = 12345, 54321, 'hello!' is an example of tuple packing: the values 12345, 54321 and 'hello!' are packed together in a tuple. The reverse operation is also possible:
+```python
+>>> t = 12345, 54321, 'hello!'
+>>> x,y,z = t
+>>> x
+12345
+>>> y
+54321
+>>> z
+'hello!'
+>>> type(t)
+<type 'tuple'>
+>>> type(x)
+<type 'int'>
+>>> type(z)
+<type 'str'>
+```
+* Access Values in Tuples: t[0], t[1:3]
+* Can not change the value in tuple or delete/modify any element in tuple, but create a new tuple as following
+```python
+>>> t
+(12345, 54321, 'hello!')
+>>> t1
+(123, 234, (234, 90, 'world'))
+>>> t2 = t+t1
+>>> t2
+(12345, 54321, 'hello!', 123, 234, (234, 90, 'world'))
+>>> type(t2)
+<type 'tuple'>
+```
+* Delete the whole tuple: ```del t2```
+* 
+##### Basic Tuple operations:
+Tuples respond to the + and * operators much like strings; they mean concatenation and repetition here too, except that the result is a new tuple, not a string.
+In fact, tuples respond to all of the general sequence operations we used on strings in the prior chapter :
+
+| Python Expression	| Results	| Description
+|---|:---:|:---:|
+| len((1, 2, 3)) |	3 |	Length
+| (1, 2, 3) + (4, 5, 6)	| (1, 2, 3, 4, 5, 6) |	Concatenation
+| ('Hi!',) * 4	| ('Hi!', 'Hi!', 'Hi!', 'Hi!')|	Repetition
+| 3 in (1, 2, 3) |	True|	Membership
+| for x in (1, 2, 3): print x,|	1 2 3 |	Iteration
+
+##### Build-in Tuple function 
+
 
 ####2. Use enumerate 
 ```python
