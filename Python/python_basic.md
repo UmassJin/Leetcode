@@ -91,6 +91,10 @@ In fact, tuples respond to all of the general sequence operations we used on str
 5	| tuple(seq)
   | Converts a list into tuple.
 
+##### Reference
+http://www.tutorialspoint.com/python/python_tuples.htm
+https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
+
 ####2. Use enumerate 
 ```python
 enumerate(sequence,start=0)
