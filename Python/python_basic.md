@@ -56,46 +56,6 @@ char:  good
 | 3 in [1, 2, 3]	|True	| Membership
 | for x in [1, 2, 3]: print x,|	1 2 3	| Iteration
 
-* slicing, s[1:2], based on the 0, include the 1 and exclude 2 
-* s == t, equal if all of the characters are the same. s is t ? no guarantee. 
-* t = s[:]  # list slices ALWAYS make copies 
-* slicing mutable objects ALWAYS makes new objects (list)
-  slicing immutable objects entirely MAY or MAY NOT make a new object (tuple)
-* t =s   assignments in python NEVER make copies 
-    
-```python
->>> s = t
->>> s
-[10, 20, 30, 40, 50, 60]
->>> t
-[10, 20, 30, 40, 50, 60]
->>> id(s)
-4493599448
->>> id(t)
-4493599448
->>> p = t[:]
->>> id(p)
-4493789160
->>> id(t)
-4493599448
-
->>> tuple1 = 'abd','dfaf'
->>> tuple1
-('abd', 'dfaf')
->>> tuple2 = tuple1[:]
->>> tuple2
-('abd', 'dfaf')
->>> id(tuple2)
-4302721352
->>> id(tuple1)
-4302721352
->>> tuple3 = tuple1
->>> id(tuple3)
-4302721352
->>> id(tuple1)
-4302721352
-
-```
     
 ##### List Methods
 * list.append(x)
@@ -169,8 +129,8 @@ b
 ```
 
 ##### List and strings
-* strings --> list: new_list = list(strings)
-* list --> string: new_string = ' '.join(list)
+* strings --> list: ```new_list = list(strings)```
+* list --> string: ```new_string = ' '.join(list)```
 * A string is a sequence of characters and a list is a sequence of values, but a list of characters is not the same as a string. To convert from a string to a list of characters, you can use list:
 ```python
 >>> s = 'spam'
@@ -202,9 +162,72 @@ The list function breaks a string into individual letters. If you want to break 
 ```
 * In this case the delimiter is a space character, so join puts a space between words. To concatenate strings without spaces, you can use the empty string, '', as a delimiter.
 
-##### Objects and valuse
+##### Objects and values
+* To check whether two variables refer to the same object, you can use the is operator.
+* In the string example, Python only created one string object, and both a and b refer to it.
+* In the list example, two list have the same value, but different object 
+* If use the ```a=b```, list a and list b will have the same address and same value 
+* In this case we would say that the two lists are equivalent, because they have the same elements, but not identical, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
 
+```python
+>>> a = 'good'
+>>> b = 'good'
+>>> id(a)
+4302757088
+>>> id(b)
+4302757088
+>>> a is b
+True
+>>> a = [1,2,3]
+>>> b = [1,2,3]
+>>> id(a)
+4302991496
+>>> id(b)
+4302987208
+>>> a is b
+False
+```
 
+* slicing, s[1:2], based on the 0, include the 1 and exclude 2 
+* s == t, equal if all of the characters are the same. s is t ? no guarantee. 
+* t = s[:]  # list slices ALWAYS make copies 
+* slicing mutable objects ALWAYS makes new objects (list)
+  slicing immutable objects entirely MAY or MAY NOT make a new object (tuple)
+* t =s   assignments in python NEVER make copies 
+    
+```python
+>>> s = t
+>>> s
+[10, 20, 30, 40, 50, 60]
+>>> t
+[10, 20, 30, 40, 50, 60]
+>>> id(s)
+4493599448
+>>> id(t)
+4493599448
+>>> p = t[:]
+>>> id(p)
+4493789160
+>>> id(t)
+4493599448
+
+>>> tuple1 = 'abd','dfaf'
+>>> tuple1
+('abd', 'dfaf')
+>>> tuple2 = tuple1[:]
+>>> tuple2
+('abd', 'dfaf')
+>>> id(tuple2)
+4302721352
+>>> id(tuple1)
+4302721352
+>>> tuple3 = tuple1
+>>> id(tuple3)
+4302721352
+>>> id(tuple1)
+4302721352
+
+```
 
 ####2. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
