@@ -1,5 +1,8 @@
 ###Data Structures 
-####1. Tuples 
+####1. Lists
+
+
+####2. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
 
@@ -91,9 +94,16 @@ In fact, tuples respond to all of the general sequence operations we used on str
 5	| tuple(seq)
   | Converts a list into tuple.
 
+##### Advantage 
+* Tuple 比 list 操作速度快。如果您定义了一个值的常量集，并且唯一要用它做的是不断地遍历它，请使用 tuple 代替 list。
+* 如果对不需要修改的数据进行 “写保护”，可以使代码更安全。使用 tuple 而不是 list 如同拥有一个隐含的 assert 语句，说明这一数据是常量。如果必须要改变这些值，则需要执行 tuple 到 list 的转换 (需要使用一个特殊的函数)。
+* 还记得我说过 dictionary keys 可以是字符串，整数和 “其它几种类型”吗？Tuples 就是这些类型之一。Tuples 可以在 dictionary 中被用做 key，但是 list 不行。实际上，事情要比这更复杂。Dictionary key 必须是不可变的。Tuple 本身是不可改变的，但是如果您有一个 list 的 tuple，那就认为是可变的了，用做 dictionary key 就是不安全的。只有字符串、整数或其它对 dictionary 安全的 tuple 才可以用作 dictionary key。
+
 ##### Reference
-http://www.tutorialspoint.com/python/python_tuples.htm
-https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
+* http://www.tutorialspoint.com/python/python_tuples.htm
+* https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
+* http://woodpecker.org.cn/diveintopython/native_data_types/tuples.html
+
 
 ####2. Use enumerate 
 ```python
