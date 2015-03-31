@@ -1,5 +1,19 @@
 ###Data Structures 
 ####1. Lists
+* A list is a sequence of values. In a string, the values are characters; in a list, they can be any type. The values in a list are called elements or sometimes items.
+
+##### Definition:
+* There are several ways to create a new list; the simplest is to enclose the elements in square brackets ([ and ])
+```python
+[10, 20, 30, 40]
+['crunchy frog', 'ram bladder', 'lark vomit']
+# Could have different types in one list 
+['spam', 2.0, 5, [10, 20]]
+# empty list
+empty = []
+```
+* A list within another list is nested. 
+
 
 
 ####2. Tuples 
