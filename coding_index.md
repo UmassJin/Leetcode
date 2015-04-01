@@ -276,6 +276,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Save each string as the value (put into a list), then push them into the list 
 * Use the ''.join and list.extend instead of list.append 
 
+*Use the Hashtable and two pointers to solve the following problems 
 #####[Minimum Window Substring](./Array/Minimum_Window_Substring.py)
 * 1. Use two hashtable, one is save the char anc count in the T, and one used for find when search in S
 * 2. Use two pointer, first move the right pointer, when we find all the chars in T in the S, stop
@@ -284,7 +285,10 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 #####[Substring with Concatenation of All Words ] (./Array/Substring_with_Concatenation_of_All_Words.py)
 
-
+#####[Longest Substring with At Most Two Distinct Characters](./Array/Longest_Substring_with_At_Most_Two_Distinct_Characters.py)
+* Use the hashtable to save the char and count number
+* keep the count to check the distinguish chars
+* Note: we use the while not the if to check count > 2
 
 -----
 
