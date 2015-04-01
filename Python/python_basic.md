@@ -1,9 +1,9 @@
 ###[Sequence Types - str, unicode, list, tuple, bytearray, buffer, xrange] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
-1) There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects.
-2) For other containers see the built in dict and set classes, and the collections module.
-3) 仔细阅读link 中tutorial 这部分！
+* 1) There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects.
+* 2) For other containers see the built in dict and set classes, and the collections module.
+* 3) 仔细阅读link 中tutorial 这部分！
 
-4) Values of n less than 0 are treated as 0 (which yields an empty sequence of the same type as s). Note also that the copies are shallow; nested structures are not copied. This often haunts new Python programmers; consider:
+* 4) Values of n less than 0 are treated as 0 (which yields an empty sequence of the same type as s). Note also that the copies are shallow; nested structures are not copied. This often haunts new Python programmers; consider:
 ```python
 >>>
 >>> lists = [[]] * 3
@@ -19,7 +19,7 @@
 >>> id(lists[2])
 4302991816
 ```
-5) What has happened is that [[]] is a one-element list containing an empty list, so all three elements of [[]] * 3 are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
+* 5) What has happened is that [[]] is a one-element list containing an empty list, so all three elements of [[]] * 3 are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
 ```python
 >>>
 >>> lists = [[] for i in range(3)]
@@ -37,7 +37,7 @@
 ```
 
 ``` s[i:j:k]  # slice of s from i to j with step k``` 
-6) The slice of s from i to j with step k is defined as the sequence of items with index ```x = i + n*k such that 0 <= n < (j-i)/k```. In other words, the indices are ```i, i+k, i+2*k, i+3*k``` and so on, stopping when j is reached (but never including j). If i or j is greater than len(s), use len(s). If i or j are omitted or None, they become “end” values (which end depends on the sign of k). Note, k cannot be zero. If k is None, it is treated like 1.
+* 6) The slice of s from i to j with step k is defined as the sequence of items with index ```x = i + n*k such that 0 <= n < (j-i)/k```. In other words, the indices are ```i, i+k, i+2*k, i+3*k``` and so on, stopping when j is reached (but never including j). If i or j is greater than len(s), use len(s). If i or j are omitted or None, they become “end” values (which end depends on the sign of k). Note, k cannot be zero. If k is None, it is treated like 1.
 
 ####1. Strings
 
