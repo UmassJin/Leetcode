@@ -82,7 +82,7 @@ Jello, world!
 
 ##### Reference
 * [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
-* [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
+* [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#string-methods)
 * [Tutorial: String Formatting Operations](https://docs.python.org/2/library/stdtypes.html#string-formatting)
 
 ####2. Lists
