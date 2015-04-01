@@ -276,14 +276,12 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Save each string as the value (put into a list), then push them into the list 
 * Use the ''.join and list.extend instead of list.append 
 
-##### Minimum Window Substring
 #####[Minimum Window Substring](./Array/Minimum_Window_Substring.py)
 * 1. Use two hashtable, one is save the char anc count in the T, and one used for find when search in S
 * 2. Use two pointer, first move the right pointer, when we find all the chars in T in the S, stop
 * 3. Then move the left pointer, skip the useless char and duplicate chars 
 * 4. Then keep moving the right pointer, till the end 
 
-#####Substring with Concatenation of All Words 
 #####[Substring with Concatenation of All Words ] (./Array/Substring_with_Concatenation_of_All_Words.py)
 
 
