@@ -19,7 +19,7 @@
 >>> id(lists[2])
 4302991816
 ```
-* 5) What has happened is that [[]] is a one-element list containing an empty list, so all three elements of [[]] * 3 are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
+* 5) What has happened is that ```[[]]``` is a one-element list containing an empty list, so all three elements of ```[[]] * 3``` are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
 ```python
 >>>
 >>> lists = [[] for i in range(3)]
