@@ -1,5 +1,48 @@
-###Data Structures 
-####1. Lists
+###[Sequence Types - str, unicode, list, tuple, bytearray, buffer, xrange] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
+1) There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects.
+2) For other containers see the built in dict and set classes, and the collections module.
+3) 仔细阅读link 中tutorial 这部分！
+
+4) Values of n less than 0 are treated as 0 (which yields an empty sequence of the same type as s). Note also that the copies are shallow; nested structures are not copied. This often haunts new Python programmers; consider:
+```python
+>>>
+>>> lists = [[]] * 3
+>>> lists
+[[], [], []]
+>>> lists[0].append(3)
+>>> lists
+[[3], [3], [3]]
+>>> id(lists[1])
+4302991816   # ---> the address are the same
+>>> id(lists[0])
+4302991816
+>>> id(lists[2])
+4302991816
+```
+5) What has happened is that [[]] is a one-element list containing an empty list, so all three elements of [[]] * 3 are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
+```python
+>>>
+>>> lists = [[] for i in range(3)]
+>>> id(lists[0])
+4302992008    # --->  the address are different 
+>>> id(lists[1])
+4302992200
+>>> id(lists[2])
+4302991624
+>>> lists[0].append(3)
+>>> lists[1].append(5)
+>>> lists[2].append(7)
+>>> lists
+[[3], [5], [7]]
+```
+
+``` s[i:j:k]  # slice of s from i to j with step k``` 
+6) The slice of s from i to j with step k is defined as the sequence of items with index ```x = i + n*k such that 0 <= n < (j-i)/k```. In other words, the indices are ```i, i+k, i+2*k, i+3*k``` and so on, stopping when j is reached (but never including j). If i or j is greater than len(s), use len(s). If i or j are omitted or None, they become “end” values (which end depends on the sign of k). Note, k cannot be zero. If k is None, it is treated like 1.
+
+####1. Strings
+
+
+####2. Lists
 * A list is a sequence of values. In a string, the values are characters; in a list, they can be any type. The values in a list are called elements or sometimes items.
 
 ##### Definition:
@@ -311,7 +354,7 @@ t.sort()
 ```
 * In this example you could also use the built-in function sorted, which returns a new, sorted list and leaves the original alone. But in that case you should avoid using sorted as a variable name!
 
-####2. Tuples 
+####3. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
 
@@ -413,8 +456,8 @@ In fact, tuples respond to all of the general sequence operations we used on str
 * https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
 * http://woodpecker.org.cn/diveintopython/native_data_types/tuples.html
 
-
-####2. Use enumerate 
+### Basic knowledge 
+####1. Use enumerate 
 ```python
 enumerate(sequence,start=0)
 seasons = ['a','b','c','d']
@@ -426,7 +469,7 @@ idx: 1, ele: b
 idx: 2, ele: c
 ```
 
-####3. Two methods to get the random list
+####2. Two methods to get the random list
 ```python
 random.shuffle(a_tot)    #get a randomized list
 a_1 = a_tot[0:1300]     #pick the first 1300
@@ -436,7 +479,7 @@ new_t = random.sample(a_tot,len(a_tot))    #get a randomized list
 a_1 = new_t[0:1300]     #pick the first 1300
 a_2 = new_t[1300:]      #pick the last 200
 ```
-####4. String Method 
+####3. String Method 
 #####Remove the leading chars or the 
 ######1) str.lstrip([chars])
 Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped:
@@ -468,7 +511,7 @@ Usage: [String to Integer (atoi)] (../Array/String_to_Integer.py) ;
 [Simply Path](../Array/Simplify_Path.py)
 
 
-####5. Build-in function
+####4. Build-in function
 ##### 1) all(iterable)
 Return True if all elements of the iterable are true (or if the iterable is empty). Equivalent to:
 ```python
