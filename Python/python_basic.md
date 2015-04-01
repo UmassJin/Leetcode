@@ -354,6 +354,53 @@ t.sort()
 ```
 * In this example you could also use the built-in function sorted, which returns a new, sorted list and leaves the original alone. But in that case you should avoid using sorted as a variable name!
 
+
+##### Using lists as Stacks
+```
+>>> stack = [3, 4, 5]
+>>> stack.append(6)
+>>> stack.append(7)
+>>> stack
+[3, 4, 5, 6, 7]
+>>> stack.pop()
+7
+>>> stack
+[3, 4, 5, 6]
+>>> stack.pop()
+6
+>>> stack.pop()
+5
+>>> stack
+[3, 4]
+```
+##### Using lists as Queues
+```
+>>> queue = ['hi','how','are','you']
+>>> queue
+['hi', 'how', 'are', 'you']
+>>> queue.append('world')
+>>> queue
+['hi', 'how', 'are', 'you', 'world']
+>>> queue.pop(0)
+'hi'
+>>> queue
+['how', 'are', 'you', 'world']
+```
+Or
+```
+>>> from collections import deque
+>>> queue = deque(["Eric", "John", "Michael"])
+>>> queue.append("Terry")           # Terry arrives
+>>> queue.append("Graham")          # Graham arrives
+>>> queue.popleft()                 # The first to arrive now leaves
+'Eric'
+>>> queue.popleft()                 # The second to arrive now leaves
+'John'
+>>> queue                           # Remaining queue in order of arrival
+deque(['Michael', 'Terry', 'Graham'])
+```
+
+
 ####3. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
