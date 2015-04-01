@@ -774,4 +774,6 @@ NameError: name 'xrange' is not defined
 
 #### 6. Reference
 [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
-
+[Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
+[Tutorial: Data Structure](https://docs.python.org/2/tutorial/datastructures.html#sets)
+http://blog.csdn.net/u010141025/article/details/41866281
