@@ -40,7 +40,50 @@
 * 6) The slice of s from i to j with step k is defined as the sequence of items with index ```x = i + n*k such that 0 <= n < (j-i)/k```. In other words, the indices are ```i, i+k, i+2*k, i+3*k``` and so on, stopping when j is reached (but never including j). If i or j is greater than len(s), use len(s). If i or j are omitted or None, they become “end” values (which end depends on the sign of k). Note, k cannot be zero. If k is None, it is treated like 1.
 
 ####1. Strings
+##### Definition 
+Creat string simply by enclosing characters in quotes. Python treats single quotes the same as double quotes.
 
+##### String slices
+* The operator [n:m] returns the part of the string from the “n-eth” character to the “m-eth” character, including the first but excluding the last.
+* If we want to get the ith char in the string, the i should not larger than length-1
+* But for the string slices, we could use larger than length, since return the empty string '' as following example 
+```
+>>> string1 = 'hello'
+>>> string2 = "world"
+>>> string1
+'hello'
+>>> string2
+'world'
+>>> string1[6]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+>>> string1[:6]
+'hello'
+>>> string1[6:]
+''
+```
+
+##### String are immutable 
+* It is tempting to use the [] operator on the left side of an assignment, with the intention of changing a character in a string. For example:
+```
+>>> greeting = 'Hello, world!'
+>>> greeting[0] = 'J'
+TypeError: 'str' object does not support item assignment
+```
+* The “object” in this case is the string and the “item” is the character you tried to assign. For now, an object is the same thing as a value, but we will refine that definition later. An item is one of the values in a sequence.
+* The reason for the error is that strings are immutable, which means you can’t change an existing string. The best you can do is create a new string that is a variation on the original:
+```
+>>> greeting = 'Hello, world!'
+>>> new_greeting = 'J' + greeting[1:]
+>>> print new_greeting
+Jello, world!
+```
+
+##### Reference
+* [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
+* [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
+* [Tutorial: String Formatting Operations](https://docs.python.org/2/library/stdtypes.html#string-formatting)
 
 ####2. Lists
 * A list is a sequence of values. In a string, the values are characters; in a list, they can be any type. The values in a list are called elements or sometimes items.
@@ -451,6 +494,18 @@ SyntaxError: invalid syntax
 ```
 
 ##### [Nested List Comprehensions] (https://docs.python.org/2/tutorial/datastructures.html#nested-list-comprehensions)
+```
+>>> matrix = [
+...     [1, 2, 3, 4],
+...     [5, 6, 7, 8],
+...     [9, 10, 11, 12],
+... ]
+>>> [[row[i] for row in matrix] for i in range(4)]
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+>>> zip(*matrix)
+[(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)]
+```
+
 
 ####3. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
@@ -635,8 +690,31 @@ zip() in conjunction with the * operator can be used to unzip a list:
 # Note: here is not (1,4),(1,5),(1,6),(2,4)....
 >>> x2, y2 = zip(*zipped)
 >>> x == list(x2) and y == list(y2)
+True`
+```
+``` python
+>>> x = [1,2,3]
+>>> y = [4,5,6]
+>>> zipped = zip(x,y)
+>>> zipped
+[(1, 4), (2, 5), (3, 6)]
+>>> id(x)
+4335495864
+>>> id(y)
+4335495720
+>>> a,b = zip(*zipped)
+>>> a
+(1, 2, 3)
+>>> b
+(4, 5, 6)
+>>> id(a)
+4335414080
+>>> id(b)
+4335287104
+>>> y == list(b)
 True
 ```
+
 Usage 
 [Reverse Words in a StringII](../Array/Reverse_Words_in_a_StringII.py)
 
