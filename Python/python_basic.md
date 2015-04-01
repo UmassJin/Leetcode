@@ -568,4 +568,6 @@ Traceback (most recent call last):
 NameError: name 'xrange' is not defined
 ```
 
+#### 6. Reference
+[What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 
