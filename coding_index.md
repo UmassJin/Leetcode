@@ -282,6 +282,12 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * 2. Use two pointer, first move the right pointer, when we find all the chars in T in the S, stop
 * 3. Then move the left pointer, skip the useless char and duplicate chars 
 * 4. Then keep moving the right pointer, till the end 
+
+#####Substring with Concatenation of All Words 
+#####[Substring with Concatenation of All Words ] (./Array/Substring_with_Concatenation_of_All_Words.py)
+
+
+
 -----
 
 ###Math 
