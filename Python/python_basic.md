@@ -19,6 +19,34 @@
 >>> id(lists[2])
 4302991816
 ```
+＊注意区分这里
+```python
+>>> buf4 = ['']*4
+>>> buf4
+['', '', '', '']
+>>> buf4[0]
+''
+>>> id(buf4[0])
+4334310664   # --> here all the buf4[0] to buf4[3] are the same address, but since the string is immutable
+>>> id(buf4[1])
+4334310664
+>>> id(buf4[2])
+4334310664
+>>> id(buf4[3])
+4334310664
+>>> buf4[0] = buf4[0] + 'hello'  #--> so here acturally we add the new string as buf4[0]
+>>> buf4
+['hello', '', '', '']
+>>> id(buf4[0])
+4335488384     #---> note: here the address of buf4[0] is different with buf4[1] to buf4[3]
+>>> id(buf4[1])
+4334310664
+>>> id(buf4[2])
+4334310664
+>>> id(buf4[3])
+4334310664
+
+```
 * 5) What has happened is that ```[[]]``` is a one-element list containing an empty list, so all three elements of ```[[]] * 3``` are (pointers to) this single empty list. Modifying any of the elements of lists modifies this single list. You can create a list of different lists this way:
 ```python
 >>>
