@@ -108,3 +108,6 @@ if __name__ == "__main__":
     file_content = "ab"
     print buf[:sol.read(buf, 1)]
     print buf[:sol.read(buf, 2)]    
+
+Reference: http://www.danielbit.com/blog/puzzle/leetcode/leetcode-read-n-characters-given-read4-ii
+https://github.com/kamyu104/LeetCode/blob/master/Python/read-n-characters-given-read4-ii-call-multiple-times.py
