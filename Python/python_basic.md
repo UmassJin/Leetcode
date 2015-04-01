@@ -542,3 +542,30 @@ True
 Usage 
 [Reverse Words in a StringII](../Array/Reverse_Words_in_a_StringII.py)
 
+####5. Difference between ```range()``` and ```xrange()```
+*  ```xrange(start, stop[, step])```
+* This function is very similar to range(), but returns an xrange object instead of a list. This is an opaque sequence type which yields the same values as the corresponding list, without actually storing them all simultaneously. The advantage of xrange() over range() is minimal (since xrange() still has to create the values when asked for them) except when a very large range is used on a memory-starved machine or when all of the range’s elements are never used (such as when the loop is usually terminated with break).
+```
+=>>> a = range(0,10)
+>>> print a 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> type(a)
+<type 'list'>
+>>> a = xrange(0,10)
+>>> a
+xrange(10)
+>>> type(a)
+<type 'xrange'>
+```
+* But for the python 3.4, there is NO xrange, only range, return range 
+```python
+>>> a = range(0,10)
+>>> type(a)
+<class 'range'>
+>>> x = xrange(0,10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'xrange' is not defined
+```
+
+
