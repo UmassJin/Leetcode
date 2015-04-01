@@ -400,6 +400,57 @@ Or
 deque(['Michael', 'Terry', 'Graham'])
 ```
 
+##### [Functional Programming Tools] (https://docs.python.org/2/tutorial/datastructures.html#functional-programming-tools)
+* ```map(function,sequence)```
+* ```filter(function, sequence)```
+* ```reduce(function, sequence)```
+```
+>>> def f(x,y): return x*y
+... 
+>>> map(f, range(3))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: f() takes exactly 2 arguments (1 given)
+>>> map(f, range(3),range(5))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 1, in f
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+>>> map(f, range(3),range(3))
+[0, 1, 4]
+```
+#####[List Comprehensions] (https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions)
+```
+>>> vec = [-4, -2, 0, 2, 4]
+>>> # create a new list with the values doubled
+>>> [x*2 for x in vec]
+[-8, -4, 0, 4, 8]
+>>> # filter the list to exclude negative numbers
+>>> [x for x in vec if x >= 0]
+[0, 2, 4]
+>>> # apply a function to all the elements
+>>> [abs(x) for x in vec]
+[4, 2, 0, 2, 4]
+>>> # call a method on each element
+>>> freshfruit = ['  banana', '  loganberry ', 'passion fruit  ']
+>>> [weapon.strip() for weapon in freshfruit]
+['banana', 'loganberry', 'passion fruit']
+>>> # create a list of 2-tuples like (number, square)
+>>> [(x, x**2) for x in range(6)]
+[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+>>> # the tuple must be parenthesized, otherwise an error is raised
+>>> [x, x**2 for x in range(6)]
+  File "<stdin>", line 1
+    [x, x**2 for x in range(6)]
+               ^
+SyntaxError: invalid syntax
+>>> # flatten a list using a listcomp with two 'for'
+>>> vec = [[1,2,3], [4,5,6], [7,8,9]]
+>>> [num for elem in vec for num in elem]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+##### [Nested List Comprehensions] (https://docs.python.org/2/tutorial/datastructures.html#nested-list-comprehensions)
 
 ####3. Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
