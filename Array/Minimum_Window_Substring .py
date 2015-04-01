@@ -51,3 +51,11 @@ class Solution:
                     result = S[l:r+1]
         
         return result 
+
+    # Note
+    # 1. Prepare for wo dict
+    # 2. Skip chars that we don't care, increase right bound
+    # 3. If current window contains all the chars we want(counter == M), stop and resize left bound
+    # 4. Skip chars that we don't care. If extra chars in found > wanted, skip them
+    # 5. break here
+    # 6. Calculate the current size
