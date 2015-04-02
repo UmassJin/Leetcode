@@ -852,7 +852,10 @@ TypeError: list objects are unhashable
 
 
 ### Basic knowledge 
-####1. Use enumerate 
+####1. Looping Techniques
+##### a) Enumerate 
+* When looping through a sequence, the position index and corresponding value can be retrieved at the same time using the enumerate() function.
+
 ```python
 enumerate(sequence,start=0)
 seasons = ['a','b','c','d']
@@ -863,6 +866,79 @@ idx: 0, ele: a
 idx: 1, ele: b
 idx: 2, ele: c
 ```
+##### b) zip
+* To loop over two or more sequences at the same time, the entries can be paired with the zip() function.
+
+```
+>>> questions = ['name', 'quest', 'favorite color']
+>>> answers = ['lancelot', 'the holy grail', 'blue']
+>>> for q, a in zip(questions, answers):
+...     print 'What is your {0}?  It is {1}.'.format(q, a)
+...
+What is your name?  It is lancelot.
+What is your quest?  It is the holy grail.
+What is your favorite color?  It is blue.
+```
+##### c) reversed()
+* To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the reversed() function.
+
+```
+>>> for i in reversed(xrange(1,10,2)):
+...     print i
+...
+9
+7
+5
+3
+1
+```
+
+##### d) sorted()
+* To loop over a sequence in sorted order, use the sorted() function which returns a new sorted list while leaving the source unaltered.
+
+```
+>>> basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+>>> for f in sorted(set(basket)):
+...     print f
+...
+apple
+banana
+orange
+pear
+```
+
+##### e) Iteritems()
+* When looping through dictionaries, the key and corresponding value can be retrieved at the same time using the iteritems() method.
+
+```
+>>> dict_test
+{'world': 56, 'hello': 23}
+>>> for k, v in dict_test.iteritems():
+...     print k, v
+... 
+world 56
+hello 23
+
+>>> for k, v in enumerate(dict_test):
+...     print k,v
+... 
+0 world
+1 hello
+```
+
+##### f) Make a copy
+* To change a sequence you are iterating over while inside the loop (for example to duplicate certain items), it is recommended that you first make a copy. Looping over a sequence does not implicitly make a copy. The slice notation makes this especially convenient:
+
+```
+>>> words = ['cat', 'window', 'defenestrate']
+>>> for w in words[:]:  # Loop over a slice copy of the entire list.
+...     if len(w) > 6:
+...         words.insert(0, w)
+...
+>>> words
+['defenestrate', 'cat', 'window', 'defenestrate']
+```
+
 
 ####2. Two methods to get the random list
 ```python
@@ -1064,7 +1140,8 @@ def example5():
 ```
 
 #### 7. Reference
-*[What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
-*[Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
-*[Tutorial: Data Structure](https://docs.python.org/2/tutorial/datastructures.html#sets)
+
+* [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
+* [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
+* [Tutorial: Data Structure](https://docs.python.org/2/tutorial/datastructures.html#sets)
 * http://blog.csdn.net/u010141025/article/details/41866281
