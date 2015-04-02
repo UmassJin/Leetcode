@@ -931,14 +931,13 @@ hello 23
 
 ```
 >>> words = ['cat', 'window', 'defenestrate']
->>> for w in words[:]:  # Loop over a slice copy of the entire list.
+>>> for w in words[:]:  # Loop over a slice copy of the entire list. words[:] will make a copy, s = word will not! 
 ...     if len(w) > 6:
 ...         words.insert(0, w)
 ...
 >>> words
 ['defenestrate', 'cat', 'window', 'defenestrate']
 ```
-
 
 ####2. Two methods to get the random list
 ```python
@@ -1139,7 +1138,9 @@ def example5():
     known = dict()
 ```
 
-#### 7. Reference
+#### 7. [More on Conditions] (https://docs.python.org/2/tutorial/datastructures.html#more-on-conditions)important!
+
+#### 8. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
