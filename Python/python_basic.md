@@ -637,6 +637,83 @@ In fact, tuples respond to all of the general sequence operations we used on str
 * https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
 * http://woodpecker.org.cn/diveintopython/native_data_types/tuples.html
 
+#### Set Object 
+##### Definition
+* A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+* Mutable 
+* Create a empty set: 
+```a = set() ```
+```
+>>> basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+>>> fruit = set(basket)               # create a set without duplicates
+>>> fruit
+set(['orange', 'pear', 'apple', 'banana'])
+>>> 'orange' in fruit                 # fast membership testing
+True
+>>> 'crabgrass' in fruit
+False
+
+>>> # Demonstrate set operations on unique letters from two words
+...
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+>>> a                                  # unique letters in a
+set(['a', 'r', 'b', 'c', 'd'])
+>>> a - b                              # letters in a but not in b
+set(['r', 'd', 'b'])
+>>> a | b                              # letters in either a or b
+set(['a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'])
+>>> a & b                              # letters in both a and b
+set(['a', 'c'])
+>>> a ^ b                              # letters in a or b but not both
+set(['r', 'd', 'b', 'm', 'z', 'l'])
+```
+
+##### Operation
+add(elem)
+Add element elem to the set.
+
+remove(elem)
+Remove element elem from the set. Raises KeyError if elem is not contained in the set.
+
+discard(elem)
+Remove element elem from the set if it is present.
+
+pop()
+Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.
+
+clear()
+Remove all elements from the set.
+
+```
+>>> string = 'hello world'
+>>> testset = set(string)
+>>> testset
+{'h', 'o', ' ', 'w', 'r', 'l', 'd', 'e'}
+>>> testset.add('h')
+>>> testset
+{'h', 'o', ' ', 'w', 'r', 'l', 'd', 'e'}
+>>> testset.add('b')
+>>> testset
+{'h', 'b', 'o', ' ', 'w', 'r', 'l', 'd', 'e'}
+>>> testset.remove('h')
+>>> testset
+{'b', 'o', ' ', 'w', 'r', 'l', 'd', 'e'}
+>>> testset.pop()
+'b'
+>>> testset.discard('b')
+>>> testset
+{'o', ' ', 'w', 'r', 'l', 'd', 'e'}
+>>> testset.discard('e')
+>>> testset
+{'o', ' ', 'w', 'r', 'l', 'd'}
+>>> testset.remove('e')  # ---> remove will raise the error if there is no member, but discard will not 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'e'
+```
+
+
 ### Basic knowledge 
 ####1. Use enumerate 
 ```python
