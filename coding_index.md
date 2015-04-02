@@ -297,6 +297,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Use the hashtable to record the index of the character
 * Update the start pointer when hit the repeat character
 
+
+#####[Longest Palindromic Substring](./Array/Longest_Palindromic_Substring.py)(需要回看！！)
+
 -----
 
 ###Math 
