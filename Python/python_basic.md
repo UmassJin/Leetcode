@@ -68,13 +68,13 @@
 * 6) The slice of s from i to j with step k is defined as the sequence of items with index ```x = i + n*k such that 0 <= n < (j-i)/k```. In other words, the indices are ```i, i+k, i+2*k, i+3*k``` and so on, stopping when j is reached (but never including j). If i or j is greater than len(s), use len(s). If i or j are omitted or None, they become “end” values (which end depends on the sign of k). Note, k cannot be zero. If k is None, it is treated like 1.
 
 
-| Python Expression |	Results	| Description
-|:---|:---|:---|
-| string | 'abc' | immutable
-| list	| [a,b,c]  | mutable
-| tuple | (a,b,c)  | immutable
-| set | python 2.7: set(['pear', 'apple', 'hello']), |
-|   | python 3.4: {'o', ' ', 'w', 'r', 'l', 'd'} | mutable
+| Python Expression |	Definition | Results	| Description
+|:---|:---| :---|:---|
+| string | str_test = 'abc' | 'abc' | immutable
+| list	| list_test = [a,b,c] | [a,b,c]  | mutable
+| tuple | tuple_test = 1,2,3 | (1,2,3)  | immutable
+| set | set_test =set(['a','b','c']) | python 2.7: set(['a', 'b', 'c']), |
+|     | set_test = set('hello') | python 3.4: {'h', 'e', 'l', 'l', 'o'} | mutable
 | dict | {'a': 1, 'b': 2} | mutable 
 
 ####1. Strings
@@ -726,6 +726,7 @@ KeyError: 'e'
 * Reference [Tutorial: set] (https://docs.python.org/2/library/stdtypes.html#frozenset)
 
 ### Dictionary Object 
+#### Definition 
 
 
 ### Basic knowledge 
