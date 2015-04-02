@@ -180,6 +180,7 @@ char:  good
 | 3 in [1, 2, 3]	|True	| Membership
 | for x in [1, 2, 3]: print x,|	1 2 3	| Iteration
 
+[Compare link](http://blog.csdn.net/u010141025/article/details/41866281)
     
 ##### List Methods
 * list.append(x)
