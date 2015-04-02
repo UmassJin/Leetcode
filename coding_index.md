@@ -323,6 +323,12 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * no need to check len at the beginning 
 * condition: left < right, not the left <= right, since if left == right, which means they point to the same number, return True
 
+
+#####[Trapping Rain Water](./Array/Trapping_Rain_Water.py)
+* Idea: go through the array from left to the right, find the maximum left value
+* And then go through the array from the right to the left, find the maximum right value
+* for the each value A[i], the max value could contain should be min(left_max, right_max) - A[i]
+
 -----
 
 ###String 
