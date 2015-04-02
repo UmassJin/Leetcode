@@ -666,7 +666,7 @@ False
 
 >>> # Demonstrate set operations on unique letters from two words
 ...
->>> a = set('abracadabra')
+>>> a = set('abracadabra')             # s is string type
 >>> b = set('alacazam')
 >>> a                                  # unique letters in a
 set(['a', 'r', 'b', 'c', 'd'])
@@ -678,8 +678,27 @@ set(['a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'])
 set(['a', 'c'])
 >>> a ^ b                              # letters in a or b but not both
 set(['r', 'd', 'b', 'm', 'z', 'l'])
-```
+>>> set_test = set()
+>>> t = 123,456,789                   # t is tuple type 
+>>> set_test = set(t)
+>>> set_test
+set([456, 123, 789])
+>>> type(t)
+<type 'tuple'>
+>>>
+>>> dict = {'a':1,'b':2}                 # dict is the dictionary type 
+>>> set_test = set(dict)
+>>> set_test
+set(['a', 'b'])
 
+```
+* The input parameter should only be list or the string, tuple, the iterate type
+```
+>>> set_test = set('a','b','c')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: set expected at most 1 arguments, got 3
+```
 ##### Operation
 add(elem)
 Add element elem to the set.
