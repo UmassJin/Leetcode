@@ -794,8 +794,15 @@ True
 >>> dict(sape=4139, guido=4127, jack=4098)
 {'sape': 4139, 'jack': 4098, 'guido': 4127}
 ```
+* The order of the key-value pairs is not the same. In fact, if you type the same example on your computer, you might get a different result. In general, the order of items in a dictionary is unpredictable.
 
-* Some operations 
+```
+>>> eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+>>> print eng2sp
+{'one': 'uno', 'three': 'tres', 'two': 'dos'}
+```
+
+#### Some operations 
 ```
 >>> tel = {'jack': 4098, 'sape': 4139}
 >>> tel['guido'] = 4127
@@ -812,7 +819,31 @@ True
 >>> 'guido' in tel
 True
 ```
+ * The in operator uses different algorithms for lists and dictionaries. For lists, it uses a search algorithm, as in Section 8.6. As the list gets longer, the search time gets longer in direct proportion. For dictionaries, Python uses an algorithm called a hashtable that has a remarkable property: the in operator takes about the same amount of time no matter how many items there are in a dictionary. I won’t explain how that’s possible, but you can read more about it at http://en.wikipedia.org/wiki/Hash_table.
 
+```
+>>> 'one' in eng2sp
+True
+>>> 'uno' in eng2sp
+False
+```
+
+####  Explain why the key can not be the mutable type, like list
+* Lists can be values in a dictionary, as this example shows, but they cannot be keys. Here’s what happens if you try:
+
+```
+>>> t = [1, 2, 3]
+>>> d = dict()
+>>> d[t] = 'oops'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+TypeError: list objects are unhashable
+```
+
+* I mentioned earlier that a dictionary is implemented using a hashtable and that means that the keys have to be hashable.
+* A hash is a function that takes a value (of any kind) and returns an integer. Dictionaries use these integers, called hash values, to store and look up key-value pairs.
+* This system works fine if the keys are immutable. But if the keys are mutable, like lists, bad things happen. For example, when you create a key-value pair, Python hashes the key and stores it in the corresponding location. If you modify the key and then hash it again, it would go to a different location. In that case you might have two entries for the same key, or you might not be able to find a key. Either way, the dictionary wouldn’t work correctly.
+* That’s why the keys have to be hashable, and why mutable types like lists aren’t. The simplest way to get around this limitation is to use tuples, which we will see in the next chapter.
 
 
 #### Reference:
