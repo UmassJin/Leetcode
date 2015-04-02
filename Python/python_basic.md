@@ -75,7 +75,7 @@
 | tuple | tuple_test = 1,2,3 | (1,2,3)  | immutable
 | set | set_test =set(['a','b','c']) | python 2.7: set(['a', 'b', 'c']), |
 |     | set_test = set('hello') | python 3.4: {'h', 'e', 'l', 'l', 'o'} | mutable
-| dict | {'a': 1, 'b': 2} | mutable 
+| dict | dict_test = {'a': 1, 'b': 2} | {'a': 1, 'b': 2} | mutable 
 
 ####1. Strings
 ##### Definition 
@@ -746,7 +746,78 @@ KeyError: 'e'
 
 ### Dictionary Object 
 #### Definition 
+* dictionary: ```{key:value; key:value }```
+* Indexed by keys, which can be any immutable type; strings and numbers can always be keys.
+* Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key. 
+* You can’t use lists as keys, since lists can be modified in place using index assignments, slice assignments, or methods like append() and extend().
+* It is best to think of a dictionary as an unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: {}. Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the dictionary; this is also the way dictionaries are written on output.
+* The main operations on a dictionary are storing a value with some key and extracting the value given the key. It is also possible to delete a key:value pair with del. If you store using a key that is already in use, the old value associated with that key is forgotten. It is an error to extract a value using a non-existent key.
+* The keys() method of a dictionary object returns a list of all the keys used in the dictionary, in arbitrary order (if you want it sorted, just apply the sorted() function to it). To check whether a single key is in the dictionary, use the in keyword.
 
+
+``` python
+>>> words = {'a':1,'b':2}   # String as keys
+>>> words
+{'a': 1, 'b': 2}
+
+>>> words = {(1,2,3):'hi',(1,2,3):'world'}  # Tuple as keys 
+>>> words
+{(1, 2, 3): 'world'}    # If there are multiple values map to the same key, will overwrite the first one
+
+>>> words = {[1,2,3]:'hi',[1,2,3]:'world'}   # List can not as keys 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+```
+* More ways to create the dictionary 
+
+```python
+>>> a = dict(one=1, two=2, three=3)
+>>> b = {'one': 1, 'two': 2, 'three': 3}
+>>> c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+>>> d = dict([('two', 2), ('one', 1), ('three', 3)])
+>>> e = dict({'three': 3, 'one': 1, 'two': 2})
+>>> a == b == c == d == e
+True
+```
+* In addition, dict comprehensions can be used to create dictionaries from arbitrary key and value expressions:
+```
+>>>
+>>> {x: x**2 for x in (2, 4, 6)}
+{2: 4, 4: 16, 6: 36}
+```
+
+* When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:
+
+```
+>>>
+>>> dict(sape=4139, guido=4127, jack=4098)
+{'sape': 4139, 'jack': 4098, 'guido': 4127}
+```
+
+* Some operations 
+```
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'guido': 4127, 'irv': 4127, 'jack': 4098}
+>>> tel.keys()
+['guido', 'irv', 'jack']
+>>> 'guido' in tel
+True
+```
+
+
+
+#### Reference:
+* [Tutorial: Dictionaries](https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
+* 
 
 ### Basic knowledge 
 ####1. Use enumerate 
@@ -852,6 +923,17 @@ True`
 4335287104
 >>> y == list(b)
 True
+>>>
+>>> x = [1,2,3]
+>>> y = [4,5,6]
+>>> z = [7,8,9]
+>>> zipped = zip(x,y,z)
+>>> zipped
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+>>> z = [7,8]
+>>> zipped = zip(x,y,z)
+>>> zipped
+[(1, 4, 7), (2, 5, 8)]
 ```
 
 Usage 
