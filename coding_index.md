@@ -300,6 +300,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 #####[Longest Palindromic Substring](./Array/Longest_Palindromic_Substring.py)(需要回看！！)
 
+#####[Rotate Array](./Array/Rotate_Array.py)
+* Note: nums[:] not the nums!!
 -----
 
 ###Math 
