@@ -1,5 +1,39 @@
 #! /usr/bin/env python
 
+/**
+ * http://blog.csdn.net/luckyxiaoqiang/article/details/7518888  轻松搞定面试中的二叉树题目 
+ * http://www.cnblogs.com/Jax/archive/2009/12/28/1633691.html  算法大全（3） 二叉树 
+ *  
+ * TODO: 一定要能熟练地写出所有问题的递归和非递归做法！ 
+ * 
+ * 1. 前序遍历，中序遍历，后序遍历: preorderTraversalRec, preorderTraversal, inorderTraversalRec, postorderTraversalRec 
+ * (https://en.wikipedia.org/wiki/Tree_traversal#Pre-order_2) 
+ * 2. 分层遍历二叉树（按层次从上往下/从下往上，从左往右）: levelTraversal, levelTraversalRec（递归解法！） 
+ * 3. 求最大最小二叉树的深度: getDepthRec（递归），getDepthRec, find MAX/MIN depth 
+ * 4. 判断二叉树是不是二叉搜索树
+ * 5. 给定一个数字n，可以写出多少相关的二叉搜索树, optimization: 列出所有的二叉树
+ * 6. 判断二叉树是不是平衡二叉树：isAVLRec 
+ * 7. 判断两个树是否互相镜像：isMirrorRec 
+ * 8. 判断两棵二叉树是否相同的树：isSameRec, isSame 
+ * 9. 计算二叉树从根节点到叶子节点的合
+ * 10. 给定一个数字，判断是否存在路径的合，并别输出这个路径
+ * 11 找出一个二叉搜索树中被颠倒的两个节点
+ * 12 将一个二叉树变成flatten tree based on pre-order
+ * 13 Convert the sorted array to the BST 
+ * 14. 由前序遍历序列和中序遍历序列重建二叉树：rebuildBinaryTreeRec  
+ * 15. 由后序遍历序列和中序遍历序列重建二叉树：rebuildBinaryTreeRec 
+ * 16. 求二叉树中节点的最大距离：getMaxDistanceRec 
+ * 17. 按照z字形输出树的节点
+ * 18. 将二叉查找树变为有序的双向链表: convertBST2DLLRec, convertBST2DLL 
+ * 19. 求二叉树中的节点个数: getNodeNumRec（递归），getNodeNum（迭代） 
+ * 20. 求二叉树第K层的节点个数：getNodeNumKthLevelRec, getNodeNumKthLevel 
+ * 21. 求二叉树中叶子节点的个数：getNodeNumLeafRec, getNodeNumLeaf 
+ * 22. 求二叉树中两个节点的最低公共祖先节点：getLastCommonParent, getLastCommonParentRec, getLastCommonParentRec2 
+ * 23. 求二叉树的镜像（破坏和不破坏原来的树两种情况）：mirrorRec, mirrorCopyRec 
+ * 24.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
+ */  
+
+
 class tree_node(object):
     def __init__(self, value):
         self.val = value
