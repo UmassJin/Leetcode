@@ -319,6 +319,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Have two variables: one is bit: sum %2, one is carry sum/2
 * Insert the bit into result, check the last carry value 
 
+#####[Plus One](./Array/Plus_One.py)
+* Note the details: check carry, and if last carry == 1 or not 
+
 -----
 
 ###Two Pointer
