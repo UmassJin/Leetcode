@@ -153,3 +153,50 @@ def levelOrderBottom_iter(root):
             if node.right: queue.append(node.right)
         result.insert(0, qlist)
     return result
+
+# 11) Find the Minimum Depth of the tree, recursion
+def minDepth_rec(root):
+    if not root: return 0
+    if (root.left and not root.right):
+        return minDepth_rec(root.left)+1
+    if (not root.left and root.right):
+        return minDepth_rec(root.right)+1
+    return min(minDepth_rec(root.left),minDepth_rec(root.right))+1
+
+# 12) Find the Minimum Depth of the tree, iteration 
+def minDepth_iter(root):
+    queue = []; depth = 0
+    if not root: return depth
+    queue.append((root,1))
+
+    while queue:
+        node, depth = queue.pop(0)
+        if node.left: queue.append((node.left,depth+1))
+        if node.right:queue.append((node.right,depth+1))
+        if not node.left and not node.right:
+            return depth
+
+# 13) Find the Maximum Depth of the tree, recursion
+def maxDepth_rec(root):
+    if root == None:
+        return 0
+    if (root.left != None and root.right == None):
+        return maxDepth_rec(root.left) + 1
+    if (root.left == None and root.right != None):
+        return maxDepth_rec(root.right) + 1
+    return max(maxDepth_rec(root.left), maxDepth_rec(root.right))+1
+
+# 14) Find the Maximum Depth of the tree, iteration
+def maxDepth_iter(root):
+    queue = []; depth = 0
+    if not root: return depth
+    queue.append((root,1))
+
+    while queue:
+        node, depth = queue.pop(0)
+        if node.left: queue.append((node.left,depth+1))
+        if node.right:queue.append((node.right,depth+1))
+        if not node.left and not node.right:
+            continue
+    return depth
+
