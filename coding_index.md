@@ -335,8 +335,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Note: the while loop condition !
 * Last the return value is start !
 
-
 #####[Search for a Range](./Array/Search_for_a_range.py)
+#####[Remove Element](./Array/Remove_Element.py)
 
 ### Matrix
 #####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
