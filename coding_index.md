@@ -308,6 +308,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Use the math method to compare the first number and last number
 * Then in the next step, reduce this two numbers
 
+
 #####[Add Binary](./Array/Add_Binary.py)
 * 解题思路:
 * Go through the number a and b from the last digit 
@@ -323,11 +324,21 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * no need to check len at the beginning 
 * condition: left < right, not the left <= right, since if left == right, which means they point to the same number, return True
 
-
 #####[Trapping Rain Water](./Array/Trapping_Rain_Water.py)
 * Idea: go through the array from left to the right, find the maximum left value
 * And then go through the array from the right to the left, find the maximum right value
 * for the each value A[i], the max value could contain should be min(left_max, right_max) - A[i]
+
+#####[Search Insert Position](./Array/Search_Insert_Position.py)
+* Note: the while loop condition !
+* Last the return value is start !
+
+
+#####[Search for a Range](./Array/Search_for_a_range.py)
+
+### Matrix
+#####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
+
 
 -----
 
