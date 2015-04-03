@@ -123,3 +123,33 @@ def levelOrder_iter(root):
         result.append(sublist)
     return result
 
+# 9) Level Traversal from bottom to top, recursion 
+def levelOrderBottom_rec(root):
+    result = []
+    if not root: return result  # Note: check the root = None !!
+    level_bottom_rec(root, result, 0)
+    return result
+
+def level_bottom_rec(root, result, level):
+    if root:
+        if len(result) < level + 1:
+            result.insert(0,[])
+        result[len(result)-level-1].append(root.val)
+        level_bottom_rec(root.left, result, level+1)
+        level_bottom_rec(root.right, result, level+1)
+
+# 10) Level Traversal from bottom to top, iteration  
+def levelOrderBottom_iter(root):
+    queue = [root]; result = []
+    if not root: return result
+
+    while queue:
+        qlist = []
+        length = len(queue)
+        for i in xrange(length):
+            node = queue.pop(0)
+            qlist.append(node.val)
+            if node.left: queue.append(node.left)
+            if node.right: queue.append(node.right)
+        result.insert(0, qlist)
+    return result
