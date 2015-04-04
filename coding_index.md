@@ -92,7 +92,9 @@
 * function:  
   ```python
   dp[i]   = 0        # if A[i] == 0 and A[i-1] not in [1,2]
+  
          += dp[i-1]  # if A[i] != 0
+         
          += dp[i-2]  # if 10 <= int(A[i-2:i]) <= 26
   ```
 * initialize: ```dp[0] = 1```
