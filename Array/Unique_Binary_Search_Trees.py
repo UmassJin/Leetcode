@@ -40,3 +40,5 @@ F[i, n]: the number of unique BST, where the number i is the root of BST, and th
 F[i, n] = result[i-1] * result[n-i]  1<= i <= n
 result[n] = result[0]*result[n-1] + result[1]*result[n-2]+..+result[n-1]*result[0]
 # result: result[n]
+
+# Reference: https://leetcode.com/discuss/24282/dp-solution-in-6-lines-with-explanation-f-i-n-g-i-1-g-n-i
