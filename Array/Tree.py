@@ -336,4 +336,62 @@ def isSymmetric_iter(root):
         queue.append((left.left,right.right))
     return True
 
+# 21) Same tree or not ?
+def isSameTree(p, q):
+    if not p and not q: return True
+    if not q or not p: return False
+    if p.val != q.val: return False
+    return (isSameTree(p.left,q.left) and isSameTree(p.right,q.right))
 
+def isSameTree(p,q):
+    if not p and not q: return True
+    if not q or not p: return False
+    queue = [(p, q)]
+    while queue:
+        p, q = queue.pop(0)
+        if not p and not q: continue
+        if not p or not q: return False
+        if p.val != q.val: return False
+        queue.append((p.left,q.left))
+        queue.append((p.right, q.right))
+    return True
+
+# 22) sum from root-to-leaf
+def hasPathSum(root, sum):
+    if not root: return False
+    sum = sum - root.val
+    if not root.left and not root.right:
+        if sum == 0: return True
+        else: return False
+    return hasPathSum(root.left, sum) or hasPathSum(root.right, sum)
+
+    
+# 23) sum from root-to-leaf, print out all the path
+def pathSum(root, sum):
+    result = []
+    path_sum(root, sum, result, [])
+    return result
+
+def path_sum(root, sum, result, res_list):
+    if not root: return 
+    if not root.left and not root.right:
+        if sum == root.val:
+            res_list.append(root.val)
+            result.append(res_list[:]) # Note: here we should give the res_list[:] not the res_list!!!
+            res_list.pop()
+    path_sum(root.left, sum - root.val, result, res_list+[root.val])
+    path_sum(root.right, sum - root.val, result, res_list+[root.val])
+    
+# The other method 
+def pathSum_1(root, sum):
+    def getpath(node,cursum,curlist):
+        if not node.left and not node.right:
+            if cursum == sum: return result.append(curlist)
+        if node.left:
+            getpath(node.left,cursum+node.left.val,curlist+[node.left.val])
+        if node.right:
+            getpath(node.right,cursum+node.right.val,curlist+[node.right.val])
+
+    if not root: return []
+    result = [];curlist = [root.val]
+    getpath(root,root.val,curlist)
