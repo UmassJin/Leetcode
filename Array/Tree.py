@@ -293,3 +293,47 @@ def dfs(start, end):
                 res.append(root)
     return res
 
+# 19) Determine if a binary tree is the height-balanced tree
+def isBalanced(root):
+       global result
+       result = True
+       getheight(root)
+       return result
+
+def getheight(root):
+        global result
+        if not root: return 0
+        left = getheight(root.left)
+        right = getheight(root.right)
+
+        if abs(left-right) > 1:
+            result = False
+        return max(left,right) + 1
+
+# 20) Determine if the tree is a mirror of itself 
+# Recursion 
+def isSymmetric_rec(root):
+    if not root: return True # Note this check !
+    return check_symmetric(root.left, root.right)
+
+def check_symmetric(left, right):
+    if not left and not right: return True    # Note this check !
+    if not left or not right: return False
+    return (left.val == right.val and check_symmetric(left.left, right.right) and \
+            check_symmetric(left.right, right.left))
+
+# Iteration 
+def isSymmetric_iter(root):
+    if not root: return True
+    queue = [(root.left, root.right)]
+
+    while queue:
+        left, right = queue.pop(0)
+        if not left and not right: continue
+        if not left or not right: return False
+        if left.val != right.val: return False
+        queue.append((left.right,right.left))
+        queue.append((left.left,right.right))
+    return True
+
+
