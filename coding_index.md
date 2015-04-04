@@ -478,8 +478,8 @@ _____
 * [ ] Binary Search Tree Iterator 
 
 ###类Tree(以tree作为Data Structure的题目)
-* [ ] Path Sum
-* [ ] Path Sum II
+* [x] Path Sum
+* [x] Path Sum II
 * [ ] Populating Next Right Pointers in Each Node
 * [ ] Populating Next Right Pointers in Each Node II
 * [ ] Sum Root to Leaf Numbers
