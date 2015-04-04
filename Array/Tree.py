@@ -234,3 +234,25 @@ def maxDepth_iter(root):
             continue
     return depth
 
+# 15) determine if the tree is a valid BST, recursion
+def isValidBST_rec(root):
+    return check_validBST(root,-(1<<31)-1,1<<31) 
+    # Note: max:1<<31-1, min:-1<<31, but here each one need to +1
+
+def check_validBST(root,min_val,max_val):
+    if not root: return True  # Check here!
+    if root.val <= min_val or root.val >= max_val: return False     return (check_validBST(root.left,min_val,root.val) and check_validBST(root.right,root.val,max_val))
+
+
+# 16) determine if the tree is a valid BST, iteration
+def isValidBST_iter(root):
+    stack = []; pre= None;node = root
+    while stack or node:
+        while node:                
+            stack.append(node)                
+            node = node.left
+        node = stack.pop()
+        if pre and node.val <= pre.val: return False
+        pre,node = node,node.right
+    return True
+
