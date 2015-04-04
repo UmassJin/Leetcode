@@ -104,8 +104,11 @@
 * function: 
   ```
   result[n] = F(1,n) + F[2,n] +...F[n,n]   
+  
   F[i, n]:  # the number of unique BST, where the number i is the root of BST, and the sequence ranges from 1 to n.
+  
   F[i, n] = result[i-1] * result[n-i]  1<= i <= n
+  
   result[n] = result[0]*result[n-1] + result[1]*result[n-2]+..+result[n-1]*result[0]
   ```
 * result: result[n]
