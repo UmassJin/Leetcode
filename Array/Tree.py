@@ -241,7 +241,8 @@ def isValidBST_rec(root):
 
 def check_validBST(root,min_val,max_val):
     if not root: return True  # Check here!
-    if root.val <= min_val or root.val >= max_val: return False     return (check_validBST(root.left,min_val,root.val) and check_validBST(root.right,root.val,max_val))
+    if root.val <= min_val or root.val >= max_val: return False     
+    return (check_validBST(root.left,min_val,root.val) and check_validBST(root.right,root.val,max_val))
 
 
 # 16) determine if the tree is a valid BST, iteration
