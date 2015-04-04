@@ -98,6 +98,18 @@
 * initialize: ```dp[0] = 1```
 * answer: ```dp[N]``` (这里比较特殊，因为是前i-1个数字，且dp[0]只是作为一个起始数字来的)
 
+######[Unique Binary Search Trees.py](./Array/Unique_Binary_Search_Trees.py)
+* status: result[i]: the number of unique BST for a sequence of length i.
+* initialize: result[0]= 1; result[1] = 1, only one combination to construct a BST out of a sequence 
+* function: 
+  ```
+  result[n] = F(1,n) + F[2,n] +...F[n,n]   
+  F[i, n]:  # the number of unique BST, where the number i is the root of BST, and the sequence ranges from 1 to n.
+  F[i, n] = result[i-1] * result[n-i]  1<= i <= n
+  result[n] = result[0]*result[n-1] + result[1]*result[n-2]+..+result[n-1]*result[0]
+  ```
+* result: result[n]
+
 -----
 
 ####3. Two Sequences DP 40%
