@@ -257,3 +257,39 @@ def isValidBST_iter(root):
         pre,node = node,node.right
     return True
 
+# 17) Given n, how many unique BST ?
+def numTrees(n):
+    if n <= 1: return 1
+    result = 0
+    for i in xrange(1,n+1):
+        result += numTrees(i-1)*numTrees(n-i)
+    return result
+
+# DP (46ms)    
+def numTrees_dp(n):
+    result = [0 for i in xrange(n+1)]
+    result[0] = 1; result[1] = 1
+
+    for i in xrange(2, n+1):
+        for j in xrange(1, n+1):
+            result[i] += result[j-1]*result[i-j]
+    return result[n]
+
+# 18) Given n, how many unique BST, display all of them.
+def generateTrees(n):
+    return dfs(1,n)
+
+def dfs(start, end):
+    if start > end: return [None]
+    res = []
+    for i in xrange(start, end+1):
+        left = dfs(start, i-1)
+        right = dfs(i+1, end)
+        for l in left:
+            for r in right:
+                root = tree_node(i)
+                root.left = l
+                root.right = r
+                res.append(root)
+    return res
+
