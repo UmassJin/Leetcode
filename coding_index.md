@@ -444,3 +444,45 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * 3) sorted(s1) 与 sorted(s2)是不是相等
 * 4) 比较s1[:i] s2[:i] and s1[i:],s2[i:]
 # 5) 比较s1[:i], s2[length_s2-i:] and s1[i:],s2[length_s2:-i]
+
+
+-----
+
+###Tree
+* [x] Binary Tree Inorder Traversal
+* [x] Binary Tree Preorder Traversal
+* [x] Binary Tree Postorder Traversal
+* [x] Binary Tree Level Order Traversal
+* [x] Binary Tree Level Order Traversal II
+* [ ] Binary Tree Zigzag Level Order Traversal
+
+_____
+
+* [ ] Construct Binary Tree from Preorder and Inorder Traversal
+* [ ] Construct Binary Tree from Inorder and Postorder Traversal
+
+-----
+
+* [x] Same Tree
+* [x] Balanced Binary Tree
+* [x] Symmetric Tree
+* [x] Maximum Depth of Binary Tree
+* [x] Minimum Depth of Binary Tree
+
+###Binary Search Tree
+* [ ] Convert Sorted Array to Binary Search Tree
+* [x] Unique Binary Search Trees
+* [x] Unique Binary Search Trees II
+* [ ] Validate Binary Search Tree
+* [ ] Recover Binary Search Tree
+* [ ] Binary Search Tree Iterator 
+
+###类Tree(以tree作为Data Structure的题目)
+* [ ] Path Sum
+* [ ] Path Sum II
+* [ ] Populating Next Right Pointers in Each Node
+* [ ] Populating Next Right Pointers in Each Node II
+* [ ] Sum Root to Leaf Numbers
+* [ ] Flatten Binary Tree to Linked List
+* [ ] Binary Tree Maximum Path Sum
+* [ ] Binary Tree Upside Down 
