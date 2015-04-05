@@ -432,3 +432,35 @@ def zigzagLevelOrder_iter(root):
         else:
             result.append(res_list[::-1])
     return result
+
+# 25) Find the total sum of all root-to-leaf numbers
+# Recursion:
+def sumNumbers_rec(root):
+    return addsum(root,0)
+
+def addsum(root, sumvalue):
+    if not root: return 0
+    sumvalue = sumvalue*10 + root.val # Good pointer is here !! 
+    if not root.left and not root.right: return sumvalue
+    return addsum(root.left, sumvalue) + addsum(root.right, sumvalue)
+
+# Iteration:
+def sumNumbers_iter(root):
+    if not root: return 0
+    queue = [root.val]; nodelist = [root]; result = 0 
+    while nodelist:
+            node = nodelist.pop()  # Note: here we use two queue!!!
+            tmpval = queue.pop()
+            
+            if node.left:
+                nodelist.append(node.left)
+                queue.append(tmpval*10+node.left.val)
+                
+            if node.right:
+                nodelist.append(node.right) 
+                queue.append(tmpval*10+node.right.val)
+            
+            if not node.left and not node.right:
+                result = result + tmpval
+
+    return result 
