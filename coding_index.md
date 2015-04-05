@@ -449,6 +449,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 -----
 
 ###[Tree](./Array/Tree.py)
+* The resolution for each question have two methods: recursion and iteration 
 * [x] Binary Tree Inorder Traversal
 * [x] Binary Tree Preorder Traversal
 * [x] Binary Tree Postorder Traversal
@@ -482,7 +483,7 @@ _____
 * [x] Path Sum II
 * [ ] Populating Next Right Pointers in Each Node
 * [ ] Populating Next Right Pointers in Each Node II
-* [ ] Sum Root to Leaf Numbers
+* [x] Sum Root to Leaf Numbers
 * [ ] Flatten Binary Tree to Linked List
 * [ ] Binary Tree Maximum Path Sum
 * [ ] Binary Tree Upside Down 
