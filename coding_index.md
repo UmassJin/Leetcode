@@ -459,8 +459,8 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 
 _____
 
-* [ ] Construct Binary Tree from Preorder and Inorder Traversal
-* [ ] Construct Binary Tree from Inorder and Postorder Traversal
+* [x] Construct Binary Tree from Preorder and Inorder Traversal
+* [x] Construct Binary Tree from Inorder and Postorder Traversal
 
 -----
 
