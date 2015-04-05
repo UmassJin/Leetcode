@@ -454,7 +454,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * [x] Binary Tree Postorder Traversal
 * [x] Binary Tree Level Order Traversal
 * [x] Binary Tree Level Order Traversal II
-* [ ] Binary Tree Zigzag Level Order Traversal
+* [x] Binary Tree Zigzag Level Order Traversal
 
 _____
 
