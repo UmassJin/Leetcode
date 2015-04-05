@@ -464,3 +464,16 @@ def sumNumbers_iter(root):
                 result = result + tmpval
 
     return result 
+
+# 26) Construct Binary Tree from Preorder and Inorder Traversal 
+def buildTree(preorder, inorder):
+    return buildfunc(0,preorder,0,len(inorder)-1,inorder)
+
+def buildfunc(prestart,preorder,instart,inend,inorder):
+    if instart > inend or prestart > len(preorder)-1: return None
+    node = TreeNode(preorder[prestart])
+    index = inorder.index(preorder[prestart])
+    node.left = buildfunc(prestart+1,preorder,instart,index-1,inorder)
+    node.right = buildfunc(prestart+index-instart+1,preorder,index+1,inend,inorder) # index important!!!
+    return node
+
