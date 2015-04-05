@@ -395,3 +395,40 @@ def pathSum_1(root, sum):
     if not root: return []
     result = [];curlist = [root.val]
     getpath(root,root.val,curlist)
+
+# 24) Zigzag Level Order Traversal
+def zigzagLevelOrder_rec(root):
+    result = []
+    zig_order(root, result, 0)
+    return result
+
+def zig_order(root, result, level):
+    if root:
+        if len(result) < level + 1:
+            result.append([])
+        if level % 2 == 0:
+            result[level].append(root.val)
+        else:
+            result[level].insert(0, root.val)
+        zig_order(root.left, result, level +1)
+        zig_order(root.right, result, level +1)
+
+# Zigzag level Order Iteration 
+def zigzagLevelOrder_iter(root):
+    queue = [root]
+    result = []
+    if not root: return result
+
+    while queue:
+        res_list = []
+        for i in xrange(len(queue)):
+            q = queue.pop(0)
+            res_list.append(q.val)
+            if q.left: queue.append(q.left)
+            if q.right: queue.append(q.right)
+
+        if len(result) %2 == 0:
+            result.append(res_list)
+        else:
+            result.append(res_list[::-1])
+    return result
