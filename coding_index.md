@@ -471,12 +471,12 @@ _____
 * [x] Minimum Depth of Binary Tree
 
 ###Binary Search Tree
-* [ ] Convert Sorted Array to Binary Search Tree
+* [x] Convert Sorted Array to Binary Search Tree
 * [x] Unique Binary Search Trees
 * [x] Unique Binary Search Trees II
-* [ ] Validate Binary Search Tree
+* [x] Validate Binary Search Tree
 * [x] Recover Binary Search Tree
-* [ ] Binary Search Tree Iterator 
+* [x] Binary Search Tree Iterator 
 
 ###类Tree(以tree作为Data Structure的题目)
 * [x] Path Sum
