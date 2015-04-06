@@ -475,7 +475,7 @@ _____
 * [x] Unique Binary Search Trees
 * [x] Unique Binary Search Trees II
 * [ ] Validate Binary Search Tree
-* [ ] Recover Binary Search Tree
+* [x] Recover Binary Search Tree
 * [ ] Binary Search Tree Iterator 
 
 ###类Tree(以tree作为Data Structure的题目)
