@@ -477,3 +477,64 @@ def buildfunc(prestart,preorder,instart,inend,inorder):
     node.right = buildfunc(prestart+index-instart+1,preorder,index+1,inend,inorder) # index important!!!
     return node
 
+# 27) Construct Binary Tree from Inorder and Postorder Traversal 
+def buildTree_in_post(inorder, postorder):
+    if len(inorder) == 0 and len(postorder) ==0: return None
+    return buildfunc_in_post(0,len(inorder)-1,inorder,0,len(postorder)-1,postorder)
+
+def buildfunc_in_post(instart,inend,inorder,postart,postend,postorder):
+    if instart > inend or postend < postart: return None
+    nodeval = postorder[postend]
+    node = TreeNode(nodeval)
+    index = inorder.index(nodeval)
+    node.left = buildfunc_in_post(instart,index-1,inorder,postart,postart-1+index-instart,postorder)
+    node.right = buildfunc_in_post(index+1,inend,inorder,postart+index-instart,postend-1,postorder)
+    return node
+
+# 28) Two elements of a binary search tree (BST) are swapped by mistake
+class Solution:
+    # @param root, a tree node
+    # @return a tree node
+    # Use the Inorder recursion to find the two nodes
+    # Recursion: 177ms
+    def recoverTree_1(self, root):
+        self.first = None; self.second = None; self.pre = None 
+        self.inorderTree(root)
+        self.first.val, self.second.val = self.second.val, self.first.val
+        
+    def inorderTree(self,node):
+            if not node: return 
+            self.inorderTree(node.left)
+        
+            if self.pre and self.pre.val > node.val:
+                    if not self.first:
+                        self.first = self.pre
+                    self.second = node  # Note here !!!
+                    self.pre = node
+            else:
+                self.pre = node 
+        
+            self.inorderTree(node.right)
+    
+    # Iteration
+    def recoverTree(self, root):
+        self.first = None; self.second = None; self.pre = None
+        queue = []
+        node = root 
+        while node or queue:
+            while node:
+                queue.append(node)
+                node = node.left
+            
+            node = queue.pop()
+            if self.pre and self.pre.val > node.val:
+                if not self.first:
+                    self.first = self.pre
+                self.second = node  # Note: here!!
+                self.pre = node
+            else:
+                self.pre = node 
+            
+            node = node.right
+        self.first.val, self.second.val = self.second.val, self.first.val # Note: change the value!!!
+        
