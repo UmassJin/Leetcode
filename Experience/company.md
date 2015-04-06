@@ -7,10 +7,10 @@
 * [ ] HP Vertica
 * [ ] Bloomburg
 * [ ] Epic
-* [ ]Yahoo
-* [ ]Ebay
-* [ ]AppDynamic
-* [ ]Nutanix
+* [ ] Yahoo
+* [ ] Ebay
+* [ ] AppDynamic
+* [ ] Nutanix
 * Pinterest
 * Coursera
 * Airbnb 
