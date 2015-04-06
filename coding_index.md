@@ -481,9 +481,10 @@ _____
 ###类Tree(以tree作为Data Structure的题目)
 * [x] Path Sum
 * [x] Path Sum II
-* [ ] Populating Next Right Pointers in Each Node
-* [ ] Populating Next Right Pointers in Each Node II
+* [x] Populating Next Right Pointers in Each Node
+* [x] Populating Next Right Pointers in Each Node II
 * [x] Sum Root to Leaf Numbers
 * [ ] Flatten Binary Tree to Linked List
+* [ ] Convert Sorted List to Binary Search Tree 
 * [ ] Binary Tree Maximum Path Sum
 * [ ] Binary Tree Upside Down 
