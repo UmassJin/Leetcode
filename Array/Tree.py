@@ -551,3 +551,33 @@ class Solution:
         newnode.right = self.sortedArrayToBST(num[mid+1:])
         return newnode 
 
+# 30) Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+#     Calling next() will return the next smallest number in the BST.
+#     Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
+class BSTIterator:
+    # @param root, a binary search tree's root node
+    def __init__(self, root):
+        self.q = []
+        self.root = root
+        self.getallleft(self.root)
+
+    # @return a boolean, whether we have a next smallest number
+    def hasNext(self):
+        if not self.q: return False
+        else: return True
+
+    # @return an integer, the next smallest number
+    def next(self):
+        node = self.q.pop()
+        self.getallleft(node.right) 
+        return node.val 
+        
+    def getallleft(self,root):
+        while root:
+            self.q.append(root)
+            root = root.left
+        
+
+# Your BSTIterator will be called like this:
+# i, v = BSTIterator(root), []
+# while i.hasNext(): v.append(i.next())
