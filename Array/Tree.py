@@ -31,6 +31,7 @@
  * 22. 求二叉树中两个节点的最低公共祖先节点：getLastCommonParent, getLastCommonParentRec, getLastCommonParentRec2 
  * 23. 求二叉树的镜像（破坏和不破坏原来的树两种情况）：mirrorRec, mirrorCopyRec 
  * 24.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
+ * 25. Populating Next Right Pointers in Each Node 
  */  
 
 
@@ -581,3 +582,71 @@ class BSTIterator:
 # Your BSTIterator will be called like this:
 # i, v = BSTIterator(root), []
 # while i.hasNext(): v.append(i.next())
+
+
+# 31) Populating Next Right Pointers in Each Node I
+class Solution:
+    # @param root, a tree node
+    # @return nothing
+    # Recursion (129ms)
+    # This solution could ONLY used for the FULL tree 
+    def connect(self, root):
+        if not root: return 
+        self.connect(root.left)
+        self.connect(root.right)
+        
+        p,q = root.left, root.right
+        while p:
+            p.next = q
+            p = p.right
+            q = q.left
+    
+    # Iterative (127ms)
+    # This solution could also used for the the II, for any tree 
+    def connect_1(self, root):
+        head = root; cur = None; pre = None
+        
+        while head:
+            cur = head
+            head = None; pre = None
+            while cur:
+                if cur.left:
+                    if pre: 
+                        pre.next = cur.left
+                        pre = pre.next
+                    else: 
+                        pre = cur.left
+                        head = pre
+                if cur.right:
+                    if pre: 
+                        pre.next = cur.right 
+                        pre = pre.next 
+                    else: 
+                        pre = cur.right
+                        head = pre
+                
+                cur = cur.next 
+
+# 32) Populating Next Right Pointers in Each Node II 
+class Solution:
+    # @param root, a tree link node
+    # @return nothing
+    def connect(self, root):
+        if root == None: return
+        dummy = TreeNode(0)
+        cur = root
+        while cur:
+            ptr = dummy
+            dummy.next = None
+            while cur:
+                if cur.left:
+                    ptr.next = cur.left
+                    ptr = ptr.next
+                if cur.right:
+                    ptr.next = cur.right
+                    ptr = ptr.next
+                cur = cur.next
+            cur = dummy.next
+        return
+
+# 33) Flatten Binary Tree to Linked List 
