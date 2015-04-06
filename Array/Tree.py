@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+'''
 /**
  * http://blog.csdn.net/luckyxiaoqiang/article/details/7518888  轻松搞定面试中的二叉树题目 
  * http://www.cnblogs.com/Jax/archive/2009/12/28/1633691.html  算法大全（3） 二叉树 
@@ -33,7 +33,7 @@
  * 24.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
  * 25. Populating Next Right Pointers in Each Node 
  */  
-
+'''
 
 class tree_node(object):
     def __init__(self, value):
