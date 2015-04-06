@@ -537,4 +537,17 @@ class Solution:
             
             node = node.right
         self.first.val, self.second.val = self.second.val, self.first.val # Note: change the value!!!
-        
+
+# 29) Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+class Solution:
+    # @param num, a list of integers
+    # @return a tree node
+    def sortedArrayToBST(self, num):
+        length = len(num)
+        if length == 0: return None
+        mid = length/2
+        newnode = TreeNode(num[mid])
+        newnode.left = self.sortedArrayToBST(num[:mid])
+        newnode.right = self.sortedArrayToBST(num[mid+1:])
+        return newnode 
+
