@@ -185,7 +185,7 @@
 * answer: ```dp[M][N]```
 * Better Solution: check later https://leetcode.com/discuss/19973/8ms-c-solution-using-bfs-with-explanation
 
-######[Regular Expression Matching](./Array/Interleaving_String.py)
+######[Regular Expression Matching](./Array/Regular_Expression_Matching.py)
 * state: ```dp[i][j]``` 表示```s[0:i-1]```是否能和 ```p[0:j-1]```匹配
 * initialize:  ``` dp[0][0] = True ```
 * function: 
@@ -208,18 +208,18 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * '*' Matches any sequence of characters (including the empty sequence).
 * isMatch("ab", "?*") → true
 * isMatch("aab", "c*a*b") → false
-* Example isMatch("abebdcd","?b*cd") → True
+* Example  ```isMatch("abebdcd","?b*cd")``` → True
 *    a-->'?'; b-->b; '*'-->'ebd';'cd'-->'cd'
-* Example isMatch("abebdcbd","?b*cd") → False
+* Example ```isMatch("abebdcbd","?b*cd")``` → False
 *    a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
 
 ######Regular Expression Matching 
 * '.' Matches any single character.
 * '*' Matches zero or more of the preceding element.
 
-* isMatch("ab", ".*") → true
+* ```isMatch("ab", ".*")``` → true
 * '.*' could match any strng, since * means zero or more of the preceding element, so here maybe 0 or more '.'
-* isMatch("aab", "c*a*b") → true 
+* ```isMatch("aab", "c*a*b")``` → true 
 * here is true since c maybe have 0 times 
 
 
