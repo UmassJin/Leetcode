@@ -21,10 +21,12 @@
      这里有一点点差别就是如果是preorder的话，```head.left = None```需要单独处理下
 5. ```last = root```更新```last```
 6. ```head```就是初始设为None, 第一个需要处理的node就赋为```head```就行了
+
+Good Reference: 
+http://articles.leetcode.com/2010/11/convert-binary-search-tree-bst-to.html
+http://cslibrary.stanford.edu/109/TreeListRecursion.html
+
 '''
-
-#Good Reference: http://articles.leetcode.com/2010/11/convert-binary-search-tree-bst-to.html
-
 # Convert BST to the Circular Double linked list 
 # The most important thing for converting is the header pointer,
 # The first node, previous pointer pointer to the last element 
