@@ -669,4 +669,22 @@ class Solution:
         p.right = root.right 
         root.right = root.left
         root.left = None
-        
+
+# 34) Binary Tree Right Side View 
+
+class Solution:
+    # @param root, a tree node
+    # @return a list of integers
+    def rightSideView(self, root):
+        queue = [root]
+        result = []
+        if not root: return result
+        while queue:
+            length = len(queue)
+            for i in xrange(length):
+                node = queue.pop(0)
+                if node.left: queue.append(node.left)
+                if node.right: queue.append(node.right)
+                if i == length -1:
+                    result.append(node.val)
+        return result 
