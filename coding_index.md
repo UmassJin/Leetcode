@@ -493,8 +493,7 @@ _____
 
 #### Basic Tree question not in Leetcode
 * [x] Find the leaf nodes number in the tree
-* [ ] Find the nodes number in k level 
-* [ ] Find the total nodes number 
+* [x] Find the nodes number in k level 
 * [ ] Find the common ancestry
 
 #### Algorithm related to Tree/Graph
