@@ -688,3 +688,23 @@ class Solution:
                 if i == length -1:
                     result.append(node.val)
         return result 
+
+# 35) Binary Tree Maximum Path Sum 
+class Solution:
+    # @param root, a tree node
+    # @return an integer
+    def maxPathSum(self, root):
+        self.maxval = -999999
+        self.maxsum(root)
+        return self.maxval
+        
+    def maxsum(self,root):
+        if not root: return 0
+        l = self.maxsum(root.left)
+        r = self.maxsum(root.right)
+        if l < 0: l = 0
+        if r < 0: r = 0
+        self.maxval = max(self.maxval,l+r+root.val)
+        return max(l,r)+root.val
+        
+        
