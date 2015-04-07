@@ -484,7 +484,8 @@ _____
 * [x] Populating Next Right Pointers in Each Node
 * [x] Populating Next Right Pointers in Each Node II
 * [x] Sum Root to Leaf Numbers
-* [ ] Flatten Binary Tree to Linked List
+* [x] Flatten Binary Tree to Linked List
+* [x] [Convert BST to the (Circal) Doubled Linked List](./Array/Convert_BST_to_DDL.py) Important!会看！
 * [ ] Convert Sorted List to Binary Search Tree 
 * [ ] Binary Tree Maximum Path Sum
 * [ ] Binary Tree Upside Down 
