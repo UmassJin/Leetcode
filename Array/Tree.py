@@ -25,13 +25,12 @@
  * 16. 求二叉树中节点的最大距离：getMaxDistanceRec 
  * 17. 按照z字形输出树的节点
  * 18. 将二叉查找树变为有序的双向链表: convertBST2DLLRec, convertBST2DLL 
- * 19. 求二叉树中的节点个数: getNodeNumRec（递归），getNodeNum（迭代） 
- * 20. 求二叉树第K层的节点个数：getNodeNumKthLevelRec, getNodeNumKthLevel 
- * 21. 求二叉树中叶子节点的个数：getNodeNumLeafRec, getNodeNumLeaf 
- * 22. 求二叉树中两个节点的最低公共祖先节点：getLastCommonParent, getLastCommonParentRec, getLastCommonParentRec2 
- * 23. 求二叉树的镜像（破坏和不破坏原来的树两种情况）：mirrorRec, mirrorCopyRec 
- * 24.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
- * 25. Populating Next Right Pointers in Each Node 
+ * 19. 求二叉树第K层的节点个数：getNodeNumKthLevelRec, getNodeNumKthLevel 
+ * 20. 求二叉树中叶子节点的个数：getNodeNumLeafRec, getNodeNumLeaf 
+ * 21. 求二叉树中两个节点的最低公共祖先节点：getLastCommonParent, getLastCommonParentRec, getLastCommonParentRec2 
+ * 22. 求二叉树的镜像（破坏和不破坏原来的树两种情况）：mirrorRec, mirrorCopyRec 
+ * 23.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
+ * 24. Populating Next Right Pointers in Each Node 
  */  
 '''
 
@@ -727,3 +726,26 @@ def findleafnode_iter(root):
             result += 1
     return result
     
+# 37) Find the kth level node number in the tree
+def knodes(root, k):
+    if (not root) or (k < 1): return 0
+    queue = [root]
+    level = 0
+    while queue:
+        level += 1
+        length = len(queue)
+        if level == k: return length
+        for i in xrange(len(queue)):
+            node = queue.pop(0)
+            if node.left: queue.append(node.left)
+            if node.right: queue.append(node.right)
+    return 0
+
+# Find the kth level node, recursion
+def knodes_rec(root, k):
+    if not root or k < 1: return 0
+    if k == 1: return 1
+    numleft = knodes_rec(root.left, k-1)
+    numright = knodes_rec(root.right, k-1)
+    return numleft + numright
+
