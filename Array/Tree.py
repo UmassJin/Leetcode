@@ -707,4 +707,23 @@ class Solution:
         self.maxval = max(self.maxval,l+r+root.val)
         return max(l,r)+root.val
         
-        
+# 36) Find the leaf nodes number in the tree
+def findleafnode_rec(root):
+    if not root: return 0
+    if not root.left and not root.right: return 1
+    return findleafnode_rec(root.left) + findleafnode_rec(root.right)
+
+def findleafnode_iter(root):
+    queue = [root]
+    result = 0
+    if not root: return result
+    while queue:
+        node = queue.pop(0)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+        if not node.left and not node.right:
+            result += 1
+    return result
+    
