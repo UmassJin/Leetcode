@@ -497,9 +497,10 @@ _____
 * [ ] Find the total nodes number 
 * [ ] Find the common ancestry
 
-#### Algorithm related to Tree
+#### Algorithm related to Tree/Graph
 * Red-Black Tree
 * Tries
 * Suffix Tree
 * Optimal Binary Seach Tree
 * Morris Traversal Algorithm for Tree 
+* Minimum Spanning Tree
