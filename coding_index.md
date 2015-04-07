@@ -486,6 +486,7 @@ _____
 * [x] Sum Root to Leaf Numbers
 * [x] Flatten Binary Tree to Linked List
 * [x] [Convert BST to the (Circal) Doubled Linked List](./Array/Convert_BST_to_DDL.py) Important!会看！
-* [ ] Convert Sorted List to Binary Search Tree 
-* [ ] Binary Tree Maximum Path Sum
+* [x] Binary Tree Right Side View
+* [x] Convert Sorted List to Binary Search Tree 
+* [x] Binary Tree Maximum Path Sum
 * [ ] Binary Tree Upside Down 
