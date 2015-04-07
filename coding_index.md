@@ -470,7 +470,7 @@ _____
 * [x] Maximum Depth of Binary Tree
 * [x] Minimum Depth of Binary Tree
 
-###Binary Search Tree
+####Binary Search Tree
 * [x] Convert Sorted Array to Binary Search Tree
 * [x] Unique Binary Search Trees
 * [x] Unique Binary Search Trees II
@@ -478,7 +478,7 @@ _____
 * [x] Recover Binary Search Tree
 * [x] Binary Search Tree Iterator 
 
-###类Tree(以tree作为Data Structure的题目)
+####类Tree(以tree作为Data Structure的题目)
 * [x] Path Sum
 * [x] Path Sum II
 * [x] Populating Next Right Pointers in Each Node
@@ -491,8 +491,15 @@ _____
 * [x] Binary Tree Maximum Path Sum  （follow question: print out all the path! think about it ! the result may include the root node or not ! ! ）
 * [ ] Binary Tree Upside Down 
 
-### Basic Tree question not in Leetcode
+#### Basic Tree question not in Leetcode
 * [x] Find the leaf nodes number in the tree
 * [ ] Find the nodes number in k level 
 * [ ] Find the total nodes number 
 * [ ] Find the common ancestry
+
+#### Algorithm related to Tree
+* Red-Black Tree
+* Tries
+* Suffix Tree
+* Optimal Binary Seach Tree
+* Morris Traversal Algorithm for Tree 
