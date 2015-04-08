@@ -498,7 +498,8 @@ _____
 * [x] [Find the common ancestry in BST ](./Experience/Lowest_Common_Ancestor_in_Binary_Tree.md) (Three different questions!) 
 
 #### Algorithm related to Tree/Graph
-* Red-Black Tree
+* Red-Black Tree 
+* Reference: [G4G] (http://www.geeksforgeeks.org/red-black-tree-set-2-insert/), [透彻了解红黑树](http://blog.csdn.net/v_JULY_v/article/details/6105630)
 * Tries
 * Suffix Tree
 * Optimal Binary Seach Tree
