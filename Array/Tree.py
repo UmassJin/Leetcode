@@ -31,6 +31,7 @@
  * 22. 求二叉树的镜像（破坏和不破坏原来的树两种情况）：mirrorRec, mirrorCopyRec 
  * 23.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
  * 24. Populating Next Right Pointers in Each Node 
+ * 25. Convert Sorted List to Binary Search Tree 
  */  
 '''
 
@@ -749,3 +750,39 @@ def knodes_rec(root, k):
     numright = knodes_rec(root.right, k-1)
     return numleft + numright
 
+# 38) Convert Sorted List to Binary Search Tree 
+# Definition for a  binary tree node
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    # @param head, a list node
+    # @return a tree node
+    def sortedListToBST(self, head):
+        if not head:
+            return None
+        if not head.next:
+            return TreeNode(head.val)
+        fast = slow = head
+        pre = None 
+        while (fast and fast.next):
+            fast = fast.next.next
+            pre = slow
+            slow = slow.next 
+ 
+        root = TreeNode(slow.val)
+        right = slow.next
+        if pre:
+            pre.next = None 
+        root.left = self.sortedListToBST(head)
+        root.right = self.sortedListToBST(right)
+        return root 
