@@ -494,7 +494,8 @@ _____
 #### Basic Tree question not in Leetcode
 * [x] Find the leaf nodes number in the tree
 * [x] Find the nodes number in k level 
-* [x] [Find the common ancestry](./Experience/Lowest_Common_Ancestor_in_Binary_Tree.md) (Three different questions!)
+* [x] [Find the common ancestry in Binary Tree I && II ](./Experience/Lowest_Common_Ancestor_in_Binary_Tree.md) (Three different questions!) 
+* [x] [Find the common ancestry in BST ](./Experience/Lowest_Common_Ancestor_in_Binary_Tree.md) (Three different questions!) 
 
 #### Algorithm related to Tree/Graph
 * Red-Black Tree
