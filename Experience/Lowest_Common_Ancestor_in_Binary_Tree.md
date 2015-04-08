@@ -34,14 +34,42 @@ def get_LCA(root, node1, node2):
         return None
 ```
 
-* If maybe one of the tree node does not exist in the Binary Tree
+* Maybe input tree node does not exist in the Binary Tree
 ```python
+def find_LCA_common(root, node1, node2):
+    global v1   # Note: here we should use the global v1 and v2, otherwise the value will not change 
+    global v2
+    v1 = False; v2 = False
+    result = find_LCA(root, node1, node2)
+    if v1 or v2:
+        return result
+    else:
+        return None
+        
+def find_LCA(root, node1, node2):
+    global v1
+    global v2
+    if not root: return None
+    if root.val == node1.val:
+        v1 = True
+        return root
+    if root.val == node2.val:
+        v2 = True
+        return root
 
+    left = find_LCA(root.left, node1, node2)
+    right = find_LCA(root.right, node1, node2)
 
-
+    if left and right:
+        return root
+    if left:
+        return left
+    elif right:
+        return right
+    else:
+        return None
 
 ```
-
 
 #### Method 2
 
