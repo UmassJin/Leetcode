@@ -71,12 +71,52 @@ def find_LCA(root, node1, node2):
 
 ```
 
-#### Method 2
+#### Method 2 (O(n))
+* By Storing root to n1 and root to n2 paths):
+* Find path from root to n1 and store it in a vector or array.
+* Find path from root to n2 and store it in another vector or array.
+* Traverse both paths till the values in arrays are same. Return the common element just before the mismatch.
+
+```python
+def findLCA(root, node1, node2):
+    path1 = []
+    path2 = []
+
+    if ((not findpath(root, path1, node1)) or (not findpath(root, path2, node2))):
+        return -1
+
+    length = min (len(path1), len(path2))
+    for i in range(length):
+        if path1[i] != path2[i]:
+            break
+    return path1[i-1]
+
+# Finds the path from root node to given root of the tree, Stores the
+# path in a vector path[], returns true if path exists otherwise false
+def findpath(root, path, node):
+    if not root: return False
+    path.append(root.val)
+    
+    # Check if the root value is same as node value
+    if root.val == node.val:
+        return True
+    # Check if k is found in left or right sub-tree
+    if ((root.left and findpath(root.left, path, node)) or
+            (root.right and findpath(root.right, path, node))):
+        return True
+
+    path.pop()
+    return False
+
+```
+
+### Lowest Common Ancestor in a Binary Search Tree
 
 
 
 ### Lowest Common Ancestor in a Binary Tree II
 * Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.
+
 
 
 ### Reference:
