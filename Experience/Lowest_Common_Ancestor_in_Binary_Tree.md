@@ -53,5 +53,5 @@ def get_LCA(root, node1, node2):
 
 ### Reference:
 * [GeeksforGeeks] (http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/)
-* [Leetcode Articals] (http://articles.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html)\
+* [Leetcode Articals] (http://articles.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html)
 * [Topcoder] (https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/)
