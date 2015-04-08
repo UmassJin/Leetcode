@@ -34,7 +34,7 @@ def get_LCA(root, node1, node2):
         return None
 ```
 
-* Maybe input tree node does not exist in the Binary Tree
+* Maybe input tree node does not exist in the Binary Tree O(n)
 ```python
 def find_LCA_common(root, node1, node2):
     global v1   # Note: here we should use the global v1 and v2, otherwise the value will not change 
@@ -110,9 +110,9 @@ def findpath(root, path, node):
 
 ```
 
-### Lowest Common Ancestor in a Binary Search Tree
+### Lowest Common Ancestor in a Binary Search Tree 
 * Analysis: We can solve this problem using BST properties. We can recursively traverse the BST from root. The main idea of the solution is, while traversing from top to bottom, the first node n we encounter with value between n1 and n2, i.e., n1 < n < n2 or same as one of the n1 or n2, is LCA of n1 and n2 (assuming that n1 < n2). So just recursively traverse the BST in, if node's value is greater than both n1 and n2 then our LCA lies in left side of the node, if it's is smaller than both n1 and n2, then LCA lies on right side. Otherwise root is LCA (assuming that both n1 and n2 are present in BST)
-
+* O(h), h is the height of the tree 
 * Four cases need to consider:
 * a) Both nodes are to the left of the tree.
 * b) Both nodes are to the right of the tree.
@@ -133,9 +133,8 @@ def findLCA_BST(root, node1, node2):
 
 ```
 
-### Lowest Common Ancestor in a Binary Tree II
+### [Lowest Common Ancestor in a Binary Tree II] (http://articles.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html)
 * Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.
-
 
 
 ### Follow up questions:
