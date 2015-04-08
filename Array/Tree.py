@@ -769,20 +769,20 @@ class Solution:
     # @return a tree node
     def sortedListToBST(self, head):
         if not head:
-            return None
-        if not head.next:
+            return None 
+        if not head.next:  # Note: check head.next !
             return TreeNode(head.val)
         fast = slow = head
         pre = None 
-        while (fast and fast.next):
+        while (fast and fast.next):  # Note: keep the pre pointer also !
             fast = fast.next.next
             pre = slow
             slow = slow.next 
  
         root = TreeNode(slow.val)
-        right = slow.next
+        right = slow.next # Note: record the right part 
         if pre:
-            pre.next = None 
+            pre.next = None  # Note: make the linked list into two !
         root.left = self.sortedListToBST(head)
         root.right = self.sortedListToBST(right)
         return root 
