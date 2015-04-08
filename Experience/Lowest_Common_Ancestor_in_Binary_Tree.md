@@ -48,6 +48,8 @@ def get_LCA(root, node1, node2):
 
 
 ### Lowest Common Ancestor in a Binary Tree II
+* Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.
+
 
 ### Reference:
 [GeeksforGeeks] (http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/)
