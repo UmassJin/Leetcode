@@ -111,13 +111,16 @@ def findpath(root, path, node):
 ```
 
 ### Lowest Common Ancestor in a Binary Search Tree
-
+* Analysis: We can solve this problem using BST properties. We can recursively traverse the BST from root. The main idea of the solution is, while traversing from top to bottom, the first node n we encounter with value between n1 and n2, i.e., n1 < n < n2 or same as one of the n1 or n2, is LCA of n1 and n2 (assuming that n1 < n2). So just recursively traverse the BST in, if node's value is greater than both n1 and n2 then our LCA lies in left side of the node, if it's is smaller than both n1 and n2, then LCA lies on right side. Otherwise root is LCA (assuming that both n1 and n2 are present in BST)
 
 
 ### Lowest Common Ancestor in a Binary Tree II
 * Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.
 
 
+
+### Follow up questions:
+* Find the path between any nodes in the tree 
 
 ### Reference:
 * [GeeksforGeeks] (http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/)
