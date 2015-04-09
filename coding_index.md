@@ -510,3 +510,8 @@ _____
 ## Interview Questions not in Leetcode
 * [Absolute Minimum] (./Array/Absolute_minimum.md)
 * [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md)
+* [coin change]()
+
+
+## Design Pattern
+* Blocking Queue (回看！)
