@@ -10,7 +10,7 @@ Input: arr[] = {1, 2, 3, -4, -1, 4} Output: arr[] = {-4, 1, -1, 2, 3, 4}
 Input: arr[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8} output: arr[] = {-5, 5, -2, 2, -8, 4, 7, 1, 8, 0}
 Found online, also NC has marked this to high frequency
 
-(Solution: G4G](http://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/) 
+[Solution: G4G](http://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/) 
 ```python
 def rearrange_array(A):
     if not A: return None
@@ -77,8 +77,3 @@ print "[-5, -2, 5, 2, 4, 7, 1, 8, 0, -8]: ", rearrange_array_rotate([-5, -2, 5, 
 
 ```      
 
-
-
-
-
-```
