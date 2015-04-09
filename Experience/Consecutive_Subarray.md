@@ -6,6 +6,7 @@
 [1, 4, 20, 10, 3, 5, 9] # (20, 10, 3) Sum=33 Also the subarray must be consecutive Note: 
 All elements are positive integers exception: array can include 0 Note: You cannot sort the array 1 4 20
 
+```python
 # O(n^2)
 def find_consecutive(num, sum):
     length = len(num)
@@ -40,3 +41,5 @@ num = [9, 1, 4, 20, 10, 3, 5]
 sum = 33
 print find_consecutive(num, sum)
 print find_consecutive_best(num, sum)
+
+```
