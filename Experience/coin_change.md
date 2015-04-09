@@ -1,4 +1,4 @@
-* [G4G](http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/)
+* [G4G] (http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/)
 * Similar to CC150, good questions !
 * Several ways to ask 1. How many ways? 2. What are the ways? 3. Minimum coin number?
 
