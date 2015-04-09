@@ -360,9 +360,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[Search for a Range](./Array/Search_for_a_range.py)
 #####[Remove Element](./Array/Remove_Element.py)
 
-### Matrix
+### Matrix/Graph
 #####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
-
+#####[Number of Islands](./Array/Number_of_Islands.py)
 
 -----
 
