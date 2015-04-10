@@ -11,6 +11,8 @@ Each node is a C struct with the following definition.
 
 ![pic](https://github.com/UmassJin/Python-Study/blob/master/img/flattenList.png)
 
+```python
+
 class List():
     def __init__(self, data):               
         self.data = data
@@ -32,3 +34,5 @@ def flatten_list(head):
                 tmp = tmp.next
             tail = tmp
         cur = cur.next
+
+```
