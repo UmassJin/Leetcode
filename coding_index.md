@@ -512,7 +512,9 @@ _____
 * [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md)  Array
 * [coin change](./Experience/coin_change.md) (Good Questions!!) Dynamic Programming 
 * [Consecutive Subarray] (./Experience/Consecutive_Subarray.md) Two Pointer/KMP
-
+* [Flattening a Linked List] (./Experience/%20Flattening_a_Linked_List.md) Linked list
+* [Flatten a Multilevel Linked List] (./Experience/Flatten_a_Multilevel_Linked_List.md)
+* [Count_zeros_in_Factorial] (./Experience/Count_zeros_in_Factorial.md)
 
 ## Design Pattern
 * Blocking Queue (回看！)
