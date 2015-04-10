@@ -1,4 +1,4 @@
-[G4G](http://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/)
+[G4G Introduction and Analysis](http://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/)
 
 Given a linked list where in addition to the next pointer, each node has a child pointer, 
 which may or may not point to a separate list. These child lists may have one or more children 
