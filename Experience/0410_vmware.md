@@ -1,5 +1,7 @@
 1. Algorithm question: 2sum
+
 2. Network question:
+
 1) If you enter "www.google.com", what happened? How the connection happened ?
 
 2) How the hop/router between them connect to the next one ?
