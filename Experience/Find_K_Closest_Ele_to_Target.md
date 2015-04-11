@@ -12,6 +12,8 @@ Note that if the element is present in array, then it should not be in output, o
 
 In the following solutions, it is assumed that all elements of array are distinct.
 
+```python
+
 def find_k_closet_elements(arr, k, x):
     if not arr: return None
     length = len(arr)
@@ -62,4 +64,4 @@ def find_point(arr, start, end, x):
 
 print find_k_closet_elements([12, 16, 22, 30, 35, 39, 42,45, 48, 50, 53, 55, 56],4,35)
                                                                              50,8          Bot
-
+```
