@@ -517,6 +517,7 @@ _____
 | [Flattening a Linked List] (./Experience/%20Flattening_a_Linked_List.md) | Linked list |
 | [Flatten a Multilevel Linked List] (./Experience/Flatten_a_Multilevel_Linked_List.md) | Linked list |
 | [Count_zeros_in_Factorial] (./Experience/Count_zeros_in_Factorial.md) | Math |
+| [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
 
 ## Design Pattern
 * Blocking Queue (回看！)
