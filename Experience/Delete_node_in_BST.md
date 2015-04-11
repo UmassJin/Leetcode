@@ -3,6 +3,7 @@
 3. 整体移动，前提是这个node只能有一边的subtree
 
 这里就直接选第一种作为解法 但是这种也有特殊情况 
+
 1. No left child and No right child, leaf node
 
 2. Only left child or only right child 
