@@ -4,6 +4,8 @@ Given an array of numbers, choose the numbers that cannot become neighbor to eac
 
 Note: Three ways of solutions:
 
+Similar to leetcode "House Robber"
+
 ```python
 # 3 ways to resolve this problem
 # First, DP
