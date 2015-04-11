@@ -19,4 +19,24 @@ Input:  ar1[] = {1, 4, 5, 7};
 Output:  7 and 40
 ```
 
+```python
+
+def find_closet_pair_two_sorted_arr(A, B, target):
+    result = []
+    diff = 1<<32-1
+    l = 0; r = len(B) - 1
+    result = [l, r]
+    while l < len(A) and r >= 0:
+        if abs(A[l] + B[r] - target) < diff:
+            diff = abs(A[l] + B[r] - target)
+            result[0] = A[l]
+            result[1] = B[r]
+        if A[l] + B[r] > target:
+            r -= 1
+        else:
+            l += 1
+    return result
+
+```
+
 
