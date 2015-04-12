@@ -135,7 +135,7 @@
 * initialize: ```dp[i][0] = 0, dp[0][j] = 0```
 * answer: ```dp[M][N]```
 
-######[Longest Common Substring](./Interviews/Longest_Common_Substring.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/longest-common-substring/)
+######[Longest Common Substring](./Experience/Longest_Common_Substring.py) [(Not in Leetcode)](http://www.geeksforgeeks.org/longest-common-substring/)
 * state: ```dp[i][j]```表示前i个字符配上前j个字符的LCS的长度(一定以第i个和第j个结尾的LCS)
 * function:  
 
