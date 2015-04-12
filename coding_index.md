@@ -513,6 +513,7 @@ _____
 | [Absolute Minimum] (./Array/Absolute_minimum.md) | Math |  
 | [coin change](./Experience/coin_change.md) (Good Questions!!) | Dynamic Programming |
 | [Word Break] (./Experience/Word_Break.md) | Dynamic Programming |
+| [Min Num to Composite Words](./Experience/Min_Num_to_Composite_Words.md) | Dynamic Programming |
 | [Consecutive Subarray] (./Experience/Consecutive_Subarray.md) | Two Pointer/KMP |
 | [Flattening a Linked List] (./Experience/%20Flattening_a_Linked_List.md) | Linked list |
 | [Flatten a Multilevel Linked List] (./Experience/Flatten_a_Multilevel_Linked_List.md) | Linked list |
