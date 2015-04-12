@@ -1,4 +1,4 @@
-From mibbs for Linkedin Interview
+#####From mibbs for Linkedin Interview
 
 Majority Element: A majority element in an array A[] of size n is an element that appears more than n/2 times (and hence there is at most one such element).
 
