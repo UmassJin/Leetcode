@@ -522,6 +522,7 @@ _____
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
 | [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
+| [Implete Min Stack](./Experience/Implete_min_stack.md) | Stack |
 
 ## Design Pattern
 * Blocking Queue (回看！)
