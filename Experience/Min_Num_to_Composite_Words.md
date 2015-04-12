@@ -1,6 +1,6 @@
 From [Career Cup](http://www.careercup.com/question?id=5359122669109248) Pinterest
 
-Similar Question: [Word Break] (/Word_Break.md)
+Similar Question: [Word Break] (./Word_Break.md)
 
 Given an input string and a dictionary of words, find out if the input string can be segmented into a space-separated sequence of dictionary words. You need to output the minimum number of words. For example, 
 
