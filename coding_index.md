@@ -511,7 +511,6 @@ _____
 | Question | Type |
 |:---|:---|
 | [Absolute Minimum] (./Array/Absolute_minimum.md) | Math |  
-| [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
 | [coin change](./Experience/coin_change.md) (Good Questions!!) | Dynamic Programming |
 | [Word Break] (./Experience/Word_Break.md) | Dynamic Programming |
 | [Consecutive Subarray] (./Experience/Consecutive_Subarray.md) | Two Pointer/KMP |
@@ -521,6 +520,7 @@ _____
 | [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
+| [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
 
 ## Design Pattern
 * Blocking Queue (回看！)
