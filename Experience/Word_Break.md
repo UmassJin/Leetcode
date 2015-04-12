@@ -1,6 +1,6 @@
 [G4G] (http://www.geeksforgeeks.org/dynamic-programming-set-32-word-break-problem/)
 
-Similar Question [Min Num to Composite Words](./Experience/Min_Num_to_Composite_Words.md)
+Similar Question [Min Num to Composite Words](./Min_Num_to_Composite_Words.md)
 
 Given an input string and a dictionary of words, find out if the input string can be segmented into a space-separated sequence of dictionary words. See following examples for more details.
 This is a famous Google interview question, also being asked by many other companies now a days.
