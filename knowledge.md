@@ -13,8 +13,7 @@ Little and big endian are two ways of storing multibyte data-types ( int, float,
 * In little endian machines, last byte of binary representation of the multibyte data-type is stored first. 
 * On the other hand, in big endian machines, first byte of binary representation of the multibyte data-type is stored first.
 
-
-![pic](http://4.bp.blogspot.com/_IEmaCFe3y9g/SO3GGEF4UkI/AAAAAAAAAAc/z7waF2Lwg0s/s1600-h/lb.gif)
+* In big endian, the most significant byte is stored at the memory address location with the lowest address This is akin to left-to-right reading order Little endian is the reverse: the most significant byte is stored at the address with the highest address
 
 #### [Memory Layout of C Programs] (http://www.geeksforgeeks.org/memory-layout-of-c-program/)
 A typical memory representation of C program consists of following sections.
@@ -37,3 +36,65 @@ A typical memory representation of C program consists of following sections.
 
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
 
+#### [Memory](http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)
+* Process is on Heap memory.
+* Thread is on Stack memory.
+* Stack is faster while heap is slower
+* stackoverflow for stack while heap is for memory leak
+
+#####Compare
+| Stack | Heap |
+| --- | --- |
+| Stored in computer RAM just like the heap. | Stored in computer RAM just like the stack. |
+| Variables created on the stack will go out of scope and automatically deallocate. | Variables on the heap must be destroyed manually and never fall out of scope. The data is freed with delete, delete[] or free |
+| Much faster to allocate in comparison to variables on the heap. | Slower to allocate in comparison to variables on the stack. |
+| Implemented with an actual stack data structure. | Used on demand to allocate a block of data for use by the program. |
+| Stores local data, return addresses, used for parameter passing | Can have fragmentation when there are a lot of allocations and deallocations |
+| Can have a stack overflow when too much of the stack is used. (mostly from infinite (or too much) recursion, very large allocations) | In C++ data created on the heap will be pointed to by pointers and allocated with new or malloc |
+| Data created on the stack can be used without pointers. | Can have allocation failures if too big of a buffer is requested to be allocated. |
+| You would use the stack if you know exactly how much data you need to allocate before compile time and it is not too big. | You would use the heap if you don't know exactly how much data you will need at runtime or if you need to allocate a lot of data.|
+| Usually has a maximum size already determined when your program starts | Responsible for memory leaks |
+
+#####[Memory Leak](http://en.wikipedia.org/wiki/Memory_leak)
+A memory leak may happen when an object is stored in memory but cannot be accessed by the running code.
+
+######[Cause of Memory Leak](http://www.lshift.net/blog/2008/11/14/tracing-python-memory-leaks/)
+* Some low level C library is leaking
+* Your Python code have global lists or dicts that grow over time, and you forgot to remove the objects after use
+* There are some reference cycles in your app
+
+
+#####Stack (Memory)
+When a function calls another function which calls another function, this memory goes onto the stack An int (not a pointer to an int) that is created in a function is stored on the stack
+#####Heap (Memory)
+When you allocate data with new() or malloc(), this data gets stored on the heap
+
+The JVM divided the memory into following sections:
+
+* Heap
+* Stack
+* Code
+* Static
+
+This division of memory is required for its effective management.
+
+* The code section contains your bytecode.
+* The Stack section of memory contains methods, local variables and reference variables.
+* The Heap section contains Objects (may also contain reference variables).
+* The Static section contains Static data/methods.
+
+Of all of the above 4 sections, you need to understand the allocation of memory in Stack & Heap the most, since it will affect your programming efforts
+
+* When a method is called , a frame is created on the top of stack.
+* Once a method has completed execution , flow of control returns to the calling method and its corresponding stack frame is flushed.
+* Local variables are created in the stack
+* Instance variables are created in the heap & are part of the object they belong to.
+* Reference variables are created in the stack.
+
+
+####Thread and Process
+A __process__ can be thought of as an instance of a program in execution Each process is an in- dependent entity to which system resources (CPU time, memory, etc ) are allocated and each process is executed in a separate address space One process cannot access the variables and data structures of another process If you wish to access another process’ resources, inter-process communications have to be used such as pipes, files, sockets etc
+
+A __thread__ uses the same stack space of a process A process can have multiple threads A key difference between processes and threads is that multiple threads share parts of their state Typically, one allows multiple threads to read and write the same memory (no processes can directly access the memory of another process) However, each thread still has its own registers and its own stack, but other threads can read and write the stack memory
+
+A thread is a particular execution path of a process; when one thread modifies a process resource, the change is immediately visible to sibling threads
