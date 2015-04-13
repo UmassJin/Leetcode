@@ -348,6 +348,10 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[Plus One](./Array/Plus_One.py)
 * Note the details: check carry, and if last carry == 1 or not 
 
+#####[Print Five](./Experience/Print_Five.md)[Note in Leetcode]
+
+#####[Rotated Mirror Number](./Experience/Rotated_Mirror_Number.md)[Not in Leetcode]
+
 -----
 
 ###Two Pointer
@@ -528,6 +532,7 @@ _____
 | [Flatten a Multilevel Linked List] (./Experience/Flatten_a_Multilevel_Linked_List.md) | Linked list |
 | [Count_zeros_in_Factorial] (./Experience/Count_zeros_in_Factorial.md) | Math |
 | [Print Five](./Experience/Print_Five.md) | Math |
+| [Rotated Mirror Number](./Experience/Rotated_Mirror_Number.md) | Math |
 | [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
