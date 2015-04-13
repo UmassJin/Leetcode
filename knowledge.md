@@ -36,6 +36,8 @@ A typical memory representation of C program consists of following sections.
 
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
 
+## Operation System 
+
 #### [Memory](http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)
 * Process is on Heap memory.
 * Thread is on Stack memory.
@@ -98,3 +100,20 @@ A __process__ can be thought of as an instance of a program in execution Each pr
 A __thread__ uses the same stack space of a process A process can have multiple threads A key difference between processes and threads is that multiple threads share parts of their state Typically, one allows multiple threads to read and write the same memory (no processes can directly access the memory of another process) However, each thread still has its own registers and its own stack, but other threads can read and write the stack memory
 
 A thread is a particular execution path of a process; when one thread modifies a process resource, the change is immediately visible to sibling threads
+
+
+## Network
+#### [what happens when you type in a URL in browser](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
+[The other analysis](http://www.quora.com/What-are-the-series-of-steps-that-happen-when-an-URL-is-requested-from-the-address-field-of-a-browser)
+
+1. browser checks cache; if requested object is in cache and is fresh, skip to #9
+2. browser asks OS for server's IP address
+3. OS makes a DNS lookup and replies the IP address to the browser(host/dig)
+4. browser opens a TCP connection to server (this step is much more complex with HTTPS)
+5. browser sends the HTTP request through TCP connection
+6. browser receives HTTP response and may close the TCP connection, or reuse it for another request
+7. browser checks if the response is a redirect (3xx result status codes), authorization request (401), error (4xx and 5xx), etc.; these are handled differently from normal responses (2xx)
+8. if cacheable, response is stored in cache
+9. browser decodes response (e.g. if it's gzipped)
+10. browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)
+11. browser renders response, or offers a download dialog for unrecognized types
