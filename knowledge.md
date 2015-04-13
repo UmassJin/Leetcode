@@ -101,6 +101,14 @@ A __thread__ uses the same stack space of a process A process can have multiple 
 
 A thread is a particular execution path of a process; when one thread modifies a process resource, the change is immediately visible to sibling threads
 
+#### [Inter-Process communications] (http://en.wikipedia.org/wiki/Inter-process_communication)
+* Sharing information; for example, web servers use IPC to share web documents and media with users through a web browser.
+* Distributing labor across systems; for example, Wikipedia uses multiple servers that communicate with one another using IPC to process user requests.[2]
+* Privilege separation; for example, HMI software systems are separated into layers based on privileges to minimize the risk of attacks. These layers communicate with one another using encrypted IPC.
+* Approaches: File, Signal, Socket, Message queue, Pipe, Semaphore, Shared memory.
+
+##### [Network Socket](http://en.wikipedia.org/wiki/Network_socket)
+
 
 ## Network
 #### [what happens when you type in a URL in browser](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
@@ -139,3 +147,8 @@ A thread is a particular execution path of a process; when one thread modifies a
 7. Multiplexing and Demultiplexing is possible in User Datagram Protcol (UDP) using UDP port numbers.
 
 There is no retransmission of lost packets in User Datagram Protcol (UDP).
+
+#### [VLAN](http://www.cisco.com/c/en/us/td/docs/ios/12_2/switch/configuration/guide/fswtch_c/xcfvl.html#wp1003443)
+* A VLAN is a switched network that is logically segmented on an organizational basis, by functions, project teams, or applications rather than on a physical or geographical basis. For example, all workstations and servers used by a particular workgroup team can be connected to the same VLAN, regardless of their physical connections to the network or the fact that they might be intermingled with other teams. Reconfiguration of the network can be done through software rather than by physically unplugging and moving devices or wires.
+* A VLAN can be thought of as a broadcast domain that exists within a defined set of switches. A VLAN consists of a number of end systems, either hosts or network equipment (such as bridges and routers), connected by a single bridging domain. The bridging domain is supported on various pieces of network equipment; for example, LAN switches that operate bridging protocols between them with a separate bridge group for each VLAN.
+* VLANs are created to provide the segmentation services traditionally provided by routers in LAN configurations. VLANs address scalability, security, and network management. Routers in VLAN topologies provide broadcast filtering, security, address summarization, and traffic flow management. None of the switches within the defined group will bridge any frames, not even broadcast frames, between two VLANs. Several key issues described in the following sections need to be considered when designing and building switched LAN internetworks:
