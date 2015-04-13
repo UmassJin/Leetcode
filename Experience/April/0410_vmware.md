@@ -18,10 +18,12 @@
 2) How the hop/router between them connect to the next one ?
 
 3) What's the difference between UDP and TCP ? 
-See the knowledge. 
+
+See the [knowledge](https://github.com/UmassJin/Leetcode/blob/master/knowledge.md)
 
 4) How the router table looks like in the router ? 
 
 5) If we "ping <IP address>" does not successful, how could we troubleshoot ?
+
 [Solution](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
 
