@@ -537,5 +537,6 @@ _____
 * Blocking Queue (回看！)
 
 ## Other useful Reference
-*[Bash Prompt HOWTO](http://tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html)
-*[C faq](http://c-faq.com/)
+* [Bash Prompt HOWTO](http://tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html)
+
+* [C faq](http://c-faq.com/)
