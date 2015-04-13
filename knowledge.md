@@ -14,7 +14,7 @@ Little and big endian are two ways of storing multibyte data-types ( int, float,
 * On the other hand, in big endian machines, first byte of binary representation of the multibyte data-type is stored first.
 
 
-![pic](http://4.bp.blogspot.com/_IEmaCFe3y9g/SO3GGEF4UkI/AAAAAAAAAAc/z7waF2Lwg0s/s1600-h/lb.GIF)
+![pic](http://4.bp.blogspot.com/_IEmaCFe3y9g/SO3GGEF4UkI/AAAAAAAAAAc/z7waF2Lwg0s/s1600-h/lb.gif)
 
 #### [Memory Layout of C Programs] (http://www.geeksforgeeks.org/memory-layout-of-c-program/)
 A typical memory representation of C program consists of following sections.
