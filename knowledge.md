@@ -21,4 +21,5 @@ A typical memory representation of C program consists of following sections.
 3. Uninitialized data segment
 4. Stack
 5. Heap
+
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
