@@ -117,3 +117,25 @@ A thread is a particular execution path of a process; when one thread modifies a
 9. browser decodes response (e.g. if it's gzipped)
 10. browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)
 11. browser renders response, or offers a download dialog for unrecognized types
+
+####Transmission Control Protocol (TCP)
+1. Transmission Control Protocol (TCP) is a connection oriented protocol, which means the devices should open a connection before transmitting data and should close the connection gracefully after transmitting the data.
+2. Transmission Control Protocol (TCP) assure reliable delivery of data to the destination.
+3. Transmission Control Protocol (TCP) protocol provides extensive error checking mechanisms such as flow control and acknowledgment of data.
+4. Sequencing of data is a feature of Transmission Control Protocol (TCP).
+5. Delivery of data is guaranteed if you are using Transmission Control Protocol (TCP).
+6. Transmission Control Protocol (TCP) is comparatively slow because of these extensive error checking mechanisms
+7. Multiplexing and Demultiplexing is possible in Transmission Control Protocol (TCP) using TCP port numbers.
+8. Retransmission of lost packets is possible in Transmission Control Protocol (TCP).
+
+####User Datagram Protocol (UDP)
+
+1. User Datagram Protocol (UDP) is Datagram oriented protocol with no overhead for opening, maintaining, and closing a connection.
+2. User Datagram Protocol (UDP) is efficient for broadcast/multicast transmission.
+3. User Datagram protocol (UDP) has only the basic error checking mechanism using checksums.
+4. There is no sequencing of data in User Datagram protocol (UDP) .
+5. The delivery of data cannot be guaranteed in User Datagram protocol (UDP) .
+6. User Datagram protocol (UDP) is faster, simpler and more efficient than TCP. However, User Datagram protocol (UDP) it is less robust then TCP
+7. Multiplexing and Demultiplexing is possible in User Datagram Protcol (UDP) using UDP port numbers.
+
+There is no retransmission of lost packets in User Datagram Protcol (UDP).
