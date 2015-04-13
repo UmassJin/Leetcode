@@ -49,3 +49,6 @@ cypher graphics equivalent是指，比如说ABC和DEF就cypher graphics equivale
 给一个disordered array，判断是否有两个数相等。
 给一个disordered array和一个int dist，判断是否有两个数相等且距离小于dist。
 给一个disordered array和一个int targe和一个int dist，判断是否有两个数a, b使 Math.abs(a-b) <= target。且a, b的index距离小于dist。
+
+
+####FaceBook 面经
