@@ -3,8 +3,7 @@
 This is the interface that represents nested lists.
 You should not implement it, or speculate about its implementation.
 
-```python
-'''
+```
 public interface NestedInteger
 {
     /** @return true if this NestedInteger holds a single integer, rather than a nested list */
@@ -30,7 +29,7 @@ public interface NestedInteger
 //  1*2
 //
 public int depthSum (List<NestedInteger> input)
-'''
+
 ```
 
 ```python
