@@ -17,9 +17,20 @@ Little and big endian are two ways of storing multibyte data-types ( int, float,
 A typical memory representation of C program consists of following sections.
 
 1. Text segment
+   Often Read-Only 
 2. Initialized data segment
-3. Uninitialized data segment
+   * Initialized data segment, usually called simply the Data Segment. 
+   * A data segment is a portion of virtual address space of a program, which contains the global variables and static variables that are initialized by the programmer.
+   * Not Read-Only
+3. Uninitialized data segment --> "bss" Segment
+   * For instance a variable declared static int i; would be contained in the BSS segment.
+   * For instance a global variable declared int j; would be contained in the BSS segment.
 4. Stack
+  * The stack area traditionally adjoined the heap area and grew the opposite direction; 
+    when the stack pointer met the heap pointer, free memory was exhausted.
+  * Stack, where automatic variables are stored, along with information that is saved each time a function is called. Each time a function is called, the address of where to return to and certain information about the caller’s environment, such as some of the machine registers, are saved on the stack. 
 5. Heap
+  * The Heap area is managed by malloc, realloc, and free, which may use the brk and sbrk system calls to adjust its size (note that the use of brk/sbrk and a single “heap area” is not required to fulfill the contract of malloc/realloc/free; they may also be implemented using mmap to reserve potentially non-contiguous regions of virtual memory into the process’ virtual address space).
 
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
+
