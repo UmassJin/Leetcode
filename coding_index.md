@@ -539,7 +539,7 @@ _____
 | [Rotated Mirror Number](./Experience/Rotated_Mirror_Number.md) | Math |
 | [Absolute Minimum] (./Array/Absolute_minimum.md) | Math | 
 | [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
-| [Search A Range in BST](./Experience/Search_A_Range_in_BST.md | Tree | 
+| [Search A Range in BST](./Experience/Search_A_Range_in_BST.md) | Tree | 
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
 | [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
