@@ -527,10 +527,12 @@ _____
 | [Flattening a Linked List] (./Experience/%20Flattening_a_Linked_List.md) | Linked list |
 | [Flatten a Multilevel Linked List] (./Experience/Flatten_a_Multilevel_Linked_List.md) | Linked list |
 | [Count_zeros_in_Factorial] (./Experience/Count_zeros_in_Factorial.md) | Math |
+| [Print Five](./Experience/Print_Five.md) | Math |
 | [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
 | [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
+| [Print Matrix](./Experience/Print_Matrix.md) | Array | 
 | [Implete Min Stack](./Experience/Implete_min_stack.md) | Stack |
 
 ## Design Pattern
