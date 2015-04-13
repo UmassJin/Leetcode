@@ -87,6 +87,15 @@
 * answer: ```max(dp[0..n-1])```
 任何一个位置都可能为开始, 所以所有都要初始化为1, 因为最少LIS是1
 
+
+##### Good DP Practices and Reference
+[DP Practives Problems.clemson.edi](http://people.cs.clemson.edu/~bcdean/dp_practice/)
+
+[G4G: Variations of the LIS Problem](http://www.geeksforgeeks.org/dynamic-programming-set-14-variations-of-lis/)
+
+[G4G: Box Stacking Problem](http://www.geeksforgeeks.org/dynamic-programming-set-21-box-stacking-problem/)
+
+
 ######[Decode Ways](./Array/Decode_Ways.py)
 * state: ```dp[i]```表示前i-1个数字的DW
 * function:  
