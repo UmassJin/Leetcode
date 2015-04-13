@@ -18,8 +18,9 @@ d
 e j o
 i n
 m
-
 ```
+
+```python
 
 def print_matrix(matrix):
     if not matrix: return None
@@ -46,3 +47,4 @@ def print_matrix(matrix):
 matrix = [['a','b','c','d'],['e','f','g','h'],['i','j','k','l'],['m','n','o','p']]
 print print_matrix(matrix)
 
+```
