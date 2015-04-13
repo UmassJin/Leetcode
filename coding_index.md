@@ -494,6 +494,7 @@ _____
 * [x] Validate Binary Search Tree
 * [x] Recover Binary Search Tree
 * [x] Binary Search Tree Iterator 
+* [x] [Search a range in BST](./Experience/Search_A_Range_in_BST.md)
 
 ####类Tree(以tree作为Data Structure的题目)
 * [x] Path Sum
@@ -527,7 +528,6 @@ _____
 ## Interview Questions not in Leetcode
 | Question | Type |
 |:---|:---|
-| [Absolute Minimum] (./Array/Absolute_minimum.md) | Math |  
 | [coin change](./Experience/coin_change.md) (Good Questions!!) | Dynamic Programming |
 | [Word Break] (./Experience/Word_Break.md) | Dynamic Programming |
 | [Min Num to Composite Words](./Experience/Min_Num_to_Composite_Words.md) | Dynamic Programming |
@@ -537,7 +537,9 @@ _____
 | [Count_zeros_in_Factorial] (./Experience/Count_zeros_in_Factorial.md) | Math |
 | [Print Five](./Experience/Print_Five.md) | Math |
 | [Rotated Mirror Number](./Experience/Rotated_Mirror_Number.md) | Math |
+| [Absolute Minimum] (./Array/Absolute_minimum.md) | Math | 
 | [Delete node in BST] (./Experience/Delete_node_in_BST.md) | Tree | 
+| [Search A Range in BST](./Experience/Search_A_Range_in_BST.md | Tree | 
 | [Largest None Close Sum](./Experience/Largest_none_close_sum.md) | Array | 
 | [Find K Closest Element to Target](./Experience/Find_K_Closest_Ele_to_Target.md) | Array | 
 | [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
