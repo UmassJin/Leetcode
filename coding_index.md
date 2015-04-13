@@ -349,8 +349,12 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Note the details: check carry, and if last carry == 1 or not 
 
 #####[Print Five](./Experience/Print_Five.md)[Note in Leetcode]
-
 #####[Rotated Mirror Number](./Experience/Rotated_Mirror_Number.md)[Not in Leetcode]
+
+Compare the above questions:
+* Both use the recursion to resolve the problem
+* For the "Print Five", we will recursivly add the number and check if it larger than input number or length is longer, then check if there is number '5' exist in the number
+* For the "Mirror Number", we will recursivly add the number in the front and the end of input, and also check if this number larger than input or length is longer, need to handle the single number "1,2,3,4..."
 
 -----
 
