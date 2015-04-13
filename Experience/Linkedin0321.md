@@ -51,7 +51,7 @@ cypher graphics equivalent是指，比如说ABC和DEF就cypher graphics equivale
 给一个disordered array和一个int targe和一个int dist，判断是否有两个数a, b使 Math.abs(a-b) <= target。且a, b的index距离小于dist。
 
 
-####FaceBook 面经
+####[FaceBook 面经](http://www.mitbbs.com/article_t/JobHunting/32760941.html)
 都不难，非常注重代码的速度跟简洁性。不过俺已挂。大家加油。
 电面
 Clone graph
@@ -71,7 +71,7 @@ onsite
     decode ways LC原题。
 
 
-#### Pinterest 面经
+#### [Pinterest 面经](http://www.mitbbs.com/article_t/JobHunting/32570751.html)
 电面：
 1. 给一个矩阵如下：
 a b c d
