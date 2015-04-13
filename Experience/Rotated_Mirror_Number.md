@@ -2,7 +2,9 @@ Onsite interview with Facebook for finding rotated mirrow number like 808 which 
 
 思路：
 1) Find the maximum length of the candidate number 
+
 2) Add the number in front of and back 
+
 3) Check if this number is in the range
 
 ``` python
