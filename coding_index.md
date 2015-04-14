@@ -526,8 +526,8 @@ _____
 * [Clone Graph] (Array/Clone_Graph.py)
 
 ## Linked List
-* Remove Duplicates from Sorted List 
-* Remove Duplicates from Sorted List II
+* [Remove Duplicates from Sorted List](./Array/Remove%20Duplicates%20from%20Sorted%20List.py)
+* [Remove Duplicates from Sorted List II](./Array/Remove%20Duplicates%20from%20Sorted%20ListII.py)
 * [Remove duplicates from an unsorted linked list](Experience/Remove_duplicates_from_unsorted_linked_list.md)
 * [Remove duplicates from an unsorted linked list with given value](Experience/Remove_duplicates_from_unsorted_linked_list_given_value.md) [not use dummyheader]
 
