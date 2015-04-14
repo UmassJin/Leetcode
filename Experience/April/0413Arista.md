@@ -89,3 +89,5 @@ int main()
     printList(head);
 
 ```
+
+* Note:今天面试Arista彻底的被虐了...只要求用c做了一道题...没有做好...:( 加油！再接再厉！！
