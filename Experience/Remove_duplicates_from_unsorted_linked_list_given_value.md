@@ -73,6 +73,3 @@ print_linkedlist(node9)
 delete_node_given_constraints(node9,2)
 print_linkedlist(node9)
 ```
-
-
-```
