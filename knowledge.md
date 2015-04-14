@@ -36,6 +36,11 @@ A typical memory representation of C program consists of following sections.
 
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
 
+#### [How to write C functions that modify head pointer of a Linked List?](http://www.geeksforgeeks.org/how-to-write-functions-that-modify-the-head-pointer-of-a-linked-list/)
+
+#### [Delete a given node in Linked List under given constraints](http://www.geeksforgeeks.org/delete-a-given-node-in-linked-list-under-given-constraints/)
+
+
 ## Operation System 
 
 #### [Memory](http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)
