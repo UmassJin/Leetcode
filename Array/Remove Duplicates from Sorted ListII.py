@@ -32,3 +32,7 @@ class Solution:
                 p = p.next
                 temp = temp.next
         return dummynode.next 
+
+# Note: Use two pointers, create a dummy node which point to the header
+# Use the while loop to find the last duplicate node, then make the p.next = temp.next
+# Otherwise, p = p.next, temp = temp.next
