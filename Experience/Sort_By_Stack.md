@@ -19,3 +19,29 @@ def sort_by_two_stacks(s1):
     
 print sort_by_two_stacks([5,3,8,4,6,9,7])
 ```
+
+```python
+def sort(s):
+    if len(s) > 0:
+        last = s.pop()
+        sort(s)
+        insert(last, s)
+
+def insert(num, s):
+    if len(s) == 0:
+        s.append(num)
+        return
+
+    if num < s[-1]:
+        last = s.pop()
+        insert(num, s)
+        s.append(last)
+    else:
+        s.append(num)
+
+s = [5,3,8,4,6,9,7]
+
+sort(s)
+
+print s
+```
