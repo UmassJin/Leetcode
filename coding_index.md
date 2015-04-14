@@ -525,6 +525,12 @@ _____
 * Minimum Spanning Tree
 * [Clone Graph] (Array/Clone_Graph.py)
 
+## Linked List
+* Remove Duplicates from Sorted List 
+* Remove Duplicates from Sorted List II
+* Remove duplicates from an unsorted linked list 
+* [Remove duplicates from an unsorted linked list with given value](Experience/Remove_duplicates_from_unsorted_linked_list_given_value.md) [not use dummyheader]
+
 ## Interview Questions not in Leetcode
 | Question | Type |
 |:---|:---|
