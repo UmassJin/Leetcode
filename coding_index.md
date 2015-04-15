@@ -330,7 +330,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Note: nums[:] not the nums!!
 
 ##### Array
-######[Search in rotated array](Array/search%20in%20rotated%20array1&2.py)
+######[Search in rotated array I && II](Array/search%20in%20rotated%20array1&2.py) [注意算法实现的不同点！]
 * Note: 注意边界条件：while left <= right:   ====> left need to <= right, test case [1], 1
 * after we check if target == A[mid] or not, we need to check if A[mid] >= left or A[mid] <= right, not A[mid] > target, since we need to find where is the roated
 * Check A[mid] >= left: test case: [3,1], 0 ; [1], 0 
@@ -342,6 +342,13 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
   A[mid] <= A[right]:[1,1,3,1], 3
   A[mid] <= A[left]: [3,1], 1
   ```
+
+* I: O(logn), II: O(n)
+ 
+######[Find Minimum in Rotated Sorted Array](Array/find%20min%20in%20rotated%20array1%262.py)
+* I: O(logn)
+* II: O(n)
+ 
 
 -----
 
