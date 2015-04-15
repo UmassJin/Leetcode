@@ -29,6 +29,25 @@ Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 Find the minimum element.
 The array may contain duplicates.
 
+My resolution :)
+
+    def findMin(self, num):
+        left, right = 0, len(num)-1
+        minvalue = num[0]
+        
+        while left <= right:
+            mid = (left+right)/2
+            if num[mid] > num[left]:
+                    minvalue = min(num[left],minvalue)
+                    left = mid + 1
+            elif num[mid] < num[left]: 
+                    minvalue = min(num[mid], minvalue)
+                    right = mid -1
+            else:
+                left +=1
+            minvalue = min(minvalue, num[mid])  # Note: This is important !!!
+        return minvalue
+
 Method 1
 class Solution:
     # @param num, a list of integer
