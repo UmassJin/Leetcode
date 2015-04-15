@@ -335,6 +335,13 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * after we check if target == A[mid] or not, we need to check if A[mid] >= left or A[mid] <= right, not A[mid] > target, since we need to find where is the roated
 * Check A[mid] >= left: test case: [3,1], 0 ; [1], 0 
 * target >= A[left], target <= A[right]
+* If there is the duplicate allowed in the array, then A[mid] only compare with A[left]
+* test case:  
+  ```
+  A[mid] < A[right]: [3,1,1], 3; 
+  A[mid] <= A[right]:[1,1,3,1], 3
+  A[mid] <= A[left]: [3,1], 1
+  ```
 
 -----
 
