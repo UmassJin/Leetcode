@@ -78,14 +78,13 @@ class Solution:
                     right = mid -1
                 else:
                     left = mid +1
-            elif A[mid] < A[left]:
+            elif A[mid] < A[left]: 
+                # test case: A[mid] < A[right]: [3,1,1], 3; A[mid] <= A[right]:[1,1,3,1], 3
+                # A[mid] <= A[left]: [3,1], 1
                 if A[mid]<target <= A[right]:
                     left= mid +1
                 else:
                     right = mid -1
             else:
                 left +=1
-        return False
-                    right = mid -1
-        return -1            
-                    
+        return False 
