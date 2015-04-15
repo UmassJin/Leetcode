@@ -13,21 +13,22 @@ class Solution:
         left = 0
         right = len(A) - 1
         
-        while left <= right:
+        while left <= right: # <=, test case: [1], 1
             mid = (left + right) /2
             if target == A[mid]:
                 return mid
-            if A[mid] >= A[left]:
-                # Note: Here we need to also check if the target >= A[left]!
+            if A[mid] >= A[left]: # Note: here should be >=, test case: [3,1], 0; [1],0
                 if target < A[mid] and target >= A[left]:
                     right = mid -1
                 else:
                     left = mid+1
-            elif A[mid] < A[right]:
+            elif A[mid] < A[right]: # Note: here should be < or <=
                 if target > A[mid] and target <= A[right]:
                     left = mid+1
                 else:
-                    
+                    right = mid -1
+        return -1            
+                   
 '''                    
 Follow up for "Search in Rotated Sorted Array":
 What if duplicates are allowed?
