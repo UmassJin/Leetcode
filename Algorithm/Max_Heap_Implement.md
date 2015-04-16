@@ -26,7 +26,7 @@ def heapify(heaplist, i, length):
 def build_heap(alist,k):  
     length = k
     i = length // 2
-    alist.insert(0,0)
+    alist.insert(0,0) # Add 0, so the count is based on 1 other than 0 !!!
     heaplist = alist # Can not use heaplist = alist[:] !! this is the copy !!
     while i > 0:
         heapify(heaplist, i, length)
@@ -35,7 +35,7 @@ def build_heap(alist,k):
 
 def heap_find_kth_num(num,k):
     build_heap(num,k)
-    num.pop(0)
+    num.pop(0)  # Need to pop the 0 !!!
     print "num: ", num
     for p in xrange(k, len(num)):
         if num[p] > num[0]:
@@ -51,3 +51,5 @@ array = [15,8,4,7,5,3,1,2,6]
 heap_find_kth_num(array, 5)
 
 ```
+
+* [Good Video about how to make max heap](https://www.youtube.com/watch?v=WsNQuCa_-PU)
