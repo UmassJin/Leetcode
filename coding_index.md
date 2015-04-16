@@ -556,6 +556,9 @@ _____
 
 #### Can Binary Search be used for linked lists ? [Skip Lists](http://www.geeksforgeeks.org/skip-list/)
 
+## Rectangle Serious 
+* [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
+
 
 ## Interview Questions not in Leetcode
 | Question | Type |
