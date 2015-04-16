@@ -349,6 +349,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * I: O(logn)
 * II: O(n)
  
+#####[Find kth max element in unsorted array](./Algorithm/Max_Heap_Implement.md)
 
 -----
 
@@ -581,6 +582,7 @@ _____
 | [Alternating Positive N Negative](./Array/Alternating_Positive_N_Negative.md) | Array | 
 | [Print Matrix](./Experience/Print_Matrix.md) | Array | 
 | [Sort by Stack](./Experience/Sort_By_Stack.md) | Array |
+| [Find kth max element in unsorted array](./Algorithm/Max_Heap_Implement.md) | Array | 
 | [Implete Min Stack](./Experience/Implete_min_stack.md) | Stack |
 
 ## Design Pattern
