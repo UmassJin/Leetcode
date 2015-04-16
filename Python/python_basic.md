@@ -1141,7 +1141,15 @@ def example5():
 
 #### 7. [More on Conditions] (https://docs.python.org/2/tutorial/datastructures.html#more-on-conditions)important!
 
-#### 8. Reference
+#### 8. ['_' meaning in the for loop](http://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python)
+* '_' has 3 main conventional uses in Python:
+
+1) To hold the result of the last executed statement in an interactive interpreter session. This precedent was set by the standard CPython interpreter, and other interpreters have followed suit
+2) For translation lookup in i18n (imported from the corresponding C conventions, I believe)
+3) As a general purpose "throwaway" variable name to indicate that part of a function result is being deliberately ignored
+
+
+#### 9. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
