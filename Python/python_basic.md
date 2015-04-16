@@ -1145,7 +1145,9 @@ def example5():
 * '_' has 3 main conventional uses in Python:
 
 1) To hold the result of the last executed statement in an interactive interpreter session. This precedent was set by the standard CPython interpreter, and other interpreters have followed suit
+
 2) For translation lookup in i18n (imported from the corresponding C conventions, I believe)
+
 3) As a general purpose "throwaway" variable name to indicate that part of a function result is being deliberately ignored
 
 
