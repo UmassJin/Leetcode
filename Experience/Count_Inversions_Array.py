@@ -19,14 +19,14 @@ def merge_sort(A, left, right):
         mid = (left + right)/2
         inver_cnt = merge_sort(A, left, mid)
         inver_cnt += merge_sort(A, mid+1, right)
-        inver_cnt += merge(A, left, mid+1, right)
+        inver_cnt += merge(A, left, mid+1, right) # Note: here we need to return inver_cnt
     return inver_cnt
 
 def merge(A, left, mid, right):
     i = left; j = mid; k = left
     print "i: %d, mid: %d, j: %d, k: %d, right: %d" %(i, mid, j, k, right)
     inver_cnt = 0
-    tmp = [0 for p in xrange(len(A))]
+    tmp = [0 for p in xrange(len(A))]  # Note: we need use the tmp to save the result array 
     print "tmp: ", tmp
     while (i < mid) and (j <= right):
         print "A[i]: %d, A[j]: %d" %(A[i], A[j])
@@ -40,10 +40,10 @@ def merge(A, left, mid, right):
             j += 1
             k += 1
             print "> after: i: %d, j: %d, k: %d, right: %d" %(i, j, k, right)
-            inver_cnt += mid - i
+            inver_cnt += mid - i # Note: Important !!! here we need to add the inver_cnt here!!!
     print "inver_cnt: ", inver_cnt
 
-    while i < mid:
+    while i < mid:  # For the rest of the elements in the array 
         tmp[k] = A[i]
         i += 1
         k += 1
