@@ -15,6 +15,8 @@ Let the input string be str[l……h]. The problem can be broken down into three
 * 2. Find the minimum number of insertions in the substring str[l…….h-1].
 * 3. Find the minimum number of insertions in the substring str[l+1……h-1].
 
+[G4G](http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/)
+
 ```python
 def min_insert_pali(string):
     return pali_helper(string, 0, len(string)-1)
