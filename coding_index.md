@@ -242,6 +242,15 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 ######[Merge Stone 石子归并](http://wikioi.com/problem/1048/)
 
+######[Coin Game](Experience/Coin_game.md)
+* state: dp[i][j] the maximum value user can collect from ith coin to jth coin
+* function: dp[i][j] = Vi + min( dp[i+2][j], dp[i+1][j-1]) 
+*                   = Vj + min( dp[i+1][j-1], dp[i][j-2])
+* base: if i == j: dp[i][j] = Vi
+* base: if j == i + 1: dp[i][j] = max(Vi, Vj)
+* Result: dp[0][n-1]
+
+
 -----
 
 ####5. Tree DP
