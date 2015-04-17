@@ -12,7 +12,7 @@ Let us understand the problem with few examples:
 * [G4G](http://www.geeksforgeeks.org/dynamic-programming-set-31-optimal-strategy-for-a-game/)
 
 
-```
+```python
 # state: dp[i][j] the maximum value user can collect from ith coin to jth coin
 # function: dp[i][j] = Vi + min( dp[i+2][j], dp[i+1][j-1]) 
 #                   = Vj + min( dp[i+1][j-1], dp[i][j-2])
