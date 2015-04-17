@@ -250,6 +250,13 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * base: if j == i + 1: dp[i][j] = max(Vi, Vj)
 * Result: dp[0][n-1]
 
+######[Minimum insertions to form a palindrome](Experience/Min_Insert_Palin.md)
+* state: dp[i][j] meanings the min number for the string[i:j]
+* initialize: 
+* function: dp[i][j] = dp[i-1][j+1] if string[i] == string[j]
+*                    = min(dp[i][j-1], dp[i+1][j])+1 else
+* result: dp[0][length-1]
+
 
 -----
 
