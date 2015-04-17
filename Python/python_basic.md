@@ -1150,8 +1150,45 @@ def example5():
 
 3) As a general purpose "throwaway" variable name to indicate that part of a function result is being deliberately ignored
 
+#### 9. [Numeric Types - int, float, long, complex](https://docs.python.org/2/library/stdtypes.html#numeric-types-int-float-long-complex)
+*[Numbers](https://docs.python.org/2/tutorial/introduction.html#numbers)
 
-#### 9. Reference
+##### plain integers
+* Plain integers (called integers) are implemented using long in C, which gives them at least 32 bits of precision. 
+* ```sys.maxint``` is always set to the maximum plain integer value for the current platform, the ```minimum``` value is ```-sys.maxint - 1```
+
+```
+>>> sys.maxsize
+9223372036854775807
+>>> sys.maxint
+9223372036854775807
+>>> type(sys.maxsize)
+<type 'int'>
+>>> type(sys.maxint+1)
+<type 'long'>
+
+>>> -sys.maxsize-1
+-9223372036854775808
+>>> -sys.maxint-1
+-9223372036854775808
+>>> type(-sys.maxsize-1)
+<type 'int'>
+>>> type(-sys.maxsize-2)
+<type 'long'>
+```
+
+
+##### long integers
+* Long integers have unlimited precision
+* [MAX value for long integer](http://stackoverflow.com/questions/9860588/maximum-value-for-long-integer)
+
+##### [floating point numbers](https://docs.python.org/2/library/sys.html#sys.float_info)
+* Floating point numbers are usually implemented using double in C
+* [How the FLOAT number in memory in C?](http://stackoverflow.com/questions/6910115/how-to-represent-float-number-in-memory-in-c)
+
+##### complex numbers
+
+#### 10. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
