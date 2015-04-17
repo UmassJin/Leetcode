@@ -22,7 +22,10 @@ def power2(x, y):
     if y == 0:return 1
     sign = 1
     if y < 0: sign = -1
-    tmp = power2(x, abs(y)/2)
+    tmp = power2(x, abs(y)/2) 
+    # could use y & 1 == 0 decide:
+    # if y & 1 == 0: y is even number
+    # if y & 1 == 1: y is odd number
     if y % 2 == 0:
         tmp = tmp*tmp
     else:
@@ -31,7 +34,9 @@ def power2(x, y):
         return 1.0/tmp
     else:
         return tmp
-#print power2(2,6)
-#print power2(2,7)
+print power2(2,6)
+print power2(2,7)
 print power2(2,-2)
+print power2(2.3,3)
+
 ```
