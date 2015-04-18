@@ -2,12 +2,12 @@
 
 ##Table of Content
 ####[1. Dynamic Programming](#dp)
-####[2. DFS & Backtracking](#dfs-&-backtracking)
-####[3. Data Structure](#Data Structure)
-####[4. Math](#Math)
-####[5. Two Pointer](#Two Pointer)
-####[6. String](#String)
-####[7. Tree](#Tree)
+####[2. DFS & Backtracking](#dfs-backtracking)
+####[3. Data Structure](#data-structure)
+####[4. Math](#math)
+####[5. Two Pointer](#two-pointer)
+####[6. String](#string)
+####[7. Tree](#tree)
 
 
 ## DP 
@@ -297,7 +297,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 -----
 
-##DFS & Backtracking 
+##DFS Backtracking 
 主要想法是先搜索到不能再底层然后再往上走
 #####复杂度问题
 * 组合的话就是O(n^2)
