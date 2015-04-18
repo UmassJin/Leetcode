@@ -8,7 +8,8 @@
 ####[5. Two Pointer](#two-pointer)
 ####[6. String](#string)
 ####[7. Tree](#tree)
-
+####[8. Rectangle Serious](#rectangle-serious)
+####[9. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
