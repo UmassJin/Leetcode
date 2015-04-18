@@ -13,8 +13,50 @@
 For example, we have the following DAG, the following algorithm are from the Video, a little bit different in the G4G, since we check whether the graph is the DAG or not!!
 ![pic](http://www.geeksforgeeks.org/wp-content/uploads/graph.png)
 
+```python
+def topolopy_sort(root):
+    stack = []
+    for i in all_vertex:
+        visited[i] = "White"
+    for i in all_vertex:
+        if visited[i] == "White":
+            topology_help(i, visited, stack)
+            
+    for i in stack:
+        print stack.pop() # Or we could use a queue here!
+
+def topology_help(node, visited, stack):
+    if visited[node] == "Gray":
+        print "This is the cycle graph!"
+    if visited[node] == 'White':
+        visited[node] = 'Gray'
+        for adjacent in node_adjacents:
+            topology_help(adjacent, visited, stack)
+        visited[node] = 'Black'
+        stack.push() # Or we could use a queue here, queue.insert(0, node)
+        
+# Note the array graph in the video, so we could find the prerequest node
+# put in the beginning of the array and the children node put in the end 
+# of the node
 
 
+# DFS for the Graph ! 
+def dfs(root):
+    for i in all_vertex:
+        visited[i] = False
+    for i in all_vertex:
+        if visited == False:
+            dfs_util(i, visited)
+
+def dfs_util(node, visited):
+    print node
+    visited[node] = True
+    
+    for adjacent in node_adjacents:
+        if not visited(adjacent):
+            def_util(adjacent, visited)
+
+```
 
 
 ##### Reference
