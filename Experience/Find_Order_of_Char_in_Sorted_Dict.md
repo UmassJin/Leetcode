@@ -1,6 +1,6 @@
 #### [Given a sorted dictionary of an alien language, find order of characters](http://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/)
 
-* Check the Algorithm/ part for the [Topology Sort](./Algorithm/Topology_Sort.md)
+* Check the Algorithm/ part for the [Topology Sort](https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Topology_Sort.md)
 
 ```python
 class Node:
