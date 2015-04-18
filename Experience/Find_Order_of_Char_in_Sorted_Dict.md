@@ -33,7 +33,7 @@ def topologicalSort(graph):
 
 def topologicalUtil(graph, node, queue):
     if graph[node].visited == "Gray":
-        print "This is the cycle graph!"
+        print "This is the cycle graph!"  # We use the "Gray" here to check the loop in the Graph!!
     if graph[node].visited == "White":
         graph[node].visited = "Gray"
         for adja in graph[node].adjacent:
