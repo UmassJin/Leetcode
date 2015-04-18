@@ -9,4 +9,15 @@
 * Topology Sort of a DAG G=(V,E) is a liner ordering of all its vertices such that if G contains an edge (u,v) then u always appears before v in the ordering
 * Topology Sort only for DAG 
 
+##### Algorithm 
+For example, we have the following DAG, the following algorithm are from the Video, a little bit different in the G4G, since we check whether the graph is the DAG or not!!
+![pic](http://www.geeksforgeeks.org/wp-content/uploads/graph.png)
 
+
+
+
+
+##### Reference
+* [Very Good Explaination Video 1&2](https://www.youtube.com/watch?v=PfiFnXg2G2I)
+* [G4G Topological Sorting](http://www.geeksforgeeks.org/topological-sorting/)
+* [G4G DFS](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)
