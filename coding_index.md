@@ -600,6 +600,7 @@ _____
 | [Sort by Stack](./Experience/Sort_By_Stack.md) | Array |
 | [Find kth max element in unsorted array](./Algorithm/Max_Heap_Implement.md) | Array | 
 | [Implete Min Stack](./Experience/Implete_min_stack.md) | Stack |
+| [Find_Order_of_Char_in_Sorted_Dict](./Experience/Find_Order_of_Char_in_Sorted_Dict.md)[Good Question!!] | Sort | 
 
 ## Design Pattern
 * Blocking Queue (回看！)
