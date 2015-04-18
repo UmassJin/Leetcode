@@ -285,7 +285,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 -----
 
-###DFS & Backtracking 
+##DFS & Backtracking 
 主要想法是先搜索到不能再底层然后再往上走
 #####复杂度问题
 * 组合的话就是O(n^2)
@@ -307,7 +307,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 -----
 
-###Data Structure
+##Data Structure
 ##### Stack 
 #####[Longest Valid Parentheses](./Array/Longest_Valid_Parentheses.py)
 * Use two methods to solve the problem
@@ -369,7 +369,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 -----
 
-###Math 
+##Math 
 #####[Palindrome Number](./Array/Palindrome_Number.py)
 * Since the requirement is DO NOT use the extra space, should not transfer the number to string 
 * Use the math method to compare the first number and last number
@@ -395,7 +395,7 @@ Compare the above questions:
 
 -----
 
-###Two Pointer
+##Two Pointer
 #####[Valid Palindrome](./Array/Valid_Palindrome.py)
 * Pyhon: isalnum()
 * lower()
