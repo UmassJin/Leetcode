@@ -1,6 +1,8 @@
+#Coding Index
+
 ##Table of Content
-####[1. Dynamic Programming](#DP)
-####[2. DFS & Backtracking](#DFS & Backtracking)
+####[1. Dynamic Programming](#dp)
+####[2. DFS & Backtracking](#dfs-&-backtracking)
 ####[3. Data Structure](#Data Structure)
 ####[4. Math](#Math)
 ####[5. Two Pointer](#Two Pointer)
