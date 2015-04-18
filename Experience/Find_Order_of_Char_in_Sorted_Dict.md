@@ -2,7 +2,7 @@
 
 * Check the Algorithm/ part for the [Topology Sort](Algorithm/Topology_Sort.md)
 
-```
+```python
 class Node:
     def __init__(self):
         self.visited = "White"
