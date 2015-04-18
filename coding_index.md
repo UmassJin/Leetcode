@@ -1,5 +1,3 @@
-#Coding Index
-
 ##Table of Content
 ####[1. Dynamic Programming](#dp)
 ####[2. DFS & Backtracking](#dfs-backtracking)
