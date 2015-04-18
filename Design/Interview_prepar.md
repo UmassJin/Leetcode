@@ -1,5 +1,7 @@
 Algorithms
 
+[原帖](https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72)
+
 https://www.hackerrank.com/domains 
 https://oj.leetcode.com/problemset/algorithms/ LeetCode至少要刷三遍，付费部分的题建议花点钱看一下，舍不得孩子套不着狼
 http://lintcode.com/ 
