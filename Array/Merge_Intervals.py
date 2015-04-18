@@ -11,6 +11,40 @@ class Solution:
     # @return a list of Interval
     def merge(self, intervals):
         length = len(intervals)
+        if length == 0 or length == 1: 
+            return intervals 
+        intervals.sort(key = lambda x:x.start)
+        result = []
+        pre_start = None
+        pre_end = None 
+        
+        for node in intervals:
+            if pre_start == None and pre_end == None:
+                pre_start = node.start
+                pre_end = node.end 
+            else:  
+                if node.start <= pre_end:
+                    if node.end > pre_end:
+                        pre_end = node.end
+            
+                if node.start > pre_end:
+                    newnode = Interval(pre_start, pre_end)
+                    result.append(newnode)
+                
+                    pre_start = node.start
+                    pre_end = node.end 
+        
+        newnode = Interval(pre_start, pre_end)    
+        result.append(newnode)
+        return result   
+
+
+# Wrong Answer !!!
+class Solution:
+    # @param intervals, a list of Interval
+    # @return a list of Interval
+    def merge(self, intervals):
+        length = len(intervals)
         if length == 0 or length == 1: return intervals 
         intervals.sort()
         result = []
