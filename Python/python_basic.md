@@ -1,3 +1,8 @@
+##Table of Content
+####[1.Lists ](#Lists)
+
+
+
 ###[Sequence Types - str, unicode, list, tuple, bytearray, buffer, xrange] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
 * 1) There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects.
 * 2) For other containers see the built in dict and set classes, and the collections module.
