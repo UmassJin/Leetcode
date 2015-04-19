@@ -1,9 +1,9 @@
 ##Table of Content
-####[1.Strings ](#Strings)
-####[2.Lists ](#Lists)
-####[3.Tuples ](#Tuples)
-####[4.Dictionary Object](#Dictionary-Object)
-####[5.Basic Knowledge](#Basic knowledge)
+####[1.Strings ](#strings)
+####[2.Lists ](#lists)
+####[3.Tuples ](#tuples)
+####[4.Dictionary Object](#dictionary-object)
+####[5.Basic Knowledge](#basic-knowledge)
 
 
 
