@@ -2,6 +2,8 @@
 ####[1.Strings ](#Strings)
 ####[2.Lists ](#Lists)
 ####[3.Tuples ](#Tuples)
+####[4.Dictionary Object](#Dictionary-Object)
+####[5.Basic Knowledge](#Basic knowledge)
 
 
 
@@ -84,7 +86,7 @@
 |     | set_test = set('hello') | python 3.4: {'h', 'e', 'l', 'l', 'o'} | mutable
 | dict | dict_test = {'a': 1, 'b': 2} | {'a': 1, 'b': 2} | mutable 
 
-##1. Strings
+##Strings
 ##### Definition 
 Creat string simply by enclosing characters in quotes. Python treats single quotes the same as double quotes.
 
@@ -130,7 +132,7 @@ Jello, world!
 * [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#string-methods)
 * [Tutorial: String Formatting Operations](https://docs.python.org/2/library/stdtypes.html#string-formatting)
 
-##2. Lists
+##Lists
 * A list is a sequence of values. In a string, the values are characters; in a list, they can be any type. The values in a list are called elements or sometimes items.
 
 ##### Definition:
@@ -554,7 +556,7 @@ SyntaxError: invalid syntax
 ```
 
 
-##3. Tuples 
+##Tuples 
 * A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The only difference is that tuples can't be changed i.e., tuples are immutable and tuples use parentheses and lists use square brackets.
 * It is not possible to assign to the individual items of a tuple, however it is possible to create tuples which contain mutable objects, such as lists.
 
@@ -752,7 +754,7 @@ KeyError: 'e'
 ```
 * Reference [Tutorial: set] (https://docs.python.org/2/library/stdtypes.html#frozenset)
 
-### Dictionary Object 
+##Dictionary Object 
 #### Definition 
 * dictionary: ```{key:value; key:value }```
 * Indexed by keys, which can be any immutable type; strings and numbers can always be keys.
@@ -859,7 +861,7 @@ TypeError: list objects are unhashable
 * [Think in Python: Dictionaries] (http://www.greenteapress.com/thinkpython/html/thinkpython012.html)
 
 
-### Basic knowledge 
+##Basic knowledge 
 ####1. Looping Techniques
 ##### a) Enumerate 
 * When looping through a sequence, the position index and corresponding value can be retrieved at the same time using the enumerate() function.
