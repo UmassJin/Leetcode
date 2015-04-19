@@ -1197,7 +1197,40 @@ def example5():
 
 ##### complex numbers
 
-#### 10. Reference
+#### 10. Multiple Assignment! [Important!!] 
+##### [First Missing Positive](./Array/First%20Missing%20Positive.py)
+
+```python
+a, b = 1, 2
+while b < 10:
+    print "b: ", b
+    a, b = a + b, a
+    print "after a: %d b: %d" %(a,b)
+    a = a + 1
+    print "after2 a: %d b: %d" %(a,b)
+
+# Output:    
+b:  2
+after a: 3 b: 1
+after2 a: 4 b: 1
+b:  1
+after a: 5 b: 4
+after2 a: 6 b: 4
+b:  4
+after a: 10 b: 6
+after2 a: 11 b: 6
+b:  6
+after a: 17 b: 11
+after2 a: 18 b: 11
+```
+* Note: here, a+b first assign to the a, so a = 3 and then a assign to b, b = 1, right now,
+the value of a does not change!
+* But then if we do the a = a + 1, the a has change to 3!!!
+* Check the multiple assignment in the above leetcode question 
+* [Tutorial](https://docs.python.org/2/tutorial/introduction.html#first-steps-towards-programming).)
+
+
+#### 11. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
