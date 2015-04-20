@@ -611,7 +611,10 @@ _____
 * [2sum](./Array/2sum.py) O(nlogn)
 * [3sum](./Array/3Sum.py) O(nlogn + n^2)
 * [3sum closet](./Array/3sum_closet.py) 
-* [4sum](./Array/4sum.py)
+* [4sum](./Array/4sum.py) 
+  1. The better way is O(n^2) complexity, first we calculate the two sum and save it into the directory
+  2. Then we search the array one more time, to check if the target - num[p] - num[q] in the directory
+  3. Note: Last check! q < queue[0], which will delete the wrong and duplicate answer !!
 * [Conclusion](http://tech-wonderland.net/blog/summary-of-ksum-problems.html):
   1. 结果中需要去掉重复出现的set，例如[[-1,-1,0,1],0] ==> [-1,0,1]
   2. 对于3sum来说，i从0开始，j从i+1开始，k从length-1开始，在移动的时候，可以check是否相等，避免重复
