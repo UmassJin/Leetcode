@@ -598,7 +598,12 @@ _____
 
 ## Rectangle Serious 
 * [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
+  1. Use the stack to record the height of each index i, if height[i] > stack[-1], stack.append(height[i])
+  2. If height[i] <= stack[-1], 需要计算以stack[-1]为高度的最大的面积
+
 * [Maximal Rectangle](./Array/Maximal_Rectangle.py)
+  1. Analysis: maintain a row length of Integer array H recorded its height of '1's, 
+     and scan and update row by row to find out the largest rectangle of each row.
 
 ## Interview Questions not in Leetcode
 | Question | Type |
