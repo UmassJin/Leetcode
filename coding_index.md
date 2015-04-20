@@ -414,9 +414,21 @@ Compare the above questions:
 * condition: left < right, not the left <= right, since if left == right, which means they point to the same number, return True
 
 #####[Trapping Rain Water](./Array/Trapping_Rain_Water.py)
+Solution1
 * Idea: go through the array from left to the right, find the maximum left value
 * And then go through the array from the right to the left, find the maximum right value
 * for the each value A[i], the max value could contain should be min(left_max, right_max) - A[i]
+
+Solution2
+* Always maintain two pointers, leftmax and rightmax
+* compare through beginning and end of the array, update the leftmax and rightmax
+* if leftmax < rightmax: leftmax-A[i], left+=1 update result 
+* else: rightmax-A[i], right-= 1, update result,
+
+#####[Container With Most Water]
+* Check from the beginning and end, find the minimum (left, right)*(right-left), udpate max
+* if height[left] < height[right]: update left
+* else: update right 
 
 #####[Search Insert Position](./Array/Search_Insert_Position.py)
 * Note: the while loop condition !
