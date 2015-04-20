@@ -27,5 +27,12 @@ class Solution:
                 if tmpsum in dict:
                     for queue in dict[tmpsum]:
                         if q < queue[0]: result.add((num[p],num[q],num[queue[0]],num[queue[1]]))
+                        # Note: here we need to check the q < queue[0] !!! 
         
         return [list(i) for i in result]
+
+#if q < queue[0]: result.add((num[p],num[q],num[queue[0]],num[queue[1]]))
+# Corner case: we add q < queue[0] !!
+#Input:	[2,1,0,-1], 2
+#Output:	[[-1,2,0,1],[-1,2,-1,2],[-1,1,0,2],[0,2,-1,1],[-1,0,1,2],[0,1,0,1],[0,1,-1,2]]
+#Expected:	[[-1,0,1,2]]
