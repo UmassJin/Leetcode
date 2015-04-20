@@ -7,7 +7,8 @@
 ####[6. String](#string)
 ####[7. Tree](#tree)
 ####[8. Rectangle Serious](#rectangle-serious)
-####[9. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[9. Sum Serious](#sum-serious)
+####[10. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -605,6 +606,21 @@ _____
   1. Analysis: maintain a row length of Integer array H recorded its height of '1's, 
      and scan and update row by row to find out the largest rectangle of each row.
   2. [The other DP solution](https://leetcode.com/discuss/20240/share-my-dp-solution) !!! [回看！]
+
+## Sum Serious
+* [2sum](./Array/2sum.py) O(nlogn)
+* [3sum](./Array/3Sum.py) O(nlogn + n^2)
+* [3sum closet](./Array/3sum_closet.py) 
+* [4sum](./Array/4sum.py)
+* [Conclusion](http://tech-wonderland.net/blog/summary-of-ksum-problems.html):
+  1. 结果中需要去掉重复出现的set，例如[[-1,-1,0,1],0] ==> [-1,0,1]
+  2. 对于3sum来说，i从0开始，j从i+1开始，k从length-1开始，在移动的时候，可以check是否相等，避免重复
+      ```python
+      if num[i] > num[i-1]
+      while j < k and num[j] == num[j-1]: j += 1
+      while j < k and num[k] == num[k+1]: k -= 1
+      ```
+  3. ksum:     
 
 ## Interview Questions not in Leetcode
 | Question | Type |
