@@ -620,7 +620,7 @@ _____
       while j < k and num[j] == num[j-1]: j += 1
       while j < k and num[k] == num[k+1]: k -= 1
       ```
-  3. ksum:     
+  3. [ksum](./Array/ksum.py):     
 
 ## Interview Questions not in Leetcode
 | Question | Type |
