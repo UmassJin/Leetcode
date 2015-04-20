@@ -604,6 +604,7 @@ _____
 * [Maximal Rectangle](./Array/Maximal_Rectangle.py)
   1. Analysis: maintain a row length of Integer array H recorded its height of '1's, 
      and scan and update row by row to find out the largest rectangle of each row.
+  2. [The other DP solution](https://leetcode.com/discuss/20240/share-my-dp-solution) !!! [回看！]
 
 ## Interview Questions not in Leetcode
 | Question | Type |
