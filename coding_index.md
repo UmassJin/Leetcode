@@ -598,7 +598,7 @@ _____
 
 ## Rectangle Serious 
 * [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
-
+* [Maximal Rectangle](./Array/Maximal_Rectangle.py)
 
 ## Interview Questions not in Leetcode
 | Question | Type |
