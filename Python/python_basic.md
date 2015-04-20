@@ -1229,6 +1229,29 @@ the value of a does not change!
 * Check the multiple assignment in the above leetcode question 
 * [Tutorial](https://docs.python.org/2/tutorial/introduction.html#first-steps-towards-programming).)
 
+#### 10. [Yield](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
+```python
+def generator():
+    for i in xrange(3):
+        print "i: ", i
+        yield i*1
+        
+test = generator()
+print(test)
+for j in test:
+    print "j: ", j
+
+Output:
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python yield.py 
+<generator object generator at 0x107a10b40>
+i:  0
+j:  0
+i:  1
+j:  1
+i:  2
+j:  2
+```
+
 
 #### 11. Reference
 
