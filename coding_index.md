@@ -625,6 +625,8 @@ _____
       while j < k and num[k] == num[k+1]: k -= 1
       ```
   3. [ksum](./Array/ksum.py):     
+* [Combination Sum](./Array/combination_sum1%262.py)
+* [Combination Sum2](./Array/combination_sum1%262.py)
 
 ## Permutation Serious 
 
