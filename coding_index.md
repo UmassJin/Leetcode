@@ -625,7 +625,10 @@ _____
       while j < k and num[k] == num[k+1]: k -= 1
       ```
   3. [ksum](./Array/ksum.py):     
-* [Combination Sum](./Array/combination_sum1%262.py)
+* [Combination Sum](./Array/combination_sum1%262.py) 
+  1. Use the backtrack algorithm, 先将array sort一下
+  2. O(n^2)
+  3. 注意边界条件的分析
 * [Combination Sum2](./Array/combination_sum1%262.py)
 
 ## Permutation Serious 
@@ -664,8 +667,8 @@ _____
 * [C faq](http://c-faq.com/)
 
 ## 注意编程过程中出现过的失误细节
-* 注意变量名称，不要写错
+* 注意变量名称，不要拼写错误
 * 注意在two pointer时候,边界条件是left < right, 还是left <= right
 * 一些corner case的处理，比如说input为空，只有一个input，[1],0 或者[0],1的情况
-
+* 注意如果用class，不要丢掉self，定义的function后面有冒号，
 
