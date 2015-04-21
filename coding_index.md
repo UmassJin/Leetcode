@@ -660,3 +660,10 @@ _____
 ## Other useful Reference
 * [Bash Prompt HOWTO](http://tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html)
 * [C faq](http://c-faq.com/)
+
+## 注意编程过程中出现过的失误细节
+* 注意变量名称，不要写错
+* 注意在two pointer时候,边界条件是left < right, 还是left <= right
+* 一些corner case的处理，比如说input为空，只有一个input，[1],0 或者[0],1的情况
+
+
