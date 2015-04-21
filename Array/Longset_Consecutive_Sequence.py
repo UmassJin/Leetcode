@@ -6,6 +6,8 @@ The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
 
 Your algorithm should run in O(n) complexity.
 
+https://leetcode.com/discuss/18886/my-really-simple-java-o-n-solution-accepted
+
 class Solution:
     # @param num, a list of integer
     # @return an integer
