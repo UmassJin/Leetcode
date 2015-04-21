@@ -8,6 +8,7 @@
 ####[7. Tree](#tree)
 ####[8. Rectangle Serious](#rectangle-serious)
 ####[9. Sum Serious](#sum-serious)
+####[10. Permutation Serious](#permutation-serious)
 ####[10. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
@@ -624,6 +625,9 @@ _____
       while j < k and num[k] == num[k+1]: k -= 1
       ```
   3. [ksum](./Array/ksum.py):     
+
+## Permutation Serious 
+
 
 ## Interview Questions not in Leetcode
 | Question | Type |
