@@ -630,6 +630,7 @@ _____
   2. O(n^2)
   3. 注意边界条件的分析
 * [Combination Sum2](./Array/combination_sum1%262.py)
+  1. 注意check duplicate answers ! check case [1,1], target = 1 !
 
 ## Permutation Serious 
 
