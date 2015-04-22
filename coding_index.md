@@ -9,7 +9,8 @@
 ####[8. Rectangle Serious](#rectangle-serious)
 ####[9. Sum Serious](#sum-serious)
 ####[10. Permutation Serious](#permutation-serious)
-####[10. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[11. Array Interval Serious](#array-interval-serious)
+####[12. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -640,6 +641,14 @@ _____
 
 ## Permutation Serious 
 
+## Array Interval Serious
+* [Insert Interval](./Array/Insert_Interval.py)
+  1. Search from the start of the array, find the first interval in the input which end > newinterval.start 
+  2. then compare the interval.start with the newinterval.end ! note, not compare the interval.end with newinterval.end
+     since maybe add the duplicate interval
+  3. the newend need to initialize as the newinterval.end 
+  4. at last, if i < length, need to add the left interval in the input intervals 
+* [Merge Interval](./Array/Merge_Intervals.py)
 
 ## Interview Questions not in Leetcode
 | Question | Type |
