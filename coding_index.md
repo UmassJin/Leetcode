@@ -678,8 +678,8 @@ _____
   1. 注意在每次left或者right移动的时候，都需要check minval和另一边的最小值
   2. 在每次循环之后，都要check minval和num[mid]的最小值！
  
-######[Rotate Image]()
-* 先将matrix沿着对角线颠倒翻转
+######[Rotate Image](./Array/Rotate_Image.py)
+* 先将matrix沿着对角线颠倒翻转，注意x从0到n-1, y从i+1到n
 * 再将每一行reverse过来
 
 ## Interview Questions not in Leetcode
