@@ -6,6 +6,9 @@
 ####[5. Two Pointer](#two-pointer)
 ####[6. String](#string)
 ####[7. Tree](#tree)
+
+-----------------------
+
 ####[8. Rectangle Serious](#rectangle-serious)
 ####[9. Sum Serious](#sum-serious)
 ####[10. Permutation Serious](#permutation-serious)
