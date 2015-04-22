@@ -78,6 +78,9 @@
 * function: ```dp[i] = for j in (i-1 ... 0) if dp[j] and j能跳到i)``` | ```min(dp[j] + 1, j < i and j能跳到i)```
 * initialize: ```dp[0] = True``` | ```dp[0] = 0```
 * answer: ```dp[N-1]```
+* 在实际的面试中，如果直接被问到了jump game2的问题，需要考虑是否可以跳到最后一步，如果可以再看最小跳的个数是多少
+* 还需要清楚会不会有负数，如果有负数，怎么处理
+* 在Jump Ganme2中，注意把maxNextAval 给maxReachableDis, 不是maxNextAval - 1 
 
 ######[Palindrome Partitioning II](./Array/Palindrome_PartitioningII.py)
 * state: ```dp[i]```表示从s[0]到s[i]的子串中回文的数目是多少
