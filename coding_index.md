@@ -381,6 +381,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 ######[Find Minimum in Rotated Sorted Array](Array/find%20min%20in%20rotated%20array1%262.py)
 * I: O(logn)
 * II: O(n)
+  1. 注意在每次left或者right移动的时候，都需要check minval和另一边的最小值
+  2. 在每次循环之后，都要check minval和num[mid]的最小值！
  
 #####[Find kth max element in unsorted array](./Algorithm/Max_Heap_Implement.md)
 
