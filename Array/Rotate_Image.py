@@ -12,7 +12,7 @@ class Solution:
         n = len(matrix)
         
         for i in xrange(n):
-            for j in xrange(i+1, n):
+            for j in xrange(i+1, n):  #注意这里从i+1开始！！！
                 matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
     
         for i in xrange(n):
