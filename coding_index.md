@@ -13,7 +13,8 @@
 ####[9. Sum Serious](#sum-serious)
 ####[10. Permutation Serious](#permutation-serious)
 ####[11. Array Interval Serious](#array-interval-serious)
-####[12. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[12. Rotate Serious](#rotate-serious)
+####[13. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -654,6 +655,30 @@ _____
   3. the newend need to initialize as the newinterval.end 
   4. at last, if i < length, need to add the left interval in the input intervals 
 * [Merge Interval](./Array/Merge_Intervals.py)
+
+## Rotate Serious
+######[Search in rotated array I && II](Array/search%20in%20rotated%20array1&2.py) [注意算法实现的不同点！]
+* Note: 注意边界条件：while left <= right:   ====> left need to <= right, test case [1], 1
+* after we check if target == A[mid] or not, we need to check if A[mid] >= left or A[mid] <= right, not A[mid] > target, since we need to find where is the roated
+* Check A[mid] >= left: test case: [3,1], 0 ; [1], 0 
+* target >= A[left], target <= A[right]
+* If there is the duplicate allowed in the array, then A[mid] only compare with A[left]
+* test case:  
+  ```
+  A[mid] < A[right]: [3,1,1], 3; 
+  A[mid] <= A[right]:[1,1,3,1], 3
+  A[mid] <= A[left]: [3,1], 1
+  ```
+
+* I: O(logn), II: O(n)
+ 
+######[Find Minimum in Rotated Sorted Array](Array/find%20min%20in%20rotated%20array1%262.py)
+* I: O(logn)
+* II: O(n)
+  1. 注意在每次left或者right移动的时候，都需要check minval和另一边的最小值
+  2. 在每次循环之后，都要check minval和num[mid]的最小值！
+ 
+
 
 ## Interview Questions not in Leetcode
 | Question | Type |
