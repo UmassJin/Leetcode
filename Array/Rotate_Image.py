@@ -18,3 +18,4 @@ class Solution:
         for i in xrange(n):
             matrix[i].reverse()
         
+#Refer: https://leetcode.com/discuss/20589/a-common-method-to-rotate-the-image
