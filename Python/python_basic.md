@@ -1252,6 +1252,46 @@ i:  2
 j:  2
 ```
 
+#### 11. Reverse the List 
+
+>>> list = [1,2,3,4,5]
+>>> list[::-1]
+[5, 4, 3, 2, 1]
+>>> list[:2:-1]
+[5, 4]
+>>> list[:2:1]
+[1, 2]
+>>> list[:-2:1]
+[1, 2, 3]
+>>> list[:-2:-1]
+[5]
+>>> list[:2:-1]
+[5, 4]
+>>> list[:-2:-1]
+[5]
+
+>>> for i in xrange(-5,-1,-1):
+...     print i 
+... 
+>>> 
+>>> for i in xrange(-5,-1,1):
+...     print i 
+... 
+-5
+-4
+-3
+-2
+>>> 
+>>> for i in xrange(5,1,1):
+...     print i 
+... 
+>>> for i in xrange(5,1,-1):
+...     print i 
+... 
+5
+4
+3
+2
 
 #### 11. Reference
 
