@@ -1254,6 +1254,7 @@ j:  2
 
 #### 11. Reverse the List 
 
+```
 >>> list = [1,2,3,4,5]
 >>> list[::-1]
 [5, 4, 3, 2, 1]
@@ -1292,7 +1293,7 @@ j:  2
 4
 3
 2
-
+```
 #### 11. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
