@@ -458,7 +458,10 @@ Solution2
 ### Matrix/Graph
 #####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
 #####[Number of Islands](./Array/Number_of_Islands.py)
-
+#####[Spiral Matrix](./Array/Spiral%20Matrix1%262.py)
+    1. 题目的难点在于，在每次改动matrix之后，matrix的长度和每行的长度都会变化
+    2. 不能用简单的check 还有pop() 来做，因为每一次pop之后长度又变化了
+    3. 注意：list = [[3]] --> pop() 之后为[[]]，此时list的长度为1!!
 -----
 
 ###String 
