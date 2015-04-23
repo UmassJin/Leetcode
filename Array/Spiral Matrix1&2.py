@@ -72,6 +72,41 @@ class Solution:
         return result            
 
 
+class Solution:
+    # @param matrix, a list of lists of integers
+    # @return a list of integers
+    # Brute Force Solution 
+    # 题目的难点在于，在每次改动matrix之后，matrix的长度和每行的长度都会变化
+    # 不能用简单的check 还有pop() 来做，因为每一次pop之后长度又变化了
+    # 注意：list = [[3]] --> pop() 之后为[[]]，此时list的长度为1!!
+    def spiralOrder(self, matrix):
+        result = []
+        
+        if len(matrix) == 0: return []
+        if len(matrix) == 1: return matrix[0]
+        
+        while matrix:
+            result += matrix.pop(0)
+            
+            if matrix and matrix[0]:
+                for row in matrix:
+                    result.append(row.pop())
+
+            if matrix:
+                # [[3]] !!
+                result += matrix.pop()[::-1]
+                #错误答案！[[3],[]]
+                #for i in xrange(len(matrix[-1])):
+                #        result.append(matrix[-1].pop())
+                  
+            if matrix and matrix[0]:
+                for i in xrange(len(matrix)-1,-1,-1):
+                    result.append(matrix[i].pop(0))
+        
+        return result 
+        
+        
+
 Spiral Matrix II
 Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
 For example,
