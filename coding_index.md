@@ -10,12 +10,12 @@
 
 -----------------------
 
-####[8. Rectangle Serious](#rectangle-serious)
-####[9. Sum Serious](#sum-serious)
-####[10. Permutation Serious](#permutation-serious)
-####[11. Array Interval Serious](#array-interval-serious)
-####[12. Rotate Serious](#rotate-serious)
-####[13. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[1. Rectangle Serious](#rectangle-serious)
+####[2. Sum Serious](#sum-serious)
+####[3. Permutation Serious](#permutation-serious)
+####[4. Array Interval Serious](#array-interval-serious)
+####[5. Rotate Serious](#rotate-serious)
+####[6. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
