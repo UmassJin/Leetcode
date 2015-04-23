@@ -4,8 +4,9 @@
 ####[3. Data Structure](#data-structure)
 ####[4. Math](#math)
 ####[5. Two Pointer](#two-pointer)
-####[6. String](#string)
-####[7. Tree](#tree)
+####[6. Matrix Graph](#matrix-graph)
+####[7. String](#string)
+####[8. Tree](#tree)
 
 -----------------------
 
@@ -455,7 +456,7 @@ Solution2
 #####[Search for a Range](./Array/Search_for_a_range.py)
 #####[Remove Element](./Array/Remove_Element.py)
 
-### Matrix/Graph
+## Matrix Graph
 #####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
 #####[Number of Islands](./Array/Number_of_Islands.py)
 #####[Spiral Matrix](./Array/Spiral%20Matrix1%262.py)
