@@ -23,9 +23,9 @@ test = [[1,3,5],[2,4,6,8],[0,9,11,12]]
 print merge_karray(test)
 ```
 
-heapq.heapify(a) 把list a中元素调换顺序使其成为最小堆, a还是list
-heapq.heappush(a, (10, sth_else))  把(10, sth_else)插入堆a中, a仍为最小堆, 也可以只插入数10
-heapq.heappop(a) 弹出堆顶元素, a中的最小值
-heapq.heappushpop(a, (10, sth_else)) 先push再pop, 效率比依次调用heappush()和heappop()高 
+* heapq.heapify(a) 把list a中元素调换顺序使其成为最小堆, a还是list
+* heapq.heappush(a, (10, sth_else))  把(10, sth_else)插入堆a中, a仍为最小堆, 也可以只插入数10
+* heapq.heappop(a) 弹出堆顶元素, a中的最小值
+* heapq.heappushpop(a, (10, sth_else)) 先push再pop, 效率比依次调用heappush()和heappop()高 
 ~                                                                                                         
 ~                         
