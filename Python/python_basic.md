@@ -1300,3 +1300,12 @@ j:  2
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
 * [Tutorial: Data Structure](https://docs.python.org/2/tutorial/datastructures.html#sets)
 * http://blog.csdn.net/u010141025/article/details/41866281
+
+## Memory Leak 
+* [Tracking Python Memory Leak](http://www.lshift.net/blog/2008/11/14/tracing-python-memory-leaks/)
+* Memory Leak Scenario 
+ 1. some low level C library is leaking
+ 2. your Python code have global lists or dicts that grow over time, and you forgot to remove the objects after use
+ 3. there are some reference cycles in your app
+
+* [Different Method](http://python.dzone.com/articles/diagnosing-memory-leaks-python)
