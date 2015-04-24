@@ -45,6 +45,8 @@ A typical memory representation of C program consists of following sections.
 
 #### [Delete a given node in Linked List under given constraints](http://www.geeksforgeeks.org/delete-a-given-node-in-linked-list-under-given-constraints/)
 
+#### [Compiled languages vs. Scripting Languages](https://eimg.wordpress.com/2007/12/31/compiled-languages-vs-scripting-languages/)
+
 
 ## Operation System 
 
