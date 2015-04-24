@@ -16,6 +16,7 @@
 ####[4. Array Interval Serious](#array-interval-serious)
 ####[5. Rotate Serious](#rotate-serious)
 ####[6. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[7. Merge Serious](#merge-serious)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -689,6 +690,10 @@ _____
 ######[Rotate Image](./Array/Rotate_Image.py)
 * 先将matrix沿着对角线颠倒翻转，注意x从0到n-1, y从i+1到n
 * 再将每一行reverse过来
+
+
+## Merge Serious 
+######[Merge K Sorted Array](./Experience/Merge_k_sorted_array.md)
 
 ## Interview Questions not in Leetcode
 | Question | Type |
