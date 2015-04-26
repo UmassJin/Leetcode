@@ -9,10 +9,12 @@
 def func(x, y):
   return x+ y 
 ```
-If we pass the func(3,4) and func('hi', 'hello'), does it work ? How it work ?
+If we pass the ```func(3,4)``` and ```func('hi', 'hello')```, does it work ? How it work ?
+
 [Answer](http://stackoverflow.com/questions/2489669/function-parameter-types-in-python)
 
-2. Give the BT, and the height x and calumn y, input: (root, x, y), output tree_node
+2. Algorithm:
+* Give the BT, and the height x and calumn y, input: (root, x, y), output tree_node
 
 #### Second Round
 * Network related questions 
