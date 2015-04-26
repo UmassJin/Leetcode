@@ -7,6 +7,8 @@
 ####[6.Class Related Knowledge](#class-related-knowledge)
 
 
+------------------------------------------------------------
+
 
 ###[Sequence Types - str, unicode, list, tuple, bytearray, buffer, xrange] (https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange)
 * 1) There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects.
