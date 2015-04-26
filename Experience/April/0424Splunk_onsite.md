@@ -1,13 +1,15 @@
 #### Frist Round
 1. Python Basic questions:
-* How the inherience class works in Python ?
-* What's the return type of the lamda ?
+* [How the inherience class works in Python ?](https://github.com/UmassJin/Leetcode/blob/master/Python/python_basic.md#class-related-knowledge)
+
+* What's the return type of the lamda ? [Function](https://github.com/UmassJin/Leetcode/blob/master/Python/python_basic.md#basic-knowledge)
 * Why the python could use as following:
 ```python
 def func(x, y):
   return x+ y 
 ```
 If we pass the func(3,4) and func('hi', 'hello'), does it work ? How it work ?
+[Answer](http://stackoverflow.com/questions/2489669/function-parameter-types-in-python)
 
 #### Second Round
 1. How the ping works ? How could we debug the ping ? 
