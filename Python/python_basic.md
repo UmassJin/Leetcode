@@ -1298,10 +1298,10 @@ j:  2
 2
 ```
 
-#### 13. [lambda usage](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
-* Python supports a style of programming called functional programming where you can pass functions to other functions to do stuff
+#### 13. [Lambda usage](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
+##### Python supports a style of programming called functional programming where you can pass functions to other functions to do stuff
 
-* Format 
+##### Format 
 
 ```python
 def func(x): return x**2
@@ -1311,8 +1311,8 @@ g = lambda x: x **2   # Do not need to include "return" statement
 print g(8)
 ```
 
-* [With ```map(), filter() and reduce() ```](http://www.python-course.eu/lambda.php)
-  1. map(func, seq)
+##### [With ```map(), filter() and reduce() ```](http://www.python-course.eu/lambda.php)
+1. map(func, seq)
 ```
 >>> Celsius = [39.2, 36.5, 37.3, 37.8]
 >>> Fahrenheit = map(lambda x: (float(9)/5)*x + 32, Celsius)
@@ -1334,10 +1334,24 @@ print g(8)
 [19, 18, 9, 5]
 ```
 
-  2. Filter(function, seq)
-  
+2. filter(function, seq)
+```python
+>>> fib = [0,1,1,2,3,5,8,13,21,34,55]
+>>> result = filter(lambda x: x % 2, fib)
+>>> print result
+[1, 1, 3, 5, 13, 21, 55]
+>>> result = filter(lambda x: x % 2 == 0, fib)
+>>> print result
+[0, 2, 8, 34]
+>>>   
+```
 
-  3. Reduce(function, seq)
+3. reduce(function, seq)
+If seq = [ s1, s2, s3, ... , sn ], calling reduce(func, seq) works like this:
+* At first the first two elements of seq will be applied to func, i.e. func(s1,s2) The list on which reduce() works looks now like this: [ func(s1, s2), s3, ... , sn ]
+* In the next step func will be applied on the previous result and the third element of the list, i.e. func(func(s1, s2),s3)
+The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
+* Continue like this until just one element is left and return this element as the result of reduce()
 
 #### 14. Reference
 
