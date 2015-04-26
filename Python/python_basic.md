@@ -127,6 +127,9 @@ TypeError: 'str' object does not support item assignment
 Jello, world!
 ```
 
+#### (String Operations example)[http://www.tutorialspoint.com/python/python_strings.htm]
+* String could use "+" as Concatenation. 
+
 ##### Reference
 * [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
 * [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#string-methods)
