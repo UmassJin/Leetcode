@@ -1369,7 +1369,7 @@ The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
 ## Class Related Knowledge
 #### 1. [Class Inheritance](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance)
 #### 2. [bound, unbound, static](http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static)
-
+#### 3. [What's metaclass ?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
 
 ## Memory Leak 
 * [Tracking Python Memory Leak](http://www.lshift.net/blog/2008/11/14/tracing-python-memory-leaks/)
