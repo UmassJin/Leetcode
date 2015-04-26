@@ -1232,7 +1232,7 @@ the value of a does not change!
 * Check the multiple assignment in the above leetcode question 
 * [Tutorial](https://docs.python.org/2/tutorial/introduction.html#first-steps-towards-programming).)
 
-#### 10. [Yield](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
+#### 11. [Yield](http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python)
 ```python
 def generator():
     for i in xrange(3):
@@ -1255,7 +1255,7 @@ i:  2
 j:  2
 ```
 
-#### 11. Reverse the List 
+#### 12. Reverse the List 
 
 ```
 >>> list = [1,2,3,4,5]
@@ -1297,7 +1297,49 @@ j:  2
 3
 2
 ```
-#### 11. Reference
+
+#### 13. [lambda usage](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
+* Python supports a style of programming called functional programming where you can pass functions to other functions to do stuff
+
+* Format 
+
+```python
+def func(x): return x**2
+print func(6)
+
+g = lambda x: x **2   # Do not need to include "return" statement 
+print g(8)
+```
+
+* [With ```map(), filter() and reduce() ```](http://www.python-course.eu/lambda.php)
+  1. map(func, seq)
+```
+>>> Celsius = [39.2, 36.5, 37.3, 37.8]
+>>> Fahrenheit = map(lambda x: (float(9)/5)*x + 32, Celsius)
+>>> print Fahrenheit
+[102.56, 97.700000000000003, 99.140000000000001, 100.03999999999999]
+>>> C = map(lambda x: (float(5)/9)*(x-32), Fahrenheit)
+>>> print C
+[39.200000000000003, 36.5, 37.300000000000004, 37.799999999999997]
+>>> 
+
+>>> a = [1,2,3,4]
+>>> b = [17,12,11,10]
+>>> c = [-1,-4,5,9]
+>>> map(lambda x,y:x+y, a,b)
+[18, 14, 14, 14]
+>>> map(lambda x,y,z:x+y+z, a,b,c)
+[17, 10, 19, 23]
+>>> map(lambda x,y,z:x+y-z, a,b,c)
+[19, 18, 9, 5]
+```
+
+  2. Filter(function, seq)
+  
+
+  3. Reduce(function, seq)
+
+#### 14. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
