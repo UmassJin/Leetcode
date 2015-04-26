@@ -4,6 +4,7 @@
 ####[3.Tuples ](#tuples)
 ####[4.Dictionary Object](#dictionary-object)
 ####[5.Basic Knowledge](#basic-knowledge)
+####[6.Class Related Knowledge](#class-related-knowledge)
 
 
 
@@ -1354,12 +1355,19 @@ If seq = [ s1, s2, s3, ... , sn ], calling reduce(func, seq) works like this:
 The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
 * Continue like this until just one element is left and return this element as the result of reduce()
 
-#### 14. Reference
+#### 14. [Why we do not need to specific type in Python?](http://stackoverflow.com/questions/2489669/function-parameter-types-in-python)
+
+#### 15. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
 * [Tutorial: Data Structure](https://docs.python.org/2/tutorial/datastructures.html#sets)
 * http://blog.csdn.net/u010141025/article/details/41866281
+
+## Class Related Knowledge
+#### 1. [Class Inheritance](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance)
+#### 2. [bound, unbound, static](http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static)
+
 
 ## Memory Leak 
 * [Tracking Python Memory Leak](http://www.lshift.net/blog/2008/11/14/tracing-python-memory-leaks/)
