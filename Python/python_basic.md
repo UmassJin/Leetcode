@@ -4,7 +4,7 @@
 ####[3.Tuples ](#tuples)
 ####[4.Dictionary Object](#dictionary-object)
 ####[5.Basic Knowledge](#basic-knowledge)
-####[6.Class Related Knowledge](#class-related-knowledge)
+####[6.Class Related Knowledge (Important!!)](#class-related-knowledge)
 
 
 ------------------------------------------------------------
