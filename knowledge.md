@@ -316,7 +316,7 @@ Reference:
 * Possible security vulnerabilities 
 * Failure domains 
 
-##### VLAN Introduction
+##### [VLAN Introduction](http://www.cse.wustl.edu/~jain/cis788-97/ftp/virtual_lans/)
 * VLAN = broadcast domain
 * VLAN = logical network (subnet)
 * A 12-bit VLAN ID field within the 802.1q tag is used to specify the VLAN to which the frame belongs 
