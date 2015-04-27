@@ -123,7 +123,7 @@ A thread is a particular execution path of a process; when one thread modifies a
 
 
 ## Network
-#### [what happens when you type in a URL in browser](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
+#### [1. what happens when you type in a URL in browser](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
 [The other analysis](http://www.quora.com/What-are-the-series-of-steps-that-happen-when-an-URL-is-requested-from-the-address-field-of-a-browser)
 
 1. browser checks cache; if requested object is in cache and is fresh, skip to #9
@@ -138,7 +138,7 @@ A thread is a particular execution path of a process; when one thread modifies a
 10. browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)
 11. browser renders response, or offers a download dialog for unrecognized types
 
-####Transmission Control Protocol (TCP)
+#### 2. Transmission Control Protocol (TCP)
 1. Transmission Control Protocol (TCP) is a connection oriented protocol, which means the devices should open a connection before transmitting data and should close the connection gracefully after transmitting the data.
 2. Transmission Control Protocol (TCP) assure reliable delivery of data to the destination.
 3. Transmission Control Protocol (TCP) protocol provides extensive error checking mechanisms such as flow control and acknowledgment of data.
@@ -148,7 +148,7 @@ A thread is a particular execution path of a process; when one thread modifies a
 7. Multiplexing and Demultiplexing is possible in Transmission Control Protocol (TCP) using TCP port numbers.
 8. Retransmission of lost packets is possible in Transmission Control Protocol (TCP).
 
-####User Datagram Protocol (UDP)
+#### User Datagram Protocol (UDP)
 
 1. User Datagram Protocol (UDP) is Datagram oriented protocol with no overhead for opening, maintaining, and closing a connection.
 2. User Datagram Protocol (UDP) is efficient for broadcast/multicast transmission.
@@ -160,15 +160,34 @@ A thread is a particular execution path of a process; when one thread modifies a
 
 There is no retransmission of lost packets in User Datagram Protcol (UDP).
 
-#### [VLAN](http://www.cisco.com/c/en/us/td/docs/ios/12_2/switch/configuration/guide/fswtch_c/xcfvl.html#wp1003443)
+#### 3. [VLAN](http://www.cisco.com/c/en/us/td/docs/ios/12_2/switch/configuration/guide/fswtch_c/xcfvl.html#wp1003443)
 * A VLAN is a switched network that is logically segmented on an organizational basis, by functions, project teams, or applications rather than on a physical or geographical basis. For example, all workstations and servers used by a particular workgroup team can be connected to the same VLAN, regardless of their physical connections to the network or the fact that they might be intermingled with other teams. Reconfiguration of the network can be done through software rather than by physically unplugging and moving devices or wires.
 * A VLAN can be thought of as a broadcast domain that exists within a defined set of switches. A VLAN consists of a number of end systems, either hosts or network equipment (such as bridges and routers), connected by a single bridging domain. The bridging domain is supported on various pieces of network equipment; for example, LAN switches that operate bridging protocols between them with a separate bridge group for each VLAN.
 * VLANs are created to provide the segmentation services traditionally provided by routers in LAN configurations. VLANs address scalability, security, and network management. Routers in VLAN topologies provide broadcast filtering, security, address summarization, and traffic flow management. None of the switches within the defined group will bridge any frames, not even broadcast frames, between two VLANs. 
  
-#### [How to troubleshoot a ping failure ?](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
+#### 4. [How to troubleshoot a ping failure ?](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
 
-##### IGP (Interior Gateway Protocol)
+##### 4. IGP (Interior Gateway Protocol)
 * An Interior Gateway Protocol (IGP) is a type of protocol used for exchanging routing information between gateways (commonly routers) within an Autonomous System (for example, a system of corporate local area networks). This routing information can then be used to route network-level protocols like IP.
 * Interior gateway protocols can be divided into two categories: distance-vector routing protocols and link-state routing protocols. Specific examples of IGP protocols include Open Shortest Path First (OSPF), Routing Information Protocol (RIP) and Intermediate System to Intermediate System (IS-IS).
 
-##### [ARP (Address Resolution Protocol)](http://en.wikipedia.org/wiki/Address_Resolution_Protocol)
+##### 5. [ARP (Address Resolution Protocol)](http://en.wikipedia.org/wiki/Address_Resolution_Protocol)
+
+#### 6. Host to Host Packet Delivery 
+
+
+#### 7. How the ping works and how we debug the ping issue ?
+#####The ping command is a very common method for troubleshooting the accessibility of devices. It uses a series of Internet Control Message Protocol (ICMP) Echo messages to determine:
+ 1. Whether a remote host is active or inactive.
+ 2. The round-trip delay in communicating with the host.
+ 3. Packet loss.
+
+* Ping operates by sending Internet Control Message Protocol (ICMP) echo request packets to the target host and waiting for an ICMP response. In the process it measures the time from transmission to reception (round-trip time)[1] and records any packet loss. 
+* ICMP messages are typically used for diagnostic or control purposes or generated in response to errors in IP operations
+* Ping message format: ICMP 32-byte packet: IP Header, ICMP Header, ICMP payload 
+* 
+
+Reference:
+* [Ping command Cisco](http://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/12778-ping-traceroute.html)
+
+#### How the VLAN works ? How the packets going between different VLAN ?
