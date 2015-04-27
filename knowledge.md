@@ -165,8 +165,6 @@ There is no retransmission of lost packets in User Datagram Protcol (UDP).
 * A VLAN can be thought of as a broadcast domain that exists within a defined set of switches. A VLAN consists of a number of end systems, either hosts or network equipment (such as bridges and routers), connected by a single bridging domain. The bridging domain is supported on various pieces of network equipment; for example, LAN switches that operate bridging protocols between them with a separate bridge group for each VLAN.
 * VLANs are created to provide the segmentation services traditionally provided by routers in LAN configurations. VLANs address scalability, security, and network management. Routers in VLAN topologies provide broadcast filtering, security, address summarization, and traffic flow management. None of the switches within the defined group will bridge any frames, not even broadcast frames, between two VLANs. 
  
-#### 4. [How to troubleshoot a ping failure ?](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
-
 ##### 4. IGP (Interior Gateway Protocol)
 * An Interior Gateway Protocol (IGP) is a type of protocol used for exchanging routing information between gateways (commonly routers) within an Autonomous System (for example, a system of corporate local area networks). This routing information can then be used to route network-level protocols like IP.
 * Interior gateway protocols can be divided into two categories: distance-vector routing protocols and link-state routing protocols. Specific examples of IGP protocols include Open Shortest Path First (OSPF), Routing Information Protocol (RIP) and Intermediate System to Intermediate System (IS-IS).
@@ -185,9 +183,71 @@ There is no retransmission of lost packets in User Datagram Protcol (UDP).
 * Ping operates by sending Internet Control Message Protocol (ICMP) echo request packets to the target host and waiting for an ICMP response. In the process it measures the time from transmission to reception (round-trip time)[1] and records any packet loss. 
 * ICMP messages are typically used for diagnostic or control purposes or generated in response to errors in IP operations
 * Ping message format: ICMP 32-byte packet: IP Header, ICMP Header, ICMP payload 
-* 
+
+##### Troubleshooting a ping failure
+###### Enable the "debug ip packet detail" or the "debug ip icmp", then run the ping command 
+###### Error 1: Since no routing protocols are running on Router1, it does not know where to send its packet and we get an "unroutable" message. Now let us add a static route to Router1:
+```
+Router1#ping 34.0.0.4 
+
+Type escape sequence to abort. 
+Sending 5, 100-byte ICMP Echos to 34.0.0.4, timeout is 2 seconds: 
+
+Jan 20 16:00:25.603: IP: s=12.0.0.1 (local), d=34.0.0.4, len 100, unroutable.
+Jan 20 16:00:27.599: IP: s=12.0.0.1 (local), d=34.0.0.4, len 100, unroutable.
+Jan 20 16:00:29.599: IP: s=12.0.0.1 (local), d=34.0.0.4, len 100, unroutable.
+Jan 20 16:00:31.599: IP: s=12.0.0.1 (local), d=34.0.0.4, len 100, unroutable.
+Jan 20 16:00:33.599: IP: s=12.0.0.1 (local), d=34.0.0.4, len 100, unroutable.
+Success rate is 0 percent (0/5)
+```
+###### Error 2: Check the internal router one by one to see if the packet has arrival to the destination or not. Router1 is correctly sending its packets to Router2, but Router2 doesn't know how to access address 34.0.0.4. Router2 sends back an "unreachable ICMP" message to Router1.
+
+```
+Router2#debug ip packet detail
+IP packet debugging is on (detailed)
+
+Router2# 
+Jan 20 16:10:41.907: IP: s=12.0.0.1 (Serial1), d=34.0.0.4, len 100, unroutable
+Jan 20 16:10:41.911:     ICMP type=8, code=0
+Jan 20 16:10:41.915: IP: s=12.0.0.2 (local), d=12.0.0.1 (Serial1), len 56, sending
+Jan 20 16:10:41.919:     ICMP type=3, code=1
+Jan 20 16:10:41.947: IP: s=12.0.0.1 (Serial1), d=34.0.0.4, len 100, unroutable
+Jan 20 16:10:41.951:     ICMP type=8, code=0
+Jan 20 16:10:43.943: IP: s=12.0.0.1 (Serial1), d=34.0.0.4, len 100, unroutable
+Jan 20 16:10:43.947:     ICMP type=8, code=0
+Jan 20 16:10:43.951: IP: s=12.0.0.2 (local), d=12.0.0.1 (Serial1), len 56, sending
+Jan 20 16:10:43.955:     ICMP type=3, code=1
+Jan 20 16:10:43.983: IP: s=12.0.0.1 (Serial1), d=34.0.0.4, len 100, unroutable
+Jan 20 16:10:43.987:     ICMP type=8, code=0
+Jan 20 16:10:45.979: IP: s=12.0.0.1 (Serial1), d=34.0.0.4, len 100, unroutable
+Jan 20 16:10:45.983:     ICMP type=8, code=0
+Jan 20 16:10:45.987: IP: s=12.0.0.2 (local), d=12.0.0.1 (Serial1), len 56, sending
+Jan 20 16:10:45.991:     ICMP type=3, code=1 
+```
+###### Error 3: Maybe the receiver part has the issue, similar to Error 1
+###### Error 4: interface down 
+###### Error 5: Access-list Command
+###### Error 6: Address Resolution Protocol (ARP) Issue
+```
+Router4#show arp 
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  100.0.0.4               -   0000.0c5d.7a0d  ARPA   Ethernet0
+Internet  100.0.0.1              10   0060.5cf4.a955  ARPA   Ethernet0
+```
+
+###### Error 7: Delay 
+```
+Router1#ping 12.0.0.2 
+
+Type escape sequence to abort. 
+Sending 5, 100-byte ICMP Echos to 12.0.0.2, timeout is 2 seconds: 
+..... 
+Success rate is 0 percent (0/5) 
+```
 
 Reference:
 * [Ping command Cisco](http://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/12778-ping-traceroute.html)
+* [Troubleshoot a ping failure (this one is better than below) ](http://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/12778-ping-traceroute.html)
+* [How to troubleshoot a ping failure](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
 
 #### How the VLAN works ? How the packets going between different VLAN ?
