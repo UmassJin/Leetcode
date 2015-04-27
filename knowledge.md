@@ -197,6 +197,7 @@ HostB: 192.168.4.2
 10. Then use the ARP request to get the MAC address of Host B, which is the same as Step 4, Host B will update its ARP table and send the ARP reply to the router.
 11. The router populates its local ARP table and starts the packet-forwarding process
 12. Then the frame is forwarded to the destination. The router change the MAC address, but keep the IP address, so here SRC IP: HOST A IP, DES IP: HOSTB IP,  SRC MAC ADDR: Router MAC , DES MAC: HOSTB MAC 
+
 #### Router changes SRC and DES MAC address, but the SRC and DES IP address will not change !!!!
 
 
