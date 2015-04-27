@@ -165,14 +165,14 @@ There is no retransmission of lost packets in User Datagram Protcol (UDP).
 * A VLAN can be thought of as a broadcast domain that exists within a defined set of switches. A VLAN consists of a number of end systems, either hosts or network equipment (such as bridges and routers), connected by a single bridging domain. The bridging domain is supported on various pieces of network equipment; for example, LAN switches that operate bridging protocols between them with a separate bridge group for each VLAN.
 * VLANs are created to provide the segmentation services traditionally provided by routers in LAN configurations. VLANs address scalability, security, and network management. Routers in VLAN topologies provide broadcast filtering, security, address summarization, and traffic flow management. None of the switches within the defined group will bridge any frames, not even broadcast frames, between two VLANs. 
  
-##### 4. IGP (Interior Gateway Protocol)
+#### 4. IGP (Interior Gateway Protocol)
 * An Interior Gateway Protocol (IGP) is a type of protocol used for exchanging routing information between gateways (commonly routers) within an Autonomous System (for example, a system of corporate local area networks). This routing information can then be used to route network-level protocols like IP.
 * Interior gateway protocols can be divided into two categories: distance-vector routing protocols and link-state routing protocols. Specific examples of IGP protocols include Open Shortest Path First (OSPF), Routing Information Protocol (RIP) and Intermediate System to Intermediate System (IS-IS).
 
-##### 5. [ARP (Address Resolution Protocol)](http://en.wikipedia.org/wiki/Address_Resolution_Protocol)
+#### 5. [ARP (Address Resolution Protocol)](http://en.wikipedia.org/wiki/Address_Resolution_Protocol)
 
 
-##### 6. Host to Host Packet Delivery 
+#### 6. Host to Host Packet Delivery 
 ```
 HostA      <--------->    Router    <---------->    HostB
 192.168.3.1      192.168.3.2    192.168.4.1      192.168.4.2
@@ -198,8 +198,40 @@ HostB: 192.168.4.2
 11. The router populates its local ARP table and starts the packet-forwarding process
 12. Then the frame is forwarded to the destination. The router change the MAC address, but keep the IP address, so here SRC IP: HOST A IP, DES IP: HOSTB IP,  SRC MAC ADDR: Router MAC , DES MAC: HOSTB MAC 
 
-#### Router changes SRC and DES MAC address, but the SRC and DES IP address will not change !!!!
+#### Router changes SRC and DES MAC address, but the SRC and DES IP address will not change !!!! The switch does not change the frame in any way, it just forwards the frame out on the proper port according to the MAC address table. 
 
+#### Role of switch in Packet Delivery 
+All frames pass through the switch unchanges, when the MAC address table is built, all unicast frames are sent directly to a destination host based on the destination MAC address and data stored in MAC address table. 
+
+#### Compare the ARP table and MAC table 
+ARP table used to map an IP address to a MAC address. 
+```
+To show arp entries, just type show arp and you will see results like this:
+
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  10.4.2.4               10   0000.0c07.ac14  ARPA   FastEthernet0/0
+Internet  10.3.3.3               10   0000.0c07.ac14  ARPA   FastEthernet0/0
+Internet  10.3.2.7               10   0000.0c07.ac14  ARPA   FastEthernet0/0
+Internet  10.4.2.1               10   0007.b400.1401  ARPA   FastEthernet0/0
+Internet  10.3.3.7               10   0000.0c07.ac14  ARPA   FastEthernet0/0
+```
+
+MAC table 
+```
+switch(config)# sho mac address-table 
+ Note: MAC table entries displayed are getting read from software.
+ Use the 'hardware-age' keyword to get information related to 'Age' 
+
+ Legend: 
+        * - primary entry, G - Gateway MAC, (R) - Routed MAC, O - Overlay MAC
+        age - seconds since last seen,+ - primary entry using vPC Peer-Link, E -
+ EVPN entry 
+        (T) - True, (F) - False ,  ~~~ - use 'hardware-age' keyword to retrieve 
+age info 
+  VLAN/BD   MAC Address      Type      age     Secure NTFY Ports/SWID.SSID.LID
+---------+-----------------+--------+---------+------+----+------------------
+G     -    0018.bad8.0815    static       -       F    F  sup-eth1(R)
+```
 
 #### 7. How the ping works and how we debug the ping issue ?
 #####The ping command is a very common method for troubleshooting the accessibility of devices. It uses a series of Internet Control Message Protocol (ICMP) Echo messages to determine:
