@@ -310,3 +310,18 @@ Reference:
 * [How to troubleshoot a ping failure](http://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-0/troubleshooting/guide/tr40asr9kbook/tr40con.pdf)
 
 #### How the VLAN works ? How the packets going between different VLAN ?
+##### Disadvantage of the current network
+* Large broadcast domain
+* Management and support difficulties
+* Possible security vulnerabilities 
+* Failure domains 
+
+##### VLAN Introduction
+* VLAN = broadcast domain
+* VLAN = logical network (subnet)
+* A 12-bit VLAN ID field within the 802.1q tag is used to specify the VLAN to which the frame belongs 
+* IP address used in the switch must be in the management VLAN, which by default is VLAN 1 
+
+##### Use the Layer-3 switch as the inter-VLAN routing 
+* Combines the functionality of a switch and a router into one device 
+* To enable a Layer-3 switch to perform routing functions, VLAN interfaces on the switch need to be properly configured. You must use the IP addresses that match the subnet that the VLAN is associated with one the network. 
