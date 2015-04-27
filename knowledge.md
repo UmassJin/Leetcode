@@ -171,7 +171,33 @@ There is no retransmission of lost packets in User Datagram Protcol (UDP).
 
 ##### 5. [ARP (Address Resolution Protocol)](http://en.wikipedia.org/wiki/Address_Resolution_Protocol)
 
-#### 6. Host to Host Packet Delivery 
+
+##### 6. Host to Host Packet Delivery 
+```
+HostA      <--------->    Router    <---------->    HostB
+192.168.3.1      192.168.3.2    192.168.4.1      192.168.4.2
+
+HostA: 192.168.3.1
+Default Gateway A: 192.168.3.2  
+Default Gateway B: 192.168.4.1
+HostB: 192.168.4.2
+```
+
+1. Application need to send the packets to HostB, first choose the UDP or the TCP, here the UDP selected, not nessary to setup a session, the applicateion can start sending the data.
+2. UDP add the UDP header and passes the PDU to the IP(Layer 3) with an instruction to send the PDU to 192.168.4.2, IP encapsulates the PDU in the Layer 3 packet, setting hte source IP address(SRC IP) of the packet to the 192.169.3.1, while the destination IP addrss is set to 192.168.4.2
+3. Then the Layer3 find the destination IP(192.168.4.0/24) is on the different segments with source IP(192.168.3.0/24), the host sends any packets that is not destined for the local IP network to the default gateway. The default gateway is the address of the local router, which must be configured on hosts(PCs, servers,and so on). IP encapsulates the PDU in a Layer 3 packet and passes it into Layer2 with instructions to forward it to the default gateway. 
+4. To deliver the packet, the host needs the Layer 2 informaiton of the next-hop device. The ARP table in the host does not have any entry and must resolve the Layer 2 address(MAC address) of the default gateway. 
+1) HostA send the ARP request DST MAC: Brodcast, source MAC: hostA to the defaultgateway, then the router receive it, the router add the HostA ip address and MAC adress in it's ARP table.
+2) And then the router processes the ARP request and sends the ARP reply with its own informaiton.
+5. Now the host receives an ARP(Link Layer) reply to the ARP request and enters the inormation in its local ARP table.
+6. HostA could send out the pending frame now, USE the HostA IP address and MAC address as the source, but the DES IP address is the HOST B, the DES MAC address is DEFAULT GATEWAY !!!!!
+7. When the frame is received by the router, the router recognizes its MAC address and processes the frame. At Layer 3, the router sees that the DES IP is not its IP address. A host Layer 3 device would discard the frame. but the router will pass all packets that are for unkown DES to the routing process. 
+8. Router look up the DES IP in the routing table, here, the DES segment is direcly connected, therefore, the routing process can pass the packet directly to Layer2 for the appropriate interface. 
+9. Routing table has entries: destination, next hop, interface 
+10. Then use the ARP request to get the MAC address of Host B, which is the same as Step 4, Host B will update its ARP table and send the ARP reply to the router.
+11. The router populates its local ARP table and starts the packet-forwarding process
+12. Then the frame is forwarded to the destination. The router change the MAC address, but keep the IP address, so here SRC IP: HOST A IP, DES IP: HOSTB IP,  SRC MAC ADDR: Router MAC , DES MAC: HOSTB MAC 
+#### Router changes SRC and DES MAC address, but the SRC and DES IP address will not change !!!!
 
 
 #### 7. How the ping works and how we debug the ping issue ?
