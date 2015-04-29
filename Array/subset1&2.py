@@ -79,7 +79,19 @@ class Solution:
         res = []
         dfs(0, 0, [])
         return res
-    
+        
+    def subsetsWithDup(self, S):
+        if not S: return [[]]
+        else:
+            S.sort()
+            pre_subset = self.subsetsWithDup(S[1:])
+            for ele in pre_subset:
+                if [S[0]] + ele not in pre_subset:
+                    pre_subset = pre_subset + [[S[0]] + ele]
+            return pre_subset
+
+        
+        
     # Method2, Iteration
     # if S[i] is same to S[i - 1], then it needn't to be added 
     # to all of the subset, just add it to the last l subsets 
