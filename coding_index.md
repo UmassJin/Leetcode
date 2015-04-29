@@ -333,7 +333,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Need to first sort the input array 
 * Backtracking Sample: subset_helper(sublist, start, S), start used to record the start index and also the depth
 * [Subset BIT 求解方法](http://www.cnblogs.com/yuzhangcmu/p/4211815.html)
-
+* BIT 解法在于，对于给定的序列, ```example S = [1,2,3]```, the length of the combination is ```2 ^ len(S)```
+* ```{} <--> 000; {1} <--> 001; {2} <--> 010;; {1,2} <--> 011``` and so on 
 
 -----
 
