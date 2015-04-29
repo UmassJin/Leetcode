@@ -326,7 +326,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Use the recursion and iteration two methods 
 * Iteration: the initialization should use [''] rather than []
  
-
+#####[Subset I and II](./Array/subset1&2.py)
+* Need to first sort the input array 
+* Backtracking Sample: subset_helper(sublist, start, S), start used to record the start index and also the depth
 
 -----
 
