@@ -459,6 +459,10 @@ Solution2
 
 ## Matrix Graph
 #####[Set Matrix Zeroes](./Array/Set_Matrix_Zeroes.py)
+    1. 最优化解的方案精华在于：第一遍扫描从row = 0, cal = 1开始，如果[row][0]==0, 标记first_cal = 0
+    2. 第二遍从底层到高层扫描，if matrix[row][0] or matrix[0][cal] == 0, set as 0, 注意cal 从lengthcal 到 1
+    3. 最后判断first_cal 是否为0，设置第一行所有元素为0
+    
 #####[Number of Islands](./Array/Number_of_Islands.py)
 #####[Spiral Matrix](./Array/Spiral%20Matrix1%262.py)
     1. 题目的难点在于，在每次改动matrix之后，matrix的长度和每行的长度都会变化
