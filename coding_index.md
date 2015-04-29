@@ -310,10 +310,13 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 
 ##DFS Backtracking 
 主要想法是先搜索到不能再底层然后再往上走
+
+#### Reference
+* [全面解析回溯法](http://www.cnblogs.com/wuyuegb2312/p/3273337.html)
+
 #####复杂度问题
 * 组合的话就是O(n^2)
 * 排列的话就是(n!)
-
 
 #####[Palindrome Partitioning](./Array/Palindrome_Partitioning.py)
 * Add the recursion function, palindrome_helper function 
@@ -329,6 +332,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[Subset I and II](./Array/subset1&2.py)
 * Need to first sort the input array 
 * Backtracking Sample: subset_helper(sublist, start, S), start used to record the start index and also the depth
+* [Subset BIT 求解方法](http://www.cnblogs.com/yuzhangcmu/p/4211815.html)
+
 
 -----
 
