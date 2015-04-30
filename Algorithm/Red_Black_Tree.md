@@ -13,3 +13,5 @@
 Two tools for the balancing
 * Recoloring
 * Rotation
+
+#####[Red-Black Tree Wiki](http://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
