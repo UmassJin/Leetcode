@@ -339,6 +339,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * ```{} <--> 000; {1} <--> 001; {2} <--> 010;; {1,2} <--> 011``` and so on 
 
 #####[Combinations](.//Array/Combinations.py)
+#####[N-Queens](./Array/N_Queens.py)
+* 注意要check对角线！！
 
 -----
 
