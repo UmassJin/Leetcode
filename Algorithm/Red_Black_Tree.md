@@ -13,4 +13,3 @@
 Two tools for the balancing
 * Recoloring
 * Rotation
-* 
