@@ -7,6 +7,7 @@
 ####[6. Matrix Graph](#matrix-graph)
 ####[7. String](#string)
 ####[8. Tree](#tree)
+####[9. Bit Manupulation](#bit)
 
 -----------------------
 
@@ -640,6 +641,10 @@ _____
 * [Remove duplicates from an unsorted linked list with given value](Experience/Remove_duplicates_from_unsorted_linked_list_given_value.md) [not use dummyheader]
 
 #### Can Binary Search be used for linked lists ? [Skip Lists](http://www.geeksforgeeks.org/skip-list/)
+
+
+## Bit 
+* [Gray Code](./Array/Gray_Code.py)
 
 ## Rectangle Serious 
 * [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
