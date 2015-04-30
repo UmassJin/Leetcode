@@ -29,6 +29,20 @@ class Solution:
             S.sort()
             pre_subsets = self.subsets(S[1:])
             return pre_subsets +  [[S[0]]+elem for elem in pre_subsets]
+    # Uset bit
+    # Reference: https://leetcode.com/discuss/21144/65ms-python-solution-with-explanation
+    def subsets(self, S):
+        bits = len(S)
+        if not S: return [[]]
+        result = []
+        
+        for i in xrange(1<<bits):
+            sub_res = []
+            for j in xrange(bits):
+                if i & 1 << j:
+                    sub_res.append(S[j])
+            result.append(sub_res)
+        return result
 
     # Iteration 
     def subsets(self, S):        
