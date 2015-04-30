@@ -41,7 +41,7 @@ class Solution:
         if i == len(digits):
             result.append(ret)
             return 
-        for char in Solution.dict[digits[i]]:
+        for char in Solution.dict[digits[i]]:  # Here we do not need to for loop the digits !!!
             self.combination_rec(digits,i+1,result,ret+char)
     
     # Recursion 2 
