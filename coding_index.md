@@ -341,6 +341,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[Combinations](.//Array/Combinations.py)
 #####[N-Queens](./Array/N_Queens.py)
 * 注意要check对角线！！
+#####[N-QueensII](./Array/N_QueensII.py)
+* 注意要用self.result to update the value !!
 
 -----
 
