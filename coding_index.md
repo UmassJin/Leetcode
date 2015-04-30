@@ -336,6 +336,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * BIT 解法在于，对于给定的序列, ```example S = [1,2,3]```, the length of the combination is ```2 ^ len(S)```
 * ```{} <--> 000; {1} <--> 001; {2} <--> 010;; {1,2} <--> 011``` and so on 
 
+#####[Combinations](.//Array/Combinations.py)
+
 -----
 
 ##Data Structure
