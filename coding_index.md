@@ -327,6 +327,7 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * when pass the string to the bottom recursion, should pass strlist + [rest_string]
 
 #####[Letter Combinations of a Phone Number](./Array/Letter_Combinations_of_a_Phone_Number.py)
+* 注意容易犯的错误，对于每一个digit 不需要for loop！例如'23', 否则会出现 3 3 组合的情况！
 * Use the recursion and iteration two methods 
 * Iteration: the initialization should use [''] rather than []
  
