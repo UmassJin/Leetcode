@@ -6,6 +6,8 @@
 | AVL Tree | Red-Black Tree |
 | --- | --- |
 | More load balanced | Less load balanced |
+| Path from Root to Leaf at most 1.44log(n+2) | Path from Root to Leaf at most 2log(n+1) | 
 | Insert/Delete more rotations | Less rotations in Insert/Delete |
 | Use AVL Tree if less insert/delete ans more search |  Use RB Tree if more insert/delete | 
+| language dictionaries (or program dictionaries, such as the opcodes of an assembler or interpreter) | usage: computational geometry, Completely Fair Scheduler used in current Linux kernels|
 
