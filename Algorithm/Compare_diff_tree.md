@@ -2,3 +2,10 @@
 * RB tree when you're doing fairly frequent inserts, deletes and retrievals on the tree.
 * AVL tree when your inserts and deletes are infrequent relative to your retrievals.
 * The AVL trees are more balanced compared to Red Black Trees, but they may cause more rotations during insertion and deletion. So if your application involves many frequent insertions and deletions, then Red Black trees should be preferred. And if the insertions and deletions are less frequent and search is more frequent operation, then AVL tree should be preferred over Red Black Tree.
+
+| AVL Tree | Red-Black Tree |
+| --- | --- |
+| More load balanced | Less load balanced |
+| Insert/Delete more rotations | Less rotations in Insert/Delete |
+| Use AVL Tree if less insert/delete ans more search |  Use RB Tree if more insert/delete | 
+
