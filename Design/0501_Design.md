@@ -45,7 +45,15 @@ If, after a cohort member receives a preCommit message, the coordinator fails or
 #### Paxos 
 ##### Introduction
   1. Google的Chubby, Megastore, Spanner都采用Paxos来对数据副本的更新序列达成一致
-  2. 
+  
+
+#### Paxos Reference:
+##### [Paxos wiki](http://en.wikipedia.org/wiki/Paxos_(computer_science)#Phase_1a:_Prepare)
+##### [Fast Paxos](http://research.microsoft.com/pubs/64624/tr-2005-112.pdf)
+##### [知乎视频](http://www.zhihu.com/question/19787937)
+##### [Paxos 算法形成过程](http://blog.csdn.net/chen77716/article/details/6166675)
+
+
 
 
 
@@ -69,8 +77,5 @@ If, after a cohort member receives a preCommit message, the coordinator fails or
 14. S4: Distributed Stream Computing Platform：Yahoo出品的流式计算系统，目前最流行的两大流式计算系统之一（另一个是storm），Yahoo的主要广告计算平台；
 15. Storm @Twitter：这个系统不多说，开启了流式计算的新纪元，几乎是所有公司流式计算的首选，绝对值得关注；
 
-
-##### [Fast Paxos](http://research.microsoft.com/pubs/64624/tr-2005-112.pdf)
-##### [知乎视频](http://www.zhihu.com/question/19787937)
 
 
