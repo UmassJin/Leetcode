@@ -1,7 +1,10 @@
+##Table of Content
+####[1. Two phase Commit](#two-phase-commit)
 
 
-###[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
-#### [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+
+##[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
+## [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
 #### [Two phase Locking](http://en.wikipedia.org/wiki/Two-phase_locking)
 
 ##### Basic Algorithm
