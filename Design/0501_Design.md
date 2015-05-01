@@ -29,6 +29,14 @@ The greatest disadvantage of the two-phase commit protocol is that it is a block
 #### [Three phase Commit](http://en.wikipedia.org/wiki/Three-phase_commit_protocol)
 
 ![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437312/49905918-f00b-11e4-9862-d3b3b3acd6cb.gif)
-
+#####Coordinator
+  1. The coordinator receives a transaction request. If there is a failure at this point, the coordinator aborts the transaction (i.e. upon recovery, it will consider the transaction aborted). Otherwise, the coordinator sends a canCommit? message to the cohorts and moves to the waiting state.
+  2. If there is a failure, timeout, or if the coordinator receives a No message in the waiting state, the coordinator aborts the transaction and sends an abort message to all cohorts. Otherwise the coordinator will receive Yes messages from all cohorts within the time window, so it sends preCommit messages to all cohorts and moves to the prepared state.
+  3. If the coordinator succeeds in the prepared state, it will move to the commit state. However if the coordinator times out while waiting for an acknowledgement from a cohort, it will abort the transaction. In the case where all acknowledgements are received, the coordinator moves to the commit state as well.
+  
+#####Cohort
+  1. The cohort receives a canCommit? message from the coordinator. If the cohort agrees it sends a Yes message to the coordinator and moves to the prepared state. Otherwise it sends a No message and aborts. If there is a failure, it moves to the abort state.
+  2. In the prepared state, if the cohort receives an abort message from the coordinator, fails, or times out waiting for a commit, it aborts. If the cohort receives a preCommit message, it sends an ACK message back and awaits a final commit or abort.
+If, after a cohort member receives a preCommit message, the coordinator fails or times out, the cohort member goes forward with the commit.
 
 ![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437416/0539e774-f00c-11e4-87fa-b80260507f38.png)
