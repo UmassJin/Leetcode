@@ -1,5 +1,5 @@
-####[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
-##### [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+###[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
+#### [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
 
 ##### Basic Algorithm
 ##### Commit request phase or voting phase
@@ -24,3 +24,4 @@ If any cohort votes No during the commit-request phase (or the coordinator's tim
 
 ##### Disadvantage 
 The greatest disadvantage of the two-phase commit protocol is that it is a blocking protocol. If the coordinator fails permanently, some cohorts will never resolve their transactions: After a cohort has sent an agreement message to the coordinator, it will block until a commit or rollback is received.
+
