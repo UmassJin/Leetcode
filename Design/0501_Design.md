@@ -3,7 +3,6 @@
 ####[2. Three phase Commit](#three-phase-commit)
 ####[3. Paxos](#paxos)
 
-
 -----------------------------------
 
 
@@ -63,8 +62,8 @@ If, after a cohort member receives a preCommit message, the coordinator fails or
 ##### [Paxos 算法形成过程](http://blog.csdn.net/chen77716/article/details/6166675)
 
 
-
-
+#### [ACID concept](http://en.wikipedia.org/wiki/ACID)
+ACID (Atomicity, Consistency, Isolation, Durability
 
 ####Reference:
 分布式系统在互联网时代，尤其是大数据时代到来之后，成为了每个程序员的必备技能之一。分布式系统从上个世纪80年代就开始有了不少出色的研究和论文，我在这里只列举最近15年范围以内我觉得有重大影响意义的15篇论文（15 within 15）。
