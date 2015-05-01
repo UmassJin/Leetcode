@@ -1,5 +1,8 @@
+
+
 ###[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
 #### [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+#### [Two phase Locking](http://en.wikipedia.org/wiki/Two-phase_locking)
 
 ##### Basic Algorithm
 ##### Commit request phase or voting phase
@@ -40,7 +43,6 @@ The greatest disadvantage of the two-phase commit protocol is that it is a block
 If, after a cohort member receives a preCommit message, the coordinator fails or times out, the cohort member goes forward with the commit.
 
 ![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437416/0539e774-f00c-11e4-87fa-b80260507f38.png)
-
 
 #### Paxos 
 ##### Introduction
