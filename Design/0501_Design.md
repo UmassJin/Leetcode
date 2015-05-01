@@ -40,3 +40,11 @@ The greatest disadvantage of the two-phase commit protocol is that it is a block
 If, after a cohort member receives a preCommit message, the coordinator fails or times out, the cohort member goes forward with the commit.
 
 ![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437416/0539e774-f00c-11e4-87fa-b80260507f38.png)
+
+
+#### Paxos 
+##### [Fast Paxos](http://research.microsoft.com/pubs/64624/tr-2005-112.pdf)
+##### [知乎视频](http://www.zhihu.com/question/19787937)
+
+
+#### 
