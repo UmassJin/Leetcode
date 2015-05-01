@@ -1,10 +1,11 @@
 ##Table of Content
 ####[1. Two phase Commit](#two-phase-commit)
-####[1. Three phase Commit](#three-phase-commit)
-####[1. Paxos](#paxos)
+####[2. Three phase Commit](#three-phase-commit)
+####[3. Paxos](#paxos)
 
 
 -----------------------------------
+
 
 ##[分布式系统的事务处理](http://coolshell.cn/articles/10910.html)
 ## [Two phase Commit](http://en.wikipedia.org/wiki/Two-phase_commit_protocol)
