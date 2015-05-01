@@ -29,3 +29,6 @@ The greatest disadvantage of the two-phase commit protocol is that it is a block
 #### [Three phase Commit](http://en.wikipedia.org/wiki/Three-phase_commit_protocol)
 
 ![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437312/49905918-f00b-11e4-9862-d3b3b3acd6cb.gif)
+
+
+![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437416/0539e774-f00c-11e4-87fa-b80260507f38.png)
