@@ -25,3 +25,7 @@ If any cohort votes No during the commit-request phase (or the coordinator's tim
 ##### Disadvantage 
 The greatest disadvantage of the two-phase commit protocol is that it is a blocking protocol. If the coordinator fails permanently, some cohorts will never resolve their transactions: After a cohort has sent an agreement message to the coordinator, it will block until a commit or rollback is received.
 
+
+#### [Three phase Commit](http://en.wikipedia.org/wiki/Three-phase_commit_protocol)
+
+![Another Pic](https://cloud.githubusercontent.com/assets/9062406/7437312/49905918-f00b-11e4-9862-d3b3b3acd6cb.gif)
