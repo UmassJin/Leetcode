@@ -15,6 +15,8 @@ Given n and k, return the kth permutation sequence.
 Note: Given n will be between 1 and 9 inclusive.
 ```
 
+Reference: https://leetcode.com/discuss/16064/an-iterative-solution-for-reference
+
 class Solution:
     # @param {integer} n
     # @param {integer} k
