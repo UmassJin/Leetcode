@@ -223,7 +223,7 @@
 * initialize:  ``` dp[0][0] = True ```
 * function: 
 ```python
-dp[i][j] =  dp[i-1][j-1] and s[i-1][j-1]  if p[j-1] != '.' and p[j-1] != '*'
+dp[i][j] =  dp[i-1][j-1] and s[i-1] == p[j-1]  if p[j-1] != '.' and p[j-1] != '*'
             dp[i-1][j-1]                  if p[j-1] == '.'
             dp[i][j-1]  or dp[i][j-2]     if p[j-1] == '*' 匹配0个或者1个元素 
             匹配0个元素，即消去p[j-2]，此时p[0: j-1] = p[0: j-3]
@@ -236,6 +236,8 @@ dp[i][j] =  dp[i-1][j-1] and s[i-1][j-1]  if p[j-1] != '.' and p[j-1] != '*'
 *            [Reference 2 ] (http://www.aichengxu.com/view/14420)
 
 Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
+* There is dp solution for Wildcard Matching, need to recall!!
+
 ######Wildcard Matching 
 * '?' Matches any single character.
 * '*' Matches any sequence of characters (including the empty sequence).
@@ -245,6 +247,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 *    a-->'?'; b-->b; '*'-->'ebd';'cd'-->'cd'
 * Example ```isMatch("abebdcbd","?b*cd")``` → False
 *    a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
+* Example ```isMatch('acbb','*b')``` -> True
+* Example ```isMatch('acbcb','*b')``` -> True
 
 ######Regular Expression Matching 
 * '.' Matches any single character.
@@ -254,7 +258,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * '.*' could match any strng, since * means zero or more of the preceding element, so here maybe 0 or more '.'
 * ```isMatch("aab", "c*a*b")``` → true 
 * here is true since c maybe have 0 times 
-
+* Example ```isMatch('acbb','*b')``` -> True
+* Example ```isMatch('acbcb','*b')``` -> True
 
 -----
 
