@@ -689,8 +689,13 @@ _____
 
 ## Permutation Serious 
 ##### [PermutationsI](./Array/PermutationsI.py)
+
 ##### [PermutationsII](./Array/PermutationsII.py)
 * 注意：用一个previous去检测之前是否已经用过这个数字
+
+##### [Permutation Sequence](./Array/Permutation_sequence.py)
+* 注意这里巧妙的方法
+* 或者我们也可以用recursion做，先初始化[1,2,3...n],再依次找到每一个permutation
 
 ## Array Interval Serious
 * [Insert Interval](./Array/Insert_Interval.py)
