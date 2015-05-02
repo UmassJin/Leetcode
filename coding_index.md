@@ -541,7 +541,7 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 * If input char is '.' or '/' or '', continue, if '..', pop the value in stack
 * Check the '/' at last if len(stack)>1, delete the last '/'
 
-#####[Restore IP Addresses] (./Array/Restore_IP_Addresses.py)
+#####[Restore IP Addresses] (./Array/Restore_IP_Address.py)
 * Use the DFS
 * 基本思路，将i从1到4遍历，for example: '255255312'，则依次取2, 25, 255...必须每次check i< len(s)
 * 例如 '1111', 最后取 111, 1， 当i再增大时，已经超过s的长度！
