@@ -17,6 +17,8 @@ isMatch("aa", "a*") → true
 isMatch("ab", "?*") → true
 isMatch("aab", "c*a*b") → false
 
+# https://leetcode.com/discuss/30620/my-java-dp-solution
+
 # Reference: http://yucoding.blogspot.com/2013/02/leetcode-question-123-wildcard-matching.html
 # Notes:
 # 1) Definiton of '?' and '*', '?' could match any single char, '*' match any sequqnce of chars 
