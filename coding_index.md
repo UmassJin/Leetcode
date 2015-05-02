@@ -543,6 +543,8 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 
 #####[Restore IP Addresses] (./Array/Restore_IP_Addresses.py)
 * Use the DFS
+* 基本思路，将i从1到4遍历，for example: '255255312'，则依次取2, 25, 255...必须每次check i< len(s)
+* 例如 '1111', 最后取 111, 1， 当i再增大时，已经超过s的长度！
 * corner case: ip should not be 001, 000, should consider the "010010"-->'0.1.0.010' case
 * ip number should be in [0,255]
 
