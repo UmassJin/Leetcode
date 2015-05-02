@@ -688,6 +688,9 @@ _____
   1. 注意check duplicate answers ! check case [1,1], target = 1 !
 
 ## Permutation Serious 
+##### [PermutationsI](./Array/PermutationsI.py)
+##### [PermutationsII](./Array/PermutationsII.py)
+* 注意：用一个previous去检测之前是否已经用过这个数字
 
 ## Array Interval Serious
 * [Insert Interval](./Array/Insert_Interval.py)
