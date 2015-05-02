@@ -25,6 +25,9 @@ isMatch("aab", "c*a*b") → false
 # 3) Example isMatch("abebdcbd","?b*cd") → False
 #    a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
 # 4) We need the variable 'ss', since for the example isMatch("hi","*?")
+# 5) 'aacbb', '*b' --> True
+#    'aacbcb', '*b'  --> True
+
 
 class Solution:
     # @param s, an input string
