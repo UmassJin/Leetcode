@@ -249,6 +249,10 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 *    a-->'?';b--:>b; 'ebd'-->'*';'c'-->'c';'b'-->'d' --> False
 * Example ```isMatch('acbb','*b')``` -> True
 * Example ```isMatch('acbcb','*b')``` -> True
+* Example ```isMatch("abedsfsf","a*ff")``` -> False
+* Example ```isMatch("abf","ab*f")``` -> True
+* 对于wildcard matching 来说，```'*'```可以match到空的或者任意长度的string，所以```"abedsfsf","a*f"```就为True，
+* 但是```isMatch("abedsfsf","a*ff")``` 为False， 因为fsf 与ff 不match
 
 ######Regular Expression Matching 
 * '.' Matches any single character.
