@@ -90,6 +90,7 @@ signal(semaphore *S) {
 
 
 ##### [Example: Producer/consumer problem](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
+* [wiki page](http://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem)
 
 ##### [Difference between Semaphore and Mutex](http://www.geeksforgeeks.org/mutex-vs-semaphore/)
 * [Wiki](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
