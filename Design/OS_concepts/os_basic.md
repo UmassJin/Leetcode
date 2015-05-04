@@ -60,7 +60,7 @@ Hardware support: atomic operations (test-and-set, compare-and-swap, fetch-and-a
 #### [Read/Write Lock](http://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
 ##### Read-preferring RW locks 
 * allow for maximum concurrency, but can lead to write-starvation if contention is high. This is because writer threads will not be able to acquire the lock as long as at least one reading thread holds it. Since multiple reader threads may hold the lock at once, this means that a writer thread may continue waiting for the lock while new reader threads are able to acquire the lock, even to the point where the writer may still be waiting after all of the readers which were holding the lock when it first attempted to acquire it have released the lock.
-* 
+
 ##### Write-preferring RW locks 
 * avoid the problem of writer starvation by preventing any new readers from acquiring the lock if there is a writer queued and waiting for the lock. The writer will then acquire the lock as soon as all readers which were already holding the lock have completed.[3] The downside is that write-preferring locks allows for less concurrency in the presence of writer threads, compared to read-preferring RW locks. Also the lock is less performant because each operation, taking or releasing the lock for either read or write, is more complex, internally requiring taking and releasing two mutexes instead of one.This variation is sometimes also known as "write-biased" readers-writer lock.
 
