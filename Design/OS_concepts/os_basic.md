@@ -27,7 +27,6 @@
 * plug-in process 
 
 
-
 ## Process Synchronization
 
 #### [The Critical-Section Problem](http://www.geeksforgeeks.org/g-fact-70/)
@@ -41,6 +40,7 @@
 request is granted.
 
 #### [Atomic Operation](http://www.geeksforgeeks.org/g-fact-57/)
+Hardware support: atomic operations (test-and-set, compare-and-swap, fetch-and-add etc.)
 
 #### Mutex Locks
 * A process must acquire the lock before entering a critical section; it releases the lock when it exits the critical section. The acquire()function acquires the lock, and the release() function releases the lock
@@ -50,7 +50,7 @@ request is granted.
 * Spinlocks do have an advantage, however, in that no context switch is required when a process must wait on a lock, and a context switch may take considerable time. Thus, when locks are expected to be held for short times, spinlocks are useful. They are often employed on multiprocessor systems where one thread can “spin” on one processor while another thread performs its critical section on another processor.
 * 好处，当credical section 比较短，适合spinlock, 因为 no conext switch is required.
 
-#### [Semaphores](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
+## [Semaphores](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
 ##### Two types
 * Semaphores which allow an arbitrary resource count are called counting semaphores, while semaphores which are restricted to the values 0 and 1 (or locked/unlocked, unavailable/available) are called binary semaphores
 
@@ -98,4 +98,48 @@ signal(semaphore *S) {
 * Mutexes may also provide deletion safety, where the process holding the mutex cannot be accidentally deleted.
 
 ##### [Priority Inversion](http://en.wikipedia.org/wiki/Priority_inversion)
+
+##### More Example about the Semaphore
+##### Semaphore 实现 Signaling， 保证B到达之后，A才能到达
+```
+Semaphore bArrived(0);
+-----------------------
+
+B1
+bArrived.signal();
+
+---------------------
+
+bArrived.wait()
+A1
+````
+
+##### Semaphore 实现mutex
+```
+Semaphore mutex(1);
+
+-------------------
+mutex.wait();
+B1
+mutex.signal();
+
+--------------------
+mutex.wait();
+A1
+mutex.signal();
+
+```
+
+### [Deadlock](http://en.wikipedia.org/wiki/Deadlock)
+＊ In an operating system, a deadlock is a situation which occurs when a process or thread enters a waiting state because a resource requested is being held by another waiting process, which in turn is waiting for another resource held by another waiting process. If a process is unable to change its state indefinitely because the resources requested by it are being used by another waiting process, then the system is said to be in a deadlock.
+
+#### Deadlock Condition
+##### 1. Mutual Exclusion: 
+At least one resource must be held in a non-shareable mode.[1] Only one process can use the resource at any given instant of time.
+##### 2. Hold and Wait or Resource Holding: 
+A process is currently holding at least one resource and requesting additional resources which are being held by other processes.
+##### 3. No Preemption: 
+a resource can be released only voluntarily by the process holding it.
+##### 4. Circular Wait: 
+A process must be waiting for a resource which is being held by another process, which in turn is waiting for the first process to release the resource. In general, there is a set of waiting processes, P = {P1, P2, ..., PN}, such that P1 is waiting for a resource held by P2, P2 is waiting for a resource held by P3 and so on until PN is waiting for a resource held by P1
 
