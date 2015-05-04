@@ -2,7 +2,7 @@
 ####[1. Process](#process)
 ####[2. Process Synchronization](#process-synchronization)
 ####[3. Semaphores](#semaphores)
-
+####[4. Monitor](#monitor)
 
 
 ## Process
@@ -150,4 +150,14 @@ A process is currently holding at least one resource and requesting additional r
 a resource can be released only voluntarily by the process holding it.
 ##### 4. Circular Wait: 
 A process must be waiting for a resource which is being held by another process, which in turn is waiting for the first process to release the resource. In general, there is a set of waiting processes, P = {P1, P2, ..., PN}, such that P1 is waiting for a resource held by P2, P2 is waiting for a resource held by P3 and so on until PN is waiting for a resource held by P1
+
+#### Callback 
+* Definition: a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time. 
+
+## [Monitor](http://en.wikipedia.org/wiki/Monitor_%28synchronization%29)
+* a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met. 
+*  A condition variable is basically a container of threads that are waiting on a certain condition.
+
+
+
 
