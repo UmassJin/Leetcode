@@ -57,6 +57,17 @@ Hardware support: atomic operations (test-and-set, compare-and-swap, fetch-and-a
 * Spinlocks do have an advantage, however, in that no context switch is required when a process must wait on a lock, and a context switch may take considerable time. Thus, when locks are expected to be held for short times, spinlocks are useful. They are often employed on multiprocessor systems where one thread can “spin” on one processor while another thread performs its critical section on another processor.
 * 好处，当credical section 比较短，适合spinlock, 因为 no conext switch is required.
 
+#### [Read/Write Lock](http://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock)
+##### Read-preferring RW locks 
+* allow for maximum concurrency, but can lead to write-starvation if contention is high. This is because writer threads will not be able to acquire the lock as long as at least one reading thread holds it. Since multiple reader threads may hold the lock at once, this means that a writer thread may continue waiting for the lock while new reader threads are able to acquire the lock, even to the point where the writer may still be waiting after all of the readers which were holding the lock when it first attempted to acquire it have released the lock.
+* 
+##### Write-preferring RW locks 
+* avoid the problem of writer starvation by preventing any new readers from acquiring the lock if there is a writer queued and waiting for the lock. The writer will then acquire the lock as soon as all readers which were already holding the lock have completed.[3] The downside is that write-preferring locks allows for less concurrency in the presence of writer threads, compared to read-preferring RW locks. Also the lock is less performant because each operation, taking or releasing the lock for either read or write, is more complex, internally requiring taking and releasing two mutexes instead of one.This variation is sometimes also known as "write-biased" readers-writer lock.
+
+##### Unspecified priority RW locks 
+* does not provide any guarantees with regards read vs. write access. Unspecified priority can in some situations be preferable if it allows for a more efficient implementation.[citation needed]
+
+
 ## [Semaphores](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
 ##### Two types
 * Semaphores which allow an arbitrary resource count are called counting semaphores, while semaphores which are restricted to the values 0 and 1 (or locked/unlocked, unavailable/available) are called binary semaphores
