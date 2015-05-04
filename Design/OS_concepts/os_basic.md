@@ -48,6 +48,7 @@ request is granted.
 #### Spinlock
 * The main disadvantage of the implementation given here is that it requires busy waiting. While a process is in its critical section, any other process that tries to enter its critical section must loop continuously in the call to acquire(). In fact, this type of mutex lock is also called a spinlock because the process “spins” while waiting for the lock to become available.
 * Spinlocks do have an advantage, however, in that no context switch is required when a process must wait on a lock, and a context switch may take considerable time. Thus, when locks are expected to be held for short times, spinlocks are useful. They are often employed on multiprocessor systems where one thread can “spin” on one processor while another thread performs its critical section on another processor.
+* 好处，当credical section 比较短，适合spinlock, 因为 no conext switch is required.
 
 #### [Semaphores](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
 ##### Two types
@@ -80,7 +81,21 @@ signal(semaphore *S) {
             wakeup(P);
       }
 }
-
-
 ```
+
+* The list of waiting processes can be easily implemented by a link field in each process control block (PCB). Each semaphore contains an integer value and a pointer to a list of PCBs. One way to add and remove processes from the list so as to ensure bounded waiting is to use a FIFO queue, where the semaphore contains both head and tail pointers to the queue.
+* It is critical that semaphore operations be executed atomically !
+   1. This is a critical-section problem; and in a single-processor environment, we can solve it by simply inhibiting interrupts during the time the wait() and signal() operations are executing. This scheme works in a single-processor environment because, once interrupts are inhibited, instructions from different processes cannot be interleaved. Only the currently running process executes until interrupts are reenabled and the scheduler can regain control.
+   2. In a multiprocessor environment, interrupts must be disabled on every pro- cessor. Otherwise, instructions from different processes (running on different processors) may be interleaved in some arbitrary way. Disabling interrupts on every processor can be a difficult task and furthermore can seriously diminish performance. Therefore, SMP systems must provide alternative locking tech- niques—such as compare and swap() or spinlocks—to ensure that wait() and signal() are performed atomically.
+
+
+##### [Example: Producer/consumer problem](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
+
+##### [Difference between Semaphore and Mutex](http://www.geeksforgeeks.org/mutex-vs-semaphore/)
+* [Wiki](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
+* Mutexes have a concept of an owner. Only the process that locked the mutex is supposed to unlock it. If the owner is stored by the mutex this can be verified at runtime.
+* Mutexes may provide priority inversion safety. If the mutex knows its current owner, it is possible to promote the priority of the owner whenever a higher-priority task starts waiting on the mutex.
+* Mutexes may also provide deletion safety, where the process holding the mutex cannot be accidentally deleted.
+
+##### [Priority Inversion](http://en.wikipedia.org/wiki/Priority_inversion)
 
