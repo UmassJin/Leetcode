@@ -58,6 +58,29 @@ request is granted.
 * A simple way to understand wait and signal operations is:
   1. wait: If the value of semaphore variable is not negative, decrements it by 1. If the semaphore variable is now negative, the process executing wait is blocked (i.e., added to the semaphore's queue) until the value is greater or equal to 1.   Otherwise, the process continues execution, having used a unit of the resource.
   2. signal: Increments the value of semaphore variable by 1. After the increment, if the pre-increment value was negative (meaning there are processes waiting for a resource), it transfers a blocked process from the semaphore's waiting queue to the ready queue.
+* Code:
+```
+typedef struct{ 
+   int value;
+   struct process *list; 
+} semaphore;
+
+wait(semaphore *S) { 
+      S->value--;
+      if (S->value < 0) {
+         add this process to S->list;
+         block();
+      }
+}
+
+signal(semaphore *S) { 
+      S->value++;
+      if (S->value <= 0) {
+            remove a process P from S->list; 
+            wakeup(P);
+      }
+}
 
 
+```
 
