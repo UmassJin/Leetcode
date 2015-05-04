@@ -26,6 +26,7 @@
 * Renderer process
 * plug-in process 
 
+![pic](https://cloud.githubusercontent.com/assets/9062406/7449415/8d6808bc-f1ea-11e4-9b14-3f147f0f0d18.png)
 
 ## Process Synchronization
 
