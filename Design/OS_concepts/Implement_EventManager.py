@@ -98,7 +98,45 @@ class EventManager:
         for i in xrange(size):
             register_callbacks_[i]
 
-
 # 3. Third problem: after the TriggerEvent has done, then all the next
 # EventManager will be serialized, will do one at one time, 
 # The other problem is in the RegisterForEvent inside, maybe call the RegisterForEvent again
+# Python do not have the reader_writer lock, need to implement 
+# https://majid.info/blog/a-reader-writer-lock-for-python/
+# http://code.activestate.com/recipes/577803-reader-writer-lock-with-priority-for-writers/
+
+from threading import Thread, Lock
+
+class EventManager:
+    def __init__(self):
+        self._mutex_callbacks = Lock() # Add the mutex to lock the registered_callbacks
+        self._mutex_trigger = Lock() # Add the mutex to prevent the callback lose 
+
+        self._trigger = False
+        self.register_callbacks_ = []
+
+    def RegisterForEvent(self, callback_func_):
+        ## Change to the reader_lock() here, which means could have multiple readers
+        ## But only have one writer !! 
+        _mutex_trigger._reader_lock() # _mutex_trigger.lock()
+        if _trigger:
+            callback_func_()
+        else:
+            _mutex_callbacks.acquire() # _mutex.lock() # No race on the vector
+            register_callbacks_.append(callback_func_)
+            _mutex_callbacks.release() # _mutex.unlock()
+        _mutex_trigger._reader_unlock() # _mutex_trigger.unlock()
+
+    def TriggerEvent(self):
+
+        _mutex_trigger.acquire() # _mutex_trigger.lock()
+        _trigger = True
+        _mutex_trigger.release() # _mutex_trigger.unlock()
+
+        # Read here could not add the lock, since when we release the mutex_trigger
+        # then RegisterForEvent coming, this time the _trigger is True 
+        size = len(register_callbacks_)
+        for i in xrange(size):
+            register_callbacks_[i]
+
+                           
