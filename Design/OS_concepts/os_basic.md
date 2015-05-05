@@ -169,6 +169,7 @@ A process must be waiting for a resource which is being held by another process,
 * a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met. 
 *  A condition variable is basically a container of threads that are waiting on a certain condition.
 
+#### [参考Implement EventManager](OS_concepts/Implement_EventManager.md)
 
 
 
