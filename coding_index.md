@@ -355,6 +355,16 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[N-QueensII](./Array/N_QueensII.py)
 * 注意要用self.result to update the value !!
 
+
+#####[Sudoku Solver](./Array/sudoku_solver.py)
+* 几个容易犯错的地方
+* 1. 思路是，一次从```board[0][0]```开始走起，如果发现```'.'```则一次填入1到9之间数字的任意一个
+* 2. 然后进行check在同一行或者同一列中是否有一样的
+* 3. 注意在check 的时候，不能将```board[i][cal] == board[i][j]```直接check，因为可能是自己等于自己的情况！
+* 4. 注意同一个九宫格的check，```board[(i/3)*3+p][(j/3)*3+q] == tmp```,p和q分别从0遍历到2
+* 5. 注意如果返回false，要将```board[i][j]```重新设置为```'.'```
+* 6. 在最后注意所有条件都满足时，返回True 
+
 -----
 
 ##Data Structure
