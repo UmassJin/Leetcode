@@ -1,5 +1,7 @@
-## Asynchronous, without the condition variable 
+### Asynchronous, without the condition variable 
 
+##### Note: Minimize critical section 
+##### This solution is not the asychronous 
 ```
 # Version 1
 class EventManager:
@@ -143,3 +145,54 @@ class EventManager:
             register_callbacks_[i]
 
  ```                          
+
+### Synchronous, with the condition variable 
+
+```
+# In the python, we should use the _cv.acquire() instead of
+# create the other mutex = Lock()
+from threading import Thread, Lock, Condition
+
+class EventManager:
+    def __init__(self):
+        self._mutex = Lock()
+        self._cv = Condition()
+        
+    def RegisterForEvent(self):
+        _mutex.acquire()
+        _cv.wait(_mutex)
+        _mutex.release()
+        callback_func()
+        
+    def TriggerEvent(self):
+        _cv.notify_all()
+
+    
+# Problem 1: after trigger event, then when the register callback
+# will wait forever 
+# Version 2: add the bool _wait to check whether need to wait 
+from threading import Thread, Lock, Condition
+        
+class EventManager:
+    def __init__(self):
+        self._mutex = Lock()
+        self._cv = Condition()
+        bool _wait = True
+    
+    def RegisterForEvent(self):
+        _mutex.acquire()
+        while _wait:   # Here we use the while instead of the if ! 
+            _cv.wait(_mutex) # Unblock the _mutex, add to the block list, sleep
+        _mutex.release()
+        
+        callback_func()
+        
+    def TriggerEvent(self):
+        _mutex.acquire()
+        _wait = False
+        __mutex.release()
+        
+        _cv.notify_all()
+
+```
+
