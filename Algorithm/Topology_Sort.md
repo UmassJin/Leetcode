@@ -3,6 +3,7 @@
 * DAG means "A directed graph with no directed cycles", each edge connecting one vertex to another, such that there is no way to start at some vertex v and follow a sequence of edges that eventually loops back to v again.
 * Useful: A collection of tasks that must be ordered into a sequence, subject to constraints that certain tasks must be performed earlier than others, may be represented as a DAG with a vertex for each task and an edge for each constraint.
 * For example, we should finish the prerequisite class A and then take the class B, A is the prerequisite of the class B. 
+* O(V) + O(E)
 
 ##### Compare different Sort for graph
 * BFS is useful for finding the shortest path
