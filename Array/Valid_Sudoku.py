@@ -4,6 +4,38 @@ The Sudoku board could be partially filled, where empty cells are filled with th
 Note:
 A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
 '''
+class Solution:
+    # @param {character[][]} board
+    # @return {boolean}
+    def isValidSudoku(self, board):
+        if not board: return 
+
+        for i in xrange(9):
+            row = []
+            cal = []
+            for j in xrange(9):
+                if board[i][j] != '.' and board[i][j] not in row:
+                    row.append(board[i][j])
+                elif board[i][j] in row:
+                    return False
+                
+                if board[j][i] != '.' and board[j][i] not in cal:  # Note: here is if not the elif !!!
+                    cal.append(board[j][i])
+                elif board[j][i] in cal:
+                    return False
+        
+        for i in range(0,9,3):
+            for j in range(0,9,3):
+                square = []
+                for x in range(3):
+                    for y in range(3):
+                        if board[i+x][j+y] != '.' and board[i+x][j+y] not in square:
+                            square.append(board[i+x][j+y])
+                        elif board[i+x][j+y] in square:
+                            return False
+        return True 
+        
+
 
 class Solution:
     # @param {character[][]} board
