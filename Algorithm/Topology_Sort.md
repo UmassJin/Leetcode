@@ -10,6 +10,8 @@
 * DFS is useful for performing a topological sort
 * Topology Sort of a DAG G=(V,E) is a liner ordering of all its vertices such that if G contains an edge (u,v) then u always appears before v in the ordering
 
+##### [Find Order of Char in Sorted Dict](https://github.com/UmassJin/Leetcode/blob/master/Experience/Find_Order_of_Char_in_Sorted_Dict.md)
+
 
 ##### Algorithm 
 For example, we have the following DAG, the following algorithm are from the Video, a little bit different in the G4G, since we check whether the graph is the DAG or not!!
