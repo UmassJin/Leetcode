@@ -62,7 +62,7 @@ def dfs_util(node, visited):
 
 ##### 4. Example Interview Questions  
 * [Find Order of Char in Sorted Dict](https://github.com/UmassJin/Leetcode/blob/master/Experience/Find_Order_of_Char_in_Sorted_Dict.md)
-
+* [Course Schedule](https://github.com/UmassJin/Leetcode/blob/master/Array/Course_Schedule.py)
 
 
 ##### 5. Reference
