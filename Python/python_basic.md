@@ -838,6 +838,21 @@ True
  * The in operator uses different algorithms for lists and dictionaries. For lists, it uses a search algorithm, as in Section 8.6. As the list gets longer, the search time gets longer in direct proportion. For dictionaries, Python uses an algorithm called a hashtable that has a remarkable property: the in operator takes about the same amount of time no matter how many items there are in a dictionary. I won’t explain how that’s possible, but you can read more about it at http://en.wikipedia.org/wiki/Hash_table.
 
 ```
+>>> d = {}
+>>> for i in xrange(3):
+...     d.setdefault(i, [])
+... 
+[]
+[]
+[]
+>>> d
+{0: [], 1: [], 2: []}
+>>> 
+
+#This method returns the key value available in the dictionary and if given key is not available then it will return provided default value.
+```
+
+```
 >>> 'one' in eng2sp
 True
 >>> 'uno' in eng2sp
