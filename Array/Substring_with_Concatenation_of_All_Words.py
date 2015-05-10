@@ -10,6 +10,31 @@ You should return the indices: [0,9].
 (order does not matter).
 
 class Solution:
+    # @param {string} s
+    # @param {string[]} words
+    # @return {integer[]}
+    def findSubstring(self, s, words):
+        num_word = len(words)
+        len_word = len(words[0])
+        lengths = len(s)
+        ret = []
+        
+        for i in xrange(lengths - len_word*num_word + 1):
+            sublist =  [s[j: j+len_word] for j in xrange(i, i+len_word*num_word, len_word)]
+            
+            found = True
+            for word in words:
+                if word in sublist:
+                    sublist.remove(word)
+                else:
+                    found = False
+                    break
+            if found:
+                ret.append(i)
+        return ret
+
+
+class Solution:
     # @param S, a string
     # @param L, a list of string
     # @return a list of integer
