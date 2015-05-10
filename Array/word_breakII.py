@@ -66,6 +66,7 @@ class Solution:
                     break
         return dp 
     
+    #注意：这里的dfs需要从后面往前面循环！！
     def dfs_word_break(self,end,s, dict, strlist, dp):
         if end == 0: self.result.append(' '.join(strlist))
         for i in xrange(end):
