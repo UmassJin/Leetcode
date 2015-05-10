@@ -42,10 +42,10 @@ class Solution:
                 else:
                     extra_space = L - cur_len - (len(res)-1) # Note 2
                     each_extra = extra_space/(len(res)-1) + 1
-                    rest_spaces = extra_space % (len(res)-1)
+                    rest_spaces = extra_space % (len(res)-1) # Note 8
                     for i in xrange(rest_spaces): # Note 3
                         res[i] += ' '
-                    line = (' ' * each_extra).join(res) 
+                    line = (' ' * each_extra).join(res)  ＃ Note 9
                     ret.append(line)
                 res = []   # Note 4
                 res.append(word) # Note 5
@@ -71,3 +71,10 @@ class Solution:
 # 6. 最后是一定会append多余的一行的,没必要再check了, 直接append, 但是这里需要用
 #    ' '.join, not the ''.join
 # 7. 需要check长度为1，因为在下面计算中len(res)-1
+# 8. 注意这里要用 extra_space去除以
+# 9. 注意这里不能用以下的方法，会出现问题 ['a b ', 'c d ']，test case: ['a','b','c','d','e','f'], 3
+#                   # substring = ''
+                    # for ele in res:
+                    #     substring += ele + ' '*each_extra 
+                    # result.append(substring)
+                    # 注意这里必须用join，不可以用循环，会出现['a b ','c d ']的情况
