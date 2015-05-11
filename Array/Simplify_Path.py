@@ -27,5 +27,33 @@ class Solution:
         return ''.join(stack).rstrip('/') if len(stack)> 1 else ''.join(stack)      
         # Note: the last return value
         
+class Solution:
+    # @param {string} path
+    # @return {string}
+    def simplifyPath(self, path):
+        ilist = path.strip('/').split('/')
+        result = []
+        i = len(ilist)-1
+        jump = 0  
         
+        while i >= 0:
+            if ilist[i] == '' or ilist[i] == '.':
+                i -= 1
+                continue
+            elif ilist[i] == '..':
+                jump += 1
+            else:
+                if jump > 0:
+                    jump -= 1
+                else:
+                    result.insert(0,ilist[i])
+            i -= 1
+        
+        return '/'+ '/'.join(result)
+ 
+# 注意这里用jump，因为有可能出现以下的情况：             
+# Input:	"/a/./b/../../c/"
+# Output:	"/a/b/c"
+# Expected:	"/c"
+                  
               
