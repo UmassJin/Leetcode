@@ -95,3 +95,8 @@ class Trie:
 # trie.search("key")
 ```
 
+### 第二部分 [Suffix Tree](http://blog.csdn.net/v_july_v/article/details/6897097)
+* [G4G: Suffix Tree Introduction](http://www.geeksforgeeks.org/pattern-searching-set-8-suffix-tree-introduction/)
+* A Suffix Tree for a given text is a compressed trie for all suffixes of the given text
+
+
