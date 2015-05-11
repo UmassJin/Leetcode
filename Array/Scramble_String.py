@@ -62,3 +62,19 @@ class Solution:
 # 3) sorted(s1) 与 sorted(s2)是不是相等
 # 4) 比较s1[:i] s2[:i] and s1[i:],s2[i:]
 # 5) 比较s1[:i], s2[length_s2-i:] and s1[i:],s2[length_s2:-i]
+# 比较print test.isScramble('great','rgate')
+'''
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python scramble.py 
+s1: great, s2: rgate
+s1: g, s2: r
+s1: g, s2: e
+s1: gr, s2: rg
+s1: g, s2: r
+s1: g, s2: g
+s1: r, s2: r
+s1: eat, s2: ate
+s1: e, s2: a
+s1: e, s2: e
+s1: at, s2: at
+True
+'''
