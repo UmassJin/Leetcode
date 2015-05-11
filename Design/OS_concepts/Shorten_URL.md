@@ -29,6 +29,7 @@ Cache entries may also be disabled or locked depending on the context.
 * [CPU 缓存](http://zh.wikipedia.org/wiki/CPU%E7%BC%93%E5%AD%98)
 * [LFU Least Frequently Used](http://en.wikipedia.org/wiki/Least_frequently_used)
 
+##### 2) [Write Policy] (http://www.cs.cornell.edu/courses/cs3410/2013sp/lecture/18-caches3-w.pdf)
 
 
 #### [3. Locality of Reference](http://en.wikipedia.org/wiki/Locality_of_reference)
