@@ -1,4 +1,4 @@
-#### Suffix Array interview question
+#### Suffix Array interview question[转自一亩三分地]
 首先定义了suffix string 或者说suffix arrary, 如果有个数组是 ```int[] text = {10, 20, 30, 25}```, 那么   
 ```
            suffix[0] = {10, 20, 30, 25}
@@ -28,7 +28,7 @@
 
 
 * 第二题： input:  int[] text, int[] subText
-*              output: boolean isExist;.1point3acres
+*              output: boolean isExist
 * 检查text数组中有没有一个subarray 是subText。要求时间小于O(N^2)， N == text.length;
 * 这里假设我们有了第一题的 suffix_array_order.
 * (做法是binary search)
