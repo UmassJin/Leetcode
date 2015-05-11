@@ -18,3 +18,65 @@ Trie树是简单但实用的数据结构，通常用于实现字典查询。我�
 * 每个节点对应一项前缀。叶节点对应最长前缀，即单词本身。
 * 单词inn与单词int有共同的前缀“in”, 因此他们共享左边的一条分支，root->i->in。同理，ate, age, adv, 和ant共享前缀"a"，所以他们共享从根节点到节点"a"的边。
 
+#### 代码实现
+
+```
+class TrieNode:
+    # Initialize your data structure here.
+    def __init__(self):
+        self.value = None
+        self.children = {}
+
+class Trie:
+
+    def __init__(self):
+        self.root = TrieNode()
+
+    # @param {string} word
+    # @return {void}
+    # Inserts a word into the trie.
+    def insert(self, word):
+        node = self.root
+        word = word.strip()
+        
+        for char in word:
+            if char not in node.children:
+                child = TrieNode()
+                node.children[char] = child
+                node = child 
+            else:
+                node = node.children[char]
+        node.value = word
+
+    # @param {string} word
+    # @return {boolean}
+    # Returns if the word is in the trie.
+    def search(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        if node.value == word:
+            return True
+        else:
+            return False
+
+    # @param {string} prefix
+    # @return {boolean}
+    # Returns if there is any word in the trie
+    # that starts with the given prefix.
+    def startsWith(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return True
+
+# Your Trie object will be instantiated and called as such:
+# trie = Trie()
+# trie.insert("somestring")
+# trie.search("key")
+```
+
