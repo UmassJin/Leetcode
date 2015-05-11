@@ -36,9 +36,12 @@ short_url?
 
 3. How to support user-suggested short_url?
 
+* lookup(short_url), 如果已经有了，可以再suggest几个short_url给用户
+
 4. How about short-time tiny-url?
 
 * database with expiring entry.
+* Gabage Collection: dynamic checking
 
 5. Open question: how could tiny-url be exploited maliciously? how do you react?
 
@@ -49,6 +52,11 @@ short_url?
 * 在small scale里面解决问题
 * Improve the scalability
 
+##### Range Partition and Consistent Hashing 
+* Range partitioning 
+* Selects a partition by determining if the partitioning key is inside a certain range. An example could be a partition for all rows where the column zipcode has a value between 70000 and 79999.
+
+* [Consistent Hashing](http://blog.csdn.net/sparkliang/article/details/5279393)
 
 ### Related OS concepts
 #### [1. RAM和ROM的区别](http://product.pconline.com.cn/itbk/sjtx/sj/1305/3303309.html)
