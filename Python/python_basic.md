@@ -215,11 +215,19 @@ char:  good
 ```
 * list.insert(index, x)
 * list.remove(x)
+* 注意：如果在list里面没有x，那么用remove会出错！
 ```
 >>> t = ['a', 'b', 'c']
 >>> t.remove('b')
 >>> print t
 ['a', 'c']
+
+>>> ilist 
+['abd', '..', 'c', 'hello']
+>>> ilist.remove('')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
 ```
 * list.pop([i]): by default, it pop the last element in the list 
 ```
