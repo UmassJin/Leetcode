@@ -8,13 +8,47 @@
 * No two long_urls have the same short_url
 * Multiple short_urls could map to one long_url
 
+##### Improve the scalability:
+###### More URLs: use multiple backend data-server: database sharding 
+* Distribute long_urls to N data-servers by round-robin, and each data-server has it’s own range of short_url.
+* Given short_url, find which data-server it belongs to, and send request only to that data-server.
+* Each data-server get 1/N write and (approx.) 1/N read.
+* How to deal with skewing? (有些URL read非常频繁，可能成为一个hotspot? 怎么解决)
+* 对hotspot做进一步partition，把第二bit继续做partition
+
+###### Query-per-second 越来越多?
+* Problem: more queries per second => less CPU cycle/network bandwidth per
+query
+* Solution: Multiple front-end servers.
+
+##### Followup question:
+1. Inserting the same long_url multiple times, how to generate the same
+short_url?
+* we need lookup(long_url) now.
+
+2. How to make short_urls look more random?
+* a random number generator will do. (hash is a reasonable choice, if you also
+want to lookup(long_url))
+* short_url = hash(long_url), store <short_url, long_url> pair.
+* remember to detect collision.
+* how to distribute? prefixing the hash value.
+
+3. How to support user-suggested short_url?
+
+4. How about short-time tiny-url?
+* database with expiring entry.
+
+5. Open question: how could tiny-url be exploited maliciously? how do you react?
+
+6. Network-oriented question: how do you implement redirect? HTTP 301.
+
 ##### System Design的步骤
 * 找出interface之后
 * 在small scale里面解决问题
-* 
+* Improve the scalability
+
 
 ### Related OS concepts
-
 #### [1. RAM和ROM的区别](http://product.pconline.com.cn/itbk/sjtx/sj/1305/3303309.html)
 
 #### 2. CPU cache
