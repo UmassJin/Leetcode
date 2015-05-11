@@ -24,11 +24,12 @@ query
 ##### Followup question:
 1. Inserting the same long_url multiple times, how to generate the same
 short_url?
+
 * we need lookup(long_url) now.
 
 2. How to make short_urls look more random?
-* a random number generator will do. (hash is a reasonable choice, if you also
-want to lookup(long_url))
+
+* a random number generator will do. (hash is a reasonable choice, if you also want to lookup(long_url))
 * short_url = hash(long_url), store <short_url, long_url> pair.
 * remember to detect collision.
 * how to distribute? prefixing the hash value.
@@ -36,6 +37,7 @@ want to lookup(long_url))
 3. How to support user-suggested short_url?
 
 4. How about short-time tiny-url?
+
 * database with expiring entry.
 
 5. Open question: how could tiny-url be exploited maliciously? how do you react?
