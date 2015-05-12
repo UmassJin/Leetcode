@@ -349,3 +349,5 @@ Alternate-Protocol:80:quic,p=1
 Cache-Control:no-cache, no-store, max-age=0, must-revalidate
 Content-Encoding:gzip
 ```
+
+* [Reference](http://refugeeks.com/using-url-shorteners-301-302-redirects-spam-google/)
