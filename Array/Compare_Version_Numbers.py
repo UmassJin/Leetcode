@@ -23,7 +23,7 @@ class Solution:
             elif int(str_ver1[i]) < int(str_ver2[i]):
                 return -1
         
-        if len(str_ver1) > len(str_ver2):
+        if len(str_ver1) > len(str_ver2): # Note: we should seperate the if condition here ! 
             if all(int(num) == 0 for num in str_ver1[i+1:]):   # Note: here we should use i+1 instead of i
                 return 0
             else:
@@ -38,3 +38,13 @@ class Solution:
         if len(str_ver1) == len(str_ver2): return 0
         
 # Note: in-build function all() usage 
+'''
+all(iterable)
+Return True if all elements of the iterable are true (or if the iterable is empty). Equivalent to:
+
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+'''
