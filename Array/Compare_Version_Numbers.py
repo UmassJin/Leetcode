@@ -18,7 +18,7 @@ class Solution:
         str_ver2 = version2.split('.')
         
         for i in xrange(min(len(str_ver1),len(str_ver2))):
-            if int(str_ver1[i]) > int(str_ver2[i]):
+            if int(str_ver1[i]) > int(str_ver2[i]):  # Need to transfer the string to the integer
                 return 1
             elif int(str_ver1[i]) < int(str_ver2[i]):
                 return -1
@@ -48,3 +48,6 @@ def all(iterable):
             return False
     return True
 '''
+
+# 几个corner case需要考虑，第一个版本后面跟0的时候，1.0和1.00
+# 需要将string转换为integer 
