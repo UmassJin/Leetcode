@@ -35,7 +35,8 @@ Trie树是简单但实用的数据结构，通常用于实现字典查询。我�
 #### 代码实现
 * 对于Trie而言，每个节点记录下一个字母的数值，一直到根节点，只有到达根节点时，再update value的值。
 
-```
+```python
+
 class TrieNode:
     # Initialize your data structure here.
     def __init__(self):
