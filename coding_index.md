@@ -541,7 +541,9 @@ Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-questio
 
 #####[Compare Version Numbers] (./Array/Compare_Version_Numbers.py)
 * Use str.split('.')
-* Use Build-in function all() 
+* Use Build-in function [all()](https://docs.python.org/2/library/functions.html#all)
+* 思路：先把version split based on '.'，倘若首个数字可以比较出大小，则返回1 或者 －1，否则，继续比较下个字母，如果接下来的字母都为0，则返回0，否则返回1 或者 －1
+* 注意最后判断长度如果相等且数字相等，返回0
 
 #####[Count and Say] (./Array/Count_and_Say.py)
 * 思路: use the helper function to get the new result string from the old one
