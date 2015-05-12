@@ -22,7 +22,8 @@
 
 #### [解法二](http://algorithmsandme.com/2015/01/suffix-array/)
 
-```
+```python
+
 import math
 
 class Suffix:
