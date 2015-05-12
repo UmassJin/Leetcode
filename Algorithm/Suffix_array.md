@@ -96,6 +96,202 @@ def build_suffixarr(s):
 
 print build_suffixarr('banana')
 
+
+# Sample output and debug information
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python suffix_array.py 
+steps:  3
+p[0][0]:    1
+p[0][1]:    0
+p[0][2]:   13
+p[0][3]:    0
+p[0][4]:   13
+p[0][5]:    0
+
+
+p[1][0]:    0
+p[1][1]:    0
+p[1][2]:    0
+p[1][3]:    0
+p[1][4]:    0
+p[1][5]:    0
+
+
+p[2][0]:    0
+p[2][1]:    0
+p[2][2]:    0
+p[2][3]:    0
+p[2][4]:    0
+p[2][5]:    0
+
+
+p[3][0]:    0
+p[3][1]:    0
+p[3][2]:    0
+p[3][3]:    0
+p[3][4]:    0
+p[3][5]:    0
+
+
+i: 0, index: 0 rank[0]: 1, rank[1]: 0
+i: 1, index: 1 rank[0]: 0, rank[1]: 13
+i: 2, index: 2 rank[0]: 13, rank[1]: 0
+i: 3, index: 3 rank[0]: 0, rank[1]: 13
+i: 4, index: 4 rank[0]: 13, rank[1]: 0
+i: 5, index: 5 rank[0]: 0, rank[1]: -1
+
+
+after sort:
+i: 0, index: 5 rank[0]: 0, rank[1]: -1
+i: 1, index: 3 rank[0]: 0, rank[1]: 13
+i: 2, index: 1 rank[0]: 0, rank[1]: 13
+i: 3, index: 0 rank[0]: 1, rank[1]: 0
+i: 4, index: 4 rank[0]: 13, rank[1]: 0
+i: 5, index: 2 rank[0]: 13, rank[1]: 0
+
+
+after sort:
+p[0][0]:    1
+p[0][1]:    0
+p[0][2]:   13
+p[0][3]:    0
+p[0][4]:   13
+p[0][5]:    0
+
+
+p[1][0]:    3
+p[1][1]:    1
+p[1][2]:    4
+p[1][3]:    1
+p[1][4]:    4
+p[1][5]:    0
+
+
+p[2][0]:    0
+p[2][1]:    0
+p[2][2]:    0
+p[2][3]:    0
+p[2][4]:    0
+p[2][5]:    0
+
+
+p[3][0]:    0
+p[3][1]:    0
+p[3][2]:    0
+p[3][3]:    0
+p[3][4]:    0
+p[3][5]:    0
+
+
+i: 0, index: 0 rank[0]: 3, rank[1]: 4
+i: 1, index: 1 rank[0]: 1, rank[1]: 1
+i: 2, index: 2 rank[0]: 4, rank[1]: 4
+i: 3, index: 3 rank[0]: 1, rank[1]: 0
+i: 4, index: 4 rank[0]: 4, rank[1]: -1
+i: 5, index: 5 rank[0]: 0, rank[1]: -1
+
+
+after sort:
+i: 0, index: 5 rank[0]: 0, rank[1]: -1
+i: 1, index: 3 rank[0]: 1, rank[1]: 0
+i: 2, index: 1 rank[0]: 1, rank[1]: 1
+i: 3, index: 0 rank[0]: 3, rank[1]: 4
+i: 4, index: 4 rank[0]: 4, rank[1]: -1
+i: 5, index: 2 rank[0]: 4, rank[1]: 4
+
+
+after sort:
+p[0][0]:    1
+p[0][1]:    0
+p[0][2]:   13
+p[0][3]:    0
+p[0][4]:   13
+p[0][5]:    0
+
+
+p[1][0]:    3
+p[1][1]:    1
+p[1][2]:    4
+p[1][3]:    1
+p[1][4]:    4
+p[1][5]:    0
+
+
+p[2][0]:    3
+p[2][1]:    2
+p[2][2]:    5
+p[2][3]:    1
+p[2][4]:    4
+p[2][5]:    0
+
+
+p[3][0]:    0
+p[3][1]:    0
+p[3][2]:    0
+p[3][3]:    0
+p[3][4]:    0
+p[3][5]:    0
+
+
+i: 0, index: 0 rank[0]: 3, rank[1]: 4
+i: 1, index: 1 rank[0]: 2, rank[1]: 0
+i: 2, index: 2 rank[0]: 5, rank[1]: -1
+i: 3, index: 3 rank[0]: 1, rank[1]: -1
+i: 4, index: 4 rank[0]: 4, rank[1]: -1
+i: 5, index: 5 rank[0]: 0, rank[1]: -1
+
+
+after sort:
+i: 0, index: 5 rank[0]: 0, rank[1]: -1
+i: 1, index: 3 rank[0]: 1, rank[1]: -1
+i: 2, index: 1 rank[0]: 2, rank[1]: 0
+i: 3, index: 0 rank[0]: 3, rank[1]: 4
+i: 4, index: 4 rank[0]: 4, rank[1]: -1
+i: 5, index: 2 rank[0]: 5, rank[1]: -1
+
+
+after sort:
+p[0][0]:    1
+p[0][1]:    0
+p[0][2]:   13
+p[0][3]:    0
+p[0][4]:   13
+p[0][5]:    0
+
+
+p[1][0]:    3
+p[1][1]:    1
+p[1][2]:    4
+p[1][3]:    1
+p[1][4]:    4
+p[1][5]:    0
+
+
+p[2][0]:    3
+p[2][1]:    2
+p[2][2]:    5
+p[2][3]:    1
+p[2][4]:    4
+p[2][5]:    0
+
+
+p[3][0]:    3
+p[3][1]:    2
+p[3][2]:    5
+p[3][3]:    1
+p[3][4]:    4
+p[3][5]:    0
+
+
+result:  3
+result:  2
+result:  5
+result:  1
+result:  4
+result:  0
+None
+
+
 ```
 
 
