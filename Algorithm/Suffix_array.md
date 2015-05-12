@@ -22,6 +22,81 @@
 
 #### [解法二](http://algorithmsandme.com/2015/01/suffix-array/)
 
+```
+import math
+
+class Suffix:
+    def __init__(self):
+        self.index = 0
+        self.rank = [0, 0]
+
+def customer_cmp(a, b):
+    if a.rank[0] == b.rank[0]:
+        if a.rank[1] > b.rank[1]:
+            return 1
+        else: return -1
+    elif a.rank[0] > b.rank[0]:
+        return 1
+    else: return -1
+
+def printp(p):
+    for i in xrange(len(p)):
+        for j in xrange(len(p[0])):
+            print "p[{0}][{1}]:  {2:3d}".format(i, j, p[i][j])
+        print "\n"
+
+def printsuffix(suffix, n):
+    for i in xrange(n):
+        print "i: %d, index: %d rank[0]: %d, rank[1]: %d" \
+                %(i, suffix[i].index, suffix[i].rank[0], suffix[i].rank[1])
+    print  "\n"
+    
+def build_suffixarr(s):
+    length = len(s)
+    steps = int(math.ceil(math.log(length,2)))
+    print "steps: ", steps
+    suffixes = [Suffix() for i in xrange(length)]
+    p = [ [0 for j in xrange(length)] for i in xrange(steps+1)]
+
+    for i in xrange(length):
+        p[0][i] = ord(s[i]) - ord('a')
+    
+    printp(p)
+
+    cnt = 1
+    for k in xrange(1,steps+1):
+        for i in xrange(length):
+            suffixes[i].rank[0] = p[k-1][i]
+            if i + cnt < length:
+                suffixes[i].rank[1] = p[k - 1][i + cnt]
+            else:
+                suffixes[i].rank[1] = -1
+            suffixes[i].index = i
+
+        printsuffix(suffixes, length)
+
+        suffixes.sort(customer_cmp)
+
+        print "after sort:"
+        printsuffix(suffixes, length)
+
+        for i in xrange(length):
+            if i > 0 and suffixes[i].rank[0] == suffixes[i - 1].rank[0] and \
+                    suffixes[i].rank[1] == suffixes[i - 1].rank[1]:
+                        p[k][suffixes[i].index] = p[k][suffixes[i-1].index]
+            else:
+                p[k][suffixes[i].index] = i
+
+        print "after sort:"
+        printp(p)
+        cnt <<= 1
+    for i in xrange(length):
+        print "result: ", p[steps][i]
+
+print build_suffixarr('banana')
+
+```
+
 
 
 
