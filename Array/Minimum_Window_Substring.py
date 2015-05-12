@@ -59,3 +59,7 @@ class Solution:
     # 4. Skip chars that we don't care. If extra chars in found > wanted, skip them
     # 5. break here
     # 6. Calculate the current size
+
+    # 第三遍做题思路总结：这里需要用到两个dictionary，一个用来存储有多少个元素在T里面，一个用来
+    # 判断是否找到，注意这里的思路，不能对left pointer and right pointer 做while循环，
+    # 在找到所有的元素之后或者遍历到结尾之后在移动left
