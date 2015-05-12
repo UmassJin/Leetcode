@@ -334,3 +334,18 @@ Reference:
 
 * 用301的好处是，它可以永久性的绑定在long url上面，提高credict，但是坏处是：浏览器碰到301, 它会意识到这个是permanently, 所以会cache，然后直接访问，则不会往url shortern发送requrest，而是直接获取地址，这样就无法track到原来地址用的多少次的信息。所以
 解决方法是prevent cache
+
+* For example: 
+* 在'Inspect Element'里面，如果输入shorten URL:可以发现 'no-cache, no-store, max-age=0, must-revalidate'
+
+```
+Remote Address:[2607:f8b0:4007:80a::200e]:80
+Request URL:http://goo.gl/mD14Uu
+Request Method:GET
+Status Code:301 Moved Permanently
+Response Headers
+view source
+Alternate-Protocol:80:quic,p=1
+Cache-Control:no-cache, no-store, max-age=0, must-revalidate
+Content-Encoding:gzip
+```
