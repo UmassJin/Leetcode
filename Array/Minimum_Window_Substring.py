@@ -64,3 +64,47 @@ class Solution:
     # 判断是否找到，注意这里的思路，不能对left pointer and right pointer 做while循环，
     # 在找到所有的元素之后或者遍历到结尾之后在移动left
     # Test case: 'a', 'a'; 'a', 'b'; 'ab', 'b'
+
+
+# The following is the wrong answer !!!
+    # def minWindow(self, s, t):
+    #     if not s or not t: return None
+    #     if len(t) > len(s): return ""
+        
+    #     idict = {}
+    #     slow = 0; fast = 0
+    #     count = 0; 
+    #     result = ""
+    #     minlen = len(s)
+        
+    #     for char in t:
+    #         if char not in idict:
+    #             idict[char] = 1
+    #             count += 1
+    #         else:
+    #             idict[char] += 1
+                
+    #     for i, char in enumerate(s):
+    #         while fast < len(s) and slow <= fast:
+    #             if char not in idict:
+    #                 fast += 1
+    #             else:
+    #                 if idict[char] > 0:
+    #                     idict[char] -= 1
+    #                     if idict[char] == 0:
+    #                         count -= 1
+    #                 if count > 0:
+    #                     fast += 1
+    #                 else:
+    #                     if minlen >= (fast-slow+1):
+    #                         result = s[slow:fast+1]
+    #                         minlen = len(result)
+                        
+    #                     if s[slow] in idict:
+    #                         if idict[s[slow]] == 0:
+    #                             count += 1
+    #                         idict[s[slow]] += 1
+    #                     slow += 1
+        
+    #     return result 
+        
