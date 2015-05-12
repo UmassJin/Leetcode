@@ -34,11 +34,11 @@ class Solution:
                 continue 
             
             found[S[r]] += 1
-            if found[S[r]] <= required[S[r]]: 
+            if found[S[r]] <= required[S[r]]:  # 注意这里count可以用来统计t的长度
                 count += 1
             
-            if count == lengtht:
-                while l < r:
+            if count == lengtht:  # 这里不能用while
+                while l < r:      # 这里要判断l < r
                     if S[l] not in required:
                         l += 1
                         continue
@@ -46,7 +46,7 @@ class Solution:
                         found[S[l]] -= 1
                         l += 1
                         continue 
-                    break
+                    break    # 注意这里的break!!! 非常重要！！！
                 if len(result) == 0 or len(result) > (r-l+1): 
                     result = S[l:r+1]
         
