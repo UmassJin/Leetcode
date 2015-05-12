@@ -133,6 +133,27 @@ Jello, world!
 #### (String Operations example)[http://www.tutorialspoint.com/python/python_strings.htm]
 * String could use "+" as Concatenation. 
 
+#### Compare reverse the string and reverse the list
+
+```python
+>>> str = 'abcdefg'
+>>> str[::-1]
+'gfedcba'
+>>> str = str[::-1]
+>>> str
+'gfedcba'
+>>> strlist = ['a','b','c','d']
+>>> strlist.reverse()
+>>> strlist
+['d', 'c', 'b', 'a']
+>>> 
+>>> strlist = ['abcdef']
+>>> strlist.reverse()
+>>> strlist
+['abcdef']
+
+```
+
 ##### Reference
 * [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
 * [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#string-methods)
