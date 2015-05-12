@@ -42,3 +42,5 @@ class Solution:
                 else:
                     dp[i][j] = False
         return dp[length1][length2]
+
+#如果在判断的时候用if, if, if, else,会出错，test case: '','','', 会把dp[0][0]变为False 
