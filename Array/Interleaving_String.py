@@ -35,9 +35,9 @@ class Solution:
             for j in xrange(length2+1):
                 if i == 0 and j == 0:
                     dp[i][j] = True  #注意这里不能在外面直接赋值，否则里面会把dp[0][0]变为else, False !!
-                elif i>0 and dp[i-1][j] and s1[i-1] == s3[i+j-1]:  #注意这里要用elif, 不是if！！
+                elif i > 0 and dp[i-1][j] and s1[i-1] == s3[i+j-1]:  #注意这里要用elif, 不是if！！
                     dp[i][j] = True
-                elif j>0 and dp[i][j-1] and s2[j-1] == s3[i+j-1]:
+                elif j > 0 and dp[i][j-1] and s2[j-1] == s3[i+j-1]:
                     dp[i][j] = True
                 else:
                     dp[i][j] = False
