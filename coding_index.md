@@ -18,7 +18,8 @@
 ####[5. Rotate Serious](#rotate-serious)
 ####[6. Merge Serious](#merge-serious)
 ####[7. Sudoku Serious](#sudoku-serious)
-####[8. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[8. Parentheses Serious](#parentheses-serious)
+####[9. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 
 ## DP 
@@ -773,6 +774,20 @@ _____
 
 #####[Valid Sudoku](./Array/Valid_Sudoku.py)
 * 1. 注意 在check行还有列的时候，必须用if, elif, if and elif, 不是if, elif, elif, elif
+
+
+## Parentheses Serious
+##### [Generate Parentheses](./Array/Generate_Parentheses.py)
+* Use the backtracking algorithm
+* First check the '(' amount 
+* Then check the ')' amount, Note: here we should use the 'if' not the 'elif' !!
+* if '(' amount and ')' amount is equal to 0, patch into the result
+
+##### [Valid_Parentheses](./Array/Valid_Parentheses.py)
+* Use the stack to check whether there is valid parentheses
+* Note: we need to check the length of the stack in the end ! In case '(' is more than ')'
+
+##### [Longest_Valid_Parentheses](./Array/Longest_Valid_Parentheses.py)
 
 ## Interview Questions not in Leetcode
 | Question | Type |
