@@ -16,9 +16,10 @@
 ####[3. Permutation Serious](#permutation-serious)
 ####[4. Array Interval Serious](#array-interval-serious)
 ####[5. Rotate Serious](#rotate-serious)
-####[6. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
-####[7. Merge Serious](#merge-serious)
-####[8. Sudoku Serious](#sudoku-serious)
+####[6. Merge Serious](#merge-serious)
+####[7. Sudoku Serious](#sudoku-serious)
+####[8. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
