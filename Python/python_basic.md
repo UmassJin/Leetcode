@@ -2,6 +2,7 @@
 ####[1.Strings ](#strings)
 ####[2.Lists ](#lists)
 ####[3.Tuples ](#tuples)
+####[4.Set](#set)
 ####[4.Dictionary Object](#dictionary-object)
 ####[5.Basic Knowledge](#basic-knowledge)
 ####[6.Class Related Knowledge (Important!!)](#class-related-knowledge)
@@ -693,7 +694,7 @@ In fact, tuples respond to all of the general sequence operations we used on str
 * https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences
 * http://woodpecker.org.cn/diveintopython/native_data_types/tuples.html
 
-#### Set Object 
+## Set 
 ##### Definition
 * A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
 * Mutable 
@@ -744,6 +745,44 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: set expected at most 1 arguments, got 3
 ```
+
+##### 注意set的不同定义
+
+* 如果我们要把'hi','hello'放在同一个set里面，不能直接用set('hi')
+
+```python
+>>> 
+>>> t = set('hi')  ＃如果这么定义，会分开成两个字母！
+>>> 
+>>> t
+set(['i', 'h'])
+>>> 
+>>> 
+>>> list = ['hi','hello']
+>>> s = set(list)   ＃ 通过list来定义
+>>> s
+set(['hi', 'hello'])
+>>> 
+>>> 
+>>> p = {'hi','hello'}  ＃ 可以用大括号来初始化set！
+>>> p
+set(['hi', 'hello'])
+>>> type(p)
+<type 'set'>
+>>> type(s)
+<type 'set'>
+>>> type(t)
+<type 'set'>
+>>> 
+>>> 
+>>> q = set('hi','hello')  # 注意，set只能有一个input parameter
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: set expected at most 1 arguments, got 2
+>>> 
+
+```
+
 ##### Operation
 add(elem)
 Add element elem to the set.
