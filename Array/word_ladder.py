@@ -110,3 +110,4 @@ class Solution:
                                 wordDict.remove(newword)  #注意，要把已经检查过的word去掉！
             length += 1
         return 0
+# Reference: http://yucoding.blogspot.com/2013/08/leetcode-question-127-word-ladder.html
