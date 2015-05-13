@@ -3,9 +3,9 @@
 ####[2.Lists ](#lists)
 ####[3.Tuples ](#tuples)
 ####[4.Set](#set)
-####[4.Dictionary Object](#dictionary-object)
-####[5.Basic Knowledge](#basic-knowledge)
-####[6.Class Related Knowledge (Important!!)](#class-related-knowledge)
+####[5.Dictionary Object](#dictionary-object)
+####[6.Basic Knowledge](#basic-knowledge)
+####[7.Class Related Knowledge (Important!!)](#class-related-knowledge)
 
 
 ------------------------------------------------------------
