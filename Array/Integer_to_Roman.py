@@ -20,7 +20,8 @@ class Solution:
     def intToRoman(self, num):
         digits = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD' ),
                   (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
-                  (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]      
+                  (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]    
+                  
         result = ''
         for digit in digits:
             while num >= digit[0]:  # Note: here we should use while not "if"
@@ -29,3 +30,7 @@ class Solution:
             if num == 0: break
         return result 
         
+# 注意: digits 不能用dictionary type，因为dictionary type 没有顺序，不是从大数到小数
+# 依次选择，所以必须用list这里，
+# 在check的时候，需要check num >= digit[0]，而不是 >
+# 注意要用while，不是if
