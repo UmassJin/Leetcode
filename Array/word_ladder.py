@@ -37,6 +37,7 @@ All words have the same length.
 All words contain only lowercase alphabetic characters.
 '''
 
+# Method 1: use two BFS ! 
 import collections, string
 
 class Solution:
@@ -51,7 +52,7 @@ class Solution:
         queue2 = collections.deque([endWord])
         start_set = {beginWord}
         end_set = {endWord}
-        chars = string.ascii_lowercase
+        chars = string.ascii_lowercase  # Here we could get 'abcdef....xyz'
         n = len(beginWord)
         length1, length2 = 1, 1
         
@@ -84,7 +85,8 @@ class Solution:
             length2 += 1
         return 0
             
-    
+
+# Method 2: here we use BFS, need to remove each checked word in dic, otherwise there is the loop !
     def ladderLength_1(self, beginWord, endWord, wordDict):
         if not beginWord or not endWord or not wordDict:
             return 0
