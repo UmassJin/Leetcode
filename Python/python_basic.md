@@ -3,7 +3,7 @@
 ####[2.Lists ](#lists)
 ####[3.Tuples ](#tuples)
 ####[4.Set](#set)
-####[5.Dictionary Object](#dictionary-object)
+####[5.Dictionary](#dictionary)
 ####[6.Basic Knowledge](#basic-knowledge)
 ####[7.Class Related Knowledge (Important!!)](#class-related-knowledge)
 
@@ -828,7 +828,7 @@ KeyError: 'e'
 ```
 * Reference [Tutorial: set] (https://docs.python.org/2/library/stdtypes.html#frozenset)
 
-##Dictionary Object 
+##Dictionary 
 #### Definition 
 * dictionary: ```{key:value; key:value }```
 * Indexed by keys, which can be any immutable type; strings and numbers can always be keys.
@@ -886,7 +886,7 @@ True
 {'one': 'uno', 'three': 'tres', 'two': 'dos'}
 ```
 
-#### Some operations 
+#### [Some operations](https://docs.python.org/2/library/stdtypes.html#dict)
 ```
 >>> tel = {'jack': 4098, 'sape': 4139}
 >>> tel['guido'] = 4127
@@ -905,7 +905,7 @@ True
 ```
  * The in operator uses different algorithms for lists and dictionaries. For lists, it uses a search algorithm, as in Section 8.6. As the list gets longer, the search time gets longer in direct proportion. For dictionaries, Python uses an algorithm called a hashtable that has a remarkable property: the in operator takes about the same amount of time no matter how many items there are in a dictionary. I won’t explain how that’s possible, but you can read more about it at http://en.wikipedia.org/wiki/Hash_table.
 
-```
+```python
 >>> d = {}
 >>> for i in xrange(3):
 ...     d.setdefault(i, [])
@@ -918,6 +918,21 @@ True
 >>> 
 
 #This method returns the key value available in the dictionary and if given key is not available then it will return provided default value.
+
+
+>>> dic = {'name':'jerry','id':'123','female':'yes'}
+>>> dic
+{'name': 'jerry', 'female': 'yes', 'id': '123'}
+>>> dic.get('name')
+'jerry'
+>>> 
+>>> dic.get('word')
+>>> 
+>>> dic.get('word',[])
+[]
+>>> 
+
+
 ```
 
 ```
