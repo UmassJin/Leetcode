@@ -12,26 +12,25 @@ class Solution:
                 if len(char) == i or char[i]!=compare[i]:
                     return compare[:i]
         return compare
-        
-    def longestCommonPrefix_1(self, strs):
+
+class Solution:
+    # @param {string[]} strs
+    # @return {string}
+    def longestCommonPrefix(self, strs):
+        if not strs: return ""
+        #if len(strs) == 1: return strs[0]
+        str_size = len(strs[0])
         result = ''
-        if len(strs) == 0 or len(strs[0]) == 0:
-            return result
         
-        if len(strs) == 1:
-            return strs[0]
-        flag = False
-        
-        for i in xrange(len(strs[0])):
-            for j in xrange(1, len(strs)):
-                if (i < len(strs[j]) and strs[j][i] == strs[0][i]):
-                        flag = True
-                else:
-                    flag = False
-                    break
-            if flag:    
-                result += strs[0][i]
-            else:
-                break
-        
-        return result        
+        for j in xrange(str_size):
+            for s in strs[1:]:
+                if len(s) <= j or s[j] != strs[0][j]:
+                    return result
+            result += strs[0][j]  # after checking all the substring in the list, then add the result 
+        return result 
+
+# test case: ['a','b'] => ''
+# test case: [''] => ''
+# test case: ['a','aa'] => 'a'
+# test case: ['aa', 'a'] => 'a'
+
