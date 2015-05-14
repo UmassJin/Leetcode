@@ -39,3 +39,27 @@ class Solution:
 # '26' --> 2
 # '27' --> 1
 # '012' --> 0
+
+
+# Do not need the whole array, only need two elements dp[0] and dp[1]
+class Solution:
+    # @param {string} s
+    # @return {integer}
+    def numDecodings(self, s):
+        lens = len(s)
+        if lens == 0 or int(s[0]) == 0: return 0
+        dp = [1, 1]
+        
+        for i in xrange(2, lens+1):
+            if int(s[i-2:i]) == 10 or int(s[i-2:i]) == 20:
+                dp[0], dp[1] = dp[1], dp[0]
+                #dp.append(dp[i-2])
+            elif 10 < int(s[i-2:i]) <= 26:
+                dp[0], dp[1] = dp[1], (dp[0]+dp[1])
+                #dp.append(dp[i-1]+dp[i-2])
+            elif s[i-1] != '0':
+                dp[0], dp[1] = dp[1], dp[1]
+                #dp.append(dp[i-1])
+            else:
+                return 0
+        return dp[1]
