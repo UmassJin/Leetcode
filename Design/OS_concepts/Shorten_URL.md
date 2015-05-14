@@ -82,3 +82,28 @@ Cache entries may also be disabled or locked depending on the context.
 * Temporal locality refers to the reuse of specific data, and/or resources, within a relatively small time duration. 
 * Spatial locality refers to the use of data elements within relatively close storage locations. Sequential locality, a special case of spatial locality, occurs when data elements are arranged and accessed linearly, such as, traversing the elements in a one-dimensional array.
 
+
+## [System Design example: shorten URL](http://www.hiredintech.com/system-design/the-system-design-process/)
+#### Use Cases
+1. Shortening: take a URL => return a much shorter URL
+2. Redirection: take a short URL => redirect to the original URL 
+3. Custom URL
+4. High availability of the system 
+
+Our of scope 
+4. Analytics
+5. Automatic link expiration
+6. Manural link removal 
+7. UI vs API 
+
+#### Constraints
+1. Amount of the traffic the system should handle 
+2. Amount of the data the system should work with
+
+Should ask the following questions: 
+1. How many requests per sec should be handle ?
+2. How many new URLs each sec should be handle ?
+
+
+
+
