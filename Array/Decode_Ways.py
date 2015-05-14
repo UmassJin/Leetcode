@@ -34,3 +34,8 @@ class Solution:
             else:
                 return 0
         return dp[length]
+
+# test case: '0'--> 0
+# '26' --> 2
+# '27' --> 1
+# '012' --> 0
