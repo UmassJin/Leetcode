@@ -38,6 +38,11 @@
   * Decide whether something is possible or not
   * Count all possible solutions(Doesn't care about solution details, only care about the count or possibility)
 
+  1. 最大值/最小值
+  2. 有无可行解
+  3. 求方案个数(如果需要列出所有方案，则一定不是动规，因为全部方案为指数级别复杂度，所有方案需要列出时往往用递归)
+  4. 给出的数据不可随便调整位置
+
 ###Types of DP
 ####1. Matrix DP 20% (Triangle, Unique Path, ...)
 * state: ```dp[x][y]```表示从起点走到坐标 (x,y) 的xxx
