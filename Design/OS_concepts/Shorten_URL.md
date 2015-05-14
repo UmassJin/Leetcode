@@ -90,19 +90,19 @@ Cache entries may also be disabled or locked depending on the context.
 3. Custom URL
 4. High availability of the system 
 
-#### Our of scope 
-4. Analytics
-5. Automatic link expiration
-6. Manural link removal 
-7. UI vs API 
+  Our of scope 
+   4. Analytics
+   5. Automatic link expiration
+   6. Manural link removal 
+   7. UI vs API 
 
 #### 2. Constraints
 1. Amount of the traffic the system should handle 
 2. Amount of the data the system should work with
 
-#### Should ask the following questions: 
-1. How many requests per sec should be handle ?
-2. How many new URLs each sec should be handle ?
+  Should ask the following questions: 
+   1. How many requests per sec should be handle ?
+   2. How many new URLs each sec should be handle ?
 
 * 15 Billion new tweets
 * All shortened URLs per month: 1.5BN
@@ -142,6 +142,13 @@ Math:
 ##### 2. Data storage layer (keeps track of the hash => URL mapping)
 
 * Acts like a big hash table: stores new mappings, and retrieves a value given a key.
-hashed_url = convert_to_base_62(md5(original_url + random_salt))[:6]
+  1) hashed_url = convert_to_base_62(md5(original_url + random_salt))[:6]
+  2) Base 62 是一种short ulr的encoding, encode之后只有62种字符0-9 a-z A-Z
+  3) The MD5 message-digest algorithm is a widely used cryptographic hash function producing a 128-bit (16-byte) hash value, typically expressed in text format as a 32 digit hexadecimal number.  
 
+##### 3. Understanding Bottlenecks
+  1) Traffic - not going to be very hard
+  2) Lots of data - more interesting
+  
 
+#### 4. Scaling your abstract design 
