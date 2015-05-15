@@ -15,6 +15,18 @@ class Solution:
             length = max(length, i-start+1)
         return length 
           
+    def lengthOfLongestSubstring(self, s):
+        idict = {}
+        result = 0
+        start = 0
+        for i, char in enumerate(s):
+            if char not in idict:
+                idict[char] = i
+            else:
+                start = max(start, idict[char]+1)
+                idict[char] = i    #注意这里，不管char是不是在idict里面，都需要update i的值，例如test case 'dddd', 'dedv'
+            result = max(result, i-start+1)
+        return result 
     
     def lengthOfLongestSubstring_1(self, s):
         start = 0
