@@ -81,7 +81,7 @@ class Solution:
             elif A[mid] < A[left]: 
                 # test case: A[mid] < A[right]: [3,1,1], 3; A[mid] <= A[right]:[1,1,3,1], 3
                 # A[mid] <= A[left]: [3,1], 1
-                if A[mid]<target <= A[right]:
+                if A[mid]<target <= A[right]:  # Here we should check A[right], not the A[left]
                     left= mid +1
                 else:
                     right = mid -1
