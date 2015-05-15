@@ -57,6 +57,10 @@
 * initialize: ```dp[-1][j] = triangle[-1][j]```
 * answer: ```dp[0][0]``` (比较奇怪，因为是由下至上)
 
+* 这道题目有两个解法，一个是from top to bottom，一个是from bottom to top
+* from top to bottom: 我们需要每line从后往前遍历，否则新的数会覆盖原来的数
+* from bottom to top: 对于每行，不需要从后往前遍历，不会覆盖原来的数
+
 #####[Unique Path](./Array/Unique-Path-1%262.py) 
 * state: ```dp[x][y]```表示从起点走到 (x,y) 的path数
 * function: ```dp[x][y] = dp[x-1][y] + dp[x][y-1]``` | ```if 障碍, dp[x][y] = 0```
