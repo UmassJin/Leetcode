@@ -47,3 +47,11 @@ class Solution:
                 return False
         
         return (has_numaftere and has_number)
+
+# Reference: 
+# 状态方程：http://blog.csdn.net/kenden23/article/details/18696083
+# 参考图示：http://www.cnblogs.com/zuoyuan/p/3703075.html
+# Java Solution: https://leetcode.com/discuss/26682/clear-java-solution-with-ifs
+# 有'e'之后不能有'.', '.'必须在e前面
+# 'e'之后可以有'+/-', 之前必须有数字，之后必须有数字, 已经出现过'e'也不行
+# '.'之前不必有数字，但是不能有'e',不能有一个'.'
