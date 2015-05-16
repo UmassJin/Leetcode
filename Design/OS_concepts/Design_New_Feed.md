@@ -89,3 +89,16 @@
       * Some users are more addictive than others.
          * How about push to them with higher priority, and let less frequent users pull. (reduce network traffic costed by useless push => reduce the delay of useful pushes.)
          
+##### Other things you could mentioned 
+* 1. How to design storage hierarchy?
+      * Cache frequently accessed news: newer news, celebrities’ news, active users’ pushed news list.
+* 2. How to partition storage?
+      * Geographical, graph clustering…
+* 3. How to rank news?
+      * Time, popularity (number of likes, etc)
+* Summary: Heterogeneity is a good source of discussion.
+      * Followers and user frequency, in Pull/Push tradeoff.
+      * Memory access frequency, in cache.
+      * Some functions are more frequently called than others. Can you do more in less-frequently-called functions to reduce the work in hot functions? (refresh is more than post. )
+      * Some functions are more important (user-facing) than others. (refresh is more user-facing than post.)
+      
