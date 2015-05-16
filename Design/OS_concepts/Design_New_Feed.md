@@ -14,20 +14,21 @@
 #### Level 1
 ##### Database design
 * user
-* news
-* friend
 * comment
-
 
 | UserId | Name | Age | 
 |:---:|:---:|:---:|
 | 1 | Jason | 25 | 
 | 2 | Michael | 26 |
 
+* news
+
 | NewsId | AuthorId | Content | Time |
 |:---:|:---:|:---:|:--:|
 | 1 | 2 | “hehe” | 20150228 | 
 | 2 | 1 | “haha” | 20150227 |
+
+* friend 
 
 | FriendId | FollowerId | FollowId |
 |:---:|:---:|:---:|
@@ -37,8 +38,8 @@
 ##### Database operation
 * 1. get follow list
     * SELECT FollowId FROM friend
-    * WHERE FollowerID = myid;
-• 2. get friend’s news
+    * WHERE FollowerID = myid
+* 2. get friend’s news
     * SELECT * FROM news
     * WHERE Time > xxx
     * AND Author IN friendlist
