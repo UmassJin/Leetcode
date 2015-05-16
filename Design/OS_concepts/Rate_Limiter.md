@@ -63,4 +63,19 @@ We just don’t want more than 10 queries in any second. (but allow instantaneou
     * For every incoming request: if (now() - oldest_timestamp >= 1s) => allow.
     * e.g. in circular buffer: 0.03, 0.12, 0.15, 0.34, …, 0.56. We should only allow next request to come at 0.03 + 1 or later, since otherwise, there will be 11 requests between 0.03 and 0.03 + 1
 
+* 6) 
+    * Given 1000 QPS limit.
+    * Problem statement A: no more than 1000 requests in every wall-clock second. (restoring counter solution)
+         * Maybe more than 1000 requests in certain 1-sec.
+    * Problem statement B: 1-sec period: no more than 1000 requests in any 1 sec. (1000-length buffer solution)
+         * maybe more than 100 requests in 0.1 sec.
+         * guaranteed no more than 10,000 request in any 10 sec.
+            * In fact guaranteed at all levels higher than 1 sec.
+    * Problem statement B’: 0.1-sec period: no more than 100 request in any 0.1 sec (100-length buffer)
+         * maybe more than 10 requests in 0.01 sec.
+         * guaranteed no more than 1000 request in any 1 sec.
+            * In face guaranteed at all levels higher than 0.1 sec.
+    * …
+    * Problem statement C: 1/QPS-sec period: no more than 1 request in any 1/QPS sec (our precise solution)
+         * guaranteed at any level.
 
