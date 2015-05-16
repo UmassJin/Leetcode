@@ -19,7 +19,8 @@
 ####[6. Merge Serious](#merge-serious)
 ####[7. Sudoku Serious](#sudoku-serious)
 ####[8. Parentheses Serious](#parentheses-serious)
-####[9. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[9. Duplicate Serious](#duplicate-serious)
+####[10. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 
 ## DP 
@@ -799,6 +800,14 @@ _____
 * Note: we need to check the length of the stack in the end ! In case '(' is more than ')'
 
 ##### [Longest_Valid_Parentheses](./Array/Longest_Valid_Parentheses.py)
+
+## Duplicate Serious 
+##### [Remove duplicate from sorted array](./Array/Remove_duplicate_from_sorted_array.py)
+
+##### [Remove duplicate from sorted arrayII](./Array/Remove_duplicate_from_sorted_arrayII.py)
+* Note: we need to update nums[slow] every time ! 
+
+
 
 ## Interview Questions not in Leetcode
 | Question | Type |
