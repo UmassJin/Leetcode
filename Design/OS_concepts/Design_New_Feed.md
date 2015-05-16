@@ -58,13 +58,34 @@
       * Tip: we can do some offline computations, for online latency.
 * This is the choice of Pull and Push.
 • Latency:
+   
 | | Refresh (read) (user-facing latency) | Post (write) |
 |:---:|:---:|:---:|
 | Pull | follows’ lists | my own list |
 | Push | my own list | followers’ lists |
 
+      * Pull: Refresh: read all my follow's news; Pose: write in my table
+      * Push: Post: 每一次写都更新我的follower's list, Read: read my own list 
+      * 类比: push 就像印好了报纸，然后一个一个送报纸到门口；pull 就像印好了报纸，放在门口，想看自己拿
+   
+• Pull: high latency, high user-facing latency 
+      * Facebook post state用pull来完成，用很大的cache，不从data base拿，从内存拿，快很多
+      * 一般情况下，名人的用pull，非名人的用push
+      
+• Push: news delay, 
+• Push wins, 减少user-facing latency 
 
-• Pull: high latency
-• Push: news delay
-• Push wins.
+##### Level 3:
+* A problem of Push (and solution), taking heterogenous popularity into account.
+      * (usually everyone’s follow number doesn’t vary too much, but followers number varies a lot)
+      * Celebrities (huge followers)
+         * Push will be too slow (update every follower’s news list). at the same time, people is less tolerant to celebrities’ news delay. => use pull. (just a few celebrities, so latency is okay.)
+* => Pull + Push hybrid solution
+      * For celebrities’ post, don’t push.
+      * When refresh, query celebrities’ news list and merge with my own news list.
 
+##### Level 4:
+* An improvement for Push, taking heterogeneous user activity into account.
+      * Some users are more addictive than others.
+         * How about push to them with higher priority, and let less frequent users pull. (reduce network traffic costed by useless push => reduce the delay of useful pushes.)
+         
