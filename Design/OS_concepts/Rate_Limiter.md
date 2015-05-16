@@ -44,16 +44,23 @@ bool allowRequest() {
 ```
 
 ##### 5. Followup Question
-1) What if there are multiple threads asking for requests?
+* 1) What if there are multiple threads asking for requests?
     * Race condition => Serialization by critical section => Implement using lock or simply add “synchronized” keyword in java.
     
-2) What if requests are coming from different users, and we want limit per-user qps?
+* 2) What if requests are coming from different users, and we want limit per-user qps?
     * 每个user分别记录
     
-3) This throttler can be installed on either front-end/backend server.
+* 3) This throttler can be installed on either front-end/backend server.
     * You can distribute QPS quota for different front-end/backend setups.
     
-4）Your throttler is too rigid, how do you allow some variance?
+* 4）Your throttler is too rigid, how do you allow some variance?
     * You can look back more than 1 timestamp.
     * i.e. use a circular buffer of 2 timestamps, and guarantee 0.2s between current timestamp and the last timestamp in buffer. This way, we allow: 0.1s, 0.1001s, 0.3s, 0.3001s, but don’t allow: 0.1s, 0.1001s, 0.1002s, 0.4s.
+
+* 5)  Any-1-sec problem 
+We just don’t want more than 10 queries in any second. (but allow instantaneous QPS > 10, e.g. allow more than 1 query in 0.1s, etc), e.g: ```0.00, 0.01, 0.02, 0.03, …, 0.09, 1.00, 1.01 … ```all allowed. ```0.90, 0.91, 0.92, 0.93, …, 0.99, 1.00, 1.01 …1.00 and 1.01 ```should be rejected.
+    * Use a 10-length circular buffer to record the most recently allowed 10 requests’ timestamp.
+    * For every incoming request: if (now() - oldest_timestamp >= 1s) => allow.
+    * e.g. in circular buffer: 0.03, 0.12, 0.15, 0.34, …, 0.56. We should only allow next request to come at 0.03 + 1 or later, since otherwise, there will be 11 requests between 0.03 and 0.03 + 1
+
 
