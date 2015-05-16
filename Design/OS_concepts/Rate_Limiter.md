@@ -81,4 +81,11 @@ We just don’t want more than 10 queries in any second. (but allow instantaneou
     * Problem A 是说在任意一个整数时间内，例如1s到2s, 2s到3s, 不要超过1000个request，但是有可能1.3s到2.3s超过了1000个request
     * Problem B, B', C是保证在任意一个1s内，不超过1000 requests，所以用length buffer solution记录每一个request的timestamp，如果有第1001个request，比较timestamp。这个算法保证了任意一个1s内，只有1000个request，但是不能保证任意一个0.1s内有100 requests，同样的, 0.1sec不能保证0.01s内的数量。所以我们可以用1/QPS sec来保证no more than 1 request.
     
-   
+##### 6. Scalability Issue (100kQPS?)
+* Problem: huge memory consumption. (For ease of thinking, let’s use 1000 QPS.)
+* Solution: still use a 10-length circular buffer, each element store the
+timestamp of the 1st, 101st, 201st, 301st, 901st… allowed request.
+    * The 1001st request should come 1s after the 1st request.
+    * For the 1002nd request, should it come 1s after the 1st or the 101st (we don’t know when the 2nd request comes)?
+       * 1s after the 101st (conservative), effectively limiting to 900~1000 QPS.   
+       * 1s after the 1st, effectively limiting to 1000~1100 QPS.
