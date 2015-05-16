@@ -92,3 +92,6 @@ timestamp of the 1st, 101st, 201st, 301st, 901st… allowed request.
 
 ##### 7. Cost-per-second
 * What if each request takes various “permits”, and you want to limit total permits issued per second?
+
+##### 8. Related Algorithm 
+* Token Bucket 
