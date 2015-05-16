@@ -43,5 +43,28 @@
     * SELECT * FROM news
     * WHERE Time > xxx
     * AND Author IN friendlist
-    
-    
+
+##### Problem:
+* Repeatedly query follow list?
+      1. Store each user’s follow as a list, create a new table which store the user's follows 
+      2. Tip: save repeating computations, trade space for latency.
+* It’s costly to check every news’ author id if it is in the friend list
+      1. Store each user’s news id as a list.
+      2. Extend the user table, add one more column which for each user's news. 
+
+##### Level 2:
+* Querying every follow’s news list is still slow.
+      * How about storing my own list of follows’ news as well, and get updated when they post?
+      * Tip: we can do some offline computations, for online latency.
+* This is the choice of Pull and Push.
+• Latency:
+| | Refresh (read) (user-facing latency) | Post (write) |
+|:---:|:---:|:---:|
+| Pull | follows’ lists | my own list |
+| Push | my own list | followers’ lists |
+
+
+• Pull: high latency
+• Push: news delay
+• Push wins.
+
