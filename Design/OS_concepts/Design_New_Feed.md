@@ -21,14 +21,14 @@
 | 1 | Jason | 25 | 
 | 2 | Michael | 26 |
 
-* news
+* News
 
 | NewsId | AuthorId | Content | Time |
 |:---:|:---:|:---:|:--:|
 | 1 | 2 | “hehe” | 20150228 | 
 | 2 | 1 | “haha” | 20150227 |
 
-* friend 
+* Friend 
 
 | FriendId | FollowerId | FollowId |
 |:---:|:---:|:---:|
