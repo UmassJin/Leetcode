@@ -89,3 +89,6 @@ timestamp of the 1st, 101st, 201st, 301st, 901st… allowed request.
     * For the 1002nd request, should it come 1s after the 1st or the 101st (we don’t know when the 2nd request comes)?
        * 1s after the 101st (conservative), effectively limiting to 900~1000 QPS.   
        * 1s after the 1st, effectively limiting to 1000~1100 QPS.
+
+##### 7. Cost-per-second
+* What if each request takes various “permits”, and you want to limit total permits issued per second?
