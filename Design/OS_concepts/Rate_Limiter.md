@@ -63,7 +63,7 @@ We just don’t want more than 10 queries in any second. (but allow instantaneou
     * For every incoming request: if (now() - oldest_timestamp >= 1s) => allow.
     * e.g. in circular buffer: 0.03, 0.12, 0.15, 0.34, …, 0.56. We should only allow next request to come at 0.03 + 1 or later, since otherwise, there will be 11 requests between 0.03 and 0.03 + 1
 
-* 6) 
+* 6) Discussion
     * Given 1000 QPS limit.
     * Problem statement A: no more than 1000 requests in every wall-clock second. (restoring counter solution)
          * Maybe more than 1000 requests in certain 1-sec.
@@ -78,4 +78,7 @@ We just don’t want more than 10 queries in any second. (but allow instantaneou
     * …
     * Problem statement C: 1/QPS-sec period: no more than 1 request in any 1/QPS sec (our precise solution)
          * guaranteed at any level.
-
+    * Problem A 是说在任意一个整数时间内，例如1s到2s, 2s到3s, 不要超过1000个request，但是有可能1.3s到2.3s超过了1000个request
+    * Problem B, B', C是保证在任意一个1s内，不超过1000 requests，所以用length buffer solution记录每一个request的timestamp，如果有第1001个request，比较timestamp。这个算法保证了任意一个1s内，只有1000个request，但是不能保证任意一个0.1s内有100 requests，同样的, 0.1sec不能保证0.01s内的数量。所以我们可以用1/QPS sec来保证no more than 1 request.
+    
+   
