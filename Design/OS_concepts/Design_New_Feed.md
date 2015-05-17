@@ -70,12 +70,17 @@
    
 * Pull: high latency, high user-facing latency 
       * Facebook post state用pull来完成，用很大的cache，不从data base拿，从内存拿，快很多
-      * 一般情况下，名人的用pull，非名人的用push
+      * 一般情况下，名人的用pull，非名人的用push,
+      * 在机器少，资源少，没有什么明星或者明星少的时候用push好于pull
       
 * Push: news delay, 
 * Push wins, 减少user-facing latency 
+* Pull VS Push:
+      * Pull: 优点，一些不活跃的用户可以被忽略掉（push会push给不活跃用户），可以容易的排序。缺点，用户刷新的时候实时进行，对through put要求更高，因为会产生更多的queries。容易支持修改操作。
+      * Push：优点：query少，一次query拿到所有需要的news。缺点，有delay，对于celebrity，delay严重。耗费更多的存储（每个news会存多分）。很难支持修改操作。
 * delay和latency的区别是
       * delay是异步的，能很快完成刷新，但是可能news还没有deliver过来。latency就是我刷新一次，等好久，然后才刷新完。
+
 
 ##### Level 3:
 * A problem of Push (and solution), taking heterogenous popularity into account.
