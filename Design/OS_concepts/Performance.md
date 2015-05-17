@@ -28,3 +28,6 @@
 
 #### Number everyone need to know
 ![pic](https://cloud.githubusercontent.com/assets/9062406/7668842/0a028a40-fc05-11e4-9af5-75250c22e655.png)
+
+* Network 比disk, SSD 都要快，但是它在建立TCP connection的时候，会有round trip latency, 例如发送2KB data very fast,
+* 但是如果从加州send到欧洲，会有round trip latency
