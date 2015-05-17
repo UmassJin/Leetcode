@@ -70,3 +70,23 @@ if __name__ == '__main__':
     c = s.get_cell(1,1)
     print "c: ", c.value
 ```
+
+##### Design Choice 1
+* Immutable vs. mutable.
+      * Cell is designed to be immutable (final value, no setters).
+         * When we want to change the value of a cell from 2.2 to 2.3, we need to create a new cell and put it into the sheet.
+         * Partly because: even if we provide NumberCell.setValue(double), how to change from 2.2 to “s.3”?
+* Immutable classes:
+      * Easier to reason the object state (won’t get into inconsistent state), inherent thread safety, etc.
+      * Suitable for simple “value” types: Integer, String, Double, Color, etc.
+*  Mutable classes:
+      * Cheaper to mutate (No need to create a new object and copy unchanged fields).
+      * Suitable for large/complex types: Car (speed, fuel), Game character (speed, life), Sheet
+* More on immutable vs. mutable
+* http://www.ibm.com/developerworks/java/library/j-jtp02183/index.html
+* 在写一个class的时候，一般会注释thread-safy and author 
+
+##### Design Choice:
+* Object Oriented Programming: Encapsulation(封装), Abstruction(抽象), Inheritance(继承), Polymorphism(多态)
+* 
+
