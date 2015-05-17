@@ -57,7 +57,7 @@
       * How about storing my own list of follows’ news as well, and get updated when they post?
       * Tip: we can do some offline computations, for online latency.
 * This is the choice of Pull and Push.
-• Latency:
+* Latency:
    
 | | Refresh (read) (user-facing latency) | Post (write) |
 |:---:|:---:|:---:|
@@ -68,12 +68,14 @@
       * Push: Post: 每一次写都更新我的follower's list, Read: read my own list 
       * 类比: push 就像印好了报纸，然后一个一个送报纸到门口；pull 就像印好了报纸，放在门口，想看自己拿
    
-• Pull: high latency, high user-facing latency 
+* Pull: high latency, high user-facing latency 
       * Facebook post state用pull来完成，用很大的cache，不从data base拿，从内存拿，快很多
       * 一般情况下，名人的用pull，非名人的用push
       
-• Push: news delay, 
-• Push wins, 减少user-facing latency 
+* Push: news delay, 
+* Push wins, 减少user-facing latency 
+* delay和latency的区别是
+      * delay是异步的，能很快完成刷新，但是可能news还没有deliver过来。latency就是我刷新一次，等好久，然后才刷新完。
 
 ##### Level 3:
 * A problem of Push (and solution), taking heterogenous popularity into account.
@@ -99,6 +101,6 @@
 * Summary: Heterogeneity is a good source of discussion.
       * Followers and user frequency, in Pull/Push tradeoff.
       * Memory access frequency, in cache.
-      * Some functions are more frequently called than others. Can you do more in less-frequently-called functions to reduce the work in hot functions? (refresh is more than post. )
+      * Some functions are more frequently called than others. Can you do more in less-frequently-called functions to reduce the work in hot functions? (refresh is more than post. 刷新比post更多)
       * Some functions are more important (user-facing) than others. (refresh is more user-facing than post.)
       
