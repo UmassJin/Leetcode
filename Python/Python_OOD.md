@@ -224,7 +224,104 @@ True
 <type 'list'>
 ```
 
-* 个人理解，对于build-in type比如list，tuple来说，实际上是curate
+* 个人理解，对于build-in type比如list，tuple来说，我们create了一个mylist, 实际上是create了list class 的instance，所以type(mylist) or mylist.__class__是<type 'list'>, 对于class C, 来说，我们相当于create了一个class类的instance，所以type(C)为classobj, 在我们create一个class D的继承C时候，create 一个classobj
+
+```
+>>> class C:
+...     pass
+>>> type(C)
+<type 'classobj'>
+>>> class D(C):
+...     pass
+>>> type(D)
+<type 'classobj'>
+```
+
+* New Objects by subclass
+* The built-in objects are, well, built into Python, like list, typle, classobj. They're there when we start Python, usually there when we finish. So how can we create new objects? New objects cannot pop out of thin air. They have to be built using existing objects.
+* For example:
+
+```python
+# In python 2.7
+>>> class C(object):
+...     pass
+... 
+>>> class D(C):
+...     pass
+... 
+>>> type(D)     # Create a new object !
+<type 'type'>
+>>> D.__class__
+<type 'type'>
+>>>
+>>> class C:   
+...     pass
+... 
+>>> class D(C):   
+...     pass
+... 
+>>> type(D)      # C and D are still the class obj
+<type 'classobj'>
+>>> type(C)
+<type 'classobj'>
+>>> 
+
+# In Python 3.x, the explicit base class is not required, classes are
+# automatically subclasses of object:
+Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> class C:
+...    pass
+... 
+>>> type(C)
+<class 'type'>
+>>> 
+>>> class D(C):
+...   pass
+... 
+>>> type(D)
+<class 'type'>
+```
+```python
+# In Python 2.x:
+class C(object):  # 1) 
+ pass
+# In Python 3.x, the explicit base class is not required, classes are
+# automatically subclasses of object:
+class C:  # 2) 
+ pass
+class D(object):
+ pass
+class E(C, D):  # 3) 
+ pass
+class MyList(list):  # 4) 
+ pass 
+````
+      * 1) The class statement tells Python to create a new type by subclassing an existing type.
+      * 2) Don't do this in Python 2.x or you will end up with an object that is an old-style class, everything you read here will be useless and all will be lost.
+      * 3) Multiple bases are fine too.
+      * 4) Most built-in types can be subclassed (but not all). After the above example, C.__bases__ contains <type 'object'>, and MyList.__bases__ contains <type 'list'>.
+
+#### 7. New Objects by Instantiating
+
+```python
+obj = object()    # 1) 
+cobj = C()        # 2)
+mylist = [1,2,3]  # 3) 
+```
+
+* 1), 2) The call operator (()) creates a new object by instantiating an existing object. The existing object must be a type. Depending on the type, the call operator might accept arguments.
+* 3) Python syntax creates new objects for some built-in types. The square brackets create an instance of <type 'list'>; a numeric literal creates an instance of <type 'int'>
+
+#### 8. Wrap Up
+
+* The Python Objects Map
+![pic](https://cloud.githubusercontent.com/assets/9062406/7671625/322ae91c-fc8d-11e4-91fc-81fce875b93e.png)
+
+* 
 
 ####  [Class Inheritance](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance)
 ####  [What's metaclass ?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
