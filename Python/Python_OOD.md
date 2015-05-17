@@ -304,6 +304,7 @@ class MyList(list):  # 4)
       * 2) Don't do this in Python 2.x or you will end up with an object that is an old-style class, everything you read here will be useless and all will be lost.
       * 3) Multiple bases are fine too.
       * 4) Most built-in types can be subclassed (but not all). After the above example, C.__bases__ contains <type 'object'>, and MyList.__bases__ contains <type 'list'>.
+      * 5) The types.ClassType object is in some ways an alternative <type 'type'>. Instances of this object (classic classes) are types themselves. The rules of attribute access are different for classic classes and new-style classes. The types.ClassType object exists for backward compatibility and may not exist in future versions of Python. Other sections of this book should not be applied to classic classes.
 
 #### 7. New Objects by Instantiating
 
@@ -321,7 +322,54 @@ mylist = [1,2,3]  # 3)
 * The Python Objects Map
 ![pic](https://cloud.githubusercontent.com/assets/9062406/7671625/322ae91c-fc8d-11e4-91fc-81fce875b93e.png)
 
-* 
+* To summarize all that has been said:
+      * There are two kinds of objects in Python:
+         * 1. Type objects - can create instances, can be subclassed.
+         * 2. Non-type objects - cannot create instances, cannot be subclassed.
+
+* <type 'type'> and <type 'object'> are two primitive objects of the system.
+* objectname.__class__ exists for every object and points the type of the object.
+* bjectname.__bases__ exists for every type object and points the superclasses of the object. It is empty only for <type 'object'>.
+* To create a new object using subclassing, we use the class statement and specify the bases (and, optionally, the type) of the new object. This always creates a type object.
+* To create a new object using instantiation, we use the call operator (()) on the type object we want to use. This may create a type or a non-type object, depending on which type object was used.
+* Some non-type objects can be created using special Python syntax. For example, [1, 2, 3] creates an instance of <type 'list'>.
+* Internally, Python always uses a type object to create a new object. The new object created is an instance of the type object used. Python determines the type object from a class statement by looking at the bases specified, and finding their types.
+* issubclass(A,B) (testing for superclass-subclass relationship) returns True iff:
+      * 1. B is in A.__bases__, or
+      * 2. issubclass(Z,B) is true for any Z in A.__bases__.
+* isinstance(A,B) (testing for type-instance relationship) returns True iff:
+      * 1. B is A.__class__, or
+      * 2. issubclass(A.__class__,B) is true.
+* Squasher is really a python. (Okay, that wasn't mentioned before, but now you know.) 
+
+#### More Data points
+
+```python
+>>> import types
+>>> types.ListType is list
+True
+>>> def f():
+... pass
+...
+>>> f.__class__ is types.FunctionType
+True
+>>>
+>>> class MyList(list):  # Some built-in types can be subclassed.
+... pass
+...
+Python Types and Objects 13
+>>> class MyFunction(types.FunctionType):  # Some built-in types can not be subclassed.
+... pass
+...
+Traceback (most recent call last):
+ File "<stdin>", line 1, in ?
+TypeError: type 'function' is not an acceptable base type
+>>> dir(types)
+['BooleanType', 'DictProxyType', 'DictType', ..]
+```
+
+* If X is an instance of A, and A is a subclass of B, then X is an instance of B as well.
+* If B is an instance of M, and A is a subclass of B, then A is an instance of M as well.
 
 ####  [Class Inheritance](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance)
 ####  [What's metaclass ?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
