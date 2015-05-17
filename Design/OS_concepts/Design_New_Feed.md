@@ -64,7 +64,7 @@
 | Pull | follows’ lists | my own list |
 | Push | my own list | followers’ lists |
 
-      * Pull: Refresh: read all my follow's news; Pose: write in my table
+      * Pull: Refresh: read all my follow's news; Post: write in my table
       * Push: Post: 每一次写都更新我的follower's list, Read: read my own list 
       * 类比: push 就像印好了报纸，然后一个一个送报纸到门口；pull 就像印好了报纸，放在门口，想看自己拿
    
@@ -72,6 +72,7 @@
       * Facebook post state用pull来完成，用很大的cache，不从data base拿，从内存拿，快很多
       * 一般情况下，名人的用pull，非名人的用push,
       * 在机器少，资源少，没有什么明星或者明星少的时候用push好于pull
+      * 名人不用存follower的ID, 因为不用push; 普通人要存，为了push。每个人都要存follow了的名人的ID, 以便pull，follow了普通人不用存，不用pull。
       
 * Push: news delay, 
 * Push wins, 减少user-facing latency 
