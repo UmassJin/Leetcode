@@ -19,8 +19,12 @@
     * Optimization, we could calculate use new_average = (old_average * 5 - old + new ) / 5 ==> O(1) 
     * But the above optimization method has one problem, since the streaming data maybe is the floating data, 
       so (a + b) + c != a + (b + c), after many datas, there will be a large error 误差
-    * 解决方法: could use the O(5) for the first 1000 data, then use O(1)  
+    * 解决方法: we could calculate the 5 numbers average when arrival 1000th number, then use O(1) to continue to calculate. 
     
 ##### 8. compiler options
 ##### 9. * pipeline, super-scalar, branch prediction
 ##### 10. parallelism (e.g. matrix multiplication)
+
+
+#### Number everyone need to know
+[!img](https://cloud.githubusercontent.com/assets/9062406/7668842/0a028a40-fc05-11e4-9af5-75250c22e655.png)
