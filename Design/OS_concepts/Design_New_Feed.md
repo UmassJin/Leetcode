@@ -104,3 +104,6 @@
       * Some functions are more frequently called than others. Can you do more in less-frequently-called functions to reduce the work in hot functions? (refresh is more than post. 刷新比post更多)
       * Some functions are more important (user-facing) than others. (refresh is more user-facing than post.)
       
+##### Other implement 
+* weibo, twitter 关注是有向的，没有上限，但是对于 facebook, renren都是互相关注，是无向的
+* 所以weibo，twitter 关注可以很多没有上限，但是对于相互关注，会有好友上线
