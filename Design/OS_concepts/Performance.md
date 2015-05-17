@@ -27,4 +27,4 @@
 
 
 #### Number everyone need to know
-[!img](https://cloud.githubusercontent.com/assets/9062406/7668842/0a028a40-fc05-11e4-9af5-75250c22e655.png)
+![pic](https://cloud.githubusercontent.com/assets/9062406/7668842/0a028a40-fc05-11e4-9af5-75250c22e655.png)
