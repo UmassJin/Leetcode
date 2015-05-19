@@ -144,6 +144,9 @@ def insertion_sort(array):
 ##### [Merge Sort Wiki](http://en.wikipedia.org/wiki/Merge_sort)
 
 ##### Procudure:
+
+![pic](https://github.com/billryan/algorithm-exercise/blob/master/images/merge_sort.gif?raw=true)
+
       * 先将array二分化为n/2, n/2，递归一直到每个数组的长度为<=1:
       * Merge: Go through each part of two array, 依次比较，然后找出最小的数，直到两个数组都为， 或者其中一个数组为0，再拷贝另一个数组即可.
       
