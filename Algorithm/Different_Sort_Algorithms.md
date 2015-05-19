@@ -364,7 +364,18 @@ None
       * 归并排序将数组分成两个子数组分别排序，并将有序的子数组归并以将整个数组排序。递归调用发生在处理整个数组之前。
       * 快速排序将一个数组分成两个子数组并对这两个子数组独立地排序，两个子数组有序时整个数组也就有序了。递归调用发生在处理整个数组之后。
 
-#### Robert Sedgewick 在其网站上对 [Quicksort](http://algs4.cs.princeton.edu/23quicksort/) 做了较为完整的介绍，建议去围观下。
+##### Time Complexity 
+* Best: O(nlogn)
+* Worst: O(n^2) when we choose the pivot always the max or the min
+* Average: O(nlogn)
+
+##### Summary
+      1. Quick Sort 更快
+      2. 而且是就地排序，空间复杂度为O(1)，
+      3. 是递归算法，在不希望使用递归时，Quick Sort 又不是好的选择了。
+      4. Quick Sort并不是稳定的算法。原先的次序会被打乱。
+
+##### Robert Sedgewick 在其网站上对 [Quicksort](http://algs4.cs.princeton.edu/23quicksort/) 做了较为完整的介绍，建议去围观下。
 
 #### Reference
 * [Algorithm Sort Summary](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
