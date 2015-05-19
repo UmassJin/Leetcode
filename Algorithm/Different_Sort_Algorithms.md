@@ -109,8 +109,86 @@ def selection_sort(array):
     5. 将新元素插入到该位置后
     6. 重复步骤2~5
 
+
 ##### Code:
+
+```python
+def insertion_sort(array):
+    length = len(array)
+    for i in xrange(1,length):
+        if array[i] < array[i-1]:
+            tmp = array[i]
+            index = i
+            for j in xrange(i-1,-1,-1):
+                if tmp < array[j]:
+                    array[j+1] = array[j]
+                    index = j
+            array[index] = tmp
+    return array
+
+```
+
+##### Attribute:
+    * 交换操作和数组中导致的数量相同
+    * 比较次数>=倒置数量，<=倒置的数量加上数组的大小减一
+    * 每次交换都改变了两个顺序颠倒的元素的位置，即减少了一对倒置，倒置数量为0时即完成排序。
+    * 每次交换对应着一次比较，且1到N-1之间的每个i都可能需要一次额外的记录(a[i]未到达数组左端时)
+
+##### Time Complexity:
+    * 最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换。
+    * 平均情况下需要~N^2/4次比较和~N^2/4次交换
+
+
+## [Merge Sort](http://algs4.cs.princeton.edu/22mergesort/)
+##### 核心：将两个有序对数组归并成一个更大的有序数组。通常做法为递归排序，并将两个不同的有序数组归并到第三个数组中。
+##### [Merge Sort Wiki](http://en.wikipedia.org/wiki/Merge_sort)
+
+##### Procudure:
+      * 先将array二分化为n/2, n/2，递归一直到每个数组的长度为<=1:
+      * Merge: Go through each part of two array, 依次比较，然后找出最小的数，直到两个数组都为， 或者其中一个数组为0，再拷贝另一个数组即可.
+      
+##### Code:
+
+```python
+def merge_sort(array):
+    if len(array) <= 1: return array
+
+    mid = len(array)/2
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])
+    array = merge(left, right)
+    return array
+
+def merge(larray, rarray):
+    result = []
+    lstart = 0
+    rstart = 0
+
+    while lstart < len(larray) and rstart < len(rarray):
+        if larray[lstart] < rarray[rstart]:
+            result.append(larray[lstart])
+            lstart += 1
+        else:
+            result.append(rarray[rstart])
+            rstart += 1
+
+    if lstart < len(larray):
+        result += larray[lstart:]
+
+    if rstart < len(rarray):
+        result += rarray[rstart:]
+
+    return result
+```
+
+##### Time Complexity:
+      * T(n) = 2T(n/2) + n  --> O(nlogn)
+      * [Master Theorem](http://en.wikipedia.org/wiki/Master_theorem)
+
+
+## Quick Sort
 
 
 #### Reference
 * [Algorithm Sort Summary](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
+* [Different Sort - Git](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/merge_sort.html)
