@@ -6,7 +6,8 @@
 ####[5. Merge Sort](#merge-sort)
 ####[6. Quick Sort](#quick-sort)
 ####[7. Heap Sort](#heap-sort)
-
+####[8. Compare different Sort Algorithm](#compare-different-sort-algorithm)
+####[9. Master Theorem](master-theorem)
 
 ## Bubble Sort
 ##### Introduction：
@@ -384,7 +385,7 @@ None
 ##### Robert Sedgewick 在其网站上对 [Quicksort](http://algs4.cs.princeton.edu/23quicksort/) 做了较为完整的介绍，建议去围观下。
 
 
-#### Compare different sort Algorithm
+## Compare different Sort Algorithm
 
 | Sort Algorithm | Best | Average | Worst | Memory | Stable | Method |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -393,7 +394,8 @@ None
 | Insertion Sort | n | O(n^2/4) | O(n^2/4) | 1 | Stable | Insertion | 
 | Selection Sort | O(n^2/2) | O(n^2/2) | O(n^2/2) | 1 | Unstable | Selection | 
 
-
+## Master Theorem
+![pic](https://cloud.githubusercontent.com/assets/9062406/7714300/65b8e1c0-fe32-11e4-91c0-43fb1a7c1dbd.png)
 
 #### Reference
 * [Algorithm Sort Summary](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
