@@ -398,5 +398,6 @@ None
 ![pic](https://cloud.githubusercontent.com/assets/9062406/7714300/65b8e1c0-fe32-11e4-91c0-43fb1a7c1dbd.png)
 
 #### Reference
-* [Algorithm Sort Summary](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
-* [Different Sort - Git](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/merge_sort.html)
+* [Algorithm Sort Summary in Python](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
+* [Different Sort - Git整理](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/merge_sort.html)
+* [九章算法 sort summary](http://blog.sina.com.cn/s/blog_eb52001d0102v1k8.html)
