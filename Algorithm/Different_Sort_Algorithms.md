@@ -137,6 +137,7 @@ def insertion_sort(array):
 ##### Time Complexity:
     * 最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换。
     * 平均情况下需要~N^2/4次比较和~N^2/4次交换
+    * 0/2 + 1/2 + 2/2 + 3/2...n/2 = O(n^2/4)
 
 
 ## [Merge Sort](http://algs4.cs.princeton.edu/22mergesort/)
