@@ -382,6 +382,18 @@ None
 
 ##### Robert Sedgewick 在其网站上对 [Quicksort](http://algs4.cs.princeton.edu/23quicksort/) 做了较为完整的介绍，建议去围观下。
 
+
+#### Compare different sort Algorithm
+
+| Sort Algorithm | Best | Average | Worst | Memory | Stable | Method |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Quicksort | nlogn | nlogn | n^2 | logn on average, n worst | typical in-place sort is not stable; stable versions exist | Partitioning | 
+| Merge Sort| nlogn | nlogn | nlogn | n worst case | Stable | Merging | 
+| Insertion Sort | n | O(n^2/4) | O(n^2/4) | 1 | Stable | Insertion | 
+| Selection Sort | O(n^2/2) | O(n^2/2) | O(n^2/2) | 1 | Unstable | Selection | 
+
+
+
 #### Reference
 * [Algorithm Sort Summary](http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/)
 * [Different Sort - Git](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/merge_sort.html)
