@@ -186,7 +186,106 @@ def merge(larray, rarray):
       * [Master Theorem](http://en.wikipedia.org/wiki/Master_theorem)
 
 
-## Quick Sort
+## [Quick Sort](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/quick_sort.html)
+#### 核心:
+* 快排是一种采用分治思想的排序算法，大致分为三个步骤。
+      * 定基准——首先随机选择一个元素最为基准
+      * 划分区——所有比基准小的元素置于基准左侧，比基准大的元素置于右侧，
+      * 递归调用——递归地调用此切分过程。
+
+##### Out-in-Place quick sort
+* 非原地排序，用递归的方法，每一次都会产生一个新的数组
+* 『递归 + 非原地排序』的实现虽然简单易懂，但是如此一来『快速排序』便不再是最快的通用排序算法了，因为递归调用过程中非原地排序需要生成新数组，空间复杂度颇高。list comprehension 大法虽然好写，但是用在『快速排序』算法上就不是那么可取了。
+
+* Code:
+
+```python
+def qsort1(alist):
+    print(alist)
+    if len(alist) <= 1:
+        return alist
+    else:
+        pivot = alist[0]
+        return qsort1([x for x in alist[1:] if x < pivot]) + \
+               [pivot] + \
+               qsort1([x for x in alist[1:] if x >= pivot])
+
+unsortedArray = [6, 5, 3, 1, 8, 7, 2, 4]
+print(qsort1(unsortedArray))
+
+# Output
+[6, 5, 3, 1, 8, 7, 2, 4]
+[5, 3, 1, 2, 4]
+[3, 1, 2, 4]
+[1, 2]
+[]
+[2]
+[4]
+[]
+[8, 7]
+[7]
+[]
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+```
+* 空间复杂度：O(2n), 最坏情况: O(n^2)
+
+##### In-Place quick sort
+
+```python
+
+def qsort2(array):
+    return quick_sort2(array, 0, len(array)-1)
+
+def quick_sort2(array, start, end):
+    if start >= end:
+        return
+    storeIndex = start
+    print "array: ", array
+    for i in xrange(start+1, end+1):
+        if array[i] < array[start]:
+            storeIndex += 1
+            array[i], array[storeIndex] = array[storeIndex], array[i]
+    array[storeIndex], array[start] = array[start], array[storeIndex]  #注意这里要再次swap！
+
+    quick_sort2(array, start, storeIndex-1)
+    quick_sort2(array, storeIndex+1, end)
+
+array = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+print qsort2(array)
+
+# Sample output
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python selection_sort.py
+array:  [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+array:  [2, 3, 38, 5, 47, 15, 36, 26, 27, 44, 46, 4, 19, 50, 48]
+array:  [2, 3, 19, 5, 15, 36, 26, 27, 4, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 46, 47, 44, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 50, 48]
+array:  [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 50, 48]
+None
+[JINZH
+
+```
+* 容易出错的地方在于当前 partition 结束时未将 i 和 m 交换。比较alist[i]和alist[l]时只能使用<而不是<=!
+* 参考动态的quick sort的[演示](http://visualgo.net/sorting.html#)
+
+##### Two-way partitioning 
+* 对于仅使用一个索引进行 partition 操作的快排对于随机分布数列的效果还是不错的，但若数组本身就已经有序或者相等的情况下，每次划分仅能确定一个元素的最终位置，故最坏情况下的时间复杂度变为 O(n^2). 那么有什么办法尽可能避免这种最坏情况吗？聪明的人类总是能找到更好地解决办法——使用两个索引分别向右向左进行 partition.
+
+##### Procedure
+* 1) 下标 i 和 j 初始化为待排序数组的两端。
+* 2) 基准元素设置为数组的第一个元素。
+* 3) 执行 partition 操作，大循环内包含两个内循环：
+* 4) 左侧内循环自增 i, 直到遇到不小于基准元素的值为止。
+* 5) 右侧内循环自减 j, 直到遇到不大于基准元素的值为止。
+* 6) 大循环测试两个下标是否相等或交叉，交换其值。
+
+##### Code
 
 
 #### Reference
