@@ -193,7 +193,7 @@ def merge(larray, rarray):
       * 划分区——所有比基准小的元素置于基准左侧，比基准大的元素置于右侧，
       * 递归调用——递归地调用此切分过程。
 
-##### Out-in-Place quick sort
+#### A) Out-in-Place quick sort
 * 非原地排序，用递归的方法，每一次都会产生一个新的数组
 * 『递归 + 非原地排序』的实现虽然简单易懂，但是如此一来『快速排序』便不再是最快的通用排序算法了，因为递归调用过程中非原地排序需要生成新数组，空间复杂度颇高。list comprehension 大法虽然好写，但是用在『快速排序』算法上就不是那么可取了。
 
@@ -230,7 +230,7 @@ print(qsort1(unsortedArray))
 ```
 * 空间复杂度：O(2n), 最坏情况: O(n^2)
 
-##### In-Place quick sort
+#### B) In-Place quick sort
 
 ```python
 
@@ -274,7 +274,7 @@ None
 * 容易出错的地方在于当前 partition 结束时未将 i 和 m 交换。比较alist[i]和alist[l]时只能使用<而不是<=!
 * 参考动态的quick sort的[演示](http://visualgo.net/sorting.html#)
 
-##### Two-way partitioning 
+#### C) Two-way partitioning 
 * 对于仅使用一个索引进行 partition 操作的快排对于随机分布数列的效果还是不错的，但若数组本身就已经有序或者相等的情况下，每次划分仅能确定一个元素的最终位置，故最坏情况下的时间复杂度变为 O(n^2). 那么有什么办法尽可能避免这种最坏情况吗？聪明的人类总是能找到更好地解决办法——使用两个索引分别向右向左进行 partition.
 
 ##### Procedure
@@ -286,6 +286,7 @@ None
 * 6) 大循环测试两个下标是否相等或交叉，交换其值。
 
 ##### Code
+
 
 
 #### Reference
