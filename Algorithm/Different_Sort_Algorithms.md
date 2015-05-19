@@ -168,7 +168,7 @@ def merge(larray, rarray):
     rstart = 0
 
     while lstart < len(larray) and rstart < len(rarray):
-        if larray[lstart] < rarray[rstart]:
+        if larray[lstart] <= rarray[rstart]:
             result.append(larray[lstart])
             lstart += 1
         else:
@@ -188,6 +188,11 @@ def merge(larray, rarray):
       * T(n) = 2T(n/2) + n  --> O(nlogn)
       * [Master Theorem](http://en.wikipedia.org/wiki/Master_theorem)
 
+#### Analysis
+* In the worst case, merge sort does about 39% fewer comparisons than quicksort does in the average case. In terms of moves, merge sort's worst case complexity is O(n log n)—the same complexity as quicksort's best case, and merge sort's best case takes about half as many iterations as the worst case.[citation needed]
+* Merge sort is more efficient than quicksort for some types of lists if the data to be sorted can only be efficiently accessed sequentially, and is thus popular in languages such as Lisp, where sequentially accessed data structures are very common. Unlike some (efficient) implementations of quicksort, merge sort is a stable sort.
+* Merge sort's most common implementation does not sort in place[citation needed]; therefore, the memory size of the input must be allocated for the sorted output to be stored in (see below for versions that need only n/2 extra spaces).
+* Merge sort also has some demerits. One is its use of 2n locations; the additional n locations are commonly used because merging two sorted sets in place is more complicated and would need more comparisons and move operations. But despite the use of this space the algorithm still does a lot of work: The contents of m are first copied into left and right and later into the list result on each invocation of merge_sort (variable names according to the pseudocode above).
 
 ## [Quick Sort](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/quick_sort.html)
 #### 核心:
