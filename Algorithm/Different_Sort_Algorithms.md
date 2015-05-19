@@ -282,7 +282,7 @@ None
 * 容易出错的地方在于当前 partition 结束时未将 i 和 m 交换。比较alist[i]和alist[l]时只能使用<而不是<=!
 * 参考动态的quick sort的[演示](http://visualgo.net/sorting.html#)
 
-#### C) Two-way partitioning 
+#### C) Two-way partitioning(标准的quick sort算法) 
 * 对于仅使用一个索引进行 partition 操作的快排对于随机分布数列的效果还是不错的，但若数组本身就已经有序或者相等的情况下，每次划分仅能确定一个元素的最终位置，故最坏情况下的时间复杂度变为 O(n^2). 那么有什么办法尽可能避免这种最坏情况吗？聪明的人类总是能找到更好地解决办法——使用两个索引分别向右向左进行 partition.
 
 ##### Procedure
