@@ -7,7 +7,7 @@
 ####[6. Quick Sort](#quick-sort)
 ####[7. Heap Sort](#heap-sort)
 ####[8. Compare different Sort Algorithm](#compare-different-sort-algorithm)
-####[9. Master Theorem](master-theorem)
+####[9. Master Theorem](#master-theorem)
 
 ## Bubble Sort
 ##### Introduction：
