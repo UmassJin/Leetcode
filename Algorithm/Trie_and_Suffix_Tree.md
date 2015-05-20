@@ -96,6 +96,11 @@ class Trie:
 # trie.search("key")
 ```
 
+#### Time complexity 
+* Create Trie: O(n*len) (n is number of total wors, len is the length of word)
+* Insert: O(m) (m is the length of insert word)
+* Search: O(m) (m is the length of search word)
+
 ### 第二部分 [Suffix Tree](http://blog.csdn.net/v_july_v/article/details/6897097)
 * [G4G: Suffix Tree Introduction](http://www.geeksforgeeks.org/pattern-searching-set-8-suffix-tree-introduction/)
 * A Suffix Tree for a given text is a compressed trie for all suffixes of the given text
