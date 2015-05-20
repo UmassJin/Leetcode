@@ -69,3 +69,7 @@ def dfs_util(node, visited):
 * [Very Good Explaination Video 1&2](https://www.youtube.com/watch?v=PfiFnXg2G2I)
 * [G4G Topological Sorting](http://www.geeksforgeeks.org/topological-sorting/)
 * [G4G DFS](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)
+
+##### 6. Questions using Topology Sort
+*[Course Schedule](Array/Course_Schedule.py)
+*[Course Schedule2](./Array/Course_Schedule2.py)
