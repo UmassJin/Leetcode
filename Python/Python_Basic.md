@@ -960,6 +960,29 @@ TypeError: list objects are unhashable
 * That’s why the keys have to be hashable, and why mutable types like lists aren’t. The simplest way to get around this limitation is to use tuples, which we will see in the next chapter.
 
 
+#### [Collections.defaultdict!](https://docs.python.org/2/library/collections.html#collections.defaultdict)
+
+```python
+>>> s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+>>> d = defaultdict(list)
+>>> for k, v in s:
+...     d[k].append(v)
+...
+>>> d.items()
+[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+```
+##### When each key is encountered for the first time, it is not already in the mapping; so an entry is automatically created using the default_factory function which returns an empty list. The list.append() operation then attaches the value to the new list. When keys are encountered again, the look-up proceeds normally (returning the list for that key) and the list.append() operation adds another value to the list. This technique is simpler and faster than an equivalent technique using dict.setdefault():
+
+```python
+>>> d = {}
+>>> for k, v in s:
+...     d.setdefault(k, []).append(v)
+...
+>>> d.items()
+[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+
+```
+
 #### Reference:
 * [Tutorial: Dictionaries](https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
 * [Think in Python: Dictionaries] (http://www.greenteapress.com/thinkpython/html/thinkpython012.html)
