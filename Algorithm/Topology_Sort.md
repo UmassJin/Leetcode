@@ -71,6 +71,7 @@ def dfs_util(node, visited):
 * [G4G DFS](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)
 
 ##### 6. Questions using Topology Sort
-*[Course Schedule](./Array/Course_Schedule.py)
 
-*[Course Schedule2](./Array/Course_Schedule2.py)
+*[Course Schedule](https://github.com/UmassJin/Leetcode/blob/master/Array/Course_Schedule.py)
+
+*[Course Schedule2](https://github.com/UmassJin/Leetcode/blob/master/Array/Course_Schedule2.py)
