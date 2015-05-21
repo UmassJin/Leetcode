@@ -188,6 +188,26 @@ def levelOrderBottom_iter(root):
             if node.right: queue.append(node.right)
         result.insert(0, qlist)
     return result
+    
+# Use deque 
+from collections import deque
+
+def levelOrderBottom(self, root):
+        if not root: return []
+        queue = deque()
+        queue.append(root)
+        result = []
+
+        while queue:
+            subresult = []
+            for _ in xrange(len(queue)):
+                node = queue.popleft()
+                if node:
+                    subresult.append(node.val)
+                    if node.left: queue.append(node.left)
+                    if node.right: queue.append(node.right)
+            result.insert(0, subresult)
+        return result 
 
 # 11) Find the Minimum Depth of the tree, recursion
 def minDepth_rec(root):
