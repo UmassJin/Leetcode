@@ -232,14 +232,17 @@ def minDepth_iter(root):
             return depth
 
 # 13) Find the Maximum Depth of the tree, recursion
-def maxDepth_rec(root):
-    if root == None:
-        return 0
-    if (root.left != None and root.right == None):
-        return maxDepth_rec(root.left) + 1
-    if (root.left == None and root.right != None):
-        return maxDepth_rec(root.right) + 1
-    return max(maxDepth_rec(root.left), maxDepth_rec(root.right))+1
+class Solution:
+    # @param {TreeNode} root
+    # @return {integer}
+    def maxDepth(self, root):
+        if not root: return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+
+# 注意这里find maxDepth recursion is different from find minDepth recursion, 
+# 因为对于minDepth recursion, 我们需要考虑到，1, 2, None, 3, None, 所有节点都在
+# 左子树或者右子树的情况，如果仅仅判断 min(minDepth(root.left), minDepth(root.right)) + 1
+# 很容易出现最后depth为1，因为minDepth(root.right) always equal to 0, 但是求max不存在这个问题
 
 # 14) Find the Maximum Depth of the tree, iteration
 def maxDepth_iter(root):
