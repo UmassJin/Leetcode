@@ -1720,6 +1720,21 @@ sorted(data, cmp=None, key=None, reverse=False)
 >>> sorted(d.iteritems(), key=itemgetter(1))
 [('data2', 1), ('data3', 2), ('data1', 3), ('data4', 4)]
 
+>>> num1
+[8, 7, 6, 5]
+>>> 
+>>> 
+>>> num1[:4].sort()
+>>> num1
+[8, 7, 6, 5]  # 注意这里num1不会改变，因为num1[:4]是给num1进行了copy，然后再sort copy之后的list，不是原来的list !
+>>> num1[:].sort()
+>>> num1
+[8, 7, 6, 5]
+>>> p = num1[:3]
+>>> p.sort()
+>>> p
+[6, 7, 8]
+
 ```
 
 #### Reference
