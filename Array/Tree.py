@@ -492,25 +492,20 @@ def addsum(root, sumvalue):
     return addsum(root.left, sumvalue) + addsum(root.right, sumvalue)
 
 # Iteration:
-def sumNumbers_iter(root):
-    if not root: return 0
-    queue = [root.val]; nodelist = [root]; result = 0 
-    while nodelist:
-            node = nodelist.pop()  # Note: here we use two queue!!!
-            tmpval = queue.pop()
-            
+    def sumNumbers(self, root):
+        if not root: return 0
+        queue = [(root, root.val)]
+        result = 0
+        
+        while queue:
+            node, tmpval = queue.pop(0)
             if node.left:
-                nodelist.append(node.left)
-                queue.append(tmpval*10+node.left.val)
-                
+                queue.append((node.left, tmpval*10 + node.left.val))
             if node.right:
-                nodelist.append(node.right) 
-                queue.append(tmpval*10+node.right.val)
-            
+                queue.append((node.right, tmpval*10 + node.right.val))
             if not node.left and not node.right:
-                result = result + tmpval
-
-    return result 
+                result += tmpval
+        return result 
 
 # 26) Construct Binary Tree from Preorder and Inorder Traversal 
 def buildTree(preorder, inorder):
