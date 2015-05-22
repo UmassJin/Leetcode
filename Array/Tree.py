@@ -367,6 +367,8 @@ def isSameTree(p, q):
     if p.val != q.val: return False
     return (isSameTree(p.left,q.left) and isSameTree(p.right,q.right))
 
+# 注意要加上  if not p and not q: return True 的选项
+
 def isSameTree(p,q):
     if not p and not q: return True
     if not q or not p: return False
@@ -473,7 +475,7 @@ def zigzagLevelOrder_iter(root):
             if q.right: queue.append(q.right)
 
         if len(result) %2 == 0:
-            result.append(res_list)
+            result.append(res_list)  #注意这里我们可以直接append，是因为，之后对于res_list没有改变，但是对于题目level就需要用res_list[:]copy 模式
         else:
             result.append(res_list[::-1])
     return result
@@ -521,6 +523,28 @@ def buildfunc(prestart,preorder,instart,inend,inorder):
     node.left = buildfunc(prestart+1,preorder,instart,index-1,inorder)
     node.right = buildfunc(prestart+index-instart+1,preorder,index+1,inend,inorder) # index important!!!
     return node
+
+# Solution 2
+class Solution:
+    # @param {integer[]} preorder
+    # @param {integer[]} inorder
+    # @return {TreeNode}
+    def buildTree(self, preorder, inorder):
+        if not preorder or not inorder: return None
+        return self.buildTree_helper(preorder, inorder, 0, len(preorder)-1, 0, len(inorder)-1)
+        
+    def buildTree_helper(self, preorder, inorder, pres, pree, ins, ine):
+        if ins > ine or (pres >= len(preorder)): return None 
+        node = TreeNode(preorder[pres])
+        index = inorder.index(node.val)
+        node.left = self.buildTree_helper(preorder, inorder, pres+1, pres+index, ins, index-1)
+        node.right = self.buildTree_helper(preorder, inorder, pres+index+1-ins, pree, index+1, ine)
+        return node
+
+# 这里注意出错的地方：
+# 1. 在build right tree的时候，inend是 pres+index+1-ins，这在第二次循环的时候才会发现错误
+# 2. 注意边界条件的影响， if ins > ine or (pres >= len(preorder)): return None 
+# 3. preorder可能超过边界，inorder可能start大于end
 
 # 27) Construct Binary Tree from Inorder and Postorder Traversal 
 def buildTree_in_post(inorder, postorder):
@@ -724,12 +748,14 @@ class Solution:
         p = p.left
         while p.right:
             p = p.right
-        p.right = root.right 
-        root.right = root.left
+        p.right = root.right  
+        root.right = root.left  # 注意这里是root.right = root.left, 不是 root.right = p 
         root.left = None
 
-# 34) Binary Tree Right Side View 
+# 还有一个类似的题目，将binary tree变为double linked list 
+# https://github.com/UmassJin/Leetcode/blob/master/Array/Convert_BST_to_DDL.py
 
+# 34) Binary Tree Right Side View 
 class Solution:
     # @param root, a tree node
     # @return a list of integers
@@ -845,7 +871,7 @@ class Solution:
         root.right = self.sortedListToBST(right)
         return root 
 
-# Binary Search Tree Iterator
+# 39） Binary Search Tree Iterator
 # Definition for a  binary tree node
 # class TreeNode:
 #     def __init__(self, x):
@@ -882,3 +908,33 @@ class BSTIterator:
 # Your BSTIterator will be called like this:
 # i, v = BSTIterator(root), []
 # while i.hasNext(): v.append(i.next())
+
+# 40) Binary Tree Right Side View
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+from collections import deque 
+class Solution:
+    # @param {TreeNode} root
+    # @return {integer[]}
+    def rightSideView(self, root):
+        if not root: return []
+        queue = deque()
+        queue.append(root)
+        result = []
+        prelevel = 0
+        while queue:
+            length = len(queue)
+            for i in xrange(len(queue)):
+                node = queue.popleft()
+                if node.left: queue.append((node.left))
+                if node.right: queue.append((node.right))
+                if i == length -1:
+                    result.append(node.val)
+        return result 
+            
+            
