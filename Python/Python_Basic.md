@@ -6,7 +6,7 @@
 ####[5.Dictionary](#dictionary)
 ####[6.Basic Knowledge](#basic-knowledge)
 ####[7.Class Related Knowledge (Important!!)](#class-related-knowledge)
-
+####[8.Sort and Sorted](#sort-and-sorted)
 
 ------------------------------------------------------------
 
@@ -1044,6 +1044,8 @@ orange
 pear
 ```
 
+
+
 ##### e) Iteritems()
 * When looping through dictionaries, the key and corresponding value can be retrieved at the same time using the iteritems() method.
 
@@ -1681,3 +1683,45 @@ del book
  3. there are some reference cycles in your app
 
 * [Different Method](http://python.dzone.com/articles/diagnosing-memory-leaks-python)
+
+
+## Sort and Sorted 
+#### Python lists have a built-in sort() method that modifies the list in-place and a sorted() built-in function that builds a new sorted list from an iterable.
+
+#### Sorted 
+```python
+sorted(data, cmp=None, key=None, reverse=False) 
+```
+
+* data是待排序数据，可以使List或者iterator
+* cmp和key都是函数，这两个函数作用与data的元素上产生一个结果，sorted方法根据这个结果来排序。 
+* cmp(e1, e2) 是带两个参数的比较函数, 返回值: 负数: e1 < e2, 0: e1 == e2, 正数: e1 > e2. 默认为 None, 即用内建的比较函数. 
+* key 是带一个参数的函数, 用来为每个元素提取比较值. 默认为 None, 即直接比较每个元素. 通常, key 和 reverse 比 cmp 快很多, 因为对每个元素它们只处理一次; 而 cmp 会处理多次.
+
+```python
+>>> students = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10),]  
+>>> 
+>>> sorted(students, key = lambda student: student[2])
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+>>> sorted(students, cmp = lambda x,y: cmp(x[2], y[2]))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+>>> 
+>>> from operator import itemgetter, attrgetter
+>>> sorted(students, key = itemgetter(2))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+>>> sorted(students, key = itemgetter(1,2))
+[('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]
+>>> 
+>>> d = {'data1':3, 'data2':1, 'data3':2, 'data4':4} 
+>>> sorted(d.iteritems(), key=itemgetter(1), reverse = True)
+[('data4', 4), ('data1', 3), ('data3', 2), ('data2', 1)]
+>>> sorted(d, key=itemgetter(1))
+['data4', 'data1', 'data3', 'data2']
+>>> sorted(d.iteritems(), key=itemgetter(1))
+[('data2', 1), ('data3', 2), ('data1', 3), ('data4', 4)]
+
+```
+
+#### Reference
+* [Sorted and Sorted 详解](http://gaopenghigh.iteye.com/blog/1483864)
+* [Python Tutorial](https://wiki.python.org/moin/HowTo/Sorting)
