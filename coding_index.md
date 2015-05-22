@@ -117,6 +117,14 @@
 ######[Word Break II](./Array/word_breakII.py)
 * Combine the DFS and DP 
 
+######[Unique Binary Search Trees](./Array/Tree.py)
+* state: ```dp[i]``` 表示how many unique BST for the number i 
+* function: ```dp[i] += dp[k-1] * dp[i-k]  1 <= k <= i ```
+* initialize: ```dp[0] = 1, dp[1] = 1```
+* answer: ```dp[n]```
+
+
+
 ######[Longest Increasing Subsequence 最长上升子序列](Experience/Longest_Increasing_Subsequence.md) [(Not in Leetcode)](http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/)
 * state: ~~```dp[i]```表示前i个数字中最长的LIS长度(错误)~~ ```dp[i]```表示第i个数字结尾的LIS长度(正确)
 * function: ```dp[i] = max(dp[j]+1, j<i and a[j] <= a[i])```
