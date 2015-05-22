@@ -389,6 +389,13 @@ def hasPathSum(root, sum):
         else: return False
     return hasPathSum(root.left, sum) or hasPathSum(root.right, sum)
 
+# 这道题容易做错的几点: 
+# 1) sum < 0: 不一定false，因为节点数字可能<0
+# 2) 必须在 root.left 和 root.right 全部为 None 的时候，才可以判断sum为0时候为True
+#    因为有可能在中间节点的时候，sum 为0
+# 面试时候碰到这个题目，可以提问几点
+# 每个节点的node为positive的数字还是negative的？
+
     
 # 23) sum from root-to-leaf, print out all the path
 def pathSum(root, sum):
@@ -405,7 +412,21 @@ def path_sum(root, sum, result, res_list):
             res_list.pop()
     path_sum(root.left, sum - root.val, result, res_list+[root.val])
     path_sum(root.right, sum - root.val, result, res_list+[root.val])
-    
+
+# 注意，我们在将res_list append到result的时候，如果不用res_list[:]，我们其实没有make a copy,
+# 此时 result[0] 的地址和res_list的地址是一样的，所以之后将res_list.pop()，result[0]里面的也被pop
+# 出来了，所以如果直接append会有如下的结果，会发现sublist和result[0]的地址是一样的
+'''
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python path_sum2.py
+sublist:  [1]
+result:  [[1]]
+id: result:  4375484248
+id: result[0]:  4375560560
+id: sublist:  4375560560
+out result id:  4375484248
+[[]]
+'''
+
 # The other method 
 def pathSum_1(root, sum):
     def getpath(node,cursum,curlist):
@@ -649,6 +670,10 @@ class Solution:
                         head = pre
                 
                 cur = cur.next 
+
+# 在上面iteration的做法中，需要注意的是，我们要更新head = none, after each "while head"
+# 否则：test case: [0] as root, will be into infinitely loop 
+# 用两个循环，一个head，一个cur ！ 
 
 # 32) Populating Next Right Pointers in Each Node II 
 class Solution:
