@@ -676,26 +676,36 @@ class Solution:
 # 用两个循环，一个head，一个cur ！ 
 
 # 32) Populating Next Right Pointers in Each Node II 
+# Could use the exactly the same solution like I 
 class Solution:
     # @param root, a tree link node
     # @return nothing
     def connect(self, root):
-        if root == None: return
-        dummy = TreeNode(0)
-        cur = root
-        while cur:
-            ptr = dummy
-            dummy.next = None
+        if not root: return
+        
+        head = root
+        cur = None; pre = None
+        
+        while head:
+            cur = head
+            head = None; pre = None
             while cur:
                 if cur.left:
-                    ptr.next = cur.left
-                    ptr = ptr.next
+                    if pre:
+                        pre.next = cur.left
+                        pre = pre.next 
+                    else:
+                        pre = cur.left
+                        head = pre
+                        
                 if cur.right:
-                    ptr.next = cur.right
-                    ptr = ptr.next
-                cur = cur.next
-            cur = dummy.next
-        return
+                    if pre:
+                        pre.next = cur.right
+                        pre = pre.next
+                    else:
+                        pre = cur.right
+                        head = pre
+                cur = cur.next 
 
 # 33) Flatten Binary Tree to Linked List 
 class Solution:
