@@ -586,27 +586,33 @@ class Solution:
             self.inorderTree(node.right)
     
     # Iteration
+class Solution:
+    # @param {TreeNode} root
+    # @return {void} Do not return anything, modify root in-place instead.
     def recoverTree(self, root):
-        self.first = None; self.second = None; self.pre = None
+        first = None; second = None
+        pre = None
+        
         queue = []
-        node = root 
-        while node or queue:
+        node = root
+    
+        while queue or node:
             while node:
                 queue.append(node)
-                node = node.left
+                node =  node.left
             
             node = queue.pop()
-            if self.pre and self.pre.val > node.val:
-                if not self.first:
-                    self.first = self.pre
-                self.second = node  # Note: here!!
-                self.pre = node
+            if pre and pre.val > node.val:
+                if not first:
+                    first = pre
+                second = node  # Node, we need to assign the node to the second! Test case [0,1] 
+                pre = node
             else:
-                self.pre = node 
+                pre = node
             
             node = node.right
-        self.first.val, self.second.val = self.second.val, self.first.val # Note: change the value!!!
-
+        first.val, second.val = second.val, first.val
+        
 # 29) Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 class Solution:
     # @param num, a list of integers
