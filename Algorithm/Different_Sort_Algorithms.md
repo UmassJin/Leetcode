@@ -1,4 +1,4 @@
-##Table of Content
+## <a name='toc'>Table of Contents</a>
 ####[1. Bubble Sort](#bubble-sort)
 ####[2. Selection Sort](#selection-sort)
 ####[3. Insertion Sort](#insertion-sort)
@@ -9,7 +9,7 @@
 ####[8. Compare different Sort Algorithm](#compare-different-sort-algorithm)
 ####[9. Master Theorem](#master-theorem)
 
-## Bubble Sort
+###[[⬆]](#toc)  Bubble Sort
 ##### Introduction：
 * 冒泡排序的原理非常简单，它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。
 
