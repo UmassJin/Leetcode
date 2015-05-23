@@ -430,14 +430,21 @@ def max_heapify(array, start, end):
 
 ```
 
+##### Time Complexity:
+* Best: O(nlogn)
+* Worst: O(nlogn)
+* 建立一个heap, O(n); 每次插入或者删除一个节点，O(logn)
+
 ## Compare different Sort Algorithm
 
 | Sort Algorithm | Best | Average | Worst | Memory | Stable | Method |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Quicksort | nlogn | nlogn | n^2 | logn on average, n worst | typical in-place sort is not stable; stable versions exist | Partitioning | 
 | Merge Sort| nlogn | nlogn | nlogn | n worst case | Stable | Merging | 
+| Heap Sort | nlogn | nlogn | nlogn | 1 | Unstable | Selection | 
 | Insertion Sort | n | O(n^2/4) | O(n^2/4) | 1 | Stable | Insertion | 
 | Selection Sort | O(n^2/2) | O(n^2/2) | O(n^2/2) | 1 | Unstable | Selection | 
+
 
 ## Master Theorem
 ![pic](https://cloud.githubusercontent.com/assets/9062406/7714300/65b8e1c0-fe32-11e4-91c0-43fb1a7c1dbd.png)
