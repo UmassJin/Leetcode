@@ -1131,7 +1131,7 @@ def all(iterable):
     return True
 ```
 
-##### 1) zip(iterable,..)
+##### 2) zip(iterable,..)
 This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
 
 The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
@@ -1184,6 +1184,30 @@ True
 
 Usage 
 [Reverse Words in a StringII](../Array/Reverse_Words_in_a_StringII.py)
+
+##### 3) divmod 
+* Take two (non complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. For integers, the result is the same as (a // b, a % b). For floating point numbers the result is (q, a % b), where q is usually math.floor(a / b) but may be 1 less than that. In any case q * b + a % b is very close to a, if a % b is non-zero it has the same sign as b, and 0 <= abs(a % b) < abs(b).
+
+```python
+'''
+Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.
+If the fractional part is repeating, enclose the repeating part in parentheses.
+For example,
+
+Given numerator = 1, denominator = 2, return "0.5".
+Given numerator = 2, denominator = 1, return "2".
+Given numerator = 2, denominator = 3, return "0.(6)".
+'''
+>>> divmod(10,10)
+(1, 0)
+>>> 
+>>> 
+>>> divmod(12,10)
+(1, 2)
+
+```
+
+
 
 ####5. Difference between ```range()``` and ```xrange()```
 *  ```xrange(start, stop[, step])```
