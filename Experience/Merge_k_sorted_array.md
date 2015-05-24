@@ -27,5 +27,6 @@ print merge_karray(test)
 * heapq.heappush(a, (10, sth_else))  把(10, sth_else)插入堆a中, a仍为最小堆, 也可以只插入数10
 * heapq.heappop(a) 弹出堆顶元素, a中的最小值
 * heapq.heappushpop(a, (10, sth_else)) 先push再pop, 效率比依次调用heappush()和heappop()高 
-~                                                                                                         
-~                         
+* Total time complexity:
+        * Here, the heapiify use O(k), and then insert each number, each one use O(logk), totally use O(nlogk)
+        * O(k + nlogk)
