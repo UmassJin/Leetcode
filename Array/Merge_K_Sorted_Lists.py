@@ -19,12 +19,13 @@ class Solution:
         #     if l:
         #         heap.append((l.val, l))
         
-        heapq.heapify(heap) # min_heap
+        heapq.heapify(heap) # min_heap, O(n)
         
         while heap:
             cur.next = heapq.heappop(heap)[1]
             cur = cur.next 
             if cur.next:
-                heapq.heappush(heap, (cur.next.val, cur.next))
+                heapq.heappush(heap, (cur.next.val, cur.next)) # 每次插入一个数 O(logn)
         return dummy.next
-            
+
+# Total time complexity O(nlogn)            
