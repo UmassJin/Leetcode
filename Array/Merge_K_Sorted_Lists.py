@@ -28,4 +28,6 @@ class Solution:
                 heapq.heappush(heap, (cur.next.val, cur.next)) # 每次插入一个数 O(logn)
         return dummy.next
 
-# Total time complexity O(nlogn)            
+# Total time complexity:
+# Here, the heapiify use O(k), and then insert each number, each one use O(logk), totally use O(nlogk)
+# O(k + nlogk)
