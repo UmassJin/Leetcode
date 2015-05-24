@@ -155,6 +155,7 @@ def insertion_sort(array):
 ##### Code:
 
 ```python
+# Merge Sort for Array
 def merge_sort(array):
     if len(array) <= 1: return array
 
@@ -184,6 +185,61 @@ def merge(larray, rarray):
         result += rarray[rstart:]
 
     return result
+
+# Merge Sort for Linked List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    # @param {ListNode} head
+    # @return {ListNode}
+    def sortList(self, head):
+        if not head: return head
+        node = head
+        size = 0
+        while node:
+            size += 1
+            node = node.next 
+        return self.merge_sort(head, size)
+        
+    def merge_sort(self, head, size):
+        if size <= 1: return head
+        
+        left_size = size/2
+        right_size = size - left_size
+        right = head; pre = head
+        for i in xrange(size/2):
+            pre = right
+            right = right.next
+        
+        pre.next = None
+        
+        left = self.merge_sort(head, left_size)
+        right = self.merge_sort(right, right_size)
+        return self.merge(left, right)
+        
+    def merge(self, left, right):
+        dummy = ListNode(0)
+        cur = dummy 
+        
+        while left and right:
+            if left.val < right.val:
+                cur.next = left
+                left = left.next
+            else:
+                cur.next = right
+                right = right.next
+            cur = cur.next
+        
+        if left:
+            cur.next = left
+        elif right: cur.next = right
+        return dummy.next
+        
+
 ```
 
 ##### Time Complexity:
