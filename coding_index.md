@@ -780,6 +780,7 @@ _____
 
 ## Merge Serious 
 ######[Merge K Sorted Array](./Experience/Merge_k_sorted_array.md)
+######[Merge K sorted linked list](https://github.com/UmassJin/Leetcode/blob/master/Array/Merge_K_Sorted_Lists.py)
 
 
 ## Sudoku Serious
