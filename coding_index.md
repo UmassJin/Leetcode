@@ -698,6 +698,7 @@ _____
 * Test Case: [1],2; [2,1],2; [1,3,2], 3
 
 #####[Reverse Linked List II](https://github.com/UmassJin/Leetcode/blob/master/Array/Reverse_Linked_ListII.py)
+* 注意指针的用法！
 
 #### Can Binary Search be used for linked lists ? [Skip Lists](http://www.geeksforgeeks.org/skip-list/)
 
