@@ -8,6 +8,7 @@
 ####[7. String](#string)
 ####[8. Tree](#tree)
 ####[9. Bit Manupulation](#bit)
+####[10. Linked list](#linked-list)
 
 -----------------------
 
@@ -684,18 +685,23 @@ _____
 * [Clone Graph] (Array/Clone_Graph.py)
 
 ## Linked List
-* [Remove Duplicates from Sorted List](./Array/Remove%20Duplicates%20from%20Sorted%20List.py) [Keep the Dup node]
-* [Remove Duplicates from Sorted List II](./Array/Remove%20Duplicates%20from%20Sorted%20ListII.py) [Remove the Dup node]
+#####[Remove Duplicates from Sorted List](./Array/Remove%20Duplicates%20from%20Sorted%20List.py) [Keep the Dup node]
+#####[Remove Duplicates from Sorted List II](./Array/Remove%20Duplicates%20from%20Sorted%20ListII.py) [Remove the Dup node]
   1. Use two pointers, create a dummy node which point to the header 
   2. Use the while loop to find the last duplicate node, then make the ```p.next = temp.next```
   3. Otherwise, ```p = p.next, temp = temp.next ```
-* [Remove duplicates from an unsorted linked list](Experience/Remove_duplicates_from_unsorted_linked_list.md)
-* [Remove duplicates from an unsorted linked list with given value](Experience/Remove_duplicates_from_unsorted_linked_list_given_value.md) [not use dummyheader]
+#####[Remove duplicates from an unsorted linked list](Experience/Remove_duplicates_from_unsorted_linked_list.md)
+#####[Remove duplicates from an unsorted linked list with given value](Experience/Remove_duplicates_from_unsorted_linked_list_given_value.md) [not use dummyheader]
+
+#####[Partition List](https://github.com/UmassJin/Leetcode/blob/master/Array/Partition_List.py)
+* 注意：不能用最初会想到的指针的方法做！
+* Test Case: [1],2; [2,1],2; [1,3,2], 3
 
 #### Can Binary Search be used for linked lists ? [Skip Lists](http://www.geeksforgeeks.org/skip-list/)
 
 
-## Bit 
+
+## Bit Manupulation
 * [Gray Code](./Array/Gray_Code.py)
 
 ## Rectangle Serious 
