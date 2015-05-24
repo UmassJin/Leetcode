@@ -7,8 +7,8 @@
 ####[6. Matrix Graph](#matrix-graph)
 ####[7. String](#string)
 ####[8. Tree](#tree)
-####[9. Bit Manupulation](#bit)
-####[10. Linked list](#linked-list)
+####[9. Linked list](#linked-list)
+####[10. Bit Manupulation](#bit)
 
 -----------------------
 
