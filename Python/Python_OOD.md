@@ -371,6 +371,79 @@ TypeError: type 'function' is not an acceptable base type
 * If X is an instance of A, and A is a subclass of B, then X is an instance of B as well.
 * If B is an instance of M, and A is a subclass of B, then A is an instance of M as well.
 
+
+#### Descripter
+
+```python
+class Descripter(object):
+    def __get__(self, obj, cls = None):
+        print "get_func !, obj: ", obj
+
+    def __set__(self, obj, val):
+        print "set func: val: ", val
+
+    def __delete__(self, obj):
+        print "delete: obj:", obj
+
+class C(object):
+    d = Descripter()
+
+
+cobj = C()
+x = cobj.d
+cobj.d = 'set a value'
+cobj.__dict__['d'] = 'try to force a value'
+x = cobj.d
+print "xcobj.d ", x
+del cobj.d
+
+print "\n after reset d"
+x = cobj.d
+print "x: ",x
+cobj.d = 'set a value'
+print "cobj.d: ", x
+print "cobj.__dict__", cobj.__dict__['d']
+print "x: ", x
+
+print "\n after reset x"
+x = C.d
+C.d = 'set a value on class'
+print "x: ", x
+print "C.__dict__", C.__dict__
+print "x.__dict__", x.__dict__
+
+>>> ================================ RESTART ================================
+>>> 
+get_func !, obj:  <__main__.C object at 0x1063fee50>
+set func: val:  set a value
+get_func !, obj:  <__main__.C object at 0x1063fee50>
+xcobj.d  None
+delete: obj: <__main__.C object at 0x1063fee50>
+
+ after reset d
+get_func !, obj:  <__main__.C object at 0x1063fee50>
+x:  None
+set func: val:  set a value
+cobj.d:  None
+cobj.__dict__ try to force a value
+x:  None
+
+ after reset x
+get_func !, obj:  None
+x:  None
+C.__dict__ {'__dict__': <attribute '__dict__' of 'C' objects>, '__module__': '__main__', '__weakref__': <attribute '__weakref__' of 'C' objects>, 'd': 'set a value on class', '__doc__': None}
+x.__dict__
+
+Traceback (most recent call last):
+  File "/Users/jinzh2/Desktop/Python_training/Leetcode/descripter.py", line 36, in <module>
+    print "x.__dict__", x.__dict__
+AttributeError: 'NoneType' object has no attribute '__dict__'
+```
+
+#### Descripter Reference
+* [装饰器，descripter中文教程] (http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000)
+* [Descripter tutorial](https://docs.python.org/2/howto/descriptor.html)
+
 ####  [Class Inheritance](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance)
 ####  [What's metaclass ?](http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python)
 
