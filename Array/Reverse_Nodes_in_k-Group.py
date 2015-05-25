@@ -47,7 +47,8 @@ class Solution:
                 current.next = prev
                 prev = current 
                 current = _next
-            tail.next = next_head or current
+            tail.next = next_head or current  # 注意这里必须是next_head or current 
+            # test case: [1,2,3,4] 2; [1,2,3] 2
             #tail.next = current
         return ret
         
