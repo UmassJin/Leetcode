@@ -21,7 +21,8 @@
 ####[7. Sudoku Serious](#sudoku-serious)
 ####[8. Parentheses Serious](#parentheses-serious)
 ####[9. Duplicate Serious](#duplicate-serious)
-####[10. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[10. Stock Serious](#stock-serious)
+####[11. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
 
 
 ## DP 
@@ -825,6 +826,9 @@ _____
 ##### [Remove duplicate from sorted arrayII](./Array/Remove_duplicate_from_sorted_arrayII.py)
 * Note: we need to update nums[slow] every time ! 
 
+## Stock Serious (回看！)
+##### [Best Time to Buy and Sell Stock IV](https://github.com/UmassJin/Leetcode/blob/master/Array/Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV.py)
+##### [Best Time to Buy and Sell Stock I & II & III](https://github.com/UmassJin/Leetcode/blob/master/Array/Best-Time-to-Buy-and-Sell-Stock1%262%263.py)
 
 
 ## Interview Questions not in Leetcode
