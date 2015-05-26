@@ -1761,6 +1761,9 @@ sorted(data, cmp=None, key=None, reverse=False)
 
 ```
 
+#### Related Leetcode Questions
+* [Create Largest Number](https://github.com/UmassJin/Leetcode/blob/master/Array/Create_Largest_Number.py)
+
 #### Reference
 * [Sorted and Sorted 详解](http://gaopenghigh.iteye.com/blog/1483864)
 * [Python Tutorial](https://wiki.python.org/moin/HowTo/Sorting)
