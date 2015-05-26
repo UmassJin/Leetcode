@@ -857,9 +857,11 @@ _____
 | [Find_Order_of_Char_in_Sorted_Dict](./Experience/Find_Order_of_Char_in_Sorted_Dict.md)[Good Question!!] | Sort | 
 
 ## Python Buildin Function Usage
-#### ord('A')
+#### 1. ord('A')
 #####[Excel Sheet Column Number](https://github.com/UmassJin/Leetcode/blob/master/Array/Excel%20Sheet%20Column%20Number.py)
 
+#### 2. chr(65) --> 'A'
+#####[Excel Sheet Column Title](https://github.com/UmassJin/Leetcode/blob/master/Array/Excel%20Sheet%20Column%20Title.py)
 
 ## Design Pattern
 * Blocking Queue (回看！)
