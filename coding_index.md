@@ -8,7 +8,7 @@
 ####[7. String](#string)
 ####[8. Tree](#tree)
 ####[9. Linked list](#linked-list)
-####[10. Bit Manupulation](#bit)
+####[10. Bit Manupulation](#bit-manupulation)
 
 -----------------------
 
@@ -712,7 +712,10 @@ _____
 
 
 ## Bit Manupulation
-* [Gray Code](./Array/Gray_Code.py)
+##### [Gray Code](./Array/Gray_Code.py)
+
+##### [Reverse Bits](https://github.com/UmassJin/Leetcode/blob/master/Array/Reverse_Bits.py)
+
 
 ## Rectangle Serious 
 * [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
