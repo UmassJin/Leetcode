@@ -826,8 +826,8 @@ _____
 ##### [Remove duplicate from sorted arrayII](./Array/Remove_duplicate_from_sorted_arrayII.py)
 * Note: we need to update nums[slow] every time ! 
 
-## Stock Serious (回看！)
-##### [Best Time to Buy and Sell Stock IV](https://github.com/UmassJin/Leetcode/blob/master/Array/Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV.py)
+## Stock Serious 
+##### [Best Time to Buy and Sell Stock IV](https://github.com/UmassJin/Leetcode/blob/master/Array/Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV.py)(回看！)
 ##### [Best Time to Buy and Sell Stock I & II & III](https://github.com/UmassJin/Leetcode/blob/master/Array/Best-Time-to-Buy-and-Sell-Stock1%262%263.py)
 
 
