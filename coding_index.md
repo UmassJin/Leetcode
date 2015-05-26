@@ -863,6 +863,9 @@ _____
 #### 2. chr(65) --> 'A'
 #####[Excel Sheet Column Title](https://github.com/UmassJin/Leetcode/blob/master/Array/Excel%20Sheet%20Column%20Title.py)
 
+#### 3. divmod(), list.index(), string.replace(), string.rstrip()
+#####[Fraction To Recurring Decimal](https://github.com/UmassJin/Leetcode/blob/master/Array/Fraction-to-Recurring-Decimal.py)
+
 ## Design Pattern
 * Blocking Queue (回看！)
 
