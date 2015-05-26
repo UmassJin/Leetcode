@@ -398,6 +398,12 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * First, use the Stack to record the "(", maintain the variable "last", record the last unusage ')'
 * Second, iterarate the string for two times, from start to end and from end to start 
 
+#####[Min Stack](https://github.com/UmassJin/Leetcode/blob/master/Array/Min_Stack.py)
+* 用两个list来实现，list1里面存所有元素，list2里面存最小元素
+* 注意，当x <= list2[-1], push 到list2里面，不是 '<', test case: push0,push1,push0,getmin,pop,getmin
+* 最开始的想法是，用list1存所有元素，并且按照由大到小，最小的元素永远在top，用list2实现这个功能，但是这个
+* 方法会超时! 每次push x的时候，都要把大的元素依次拿出，再放入，耗费时间.
+
 ##### Hashtable 
 #####[Anagrams](./Array/Anagrams.py)
 * Save the SORTED string as the key in the dictionary 
