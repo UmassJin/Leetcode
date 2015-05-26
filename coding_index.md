@@ -23,7 +23,7 @@
 ####[9. Duplicate Serious](#duplicate-serious)
 ####[10. Stock Serious](#stock-serious)
 ####[11. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
-
+####[12. Python Buildin Function Usage](#python-buildin-function-usage)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -855,6 +855,11 @@ _____
 | [Find kth max element in unsorted array](./Algorithm/Max_Heap_Implement.md) | Array | 
 | [Implete Min Stack](./Experience/Implete_min_stack.md) | Stack |
 | [Find_Order_of_Char_in_Sorted_Dict](./Experience/Find_Order_of_Char_in_Sorted_Dict.md)[Good Question!!] | Sort | 
+
+## Python Buildin Function Usage
+#### ord('A')
+#####[Excel Sheet Column Number](https://github.com/UmassJin/Leetcode/blob/master/Array/Excel%20Sheet%20Column%20Number.py)
+
 
 ## Design Pattern
 * Blocking Queue (回看！)
