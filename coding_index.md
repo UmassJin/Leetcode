@@ -504,6 +504,9 @@ Compare the above questions:
 * 1) 正负号的问题，在处理integer 的时候，我们需要去掉符号
 * 2) max integer 和 min integer 的问题，需要考虑到最大最小数值
 
+#####[Divide Two Integers](https://github.com/UmassJin/Leetcode/blob/master/Array/Divide_Two_Integers.py)
+* 注意题目的思路，用<<1 和 >>1
+
 -----
 
 ##Two Pointer
