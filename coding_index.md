@@ -468,6 +468,10 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 #####[Maximum Gap](https://github.com/UmassJin/Leetcode/blob/master/Array/Maximum_Gap.py)
 * 注意题目详细解释和注释
 
+
+#####[Find Peak Element](https://github.com/UmassJin/Leetcode/blob/master/Array/Find_Peak_Element.py)
+* 注意recursion的比较条件
+
 -----
 
 ##Math 
