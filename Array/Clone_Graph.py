@@ -46,7 +46,7 @@ class Solution:
                 if neighbor not in map:
                     copy = UndirectedGraphNode(neighbor.label)
                     map[curr].neighbors.append(copy)
-                    queue.append(neighbor)
+                    queue.append(neighbor)  # 注意当neighbor在map里面的时候，就不用再次append到queue里
                     map[neighbor] = copy
                 else:  
                     map[curr].neighbors.append(map[neighbor])  #Note here! we need to update!
