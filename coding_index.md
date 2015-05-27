@@ -465,6 +465,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Use left and right to locate the other end of the sequences to the left and right of n respectively, and replace the value with the new length.
 * 注意这里不是update左右邻居的值，而是update左右临界的数值
 
+#####[Maximum Gap](https://github.com/UmassJin/Leetcode/blob/master/Array/Maximum_Gap.py)
+* 注意题目详细解释和注释
+
 -----
 
 ##Math 
