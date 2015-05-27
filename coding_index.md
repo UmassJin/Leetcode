@@ -506,6 +506,31 @@ Compare the above questions:
 
 #####[Divide Two Integers](https://github.com/UmassJin/Leetcode/blob/master/Array/Divide_Two_Integers.py)
 * 注意题目的思路，用<<1 和 >>1
+* 这里的 max int and min int range有点奇怪，需要check
+
+
+#####[Pow(x,n)](https://github.com/UmassJin/Leetcode/blob/master/Array/pow(x%2Cy).py)
+* Solution 1: 二分法
+* 优点是代码简洁，缺点是没有考虑到overflow的情况
+
+* Solution 2: bit manipulation 
+* 就是把n看成是以2为基的位构成的，因此每一位是对应x的一个幂数，然后迭代直到n到最高位。
+* 比如说第一位对应x，第二位对应x*x,第三位对应x^4,...,第k位对应x^(2^(k-1))
+* 这里做很多边界的检查
+* 1) n < 0 or n > 0, if n < 0, whether 1/x will overflow 
+* 2) whether x < 0 or x > 0, if n 为奇数，并且x < 0, result < 0
+* Reference: http://blog.csdn.net/linhuanmars/article/details/20092829
+
+#####[Sqrt(x,n)](https://github.com/UmassJin/Leetcode/blob/master/Array/Sqrt(x).py)
+* 解题思路：实现开平方函数。这里要注意的一点是返回的时一个整数。通过这一点我们可以看出，
+* 很有可能是使用二分查找来解决问题的。这里要注意折半查找起点和终点的设置。起点i=1；终点j=x/2+1；
+* 因为在(x/2+1)^2 > x，所以我们将折半查找的终点设为x/2+1。
+
+##### 数值计算总结
+* 一般来说数值计算的题目可以用两种方法来解，一种是以2为基进行位处理的方法，另一种是用二分法。
+* 需要考虑的两个主要方面，1. positive number or negative number 
+* 2. overflow: whether larger than the max_Int or smaller than the min_Int 
+* 3. ```max_Int: 1 << 32 -1, min_Int -1 << 32```
 
 -----
 
