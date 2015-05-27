@@ -491,6 +491,11 @@ Compare the above questions:
 * For the "Print Five", we will recursivly add the number and check if it larger than input number or length is longer, then check if there is number '5' exist in the number
 * For the "Mirror Number", we will recursivly add the number in the front and the end of input, and also check if this number larger than input or length is longer, need to handle the single number "1,2,3,4..."
 
+#####[Reverse Integer](https://github.com/UmassJin/Leetcode/blob/master/Array/Reverse_Integer.py)
+* 注意，在处理interger的时候，必须考虑到两点:
+* 1) 正负号的问题，在处理integer 的时候，我们需要去掉符号
+* 2) max integer 和 min integer 的问题，需要考虑到最大最小数值
+
 -----
 
 ##Two Pointer
