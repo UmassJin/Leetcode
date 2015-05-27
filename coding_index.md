@@ -900,4 +900,5 @@ _____
 * 注意在two pointer时候,边界条件是left < right, 还是left <= right
 * 一些corner case的处理，比如说input为空，只有一个input，[1],0 或者[0],1的情况
 * 注意如果用class，不要丢掉self，定义的function后面有冒号，
-
+* 对于数字的处理的时候，首先要判断是否有符号，是否可能为负数，在处理数字的时候同样需要注意
+* 对于数字的处理，还需要考虑到max_int 和 min_int, 注意float('inf')和float('-inf')的用法
