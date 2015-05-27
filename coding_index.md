@@ -475,7 +475,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Since the requirement is DO NOT use the extra space, should not transfer the number to string 
 * Use the math method to compare the first number and last number
 * Then in the next step, reduce this two numbers
-
+* Note: after we compare the first digit and last digit in the input number, we should first run
+* x = x % div, then x / 10, can not do the opposite, test case: 11
 
 #####[Add Binary](./Array/Add_Binary.py)
 * 解题思路:
