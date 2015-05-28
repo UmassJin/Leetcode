@@ -252,7 +252,7 @@ class Solution:
 * Merge sort's most common implementation does not sort in place[citation needed]; therefore, the memory size of the input must be allocated for the sorted output to be stored in (see below for versions that need only n/2 extra spaces).
 * Merge sort also has some demerits. One is its use of 2n locations; the additional n locations are commonly used because merging two sorted sets in place is more complicated and would need more comparisons and move operations. But despite the use of this space the algorithm still does a lot of work: The contents of m are first copied into left and right and later into the list result on each invocation of merge_sort (variable names according to the pseudocode above).
 
-##[[⬆]](#toc) [Quick Sort](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/quick_sort.html)
+##[Quick Sort](http://yuanbin.gitbooks.io/algorithm/content/basics_sorting/quick_sort.html)
 #### 核心:
 * 快排是一种采用分治思想的排序算法，大致分为三个步骤。
       * 定基准——首先随机选择一个元素最为基准
