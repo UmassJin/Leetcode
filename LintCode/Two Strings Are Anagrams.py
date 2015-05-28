@@ -23,9 +23,7 @@ class Solution:
         m = len(s); n = len(t)
         if m != n: return False
         
-        for char in s:
-            if char not in t:
-                return False
-            s.replace(char, '')
-            t.replace(char, '')
-        return True 
+        m1 = ''.join(sorted(s))
+        n1 = ''.join(sorted(t))
+        
+        return m1 == n1
