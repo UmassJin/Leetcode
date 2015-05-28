@@ -930,3 +930,4 @@ _____
 * 注意如果用class，不要丢掉self，定义的function后面有冒号，
 * 对于数字的处理的时候，首先要判断是否有符号，是否可能为负数，在处理数字的时候同样需要注意
 * 对于数字的处理，还需要考虑到max_int 和 min_int, 注意float('inf')和float('-inf')的用法
+* 在对string处理的时候，可以提问的点: 是否允许duplicate ? 是否允许order changes ?  是否允许change the original string ?
