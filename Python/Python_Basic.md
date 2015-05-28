@@ -1761,6 +1761,39 @@ sorted(data, cmp=None, key=None, reverse=False)
 
 ```
 
+##### String Sort
+* 对于string来说，不能用strs.sort(), 但是可以用sorted(strs), 返回一个string的list
+* 
+
+```
+>>> 
+>>> strs = 'hello'
+>>> sorted(strs)
+['e', 'h', 'l', 'l', 'o']
+>>> 
+>>> 
+>>> strs.sort()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'sort'
+>>> strs
+'hello'
+>>>
+# 与list相比较，list可以用sorted() 和list.sort()，后者是in-space sort, 前者是返回一个新的list
+>>> list = [1,3,7,2,4,5]
+>>> list.sort()
+>>> list
+[1, 2, 3, 4, 5, 7]
+>>> 
+>>> 
+>>> list = [1,3,7,2,4,5]
+>>> sorted(list)
+[1, 2, 3, 4, 5, 7]
+>>> 
+>>> list
+[1, 3, 7, 2, 4, 5]
+```
+
 #### Related Leetcode Questions
 * [Create Largest Number](https://github.com/UmassJin/Leetcode/blob/master/Array/Create_Largest_Number.py)
 
