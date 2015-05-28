@@ -234,6 +234,29 @@ char:  good
 >>> t1.extend(t2)
 >>> print t1
 ['a', 'b', 'c', 'd', 'e']
+>>> list1 = [1,2]
+>>> list2 = [3,4]
+>>> str = 'aga'
+>>> list1.extend(list2)
+>>> list1
+[1, 2, 3, 4]
+>>> 
+>>> list1.extend(str)  # 还可以extend string
+>>> list1
+[1, 2, 3, 4, 'a', 'g', 'a']
+>>> dict
+{'ABDEFS': 1}
+>>> list1.extend(dict)  # 还可以extend dict 
+>>> list1
+[1, 2, 3, 4, 'a', 'g', 'a', 'ABDEFS']
+>>> 
+>>> tuple = 'ab','cd'
+>>> tuple
+('ab', 'cd')
+>>> list1.extend(tuple)  # 还可以extend tuple
+>>> list1
+[1, 2, 3, 4, 'a', 'g', 'a', 'ABDEFS', 'ab', 'cd']
+
 ```
 * list.insert(index, x)
 * list.remove(x)
