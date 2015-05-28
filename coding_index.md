@@ -596,8 +596,11 @@ Solution2
 * 思路: 注意去除前后空格，注意第一个字符是sign, 注意最大最小值的比较 
 * Coding Note:
 * 1）str.strip()
-* 2）imin, imax = -1<<31, (1<<31)-1, use this method to get the max/mix value
+* 2）imin, imax = (-1<<31)/2, (1<<31)/2-1, use this method to get the max/mix value
 * 3) Learn to use enumerate() function 
+* 4) 容易出错的地方: 
+*    a) 在check sign为"-"的时候，也要注意check "+"
+*    b) 在check max_int, min_int的时候，注意用sign*result 
 
 #####[Wildcard Matching] (./Array/Wildcard_Matching.py)
 Reference: [思路解析] (http://yucoding.blogspot.com/2013/02/leetcode-question-123-wildcard-matching.html)
