@@ -7,7 +7,7 @@ class Solution:
         length = len(strs)
         
         compare = strs[0]
-        for i in xrange(len(compare)):
+        for i in xrange(len(compare)):  #注意这里是 strs[0]的长度
             for char in strs[1:]:
                 if len(char) == i or char[i]!=compare[i]:
                     return compare[:i]
