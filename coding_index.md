@@ -202,6 +202,8 @@
 * initialize: ```dp[i][j] = 0, dp[0][j] = 0```
 * answer: ```max(dp[0...len(a)][0...len(b)])```
 
+######[Longest Common Prefix](https://github.com/UmassJin/Leetcode/blob/master/Array/Longest_Common_Prefix.py)
+
 ######[Edit Distance](./Array/Edit_Distance.py)
 * state: dp[i][j] a的前i个字符配上b的前j个字符最少要用几次编辑使得他们相等
 * function:  
