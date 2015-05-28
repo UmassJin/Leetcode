@@ -11,6 +11,7 @@
 
 == 入门 ==
 对于0基础的同学们 下面的资料可以按顺序开始看
+
 1. http://www.hiredintech.com/app#system-design
 这是一个专门准备面试的网站 你只用关心system design部分 有很多的link后面会重
 复提到 建议看完至少一遍
