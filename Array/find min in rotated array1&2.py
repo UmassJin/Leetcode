@@ -45,8 +45,11 @@ My resolution :)
                     right = mid -1
             else:
                 left +=1
-            minvalue = min(minvalue, num[mid])  # Note: This is important !!!
+            minvalue = min(minvalue, num[mid])  # Note: This is important !!! # need to check in every loop !
         return minvalue
+
+# test case: [3,1]
+# test case: [1,1,2,0,0,1]
 
 Method 1
 class Solution:
