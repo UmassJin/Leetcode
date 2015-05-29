@@ -9,6 +9,7 @@ For example,
 class Solution:
     # @param {integer[]} nums
     # @return {integer[][]}
+    # Recursion
     def permuteUnique(self, nums):
         result = []
         length = len(nums)
@@ -23,4 +24,24 @@ class Solution:
             for ele in self.permuteUnique(nums[:i]+nums[i+1:]):
                 result.append([num] + ele)
         
+        return result 
+
+    # Iteration 
+    def permuteUnique(self, nums):
+        if not nums: return []
+        result = [[]]
+    
+        for num in nums:
+            if result == [[]]:
+                result = [[num]]
+            else:
+                permutation = []
+                
+                for subres in result:
+                    for k in xrange(len(subres)+1):
+                        temp = subres[:]
+                        temp.insert(k, num)
+                        if temp not in permutation:
+                            permutation.append(temp)
+                result = permutation[:]
         return result 
