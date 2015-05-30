@@ -52,3 +52,11 @@ class Solution:
 # If the token is an operator, *, /, +, or -, push it on the opstack. However, first remove any operators already on the opstack that have higher or equal precedence 
 # and append them to the output list.
 # When the input expression has been completely processed, check the opstack. Any operators still on the stack can be removed and appended to the end of the output list.
+
+
+
+# Polish Notation:
+# -56 ==> 5-6 
+# Reverse Polish Notation:
+# 34+ ==? 3 + 4 
+# 注意operator左边和右边的区别
