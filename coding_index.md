@@ -936,6 +936,24 @@ _____
 #### 3. divmod(), list.index(), string.replace(), string.rstrip()
 #####[Fraction To Recurring Decimal](https://github.com/UmassJin/Leetcode/blob/master/Array/Fraction-to-Recurring-Decimal.py)
 
+#### 4. str.isdigit()
+#####[Evaluate Reverse Polish Notation](https://github.com/UmassJin/Leetcode/blob/master/Array/Evaluate_Reverse_Polish_Notation.py)
+* 注意: str.isdigit() 不能判断负数
+
+```python
+>>> s = '-1'
+>>> i = int(s)
+>>> i
+-1
+>>> s.isdigit()
+False
+>>> 
+>>> 
+>>> s = '1'
+>>> s.isdigit()
+True
+```
+
 ## Design Pattern
 * Blocking Queue (回看！)
 
