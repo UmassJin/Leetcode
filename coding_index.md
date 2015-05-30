@@ -9,7 +9,7 @@
 ####[8. Tree](#tree)
 ####[9. Linked list](#linked-list)
 ####[10. Bit Manupulation](#bit-manupulation)
-
+####[11. Greedy (Search from Two Side)](#greedy)
 -----------------------
 
 ####[1. Rectangle Serious](#rectangle-serious)
@@ -761,6 +761,21 @@ _____
 ##### [Gray Code](./Array/Gray_Code.py)
 
 ##### [Reverse Bits](https://github.com/UmassJin/Leetcode/blob/master/Array/Reverse_Bits.py)
+
+## Greedy
+
+### [两次扫描](http://blog.csdn.net/linhuanmars/article/details/20888505)
+* 两次扫描算是一种常见的技巧，从两边各扫描一次得到我们需要维护的变量，通常适用于当前元素需要两边元素来决定的问题，
+* Trapping Rain Water还可以用从两边到中间的方法
+* 这种两边往中间夹逼的方法也挺常用的，它的核心思路就是向中间夹逼时能确定接下来移动一侧窗口不可能使结果变得更好，所以每次能确定移动一侧指针，直到相遇为止。这种方法带有一些贪心，用到的有Two Sum，Container With Most Water，都是不错的题目。
+
+##### [Trapping Rain Water](https://github.com/UmassJin/Leetcode/blob/master/Array/Trapping_Rain_Water.py)
+* 基本思路就是维护一个长度为n的数组，进行两次扫描，一次从左往右，一次从右往左。第一次扫描的时候维护对于每一个bar左边最大的高度是多少，存入数组对应元素中，第二次扫描的时候维护右边最大的高度，并且比较将左边和右边小的最大高度（我们成为瓶颈）存入数组对应元素中。这样两遍扫描之后就可以得到每一个bar能承受的最大水量，从而累加得出结果。这个方法只需要两次扫描，所以时间复杂度是O(2*n)=O(n)。空间上需要一个长度为n的数组，复杂度是O(n)。
+* 另一种方法，相对不是那么好理解，但是只需要一次扫描就能完成。基本思路是这样的，用两个指针从两端往中间扫，在当前窗口下，如果哪一侧的高度是小的，那么从这里开始继续扫，如果比它还小的，肯定装水的瓶颈就是它了，可以把装水量加入结果，如果遇到比它大的，立即停止，重新判断左右窗口的大小情况，重复上面的步骤。这里能作为停下来判断的窗口，说明肯定比前面的大了，所以目前肯定装不了水（不然前面会直接扫过去）。这样当左右窗口相遇时，就可以结束了，因为每个元素的装水量都已经记录过了。
+
+##### [Candy](https://github.com/UmassJin/Leetcode/blob/master/Array/Candy.py)
+* 基本思路就是进行两次扫描，一次从左往右，一次从右往左。第一次扫描的时候维护对于每一个小孩左边所需要最少的糖果数量，存入数组对应元素中，第二次扫描的时候维护右边所需的最少糖果数，并且比较将左边和右边大的糖果数量存入结果数组对应元素中。这样两遍扫描之后就可以得到每一个所需要的最最少糖果量，从而累加得出结果。方法只需要两次扫描，所以时间复杂度是O(2*n)=O(n)。空间上需要一个长度为n的数组，复杂度是O(n)。
+
 
 
 ## Rectangle Serious 
