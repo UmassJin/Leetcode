@@ -46,6 +46,5 @@ class Solution:
     
             if A[left] >= queries[i]: subres = left
             elif A[right] >= queries[i]: subres = right
-            else: subres = right + 1
             result.append(subres)
         return result 
