@@ -50,3 +50,26 @@ class Solution:
                         result[j] = 1
         
         return result[len(obstacleGrid[0])-1]            
+
+
+    def uniquePathsWithObstacles(self, obstacleGrid):
+        if not obstacleGrid or not obstacleGrid[0]: return 0
+        m = len(obstacleGrid); n = len(obstacleGrid[0])
+        dp = [0 for i in xrange(n)]
+        dp[0] = 1
+        for i in xrange(m):
+            for j in xrange(n):
+                if obstacleGrid[i][j] == 1:
+                    dp[j] = 0
+                else:
+                    if j == 0:
+                        dp[j] = dp[j]
+                    else:
+                        dp[j] = dp[j-1] + dp[j]
+        return dp[n-1]
+
+# test case: 
+# 1) [[0]]
+# 2) [[1]]
+# 3) [[0,0],[0,0],[1,0],[0,0]]
+# 注意几个情况，一个是第一字符为1的时候，或者接下来几行中有一行第一个字符为1的时候
