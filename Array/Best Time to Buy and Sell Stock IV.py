@@ -111,3 +111,4 @@ hold:  [-inf, -1, 4]
 
 
 # Reference: https://leetcode.com/discuss/25603/a-concise-dp-solution-in-java
+# Reference: http://blog.csdn.net/linhuanmars/article/details/23236995
