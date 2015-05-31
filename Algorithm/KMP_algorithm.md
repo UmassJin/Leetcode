@@ -101,4 +101,6 @@ Implement strStr()
             return i - j
         else:
             return -1
-```        
+```       
+
+#[Shortest Palindrome](https://github.com/UmassJin/Leetcode/blob/master/Array/Shortest%20Palindrome.py)
