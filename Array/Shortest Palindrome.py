@@ -27,3 +27,5 @@ class Solution:
             arr[i] = index + (1 if new_s[index] == new_s[i] else 0)
         
         return s[arr[n-1]:][::-1] + s 
+
+# Reference: https://leetcode.com/discuss/36807/c-8-ms-kmp-based-o-n-time-%26-o-n-memory-solution
