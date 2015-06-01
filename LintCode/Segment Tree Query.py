@@ -29,6 +29,13 @@ class SegmentTreeNode:
         this.start, this.end, this.max = start, end, max
         this.left, this.right = None, None
 """
+"""
+Definition of SegmentTreeNode:
+class SegmentTreeNode:
+    def __init__(self, start, end, max):
+        this.start, this.end, this.max = start, end, max
+        this.left, this.right = None, None
+"""
 import sys 
 
 class Solution:	
@@ -36,7 +43,7 @@ class Solution:
     #                          an segment / interval
     # @return: The maximum number in the interval [start, end]
     def query(self, root, start, end):
-        if start > end:
+        if start > end or (start > root.end) or (end < root.start): # 注意这里的check
             return -sys.maxint
         
         if root.start >= start and root.end <= end:
@@ -52,5 +59,4 @@ class Solution:
             imax = max(imax, right)
             
         return imax 
-
 
