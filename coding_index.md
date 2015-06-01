@@ -10,6 +10,7 @@
 ####[9. Linked list](#linked-list)
 ####[10. Bit Manupulation](#bit-manupulation)
 ####[11. Greedy (Search from Two Side)](#greedy)
+####[12. Bucket](#bucket)
 -----------------------
 
 ####[1. Rectangle Serious](#rectangle-serious)
@@ -776,7 +777,10 @@ _____
 ##### [Candy](https://github.com/UmassJin/Leetcode/blob/master/Array/Candy.py)
 * 基本思路就是进行两次扫描，一次从左往右，一次从右往左。第一次扫描的时候维护对于每一个小孩左边所需要最少的糖果数量，存入数组对应元素中，第二次扫描的时候维护右边所需的最少糖果数，并且比较将左边和右边大的糖果数量存入结果数组对应元素中。这样两遍扫描之后就可以得到每一个所需要的最最少糖果量，从而累加得出结果。方法只需要两次扫描，所以时间复杂度是O(2*n)=O(n)。空间上需要一个长度为n的数组，复杂度是O(n)。
 
-
+## Bucket 
+##### [Contains Duplicate III](https://github.com/UmassJin/Leetcode/blob/master/Array/Contains%20Duplicate%20III.py)
+* 注意对bucket的理解
+* 注意不能单纯的用 if m 判断，因为m == None 的时候，return False, if m == 0, also return False 
 
 ## Rectangle Serious 
 * [Largest Rectangle in Histogram](./Array/Largest-Rectangle-in-Histogram.py)
