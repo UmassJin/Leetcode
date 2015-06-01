@@ -1006,6 +1006,147 @@ TypeError: list objects are unhashable
 
 ```
 
+
+#### [Collections OrderedDict!](https://docs.python.org/2/library/collections.html#ordereddict-objects)
+##### 1) An OrderedDict is a dictionary subclass that remembers the order in which its contents are added. A regular dict does not track the insertion order, and iterating over it produces the values in an arbitrary order. In an OrderedDict, by contrast, the order the items are inserted is remembered and used when creating an iterator.
+
+```
+import collections
+
+print 'Regular dictionary:'
+d = {}
+d['a'] = 'A'
+d['b'] = 'B'
+d['c'] = 'C'
+d['d'] = 'D'
+d['e'] = 'E'
+
+for k, v in d.items():
+    print k, v
+
+print '\nOrderedDict:'
+d = collections.OrderedDict()
+d['a'] = 'A'
+d['b'] = 'B'
+d['c'] = 'C'
+d['d'] = 'D'
+d['e'] = 'E'
+
+for k, v in d.items():
+    print k, v
+
+$ python collections_ordereddict_iter.py
+
+Regular dictionary:
+a A
+c C
+b B
+e E
+d D
+
+OrderedDict:
+a A
+b B
+c C
+d D
+e E
+
+
+```
+
+##### 2) A regular dict looks at its contents when testing for equality. An OrderedDict also considers the order the items were added.
+
+```
+import collections
+
+print 'dict       :',
+d1 = {}
+d1['a'] = 'A'
+d1['b'] = 'B'
+d1['c'] = 'C'
+d1['d'] = 'D'
+d1['e'] = 'E'
+
+d2 = {}
+d2['e'] = 'E'
+d2['d'] = 'D'
+d2['c'] = 'C'
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print d1 == d2
+
+print 'OrderedDict:',
+
+d1 = collections.OrderedDict()
+d1['a'] = 'A'
+d1['b'] = 'B'
+d1['c'] = 'C'
+d1['d'] = 'D'
+d1['e'] = 'E'
+
+d2 = collections.OrderedDict()
+d2['e'] = 'E'
+d2['d'] = 'D'
+d2['c'] = 'C'
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print d1 == d2
+
+$ python collections_ordereddict_equality.py
+
+dict       : True
+OrderedDict: False
+
+```
+
+##### 3) 注意，在用key, value pair 定义的时候，the order of the key in the OrderedDict is fix, for the following example:
+
+```
+>>> from collections import OrderedDict
+>>> spamher = OrderedDict(s=6, p=5, a=4, m=3, h=2, e=1, r=0)
+>>> spamher
+OrderedDict([('h', 2), ('m', 3), ('r', 0), ('s', 6), ('p', 5), ('a', 4), ('e', 1)])
+>>> 
+>>> list(spamher.keys())
+['h', 'm', 'r', 's', 'p', 'a', 'e']
+>>> 
+>>> spamher = OrderedDict([('s', 6), ('p', 5), ('a', 4), ('m', 3), ('h', 2), ('e', 1), ('r', 0)])
+>>> list(spamher.keys())
+['s', 'p', 'a', 'm', 'h', 'e', 'r']
+>>> 
+```
+
+#### 4) [popitem()](http://www.cnblogs.com/abeen/archive/2011/10/10/2205640.html)
+* popitem(True): like stack，从queue的尾部弹出
+* popitem(False): like queue, 从queue的头部弹出
+
+```
+>>> d = OrderedDict([(x,0) for x in range(10)])
+>>> d.items()
+[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)]
+>>> d.popitem()
+(9, 0)
+>>> d.popitem()
+(8, 0)
+>>> d.items()
+[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0)]
+>>> d.popitem(last=True)
+(7, 0)
+>>> d.popitem(last=True)
+(6, 0)
+>>> d.items()
+[(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0)]
+>>> d.popitem(last=False)
+(0, 0)
+>>> d.popitem(last=False)
+(1, 0)
+>>> d.items()
+[(2, 0), (3, 0), (4, 0), (5, 0)]
+>>>
+```
+
 #### Reference:
 * [Tutorial: Dictionaries](https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
 * [Think in Python: Dictionaries] (http://www.greenteapress.com/thinkpython/html/thinkpython012.html)
