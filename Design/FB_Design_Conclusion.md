@@ -29,10 +29,10 @@ http://www.mitbbs.com/article_t/JobHunting/32438927.html
 
 4. Facebook Messaging System(有提到inbox search, which has been asked before）
 messaging system就是一个把所有chat/sms/email之类的都结合起来的一个系统
-http://www.infoq.com/presentations/HBase-at-Facebook
-http://sites.computer.org/debull/A12june/facebook.pdf
-http://www.slideshare.net/brizzzdotcom/facebook-messages-hbase/
-https://www.youtube.com/watch?v=UaGINWPK068
+    * http://www.infoq.com/presentations/HBase-at-Facebook
+    * http://sites.computer.org/debull/A12june/facebook.pdf
+    * http://www.slideshare.net/brizzzdotcom/facebook-messages-hbase/
+    * https://www.youtube.com/watch?v=UaGINWPK068
 
 
 5. 任给一个手机的位置信号(经纬度)，需要返回附近5mile 的POI
