@@ -803,7 +803,7 @@ class Solution:
     # @param root, a tree node
     # @return an integer
     def maxPathSum(self, root):
-        self.maxval = -999999
+        self.maxval = -999999  # 注意这里要用一个公共的maxval记录结果
         self.maxsum(root)
         return self.maxval
         
@@ -811,10 +811,10 @@ class Solution:
         if not root: return 0
         l = self.maxsum(root.left)
         r = self.maxsum(root.right)
-        if l < 0: l = 0
+        if l < 0: l = 0  # 注意这里需要考虑到负数的情况
         if r < 0: r = 0
         self.maxval = max(self.maxval,l+r+root.val)
-        return max(l,r)+root.val
+        return max(l,r)+root.val # 返回值仍然是这个，但是我们要更新self.maxval
         
 # 36) Find the leaf nodes number in the tree
 def findleafnode_rec(root):
