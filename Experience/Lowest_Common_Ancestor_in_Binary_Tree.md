@@ -1,6 +1,11 @@
 ### Lowest Common Ancestor in a Binary Tree
 #### Bottom-up Approach (O(n))  
 * Assume both the node1 and node2 are exist in the Binary Tree 
+* Here if the input tree node does not exist, may cause the issue 
+* we do not know whether input p, q, 
+* 1) q does not exist 
+* 2) q is the children of p 
+
 ```python
 def common_ancestry(root, node1, node2):
     if not node1 and not node2:
@@ -36,38 +41,56 @@ def get_LCA(root, node1, node2):
 
 * Maybe input tree node does not exist in the Binary Tree O(n)
 ```python
-def find_LCA_common(root, node1, node2):
-    global v1   # Note: here we should use the global v1 and v2, otherwise the value will not change 
-    global v2
-    v1 = False; v2 = False
-    result = find_LCA(root, node1, node2)
-    if v1 or v2:
-        return result
-    else:
-        return None
+"""
+Definition of TreeNode:
+class TreeNode:
+    def __init__(self, val):
+        this.val = val
+        this.left, this.right = None, None
+"""
+import copy
+class Solution:
+    """
+    @param root: The root of the binary search tree.
+    @param A and B: two nodes in a Binary.
+    @return: Return the least common ancestor(LCA) of the two nodes.
+    """ 
+    def lowestCommonAncestor(self, root, A, B):
+        if (not A and not B ) or not root: return None 
+        global v1
+        global v2
+        v1 = False; v2 = False 
         
-def find_LCA(root, node1, node2):
-    global v1
-    global v2
-    if not root: return None
-    if root.val == node1.val:
-        v1 = True
-        return root
-    if root.val == node2.val:
-        v2 = True
-        return root
-
-    left = find_LCA(root.left, node1, node2)
-    right = find_LCA(root.right, node1, node2)
-
-    if left and right:
-        return root
-    if left:
-        return left
-    elif right:
-        return right
-    else:
-        return None
+        result = self.find_LCA(root, A, B)
+        if v1 and v2:
+            return result
+        else:
+            return None 
+    
+    def find_LCA(self, root, A, B):
+        global v1
+        global v2
+        
+        if not root: return None
+        if root.val == A.val and root.val == B.val:
+            v1 = v2 = True 
+            return root 
+        
+        left = self.find_LCA(root.left, A, B)
+        right = self.find_LCA(root.right, A, B)
+        
+        if left and right:
+            return root
+        elif root.val == A.val:
+            v1 = True 
+            return root
+        elif root.val == B.val:
+            v2 = True 
+            return root 
+        elif left:
+            return left
+        else:
+            return right 
 
 ```
 
