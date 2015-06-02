@@ -260,7 +260,7 @@ def maxDepth_iter(root):
 
 # 15) determine if the tree is a valid BST, recursion
 def isValidBST_rec(root):
-    return check_validBST(root,-(1<<31)-1,1<<31) 
+    return check_validBST(root,(-1<<32)/2-1,(1<<32)/2) 
     # Note: max:1<<31-1, min:-1<<31, but here each one need to +1
 
 def check_validBST(root,min_val,max_val):
@@ -268,6 +268,30 @@ def check_validBST(root,min_val,max_val):
     if root.val <= min_val or root.val >= max_val: return False     
     return (check_validBST(root.left,min_val,root.val) and check_validBST(root.right,root.val,max_val))
 
+
+# The following is the wrong answer ! We could not simply compare the root.val with root.left.val and root.right.val
+# since the BST,  min_val < root.val < max_val ! 
+# class Solution:
+#     """
+#     @param root: The root of binary tree.
+#     @return: True if the binary tree is BST, or false
+#     """  
+#     def isValidBST(self, root):
+#         self.result = True
+#         self.valid_helper(root)
+#         return self.result 
+        
+#     def valid_helper(self, root):
+#         if not root: return True 
+#         if root.left and root.left.val >= root.val:
+#             self.result = False
+#             return False
+#         if root.right and root.right.val <= root.val:
+#             self.result = False
+#             return False 
+        
+#         return self.valid_helper(root.left) and self.valid_helper(root.right)
+        
 
 # 16) determine if the tree is a valid BST, iteration
 def isValidBST_iter(root):
