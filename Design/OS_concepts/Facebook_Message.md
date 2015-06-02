@@ -95,4 +95,6 @@ Check the following video
 
 * Reference: [Karthik Ranganathan Hadoop Summit 2011 Facebook Messages Infrastructure with Q&A](https://www.youtube.com/watch?v=XAuwAHWpzPc&feature=iv&src_vid=UaGINWPK068&annotation_id=annotation_65559)
 * [paper about HBase](http://sites.computer.org/debull/A12june/facebook.pdf)
+* [HBase wiki](http://en.wikipedia.org/wiki/Apache_HBase)
+* [HBase at Facebook](http://www.infoq.com/presentations/HBase-at-Facebook)
 
