@@ -66,5 +66,13 @@
     * Leaky Bucket
     * Token Bucket
 
+| Token Bucket | Leaky Bucket | 
+| :---: | :---: |
+| Token dependent | Token independent |
+| If bucket is full token are discarded, but not the packet | If bucket is full packet/data is discarded | 
+| Packets can only transmitted when there are enough tokens | Packets are transmitted continuously | 
+| It allows large bursts to be send faster rate after that constant rate | It sends the packets at constant rate | 
+| It saves token to send large bursts | It does not save token | 
+
 #### [PPT for leaky Bucket & Tocken Bucket](http://www.slideshare.net/vimal25792/leaky-bucket-tocken-buckettraffic-shaping)
 
