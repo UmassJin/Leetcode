@@ -57,3 +57,15 @@ class Solution:
     # b 0 0 0 0 1 3 3 3
     # i 0 0 0 0 0 0 3 3
     # t 0 0 0 0 0 0 0 3
+
+
+# Five Solutions:
+# http://www.cnblogs.com/yuzhangcmu/p/4196373.html
+# http://blog.csdn.net/fightforyourdream/article/details/17346385?reload#comments
+
+# 这道题可以作为两个字符串DP的典型：
+# 两个字符串：
+# 先创建二维数组存放答案，如解法数量。注意二维数组的长度要比原来字符串长度+1，因为要考虑第一个位置是空字符串。
+# 然后考虑dp[i][j]和dp[i-1][j],dp[i][j-1],dp[i-1][j-1]的关系，如何通过判断S.charAt(i)和T.charAt(j)的是否相等来看看如果移除了最后两个字符，能不能把问题转化到子问题。
+# 最后问题的答案就是dp[S.length()][T.length()]
+# 还有就是要注意通过填表来找规律。
