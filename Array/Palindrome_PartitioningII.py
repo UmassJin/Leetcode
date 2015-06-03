@@ -14,7 +14,8 @@ class Solution:
     # status: dp[i] how many palindrome in the string s[i:] with min cut, so the min cut is dp[i]-1
     # initialize: dp = [len(s),len(s)-1,...0] --> totaly len(s)+1
     # function: p[i][j] means s[i:j] (include i and j) whether is palindrome or not 
-    #           dp[i] = min(dp[j+1]+1, dp[i])
+    #           dp[i] = min(dp[j+1]+1, dp[i]), 
+    #           since s[i:j] is palindrome, so dp[i] = dp[j+1] + 1, # of palindrome in s[j+1:] add 1
     # result: dp[0]-1
     
     def minCut(self, s):
