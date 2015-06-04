@@ -77,6 +77,17 @@
 * initialize: ```dp[0][0] = grid[0][0], dp[x][0] = dp[x-1][0] + grid[x][0], dp[0][y] = dp[0][y-1] + grid[0][y]```
 * answer: ```dp[M-1][N-1]``
 
+#####[Minimum Adjustment Cost](https://github.com/UmassJin/Leetcode/blob/wildcar/LintCode/Minimum%20Adjustment%20Cost.py)
+* 解题思路:
+* 对于每一个 A[i], 我们从1到100一次遍历, 对于A[0]，直接将dp[0][j] = abs(A[0]-i)
+* 对于 A[i], 将1到100一次遍历，计算出diff1 ＝ abs(j - A[i]) 1<=j<=100
+* 然后为了保证A[i]-A[i-1] <= target, 所以diff1 加上 dp[i-1][k]  abs(k-j) <= target, 
+* 实际上是计算 A[i]取j, A[i-1]取k时，min diff
+* Status: dp[i][j]: 把index = i的值修改为j，所需要的最小花费
+* Initialization: dp[0][j] = abs(A[0]-j) 1<= j <= 100
+* Function: dp[i][j] = min(dp[i][j], abs(j-A[i]) + dp[i-1][k])
+* Result: 遍历每一个dp[len(A)-1][j]取min
+
 -----
 
 ####2. One Sequence DP 40%
