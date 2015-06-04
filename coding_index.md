@@ -299,8 +299,9 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * Example ```isMatch('acbcb','*b')``` -> False
 * Example ```isMatch('bb', '*')``` -> False
 * Example ```isMatch("abedsfsf","a*ff")``` -> False
-* Example ```print test.isMatch("aaaaafsf","a*ff")``` -> False
-* Example ```test.isMatch("aaaaaff","a*ff")``` True 
+* Example ```isMatch("aaaaafsf","a*ff")``` -> False
+* Example ```isMatch("aaaaaff","a*ff")``` -> True 
+* Example ```isMatch("abcd",".*e")``` -> False
 * 注意regular expression 中，```*``` 表示match zero或者more of the preceding element, 所以对于```'acbb','*b', * ```match 为空，result is false, 而对于wildcard matching, ```*```match 空或者任意长度string, 不一定是preceding，所以为true 
 
 -----
