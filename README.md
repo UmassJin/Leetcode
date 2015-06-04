@@ -1,3 +1,8 @@
+###写给自己的话
+
+为了那些未知结果的选择而努力着，或许只是为了在不久的将来，回顾这段坚持和成长的时候，充满感激
+
+
 ### Leetcode
 
 #### Array
@@ -10,5 +15,4 @@ Interview Questions not in Leetcode
 Python basic knowledge 
 
 
-为了那些未知结果的选择而努力着，或许只是为了在不久的将来，回顾这段坚持和成长的时候，充满感激
 
