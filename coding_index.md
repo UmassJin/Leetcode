@@ -297,6 +297,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * here is true since c maybe have 0 times 
 * Example ```isMatch('acbb','*b')``` -> True
 * Example ```isMatch('acbcb','*b')``` -> True
+* Example ```isMatch('bb', '*')``` -> False
+* 
 
 -----
 
