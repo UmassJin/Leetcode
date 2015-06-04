@@ -52,3 +52,6 @@ class Solution:
         while ppointer < len_p and p[ppointer] == '*':
             ppointer += 1
         return ppointer == len_p   
+
+# Reference: [Yu's Garden] http://www.cnblogs.com/yuzhangcmu/p/4116153.html
+# [九章算法答案] http://www.jiuzhang.com/solutions/wildcard-matching/
