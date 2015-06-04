@@ -183,6 +183,10 @@
   ```
 * result: result[n]
 
+
+#####[Backpack I](https://github.com/UmassJin/Leetcode/blob/master/LintCode/backpackI.py)
+#####[Backpack II](https://github.com/UmassJin/Leetcode/blob/master/LintCode/backpackII.py)
+
 -----
 
 ####3. Two Sequences DP 40%
