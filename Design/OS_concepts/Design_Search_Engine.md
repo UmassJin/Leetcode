@@ -92,17 +92,21 @@ Then we merge this dictionary with our main dictionary (which is currently empty
 * The transformations performed on words of the collection, such as stemming, lowercasing, removing stopwords, and eliminating non-alphanumeric characters will be performed on the query as well. So, querying for computer or Computer is basically the same.
 
 ##### 2) [Detailed Implement] (http://www.ardendertat.com/2011/05/31/how-to-implement-a-search-engine-part-2-query-index/)
+###### Phrase Queries
+An example will make everything clear. Let’s say we search for “computer science department”. We first get the document list of all query terms, as we did in FTQ: computer: [1, 2, 3], science: [1, 2, 3], and department: [1, 2]. Then we intersect all these lists to get the documents that contain all query terms, which is [1, 2]. Next, we should check whether the order is correct or not. First, we get the postings list of the query terms for document 1. Which is computer: [1, [2, 5]], science: [1, [3]], and department: [1, [4, 6]. Then, we extract the positions of each query term, and put them in separate lists, resulting in [ [2, 5], [3], [4, 6] ]. Each list corresponds to the positional information of a query term. We don’t touch the first list, but subtract i-1 from the elements in the ith list, resulting in [ [2, 5], [2], [2, 4] ]. Finally, we take the intersection of the lists, which is [2]. Since the intersection is not empty, we conclude that document 1 is a matching document. Next, we check document 2. Get the positions of query terms and put them to separate lists as before: [ [1, 7], [2, 5], [0, 6] ]. Perform the subtractions: [ [1, 7], [1, 4], [-2, 4] ]. And take the intersection: []. The result of the intersection is empty, meaning the query terms don’t appear in the correct order, so this is not a matching document. There is no more document that contains all query terms. So, the result of the phrase query is document 1 only: [1].
 
+##### B. [Ranking](http://www.ardendertat.com/2011/07/17/how-to-implement-a-search-engine-part-3-ranking-tf-idf/)
 
 
 #### 注意的细节
 1. 在create index的时候，我们对于用户输入的query要处理，将大写变为小写，处理特殊字符，去掉'a','the'等词语，用Porter Stemmer处理，保证fisher, fishes, fished, 都为fish
 2. The Porter stemming algorithm (or ‘Porter stemmer’) is a process for removing the commoner morphological and inflexional endings from words in English.
 3. 要注意在用directory储存时，value不仅储存document number，还要储存单词在文件中相对的位置
-4. 
-
 
 
 ##### Reference:
 * [The Anatomy of a Large-Scale Hypertextual Web Search Engine](http://infolab.stanford.edu/~backrub/google.html#data)
 * [How to implement google search](http://programmers.stackexchange.com/questions/38324/interview-question-how-would-you-implement-google-search)
+* [Good implement for google search](http://www.ardendertat.com/2011/05/31/how-to-implement-a-search-engine-part-2-query-index/)
+* [Page Rank](http://en.wikipedia.org/wiki/PageRank)
+* [Internet Robot](http://en.wikipedia.org/wiki/Internet_bot)
