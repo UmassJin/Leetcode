@@ -85,11 +85,13 @@ Then we merge this dictionary with our main dictionary (which is currently empty
  
 ##### B. Query Index 
 ##### 1) Query Types
-Let’s first remember the query types. Our search engine is going to answer 3 types of queries that we generally use while searching. 
+* Let’s first remember the query types. Our search engine is going to answer 3 types of queries that we generally use while searching. 
     1) One Word Queries (OWQ): OWQ consist of only a single word. Such as computer, or university. The matching documents are the ones containing the single query term. 
     2) Free Text Queries (FTQ): FTQ contain sequence of words separated by space like an actual sentence. Such as computer science, or Brown University. The matching documents are the ones that contain any of the query terms. 
     3) Phrase Queries (PQ): PQ also contain sequence of words just like FTQ, but they are typed within double quotes. The meaning is, we want to see all query terms in the matching documents, and exactly in the order specified. Such as “Turing Award”, or “information retrieval and web search”. 
+* The transformations performed on words of the collection, such as stemming, lowercasing, removing stopwords, and eliminating non-alphanumeric characters will be performed on the query as well. So, querying for computer or Computer is basically the same.
 
+##### 2) [Detailed Implement] (http://www.ardendertat.com/2011/05/31/how-to-implement-a-search-engine-part-2-query-index/)
 
 
 
