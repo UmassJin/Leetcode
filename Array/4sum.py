@@ -36,3 +36,49 @@ class Solution:
 #Input:	[2,1,0,-1], 2
 #Output:	[[-1,2,0,1],[-1,2,-1,2],[-1,1,0,2],[0,2,-1,1],[-1,0,1,2],[0,1,0,1],[0,1,-1,2]]
 #Expected:	[[-1,0,1,2]]
+
+
+class Solution:
+    """
+    @param numbersbers : Give an array numbersbersbers of n integer
+    @param target : you need to find four elements that's sum of target
+    @return : Find all unique quadruplets in the array which gives the sum of 
+              zero.
+    """
+    def fourSum(self ,numbers, target):
+        if not numbers or len(numbers) < 4: return []
+        n = len(numbers)
+        numbers.sort()
+        result = set()
+        
+        for i in xrange(n-3):
+            if i == 0 or numbers[i] > numbers[i-1]:
+                for j in xrange(i+1, n-2):
+                    if j == i+1 or numbers[j] > numbers[j-1]:
+                        left = j + 1; right = n-1
+                        while left < right:
+                            tmp = numbers[i] + numbers[j] + numbers[left] + numbers[right]
+                            if tmp == target:
+                                result.add((numbers[i], numbers[j], numbers[left], numbers[right]))
+                                while left < right:
+                                    left += 1
+                                    if numbers[left] > numbers[left-1]:
+                                        break
+                                while left < right:
+                                    right -=1
+                                    if numbers[right] < numbers[right+1]:
+                                        break
+                                
+                            elif tmp < target:
+                                 while left < right:
+                                    left += 1
+                                    if numbers[left] > numbers[left-1]:
+                                        break
+                            elif tmp > target:
+                                  while left < right:
+                                    right -=1
+                                    if numbers[right] < numbers[right+1]:
+                                        break
+                                
+         
+        return [list(i) for i in result]                       
