@@ -42,7 +42,62 @@ Sort the documents that have matched by rank and return the top k.
 2. Answering the search queries using the index we created.
 3. ranking, classification, compression, and duplicate detection mechanisms.
 
-##### A. Create the index 
+##### A. Create the Index 
+##### 1) Crawling the Web 
+1. crawling the web 实际上是扒下一个网址的html网页
+2. 存在的challenge：
+    * A major performance stress is DNS lookup. Each crawler maintains a its own DNS cache so it does not need to do a DNS lookup before crawling each document. Each of the hundreds of connections can be in a number of different states: looking up DNS, connecting to host, sending request, and receiving response. These factors make the crawler a complex component of the system. It uses asynchronous IO to manage events, and a number of queues to move page fetches from state to state.
+    * There are maybe garbage information get from the webs 
+3. [Robots Exclusion Standard](http://en.wikipedia.org/wiki/Robots_exclusion_standard)
+4. The web crawler's job is to spider web page links and dump them into a set. The most important step here is to avoid getting caught in infinite loop or on infinitely generated content. 
+
+##### 2) Inverted Index
+1. After we get the html from crawling the web, we need to parse these webpages and assignt the index for searching 
+2. Inverted index is a data structure that we build while parsing the documents that we are going to answer the search queries on. Given a query, we use the index to return the list of documents relevant for this query. The inverted index contains mappings from terms (words) to the documents that those terms appear in. Each vocabulary term is a key in the index whose value is its postings list. 
+3. Query Types:
+    * one word queries
+    * free text queries
+    * phrase queries 
+4. Parsing the collections 
+    * 1) Concatenate the title and the text of the page. 
+    * 2) Lowercase all words. 
+    * 3) Get all tokens, where a token is a string of alphanumeric characters terminated by a non-alphanumeric character. The alphanumeric characters are defined to be [a-z0-9]. So, the tokens for the word ‘apple+orange’ would be ‘apple’ and ‘orange’. 
+    * 4) Filter out all the tokens that are in the stop words list, such as ‘a’, ‘an’, ‘the’. 
+    * 5) Stem each token using Porter Stemmer to finally obtain the stream of terms. [Porter Stemmer](http://tartarus.org/~martin/PorterStemmer/) removes common endings from words. For example the stemmed version of the words fish, fishes, fishing, fisher, fished are all fish. 
+
+##### 3) Building Inverted Index   
+1. Use the hastable (python's dictionary) to store the inverted index in memory.
+2. Key: every term(word); Value: a) the list of documents that the term appears in and b) the positions of term occurrences within the document
+3. The reason is to answer the phrase queries we need positional information, because we want to check whether the terms in the query appear in the specified order. Without knowing the positions of the terms in the document, we can only check whether the query terms simply appear in a document. To verify the order, we need to know their positions. 
+4. Then we merge the index of the current page with the main inverted index, which is the index for the whole corpus. The merging is simple. For every term in the current page, we append its postings list to the postings list of that term in the main index (which is a list of lists as described above).
+5. Then we build the index for this document (note that the terms are not the stemmed versions for demonstration. In the actual program a term would be stemmed by Porter Stemmer before being added to the index. 
+6. So the word ‘retrieval’ would be added to the index as the term ‘retriev’ after being stemmed): 
+```python
+{ ‘web’: [1, [0, 2]], ‘retrieval’: [1, [1]], ‘search’: [1, [3]], ‘information’: [1, [4]] } 
+```
+Then we merge this dictionary with our main dictionary (which is currently empty because this is the first document in the collection). Our main dictionary becomes: 
+```python
+{ ‘web’: [ [1, [0, 2]] ], ‘retrieval’: [ [1, [1]] ], ‘search’: [ [1, [3]] ], ‘information’: [ [1, [4]] ] } 
+```
+7. The index is stored as text in the following format: term|docID1:pos1,pos2;docID2:pos3,pos4,pos5;… Every line of the file contains a separate term. The line starts with a term, and then the character ‘|’ is used to separate the term from its postings list. The postings list of a term has the following form. First document ID containing the term, followed by a colon, followed by the positions of the term in that document with commas in between, semicolon, second document ID containing the term, colon, comma delimited positions, and it goes on like this. Using the above example, the term – postings list pair ‘web’: [ [1, [0, 2]], [2, [2]] ] would be saved as: web|1:0,2;2:2 
+
+##### The above part corresponding to the step 1- 5 
+ 
+##### B. Query Index 
+##### 1) Query Types
+Let’s first remember the query types. Our search engine is going to answer 3 types of queries that we generally use while searching. 
+    1) One Word Queries (OWQ): OWQ consist of only a single word. Such as computer, or university. The matching documents are the ones containing the single query term. 
+    2) Free Text Queries (FTQ): FTQ contain sequence of words separated by space like an actual sentence. Such as computer science, or Brown University. The matching documents are the ones that contain any of the query terms. 
+    3) Phrase Queries (PQ): PQ also contain sequence of words just like FTQ, but they are typed within double quotes. The meaning is, we want to see all query terms in the matching documents, and exactly in the order specified. Such as “Turing Award”, or “information retrieval and web search”. 
+
+
+
+
+#### 注意的细节
+1. 在create index的时候，我们对于用户输入的query要处理，将大写变为小写，处理特殊字符，去掉'a','the'等词语，用Porter Stemmer处理，保证fisher, fishes, fished, 都为fish
+2. The Porter stemming algorithm (or ‘Porter stemmer’) is a process for removing the commoner morphological and inflexional endings from words in English.
+3. 要注意在用directory储存时，value不仅储存document number，还要储存单词在文件中相对的位置
+4. 
 
 
 
