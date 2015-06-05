@@ -1,15 +1,15 @@
 ### How would you implement Google Search?
 
-#### Related questions:
+### Related questions:
 1. web crawler 
 2. cache system 
 3. map reduce 
 
-#### 1. Google Search Features 
+### 1. Google Search Features 
 * First, it makes use of the link structure of the Web to calculate a quality ranking for each web page. This ranking is called PageRank and is described in detail in [Page 98]. 
 * Second, Google utilizes link to improve search results.
 
-#### 2. Google Search Architecture 
+### 2. Google Search Architecture 
 ![pic](http://i.stack.imgur.com/aogj9.gif)
 
 1. In Google, the web crawling (downloading of web pages) is done by several distributed crawlers. There is a URLserver that sends lists of URLs to be fetched to the crawlers. 
@@ -23,10 +23,10 @@
 9. The sorter takes the barrels, which are sorted by docID (this is a simplification, 4.2.5), and resorts them by wordID to generate the inverted index. This is done in place so that little temporary space is needed for this operation. The sorter also produces a list of wordIDs and offsets into the inverted index. 
 10. A program called DumpLexicon takes this list together with the lexicon produced by the indexer and generates a new lexicon to be used by the searcher. The searcher is run by a web server and uses the lexicon built by DumpLexicon together with the inverted index and the PageRanks to answer queries.
 
-#### 3. Major Data Structures
+### 3. Major Data Structures
 
 
-#### 4. Google Query Evaluation
+### 4. Google Query Evaluation
 * Parse the query.
 * Convert words into wordIDs.
 * Seek to the start of the doclist in the short barrel for every word.
@@ -37,12 +37,12 @@
 
 Sort the documents that have matched by rank and return the top k.
 
-#### 5. Design Thought 
+### 5. Design Thought 
 1. Create the index by going through the documents
 2. Answering the search queries using the index we created.
 3. ranking, classification, compression, and duplicate detection mechanisms.
 
-##### A. Create the Index 
+#### A. Create the Index 
 ##### 1) Crawling the Web 
 1. crawling the web 实际上是扒下一个网址的html网页
 2. 存在的challenge：
@@ -83,7 +83,7 @@ Then we merge this dictionary with our main dictionary (which is currently empty
 
 ##### The above part corresponding to the step 1- 5 
  
-##### B. Query Index 
+#### B. Query Index 
 ##### 1) Query Types
 * Let’s first remember the query types. Our search engine is going to answer 3 types of queries that we generally use while searching. 
     1) One Word Queries (OWQ): OWQ consist of only a single word. Such as computer, or university. The matching documents are the ones containing the single query term. 
@@ -95,7 +95,7 @@ Then we merge this dictionary with our main dictionary (which is currently empty
 ###### Phrase Queries
 An example will make everything clear. Let’s say we search for “computer science department”. We first get the document list of all query terms, as we did in FTQ: computer: [1, 2, 3], science: [1, 2, 3], and department: [1, 2]. Then we intersect all these lists to get the documents that contain all query terms, which is [1, 2]. Next, we should check whether the order is correct or not. First, we get the postings list of the query terms for document 1. Which is computer: [1, [2, 5]], science: [1, [3]], and department: [1, [4, 6]. Then, we extract the positions of each query term, and put them in separate lists, resulting in [ [2, 5], [3], [4, 6] ]. Each list corresponds to the positional information of a query term. We don’t touch the first list, but subtract i-1 from the elements in the ith list, resulting in [ [2, 5], [2], [2, 4] ]. Finally, we take the intersection of the lists, which is [2]. Since the intersection is not empty, we conclude that document 1 is a matching document. Next, we check document 2. Get the positions of query terms and put them to separate lists as before: [ [1, 7], [2, 5], [0, 6] ]. Perform the subtractions: [ [1, 7], [1, 4], [-2, 4] ]. And take the intersection: []. The result of the intersection is empty, meaning the query terms don’t appear in the correct order, so this is not a matching document. There is no more document that contains all query terms. So, the result of the phrase query is document 1 only: [1].
 
-##### B. [Ranking](http://www.ardendertat.com/2011/07/17/how-to-implement-a-search-engine-part-3-ranking-tf-idf/)
+#### C. [Ranking](http://www.ardendertat.com/2011/07/17/how-to-implement-a-search-engine-part-3-ranking-tf-idf/)
 
 
 #### 注意的细节
@@ -104,7 +104,7 @@ An example will make everything clear. Let’s say we search for “computer sci
 3. 要注意在用directory储存时，value不仅储存document number，还要储存单词在文件中相对的位置
 
 
-##### Reference:
+#### Reference:
 * [The Anatomy of a Large-Scale Hypertextual Web Search Engine](http://infolab.stanford.edu/~backrub/google.html#data)
 * [How to implement google search](http://programmers.stackexchange.com/questions/38324/interview-question-how-would-you-implement-google-search)
 * [Good implement for google search](http://www.ardendertat.com/2011/05/31/how-to-implement-a-search-engine-part-2-query-index/)
