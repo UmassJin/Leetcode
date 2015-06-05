@@ -93,25 +93,25 @@ Instagram Architecture.
 * [How would you implement Google Search?](http://programmers.stackexchange.com/questions/38324/interview-question-how-would-you-implement-google-search)
 * [Implementing Search Engines](http://www.ardendertat.com/2012/01/11/implementing-search-engines/)
 
-Design a recommendition system
+#### Design a recommendition system
 Reference:
 Hulu’s Recommendation System
 Recommender Systems
 
-Design a tinyurl system
+#### Design a tinyurl system
 Reference:
 System Design for Big Data-tinyurl
 URL Shortener API.
 
-Design a garbage collection system
+#### Design a garbage collection system
 Reference:
 Baby's First Garbage Collector.
 
-Design a scalable web crawling system
-Reference:
-Design and Implementation of a High-Performance Distributed Web Crawler
+#### Design a scalable web crawling system
+* Reference:
+* [Design and Implementation of a High-Performance Distributed Web Crawler](http://cis.poly.edu/suel/papers/crawl.pdf)
 
-Design the Facebook chat function
+#### Design the Facebook chat function
 Reference:
 Erlang at Facebook
 Facebook Chat
