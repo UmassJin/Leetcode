@@ -1,15 +1,15 @@
-#### How would you implement Google Search?
+### How would you implement Google Search?
 
-##### Related questions:
+#### Related questions:
 1. web crawler 
 2. cache system 
 3. map reduce 
 
-##### 1. Google Search Features 
+#### 1. Google Search Features 
 * First, it makes use of the link structure of the Web to calculate a quality ranking for each web page. This ranking is called PageRank and is described in detail in [Page 98]. 
 * Second, Google utilizes link to improve search results.
 
-##### 2. Google Search Architecture 
+#### 2. Google Search Architecture 
 ![pic](http://i.stack.imgur.com/aogj9.gif)
 
 1. In Google, the web crawling (downloading of web pages) is done by several distributed crawlers. There is a URLserver that sends lists of URLs to be fetched to the crawlers. 
@@ -23,10 +23,10 @@
 9. The sorter takes the barrels, which are sorted by docID (this is a simplification, 4.2.5), and resorts them by wordID to generate the inverted index. This is done in place so that little temporary space is needed for this operation. The sorter also produces a list of wordIDs and offsets into the inverted index. 
 10. A program called DumpLexicon takes this list together with the lexicon produced by the indexer and generates a new lexicon to be used by the searcher. The searcher is run by a web server and uses the lexicon built by DumpLexicon together with the inverted index and the PageRanks to answer queries.
 
-##### 3. Major Data Structures
+#### 3. Major Data Structures
 
 
-##### 4. Google Query Evaluation
+#### 4. Google Query Evaluation
 * Parse the query.
 * Convert words into wordIDs.
 * Seek to the start of the doclist in the short barrel for every word.
@@ -36,6 +36,14 @@
 * If we are not at the end of any doclist go to step 4.
 
 Sort the documents that have matched by rank and return the top k.
+
+#### 5. Design Thought 
+1. Create the index by going through the documents
+2. Answering the search queries using the index we created.
+3. ranking, classification, compression, and duplicate detection mechanisms.
+
+##### A. Create the index 
+
 
 
 ##### Reference:
