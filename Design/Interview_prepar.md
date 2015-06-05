@@ -1,19 +1,19 @@
-Algorithms
+### Algorithms
 
 [原帖](https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72)
 
-https://www.hackerrank.com/domains 
-https://oj.leetcode.com/problemset/algorithms/ LeetCode至少要刷三遍，付费部分的题建议花点钱看一下，舍不得孩子套不着狼
-http://lintcode.com/ 
-http://www.ninechapter.com/solutions/ 
-http://www.geeksforgeeks.org/about/interview-corner/
-TopCoder Algorithm Tutorial: http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/ 其中几何算法的教程要仔细看，Google特爱出几何题
-   cc150: Cracking the Code Interview: http://www.valleytalk.org/wp-content/uploads/2012/10/CrackCode.pdf 
+* https://www.hackerrank.com/domains 
+* https://oj.leetcode.com/problemset/algorithms/ LeetCode至少要刷三遍，付费部分的题建议花点钱看一下，舍不得孩子套不着狼
+* http://lintcode.com/ 
+* http://www.ninechapter.com/solutions/ 
+* http://www.geeksforgeeks.org/about/interview-corner/
+* TopCoder Algorithm Tutorial: http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/ 其中几何算法的教程要仔细看，Google特爱出几何题
+*  cc150: Cracking the Code Interview: http://www.valleytalk.org/wp-content/uploads/2012/10/CrackCode.pdf 
 
-OO Design
-http://blog.csdn.net/longyulu/article/details/9159589
+### OO Design
+* http://blog.csdn.net/longyulu/article/details/9159589
 
-System Design
+### System Design
 
 Here are some articles about system design related topics.
 How to Rock a Systems Design Interview
@@ -88,10 +88,10 @@ Reference:
 Flickr Architecture
 Instagram Architecture.
 
-Design a search engine
-Reference:
-How would you implement Google Search?
-Implementing Search Engines
+#### Design a search engine
+* Reference:
+* [How would you implement Google Search?](http://programmers.stackexchange.com/questions/38324/interview-question-how-would-you-implement-google-search)
+* [Implementing Search Engines](http://www.ardendertat.com/2012/01/11/implementing-search-engines/)
 
 Design a recommendition system
 Reference:
