@@ -29,3 +29,5 @@ class Solution:
         return [list(j) for j in set(ksum(num, 4, target))]
     
   # 注意yield的用法！
+
+# k sum dp solution: http://www.cnblogs.com/yuzhangcmu/p/4279676.html
