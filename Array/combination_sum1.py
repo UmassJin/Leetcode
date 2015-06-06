@@ -53,3 +53,5 @@ class Solution:
 
 
 For the combination_sum2, just change the start index from i to the i+1
+
+Time Complexity: O(n)
