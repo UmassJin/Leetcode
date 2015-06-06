@@ -31,3 +31,32 @@
 
 * Network 比disk, SSD 都要快，但是它在建立TCP connection的时候，会有round trip latency, 例如发送2KB data very fast,
 * 但是如果从加州send到欧洲，会有round trip latency
+
+
+###[Big O](http://bigocheatsheet.com/)
+* Time Complexity - The amount of time needed to finish the task
+* Space Complexity - The amount of memory needed to store values/variables
+
+#####[Master Method](http://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html)
+```T(n) = aT(n/b) + f(n)```
+* 其中a是每次每次recursion有几次call, b是recursion的长度变为原来的n/b
+* 结论分三种情况讨论，需要对比T(n-1)的复杂度和f(n)的复杂度  
+  T(n-1)复杂度算法是 O(T)= n ^ (loga/logb)， f(n)的一般比较直观，O(f) = n ^ x, 所以变形为比较loga/logb和x的大小
+  * 前者大, 则结论是O(T)
+  * 两者一样大, 则结论是 O(n^x * logn)
+  * 后者大, 则结论是O(f)
+
+####[Duke大法](http://www.cs.duke.edu/~ola/ap/recurrence.html)
+#####步骤
+1. 写出Master Method方程
+2. 写出base case T(1) = ??
+3. 将递推式转化为通项式
+
+| Recurrence | Algorithm    | Big-O Solution |
+| --- | :---: | :---: |
+| T(n) = T(n/2) + O(1) | Binary Search | O(log n) |
+| T(n) = T(n-1) + O(1) | Sequential Search | O(n) |
+| T(n) = 2 T(n/2) + O(1) | tree traversal | O(n) |
+| T(n) = T(n-1) + O(n) | Selection Sort (other n2 sorts) | O(n^2) |
+| T(n) = 2 T(n/2) + O(n) | Mergesort (average case Quicksort) | O(n log n) |
+| T(n) = n * T(n-1) + O(n) | | O(n!) |
