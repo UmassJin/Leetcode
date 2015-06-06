@@ -51,6 +51,12 @@ array = [15,8,4,7,5,3,1,2,6]
 heap_find_kth_num(array, 5)
 
 ```
+* Time complexity:
+* Heapify: O(lg n)
+* Build-Heap: O(n)
+* Heap Sort: O(nlogn)
+* Extract-Max: O(logn)
+
 * [Merge K sorted linked list](https://github.com/UmassJin/Leetcode/blob/master/Array/Merge_K_Sorted_Lists.py)
 * [Merge K sorted array](https://github.com/UmassJin/Leetcode/blob/master/Experience/Merge_k_sorted_array.md)
 * [Good Video about how to make max heap](https://www.youtube.com/watch?v=WsNQuCa_-PU)
