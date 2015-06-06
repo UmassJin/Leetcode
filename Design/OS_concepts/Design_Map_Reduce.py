@@ -62,6 +62,7 @@ def remove_punctuation(s):
 What the MapReduce library now does in preparation for the reduce phase is to group together all the 
 intermediate values which have the same key. In our example the result of doing this is the following 
 intermediate dictionary:
+# in the code, this is the output of groups 
 
 {'and': [1], 'fox': [1], 'over': [1], 'one': [1, 1], 'as': [1], 
  'go': [1], 'its': [1], 'lamb': [1, 1], 'giant': [1], 
@@ -117,8 +118,17 @@ def map_reduce(i,mapper,reducer):
    return [reducer(intermediate_key,groups[intermediate_key]) for intermediate_key in groups] 
 
  
+ '''
+ Map_Reduce Advantage
+ You can probably already see how MapReduce takes advantage of a large cluster of computers, 
+ but let’s spell out some of the details. There are two key points. First, the mapper functions can be run in parallel, 
+ on different processors, because they don’t share any data. Provided the right data is in the local memory of the right 
+ processor – a task MapReduce manages for you – the different computations can be done in parallel. The more machines are 
+ in the cluster, the more mapper computations can be simultaneously executed. Second, the reducer functions can also be 
+ run in parallel, for the same reason, and, again, the more machines are available, the more computations can be done 
+ in parallel.
  
- 
+ '''
  
 ''' Additional Python library usage '''
 # Note: the itertools.groupby usage  
