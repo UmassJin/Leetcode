@@ -101,7 +101,7 @@ class Solution:
                 word = queue.popleft()
                 if word == endWord:
                     return length 
-                for i in xrange(n):
+                for i in xrange(n): # 注意要用range
                     for char in chars:
                         if char != word[i]:
                             newword = word[:i] + char + word[i+1:]
