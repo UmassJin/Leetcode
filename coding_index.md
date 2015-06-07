@@ -435,6 +435,8 @@ Compare with [Wildcard Matching](./Array/Wildcard_Matching.py)
 * 最开始的想法是，用list1存所有元素，并且按照由大到小，最小的元素永远在top，用list2实现这个功能，但是这个
 * 方法会超时! 每次push x的时候，都要把大的元素依次拿出，再放入，耗费时间.
 
+##### [Implement Queue Use Two Stack](https://github.com/UmassJin/Leetcode/blob/master/LintCode/Implement_Queue_Use_Two_Stack.py)
+
 ##### Hashtable 
 #####[Anagrams](./Array/Anagrams.py)
 * Save the SORTED string as the key in the dictionary 
