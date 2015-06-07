@@ -39,7 +39,7 @@ class Solution:
             result.append(sublist); return
         
         for i in xrange(n):
-            if self.check_helper(checklist, depth, i):
+            if self.check_helper(checklist, depth, i): # 注意 这里要加上depth！！！
                 checklist[depth] = i
                 s = '.'*n
                 self.queen_helper(result, n, sublist + [s[:i]+'Q'+s[i+1:]], checklist, depth + 1)
