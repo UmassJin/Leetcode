@@ -986,7 +986,7 @@ False
 True
 ```
 
-#### 5. string.ascii_lowercase
+#### 5. string.ascii_lowercase and collections.deque()
 ##### [Word Ladder](https://github.com/UmassJin/Leetcode/blob/master/Array/word_ladder.py)
 
 ## Design Pattern
