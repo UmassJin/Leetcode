@@ -51,6 +51,33 @@ array = [15,8,4,7,5,3,1,2,6]
 heap_find_kth_num(array, 5)
 
 ```
+
+#### Create a min_heap for a array 
+```python
+
+class Solution:
+    # @param A: Given an integer array
+    # @return: void
+    def heapify(self, A):
+        if not A: return 
+        n = len(A)
+        index = n/2 - 1
+        for i in xrange(index, -1, -1):
+            self.heapify_min(A, i, n)
+        return 
+    
+    def heapify_min(self, A, start, end):
+        root = start
+        while (2*root + 1) < end:
+            i = 2 * root + 1
+            if i + 1 < end and A[i+1] < A[i]:
+                i = i + 1
+            if A[i] < A[root]:
+                A[i], A[root] = A[root], A[i]
+            root = i 
+
+```
+
 * Time complexity:
 * Heapify: O(lg n)
 * Build-Heap: O(n)
