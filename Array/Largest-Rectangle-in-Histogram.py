@@ -21,7 +21,7 @@ class Solution:
         stack = []
         maxarea = 0
         i = 0
-        while i < n:
+        while i < n: # 注意这里用while，不用for，否则会跳过一个
             if len(stack) == 0 or height[i] > height[stack[-1]]:
                 stack.append(i)
                 i += 1  
@@ -30,7 +30,7 @@ class Solution:
             else:
                 tmp_height = height[stack.pop()]
                 if len(stack) == 0:
-                    width = i
+                    width = i # 注意这里 width = i 不是stack.pop()
                 else:
                     width = i - stack[-1] -1 
                     # left_bound: stack[-1] + 1
