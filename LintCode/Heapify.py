@@ -21,9 +21,6 @@ What if there is a lot of solutions?
 Return any of them.
 '''
 
-
-
-
 class Solution:
     # @param A: Given an integer array
     # @return: void
