@@ -1,4 +1,4 @@
-acebook技术面试准备书 作者：  廉世博Japser应一峰同学，旋同学，蔡老尸和文艺青年荣娟同学的要求，特将facebook准备书发一下。有兴趣的同学看一看，看看有没有去fb的实力。对于怎么让fb对你的简历感兴趣，请及时更新个人的linkedin和viadeo账户，fb的HR会定期在上面找他们感兴趣的人。
+facebook技术面试准备书 作者：  廉世博Japser应一峰同学，旋同学，蔡老尸和文艺青年荣娟同学的要求，特将facebook准备书发一下。有兴趣的同学看一看，看看有没有去fb的实力。对于怎么让fb对你的简历感兴趣，请及时更新个人的linkedin和viadeo账户，fb的HR会定期在上面找他们感兴趣的人。
 
 Preparing for a Facebook Interview
 *        Google ‘Sillicone Valley Interviews’ – many helpful tips/advice will show up.
@@ -7,10 +7,11 @@ Preparing for a Facebook Interview
 *        Recommended interview preparation time before your Onsite – ideally 1-2 hours per day during the week and 4-5 hours during each weekend day [Given a 3-4 week preparation period]
 *        Please apply for your travel Visa immediately (if required). Double check your Passport is valid. 
 
-Facebook’s puzzle page: http://facebook.interviewstreet.com/recruit/challenges/
-Top Coder: http://www.topcoder.com/
-Project Euler: http://projecteuler.net/
-Interview Street: http://www.interviewstreet.com/
+* Facebook’s puzzle page: http://facebook.interviewstreet.com/recruit/challenges/
+* Top Coder: http://www.topcoder.com/
+* Project Euler: http://projecteuler.net/
+* Interview Street: http://www.interviewstreet.com/
+
 Good books to read are: (we recommend you read one of the first 4 and get the 5th as a guide)
 * “Programming interviews exposed”
 * “Cracking coding Interviews”
@@ -22,7 +23,6 @@ Be familiar with life in Facebook:
 * Read facebook.com/engineering carefully for latest news
 * Check the latest numbers of users, status updates to get an idea of scale
 * Google recent headlines about Facebook, read and take notes
-    
     
     
 Before interview:
@@ -43,9 +43,7 @@ Questions:
     
     
     
-    
-    
-    
+
     
 Cultural Behavior Interview(this interview also has a shorter coding problem in it)
 Areas you will need to prepare in advance:
