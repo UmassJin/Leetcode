@@ -146,4 +146,5 @@
 * [Memcache Internals](https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/)
 * [Scaling memcached at Facebook](https://www.facebook.com/note.php?note_id=39391378919)
 * [Facebook Cache](http://download.docslide.net/uploads/check_up03/192015/54647671b4af9f6e568b4899.pdf)
+* [Facebook Scale Memcache](https://www.facebook.com/note.php?note_id=39391378919)
 * [Memcache and APC](http://docslide.us/technology/caching-with-memcached-and-apc.html)
