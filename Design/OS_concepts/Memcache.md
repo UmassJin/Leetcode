@@ -5,7 +5,7 @@
 * To reduce the time spent computing data
 * To reduce filesystem access
 
-#### Tyep of Cache
+#### Type of Cache
 * File system
 * Database
 * Shared memory
@@ -34,7 +34,24 @@
 * Runs as a daemon
 * Has a simple protocol for client access over TCP and UDP
 * Can be run in a pool, but individual daemons are not aware of the pool
-* Clients/applications manage the pool•Not an opcode cache
+* Clients/applications manage the pool
+* Not an opcode cache
+
+#### Limitation 
+* Key size has a 250 byte limit
+* Value can not be larger than 1 MB
+* Memory limits for 32bit/64bit systems
+* Replication not built-in; dependent on the client
+
+* Fast asynchronous network I/O
+* Not a persistent data store
+* It does not provide redundancy
+* Data is not replicated across the cluster
+* It doesn’t handle failover
+* Daemons are not aware of each other
+* It does not provide authentication•Works great on a small and local-area network
+* A single value cannot contain more than 1MB of data
+* Keys are strings limited to 250 characters
 
 #### Internal Design 
 * Big-O
@@ -109,9 +126,21 @@
 * Browser Cache
 * Third Party CDN
 
+#### Memcache vs APC
+##### when use memcache
+* when requests aren’t guaranteed to always go to the same machine
+* Data is specific or targeted to a user
+* User sessions
 
+##### when use APC
+* Application settings•Configuration
+* Data that is the same for each user
+* Requests are guaranteed to go to the same machine (i.e. sticky sessions)
+* File upload progress & sessions (if using sticky sessions)
 
-
+##### Use both
+* Create a caching adapter for a uniform caching interface and decide where to store at the app level or even dynamically at runtime
+* Use APC for things it’s good at and memcached for things it’s good at
 
 #### Reference:
 * [Memcache Internals](https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/)
