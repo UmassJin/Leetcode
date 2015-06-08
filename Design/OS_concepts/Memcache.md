@@ -1,4 +1,18 @@
 ### Cache 
+#### Why use the Cache ?
+* To reduce the number or retrieval queries made to a database
+* To reduce the number of requests made to external services
+* To reduce the time spent computing data
+* To reduce filesystem access
+
+#### Tyep of Cache
+* File system
+* Database
+* Shared memory
+* RAM disk
+* Object cache (memcached and APC)
+* Opcode cache (APC)
+
 #### Different Type
 ##### 1) Global Cache
 * A global cache is just as it sounds: all the nodes use the same single cache space. 
@@ -14,6 +28,15 @@
     * A disadvantage of distributed caching is remedying a missing node. Some distributed caches get around this by storing multiple copies of the data on different nodes; however, you can imagine how this logic can get complicated quickly, especially when you add or remove nodes from the request layer.
 
 ### Memcached 
+#### Introduction
+* Distributed memory object caching
+* Acts as a simple key/value dictionary
+* Runs as a daemon
+* Has a simple protocol for client access over TCP and UDP
+* Can be run in a pool, but individual daemons are not aware of the pool
+* Clients/applications manage the pool•Not an opcode cache
+
+#### Internal Design 
 * Big-O
 * LRU (Least Recently Used)
 * Memory Allocation
@@ -53,10 +76,45 @@
 * it's like the clock, 头尾相连
 
 ### Facebook Cache 
-![pic](http://download.docslide.net/uploads/check_up03/192015/54647671b4af9f6e568b4899.pdf)
+* $GLOBALS
+      * Avoids unnecessary APC and Memcached requests
+      * Automatic via abstraction
+      * But still has function call cost overhead
+      
+* APC (Alternative PHP Cache)
+      * Non-user specific data
+      * Network/School information
+      * Database information
+      * Useragent strings
+      * Hot application data
+      * Site variables
+      * Languange Strings
+      
+* Memcached
+      * Distributed object cache
+      * Facebook currently utilizes > 400 memcached hosts
+      * With > 5TB in memory cache
+      * Facebook contributions:
+         * UDP Support
+         * Performance Enhancements
+      * Many choices in opensource clients
+      * What to cached ?
+         * User Specific Data
+         * Long profile
+         * Short profile
+         * Friends
+         * Applications
+
+* Database
+* Browser Cache
+* Third Party CDN
+
+
+
 
 
 #### Reference:
 * [Memcache Internals](https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/)
 * [Scaling memcached at Facebook](https://www.facebook.com/note.php?note_id=39391378919)
 * [Facebook Cache](http://download.docslide.net/uploads/check_up03/192015/54647671b4af9f6e568b4899.pdf)
+* [Memcache and APC](http://docslide.us/technology/caching-with-memcached-and-apc.html)
