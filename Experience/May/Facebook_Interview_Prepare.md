@@ -79,6 +79,7 @@ Key Areas to Practice In Advance
     
 Note: You will be asked to code using a Whiteboard as opposed to your computer – therefore practice on paper a few times before the interview if you’re not comfortable or experienced with this. 
 Sample Questions May Include (please note this is not a comprehensive list by any means, but will give you an idea of the style of questions that will come up):
+
 1. Code LRU cache (Lease Recent Cached) class.
 2. Check if string is palindrome. Avoid using memory buffer
 3. Use pattern in dictionary. Pattern may have * which means any character
