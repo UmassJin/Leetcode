@@ -35,7 +35,7 @@
 * The reason is that malloc() and free() functions are not really optimized for such kind of programs. Memory gets fragmented easily which means a lot of memory will get spilled, just like you can spill a lot of diskspace when you write/delete a lot of files on your filesystem
 * Memcache’s memory manager will allocate the maximum amount of memory from the operating system that you have set (for instance, 64Mb, but probably more) through one malloc() call. From that point on, it will use its own memory manager system called the slab allocator.
 
-##### Sloab allocation
+##### Slab allocation
 * partition the allocated memory into small parts: pages, each page is 1Mb large
 * Each of those pages can be assigned to a slab-class, or can be unassigned (being a free page)
 * Each page that is designated to a particular slab-class will be divided into smaller parts called chunks.
@@ -48,7 +48,15 @@
       * c) There can be multiple pages for each slab-class, but as soon as a page is assigned a slab-class (and thus, split up in chunks), it cannot be changed to another slab-class.
       * d) The smallest chunk-size starts at 80 bytes and increases with a factor of 1.25 
 
+##### [Consistent hashing](https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/)
+* hash the key and the server 
+* it's like the clock, 头尾相连
+
+### Facebook Cache 
+![pic](http://download.docslide.net/uploads/check_up03/192015/54647671b4af9f6e568b4899.pdf)
+
+
 #### Reference:
 * [Memcache Internals](https://www.adayinthelifeof.nl/2011/02/06/memcache-internals/)
 * [Scaling memcached at Facebook](https://www.facebook.com/note.php?note_id=39391378919)
-
+* [Facebook Cache](http://download.docslide.net/uploads/check_up03/192015/54647671b4af9f6e568b4899.pdf)
