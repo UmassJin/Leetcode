@@ -122,3 +122,4 @@ Sample Questions
 Useful website to review for this interview: http://highscalability.com/ 
     
     
+* [原帖](http://www.wohenniu.com/thread-1174-1-1.html)
