@@ -50,6 +50,23 @@ A typical memory representation of C program consists of following sections.
 
 ## Operation System 
 
+#### [Hierarchy of Storage](http://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage)
+* register
+* cache
+* main memory (The main memory (the "RAM") in personal computers is Dynamic random-access memory (DRAM))
+* Above are volatile storage, loses its contents when the power to the device is removed.
+* solic-state disk
+* magnetic disk
+* optical disk
+* magnetic tapes
+
+
+##### A millisecond(ms), 1 microsecond(μs), , A nanosecond (ns)
+* 1s = 1000 ms 
+* 1 ms = 1000 μs
+* 1 μs = 1000 ns
+
+
 #### [Memory](http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)
 * Process is on Heap memory.
 * Thread is on Stack memory.
