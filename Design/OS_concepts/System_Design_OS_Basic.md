@@ -3,7 +3,7 @@
 ####[2. Process Synchronization](#process-synchronization)
 ####[3. Semaphores](#semaphores)
 ####[4. Monitor](#monitor)
-
+####[5. Static Numbers](#static-numbers)
 
 ## Process
 #### Independent process and cooperating process 
@@ -170,6 +170,54 @@ A process must be waiting for a resource which is being held by another process,
 *  A condition variable is basically a container of threads that are waiting on a certain condition.
 
 #### [参考Implement EventManager](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Implement_EventManager.md)
+
+
+## Static Numbers
+####程序内
+* 一个char是1 byte, 一个int/float/long是4 bytes, 一个double是 8 bytes
+* 1 Million = 10^6, 1 Million char = 1MB, 1 Million int = 4MB, 1 Million double = 8MB
+* 1 Billion = 10^9, 1 Billion char = 1GB, 1 Billion int = 4GB, 1 Million double = 8GB
+* 综上所述，假设8G电脑很普通，一般来说如果不提memory size的话无论什么type都能放下，如果说了memory size就要对比下了
+* We choose quicksort over mergesort as mergesort requires O(n) space. Quicksort uses O(logn) space.
+* MD5 digest size 128 bits = 16 bytes
+* SHA-1 digest size 160 bits = 20 bytes
+* Max Email address = 254 char = 254 bytes
+
+| Things| 1 | 1 Thousand(2^10) | 1 Million(2^20) | 1 Billion(2^30) |
+| :---: | ---: | ---: | ---: | ---: |
+| byte | byte | KB | MB | GB |
+| char | 1 byte | 1 KB | 1 MB | 1 GB |
+| int/float/long | 4 byte | 4 KB | 4 MB | 4 GB |
+| double | 8 byte | 8 KB | 8 MB | 8 GB |
+| MD5 | 128 bits = 16 bytes| 16 KB | 16 MB | 16 GB |
+| SHA-1 | 160 bits = 20 bytes | 20 KB | 20 MB | 20 GB |
+| Email | 254 chars = 254 bytes | 254 KB | 254 MB | 254 GB |
+| IP Address(IPv4) | 2**8 * 4 = 4 bytes | 4 KB | 4 MB | 4 GB |
+| IP Address(IPv6) | 128 bits = 16 bytes | 16 KB | 16 MB | 16 GB |
+
+####Computer
+* SSD 50~200MB/s
+* DRAM 2-20GB/s
+
+####Note
+1. 所有IP是能放进内存的，因为一共2^32个ip地址
+
+
+#### [Hierarchy of Storage](http://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage)
+* register
+* cache
+* main memory (The main memory (the "RAM") in personal computers is Dynamic random-access memory (DRAM))
+* Above are volatile storage, loses its contents when the power to the device is removed.
+* solic-state disk
+* magnetic disk
+* optical disk
+* magnetic tapes
+
+
+##### A millisecond(ms), 1 microsecond(μs), , A nanosecond (ns)
+* 1s = 1000 ms 
+* 1 ms = 1000 μs
+* 1 μs = 1000 ns
 
 
 
