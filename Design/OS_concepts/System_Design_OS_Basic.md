@@ -219,5 +219,6 @@ A process must be waiting for a resource which is being held by another process,
 * 1 ms = 1000 μs
 * 1 μs = 1000 ns
 
-
+#### Architectural view of the storage hierarchy
+![pic](https://cloud.githubusercontent.com/assets/9062406/8048464/633deccc-0e06-11e5-95cd-c026b09d648d.png)
 
