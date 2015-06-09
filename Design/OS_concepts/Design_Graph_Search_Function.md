@@ -54,12 +54,53 @@
 *  highly available
 *  low latency (fast retrieval).
 
+#### More consideration
+* There is no limit to the number of images that will be stored, so storage scalability, in terms of image count needs to be considered.
+* There needs to be low latency for image downloads/requests.
+* If a user uploads an image, the image should always be there (data reliability for images).
+* The system should be easy to maintain (manageability).
+* Since image hosting doesn't have high profit margins, the system needs to be cost-effective
+
 #### 2. Functionality 
 * Upload image 
 * Query image 
 
+#### 3. Service 
+* a) Service-Oriented Architecture (SOA)
+   * each service has its own distinct functional context
+   * interaction with anything outside of that context takes place through an abstract interface, typically the public-facing API of another service
+   * help isolate problems 
 
+* b) read files will typically be read from cache, and writes will have to go to disk eventually (and perhaps be written several times in eventually consistent situations). Database writes will almost always be slower than reads.
+* c)  Apache or lighttpd typically has an upper limit on the number of simultaneous connections it can maintain (defaults are around 500, but can go much higher) and in high traffic
+* d) reads can be asynchronous, or take advantage of other performance optimizations like gzip compression or chunked transfer encoding, with Apache and max connections set to 500, it is not uncommon to serve several thousand read requests per second
+* so we seperate the reads and write 
+      * 系统变的flexible
+      * 减小了outage带来的危害
 
+#### 4. Redundancy 
+* Data Redundancy 
+      * Creating redundancy in a system can remove single points of failure and provide a backup or spare functionality if needed in a crisis
+      * 
+* Service Redundancy 
+      * Shared-nothing architecture
+         * Remove single point failure by provide backup or spare functionality
+         * Create shared-nothing architecture (Each nodes operate independently without knowing other nodes)
+
+#### 5. Partitions 
+* Scaling Vertically: adding more resources to an individual server (faster CPU, more memory)
+* Scaling Horizontally: adding more nodes 
+      * partitions, shards  - each logical set of functionality is separate
+         * geographic boundaries
+         * non-paying users vs paying users
+* Disadvantage: 
+      * Data locality (the closer the data to the operation point, the better the performance)
+      * Inconsistency
+
+#### 6. Building Blocks
+* Caching 
+* 
+* 
 
 
 
