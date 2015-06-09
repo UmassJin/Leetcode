@@ -77,11 +77,11 @@ How to Create an Asynchronous Multiplayer Game Part 3: Loading Games from the Da
 How to Create an Asynchronous Multiplayer Game Part 4: Matchmaking
 Real Time Multiplayer in HTML5
 
-Design a graph search function
-Reference:
-Building out the infrastructure for Graph Search
-Indexing and ranking in Graph Search
-The natural language interface of Graph Search and Erlang at Facebook.
+#### Design a graph search function
+* Reference:
+* [Building out the infrastructure for Graph] Search(https://www.facebook.com/notes/facebook-engineering/under-the-hood-building-out-the-infrastructure-for-graph-search/10151347573598920)
+* [Indexing and ranking in Graph Search](https://www.facebook.com/notes/facebook-engineering/under-the-hood-indexing-and-ranking-in-graph-search/10151361720763920)
+* [The natural language interface of Graph Search](https://www.facebook.com/notes/facebook-engineering/under-the-hood-the-natural-language-interface-of-graph-search/10151432733048920) and [Erlang at Facebook](http://www.erlang-factory.com/upload/presentations/31/EugeneLetuchy-ErlangatFacebook.pdf).
 
 Design a picture sharing system
 Reference:
