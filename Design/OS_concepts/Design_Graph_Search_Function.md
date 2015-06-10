@@ -48,7 +48,7 @@
       
       * Search Phase 
 
-## Graph Search 
+## [Graph Search](http://www.aosabook.org/en/distsys.html)
 #### 1. Requirement 
 *  cost-effective
 *  highly available
@@ -87,7 +87,7 @@
          * Remove single point failure by provide backup or spare functionality
          * Create shared-nothing architecture (Each nodes operate independently without knowing other nodes)
 
-#### 5. Partitions 
+#### 5. [Partitions (Used for Database)](http://docs.mongodb.org/manual/core/sharding-introduction/)
 * Scaling Vertically: adding more resources to an individual server (faster CPU, more memory)
 * Scaling Horizontally: adding more nodes 
       * partitions, shards  - each logical set of functionality is separate
