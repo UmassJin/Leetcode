@@ -22,7 +22,7 @@
       in the physical infrastructure.
 * 正常hash就直接hash ip就行了 hash('192.168.1.1')， 如果是hash virtual node可以 hash('192.168.1.1#1')
 
-## Dynamo Partition Scheme 
+## [Dynamo Partition Scheme](https://github.com/UmassJin/Leetcode/edit/master/Design/OS_concepts/Dynamo_Design.md) 
 * Introduction 
     * 1. divides the hash space into Q equally sized partitions
     * 2. each node is assigned Q/S tokens where S is the number of nodes in the system.
