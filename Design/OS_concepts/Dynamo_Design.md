@@ -51,4 +51,31 @@ served by the hottest node.
     * changing the node membership requires coordination in order to preserve the properties required of the assignment.
 
 #### Replication Algorithm 
-* 
+* for each data item, replicated at N hosts. Each key, k, assigned to a coordinator node.
+* In addition to locally storing each key within its range, the coordinator replicates these keys at the N-1
+clockwise successor nodes in the ring.
+* The list of nodes that is responsible for storing a particular key is called the preference list.
+
+#### Data Versioning (Consistency)
+* Need to keep each version for the user's action 
+* Use Vector clocks:
+   * A vector clock is effectively a list of (node, counter) pairs.
+   * One vector clock is associated with every version of every object.
+   * One can determine whether two versions of an object are on parallel branches or have a causal ordering, by examine their vector clocks.
+   * If the counters on the first object’s clock are less-than-or-equal to all of the nodes in the second clock, 
+     then the first is an ancestor of the second and can be forgotten. Otherwise, the two changes are considered to be
+     in conflict and require reconciliation
+
+* Possible issue: 
+   * the size of vector clocks may grow if many servers coordinate the writes to an object
+   * resolve using the clock truncation scheme 
+ 
+#### Consistency between Duplication
+* quorum systems
+  * R is the minimum number of nodes that must participate in a successful read operation. 
+  * W is the minimum number of nodes that must participate in a successful write operation.
+  * Procedure:
+    * Upon receiving a put() request for a key, the coordinator generates the vector clock for the new version and writes the new version locally.
+    * The coordinator then sends the new version (along with the new vector clock) to the N highest-ranked reachable nodes.
+    * If at least W-1 nodes respond then the write is considered successful.
+
