@@ -79,3 +79,7 @@ clockwise successor nodes in the ring.
     * The coordinator then sends the new version (along with the new vector clock) to the N highest-ranked reachable nodes.
     * If at least W-1 nodes respond then the write is considered successful.
 
+* uses a “sloppy quorum” to handle server failures and network partitions 
+  * all read and write operations are performed on the first N healthy nodes from the preference list
+ 
+* Use Merkle tree to handle the permanent failures 
