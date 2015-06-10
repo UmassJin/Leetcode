@@ -18,6 +18,7 @@
 * [ ] Design a trending topic system
 * [ ] Design a cache system
 * [x] [Design a spreads Sheet](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Spreadsheet_OOD.md)
+* [ ] [Design a find frends system]
 
 
 
