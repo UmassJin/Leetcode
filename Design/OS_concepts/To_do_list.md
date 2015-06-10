@@ -2,16 +2,16 @@
 * [ ] Design a Google document system
 * [ ] Design a random ID generation system
 * [x] Design a key-value database (Dynamo, Redis)
-* [x] Design the Facebook news seed function
+* [x] [Design the Facebook news seed] function(https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_New_Feed.md)
 * [ ] Design the Facebook timeline function
 * [ ] Design the Facebook message system 
 * [ ] Design a function to return the top k requests during past time interval
 * [ ] Design an online multiplayer card game
-* [ ] Design a graph search function
+* [x] [Design a graph search function](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Graph_Search_Function.md)
 * [ ] Design a picture sharing system
-* [x] Design a search engine
+* [x] [Design a search engine](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Search_Engine.md)
 * [ ] Design a recommendition system
-* [x] Design a tinyurl system
+* [x] [Design a tinyurl system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_tiny_URL.md)
 * [ ] Design a garbage collection system
 * [ ] Design a scalable web crawling system
 * [ ] Design the Facebook chat function
