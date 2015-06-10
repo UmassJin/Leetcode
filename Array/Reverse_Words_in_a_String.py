@@ -1,3 +1,4 @@
+'''
 Given an input string, reverse the string word by word.
 
 For example,
@@ -16,6 +17,7 @@ Could the input string contain leading or trailing spaces?
 Yes. However, your reversed string should not contain leading or trailing spaces.
 How about multiple spaces between two words?
 Reduce them to a single space in the reversed string.
+'''
 
 class Solution:
     # @param s, a string
