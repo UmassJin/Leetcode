@@ -1,4 +1,4 @@
-* Introduction
+### Introduction
   * There are many services on Amazon’s platform that only need
 primary-key access to a data store. For many services, such as
 those that provide best seller lists, shopping carts, customer
@@ -6,7 +6,7 @@ preferences, session management, sales rank, and product catalog,
 the common pattern of using a relational database would lead to
 inefficiencies and limit scale and availability.
 
-* Design Consideration 
+### Design Consideration 
     * Dynamo is targeted mainly at applications that need an “always writeable” data store
       where no updates are rejected due to failures or concurrent writes.
     * Dynamo is built for an infrastructure within a single administrative domain where all
@@ -16,14 +16,20 @@ inefficiencies and limit scale and availability.
     * Fourth, Dynamo is built for latency sensitive applications that require at least 99.9% of read
       and write operations to be performed within a few hundred milliseconds.
 
-* System Interfaces
+### System Interfaces
     * get(key): The get(key) operation locates the object replicas associated with the key in the
                 storage system and returns a single object or a list of objects with conflicting versions 
                 along with a context.
     * The put(key, context, object) operation determines where the replicas of the object should be placed 
                 based on the associated key, and writes the replicas to disk.
-    
-* Partition Algorithm
+
+### Different Algorithm 
+* Partition and Replication using consistent hashing
+* consistency is facilitated by object versioning 
+* The consistency among replicas during updates is maintained by a quorum-like technique and a
+decentralized replica synchronization protocol.
+ 
+#### Partition Algorithm
 * Introduction 
     * 1. divides the hash space into Q equally sized partitions
     * 2. each node is assigned Q/S tokens where S is the number of nodes in the system.
@@ -43,3 +49,6 @@ served by the hottest node.
 
 * Disadvantage 
     * changing the node membership requires coordination in order to preserve the properties required of the assignment.
+
+#### Replication Algorithm 
+* 
