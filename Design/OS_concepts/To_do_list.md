@@ -2,7 +2,7 @@
 * [ ] Design a Google document system
 * [ ] Design a random ID generation system
 * [x] Design a key-value database (Dynamo, Redis)
-* [x] [Design the Facebook news seed] function(https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_New_Feed.md)
+* [x] [Design the Facebook news seed function](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_New_Feed.md)
 * [ ] Design the Facebook timeline function
 * [ ] Design the Facebook message system 
 * [ ] Design a function to return the top k requests during past time interval
