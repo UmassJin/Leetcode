@@ -23,7 +23,7 @@ class Solution:
             if char not in idict:
                 idict[char] = i
             else:
-                start = max(start, idict[char]+1)
+                start = max(start, idict[char]+1) #注意这里必须是max(start,idict[char]+1), test case: 'abba'
                 idict[char] = i    #注意这里，不管char是不是在idict里面，都需要update i的值，例如test case 'dddd', 'dedv'
             result = max(result, i-start+1)
         return result 
