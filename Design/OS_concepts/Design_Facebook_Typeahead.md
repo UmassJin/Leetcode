@@ -18,12 +18,12 @@
         friend of friend, obj-of-friend, global and memcache parallelly, these three parts are not depend on each other 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8112672/39228802-101e-11e5-8ab6-3039fb48d09d.png)
 
-#### Friend of Friend
+#### A. Friend of Friend
 1. Distributed Graph Search Service, use the prefix matching 
       * For some users which has the tiny friend, will seach the three degrees out
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8112857/82a1e88c-101f-11e5-952a-62ba219dbce6.png)
 
-#### Object of Friend
+#### B. Object of Friend
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8112987/2a09e7a0-1020-11e5-8016-5c15164a2216.png)
 
 #### Static status
@@ -58,7 +58,14 @@
 * Tiny Bloom Filter
 * reject of most prefix mismatches
 * nicer cache behavior and can trade space for CPU 
+![pic](https://cloud.githubusercontent.com/assets/9062406/8119424/3c014e60-104a-11e5-82d1-628d84bd2fec.png)
+* 1. Let's say, first find the direct friend "Chuck" in my graph, and try to find the letter 'B' in my FoF
+* 2. For the each user, it has the bloom filter, like Chuck, it has two friends "boris" and "zifha", then we just hash the "b" and "z" and set the bloom filter as '1', so when we check 'b', first hash 'b', then check if h('b') set in the bloom filter or not, then filter. 
+* 3. In the facebook, for the FoF, use one bloom filter and one hashfunction, for the OoF, use two bloom filter and two hashfunction, one bloom filter for the name, one for the diagram. 
 
+#### C. Global and memcache 
+* Merging, Ranking, Returning 
+* Fetch per-result rendering information from  memcache 
 
 
 ### Good reference
