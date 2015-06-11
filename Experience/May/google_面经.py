@@ -83,5 +83,35 @@ print permutation_number(test2)
 
 # Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
 
+'''
+find h index element in the array, n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
+'''
+def find_h_index(arr):
+    n = len(arr) - 1
+    start = 0; end = n
+    distance = 0
+    while start <= end:
+        if end % 2 == 0:
+            mid = (start + end) / 2
+        else:
+            mid = (start + end) / 2 + 1
+        
+        if arr[mid] >= (n - mid):
+            distance = n - mid
+            end = mid - 1
+        
+        elif arr[mid] < (n - mid):
+            start = mid + 1
+            
+    return distance
+
+test1 = [0,3,4,7,8,9,10]
+test2 = [0,3,4,7,8,9]
+test3 = [1]
+
+print find_h_index(test1)
+print find_h_index(test2)
+print find_h_index(test3)
+
 
 
