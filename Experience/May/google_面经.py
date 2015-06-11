@@ -1,6 +1,8 @@
+'''
 http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=135449&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26sortid%3D311
 
-两个链表 求最大的公共后缀
+1. 两个链表 求最大的公共后缀
+'''
 
 class ListNode:
     def __init__(self, value):
@@ -42,4 +44,44 @@ def print_list(head):
     while head:
         print "head.val: ", head.value
         head = head.next 
+
+
+'''
+2. permutations of a list without adjacent equal elements
+'''
+
+import collections
+import heapq
+
+def permutation_number(s):
+    counts = collections.Counter(s)
+    heap = [(-count, key) for key, count in counts.items()]
+    heapq.heapify(heap)
+    output = []
+    last = None
+    while heap:
+        minuscount1, key1 = heapq.heappop(heap)
+        if key1 != last or not heap:
+            last = key1
+            minuscount1 += 1
+        else:
+            minuscount2, key2 = heapq.heappop(heap)
+            last = key2
+            minuscount2 += 1
+            if minuscount2 != 0:
+                heapq.heappush(heap, (minuscount2, key2))
+        output.append(last)
+        if minuscount1 != 0:
+            heapq.heappush(heap, (minuscount1, key1))
+    return ''.join(output)
+
+test1 = 'aaabbbccc'
+test2 = 'aaaaaaaabbbddd'
+print permutation_number(test1)
+print permutation_number(test2)
+
+
+# Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
+
+
 
