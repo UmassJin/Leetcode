@@ -1,3 +1,32 @@
+### Introduce type of Typeahead:
+The typeahead services powered by Cleo include members (1st and 2nd degree network connections), companies, groups, questions, skills and various site features. These services are in two broad categories:
+
+#### Generic Typeahead: 
+* the same typeahead query from different members produces the same search results that can be ordered according to a global ranking scheme (e.g., popularity). A member's social network has no impact on search results. The typeahead services from this category are network-agnostic.
+
+#### Network Typeahead: 
+* the same query from different members produces different search results that are filtered according to a member's social network (1st and 2nd degree network connections). The current typeahead for LinkedIn members' network connections leverages the LinkedIn PYMK (People You May Know) scores to rank search results for better relevance. The typeahead services from this category are network-aware.
+
+### High-Level Design
+
+* The typeahead services built on Cleo can be network-aware or network-agnostic. Both use cases share the design shown in the figure below. From a high-level perspective, Cleo can do out-of-order prefix matching over a very large number of elements by means of in-memory scanning. It accomplishes this through mechanisms such as [Inverted Index/Adjacency List](http://en.wikipedia.org/wiki/Inverted_index), [Bloom Filter](http://en.wikipedia.org/wiki/Bloom_filter) and 
+[Forward Index](http://en.wikipedia.org/wiki/Search_engine_indexing):
+* Inverted Index (or Adjacency List): stores the mappings from string prefixes (or members) to documents.
+* Bloom Filter: provides a fast means to filter documents that cannot prefix-match against the query terms.
+* Forward Index: used to reject false positives from filtering.
+External scores: can be provided for better relevance
+
+Here's an outline of the steps for handling the query "linked" submitted to the Company Typeahead:
+
+![pic](https://cloud.githubusercontent.com/assets/9062406/8119804/5dc3951e-104d-11e5-90cb-25e7f6bd0392.png)
+
+1. Each Cleo partition uses a prefix of the query - in this case, "link", since the prefix has a max length of 4 - to retrieve the inverted list of document IDs that contain that prefix.
+2. For each document ID in the inverted list, if the bloom filter of the document ID contains all the 1 bits in the 8 byte bloom filter of the original query ("linked"), then the document may potentially be a hit. Otherwise, it can be discarded.
+3. Upon a potential hit, the forward index is consulted to ensure that any term from the query shows up as a prefix in at least one indexed term of the corresponding document.
+4. Each partition returns all of its "true hits" with their external scores.
+The hits from each partition are merged and sent to client applications.
+
+
 ### Introduction 
 
     * user --> Browser --> Web Cluster:first-dedegreee.php; typeahead.php
@@ -66,6 +95,8 @@
 #### C. Global and memcache 
 * Merging, Ranking, Returning 
 * Fetch per-result rendering information from  memcache 
+
+
 
 
 ### Good reference
