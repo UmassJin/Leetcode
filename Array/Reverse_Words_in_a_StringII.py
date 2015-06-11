@@ -32,3 +32,24 @@ class Solution:
 # 1) enumerate usage
 # 2) zip usage 
 # 3) reverse the whole string and then reverse each word 
+
+
+class Solution:
+    # @param s, a list of 1 length strings, e.g., s = ['h','e','l','l','o']
+    # @return nothing
+    def reverseWords(self, s):
+        if not s: return s
+        self.reverse_helper(s, 0, len(s)-1)
+        i = 0
+        for j, char in enumerate(s):
+            if char == ' ':
+                self.reverse_helper(s, i, j-1)
+                i = j + 1
+            elif j == len(s) - 1:
+                self.reverse_helper(s, i, j)
+        
+    def reverse_helper(self, s, start, end):
+        while start < end:
+            s[start], s[end] = s[end], s[start]
+            start += 1
+            end -= 1
