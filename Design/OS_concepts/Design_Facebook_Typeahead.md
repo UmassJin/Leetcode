@@ -30,4 +30,14 @@
 * Around 936 million daily active users
 * 1.44 billion monthly active users 
 * at 2010, Fof: 7.7 billion edges and 400 million nodes, OoF: 1 billion nodes, 110 billion edges
-* 
+
+#### Big Graphs for Prefix Search 
+#### Three way tradeoff 
+* Memory Consumption 
+* Cache Bandwidth
+* Compute
+      * like MD5 sum
+
+#### Option1: Trie<Name, ID>
+* prefix-matching is straightforward, but wastes space, thrashes cache
+      * pointers are huge: 
