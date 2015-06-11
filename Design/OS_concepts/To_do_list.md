@@ -19,6 +19,7 @@
 * [ ] Design a cache system
 * [x] [Design a spreads Sheet](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Spreadsheet_OOD.md)
 * [ ] [Design a find frends system]
+* [ ] [Design a typeahead system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Facebook_Typeahead.md)
 
 
 
