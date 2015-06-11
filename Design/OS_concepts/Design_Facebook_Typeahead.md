@@ -40,4 +40,28 @@
 
 #### Option1: Trie<Name, ID>
 * prefix-matching is straightforward, but wastes space, thrashes cache
-      * pointers are huge: 
+      * pointers are huge: 8 bytes * million/billions nodes 
+      * pointers point to random places 
+
+#### Option2: Sorted Vector of name, ID
+* binary search finds range of prefix matches 
+* but scales badly as we index more terms, O(n) insertion, move half of them 
+* Since the memory use is users * id
+
+#### Option3: Brute Force
+* Adjacency list for a graph 
+* every node has adjacency list coming out that nodes 
+* disadvantage: 1) duplicate save information, 2) if find any information, need to go through each user's friend, and check each
+  chunk, cache bandwidth are too big, CPU hot 
+
+#### Option4: Filtered Force 
+* Tiny Bloom Filter
+* reject of most prefix mismatches
+* nicer cache behavior and can trade space for CPU 
+
+
+
+### Good reference
+* [Facebook Typeahead Video](https://www.facebook.com/video/video.php?v=432864835468)
+* [How the bloom filter usage?](http://www.quora.com/What-are-the-best-applications-of-Bloom-filters)
+* [Linkedin typeahead usage](https://engineering.linkedin.com/open-source/cleo-open-source-technology-behind-linkedins-typeahead-search)
