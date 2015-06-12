@@ -250,4 +250,8 @@ A process must be waiting for a resource which is being held by another process,
 * Cons:
   * A General Lack of Maturity
   * Performance and Scaling > Consistency - Performance and Scaling is good, lack of Consistency
+  
+![pic](https://cloud.githubusercontent.com/assets/9062406/8141217/d06346d4-1118-11e5-943e-8bb59d8a4cd6.png)
 
+#### Reference:
+* [SQL vs Non-SQL](http://dataconomy.com/sql-vs-nosql-need-know/)
