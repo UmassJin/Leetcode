@@ -20,8 +20,11 @@
 
 * 解决的思路很简单，我们查询时，除了使用定位点的GeoHash编码进行匹配外，还使用周围8个区域的GeoHash编码，这样可以避免这个问题。
 
+* geohash只是空间索引的一种方式，特别适合点数据，而对线、面数据采用R树索引更有优势
+
 ### Reference
 * [POI](http://1.znku.sinaapp.com/?p=331)
 * [R tree](http://blog.csdn.net/v_july_v/article/details/6530142#t2)
 * [GeoHash wiki page](http://en.wikipedia.org/wiki/Geohash)
 * [GeoHash 核心讲解](http://www.cnblogs.com/LBSer/p/3310455.html)
+* [深入浅出空间索引：为什么需要空间索引](http://www.cnblogs.com/LBSer/p/3392491.html)
