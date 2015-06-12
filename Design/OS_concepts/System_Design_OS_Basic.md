@@ -173,7 +173,7 @@ A process must be waiting for a resource which is being held by another process,
 
 
 ## Static Numbers
-#### Facebook(http://newsroom.fb.com/company-info/)
+#### [Facebook](http://newsroom.fb.com/company-info/)
 * 1.44 billion active user per month
 * 1.25 billion mobile user per month
 * 936 million daily active user per day (远大于Monthly因为monthly的active user不能重复计算)
