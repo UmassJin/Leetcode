@@ -53,11 +53,11 @@ Design a key-value database
 Reference:
 Introduction to Redis.
 
-Design the Facebook news seed function
+#### Design the Facebook news seed function
 Reference:
-What are best practices for building something like a News Feed?
-What are the scaling issues to keep in mind while developing a social network feed?
-Activity Feeds Architecture
+* [What are best practices for building something like a News Feed?](http://www.quora.com/Software-Engineering-Best-Practices/What-are-best-practices-for-building-something-like-a-News-Feed)
+* [What are the scaling issues to keep in mind while developing a social network feed?](http://www.quora.com/What-are-the-scaling-issues-to-keep-in-mind-while-developing-a-social-network-feed)
+* [Activity Feeds Architecture](http://www.slideshare.net/danmckinley/etsy-activity-feeds-architecture)
 
 Design the Facebook timeline function
 Reference:
