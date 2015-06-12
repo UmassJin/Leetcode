@@ -231,7 +231,7 @@ A process must be waiting for a resource which is being held by another process,
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8048464/633deccc-0e06-11e5-95cd-c026b09d648d.png)
 
 
-## Relational SQL vs None-SQL
+## Relational SQL vs NoneSQL
 * NoSQL
   * MongoDB(Document)
   * Google Big Table (Column)
