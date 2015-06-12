@@ -1,4 +1,4 @@
-#### Functionality 
+### Functionality 
 * News Feed is the constantly updating list of stories in the middle of your home page. 
 News Feed includes status updates, photos, videos, links, app activity and likes from people, 
 Pages and groups that you follow on Facebook
@@ -28,4 +28,6 @@ shares on the organic stories they saw from Pages
 * Previously, people read 57% of the stories in their News Feeds, on average. They did not scroll far enough to 
 see the other 43%. When the unread stories were resurfaced, the fraction of stories read increased to 70%
 
+
+### Design 
 
