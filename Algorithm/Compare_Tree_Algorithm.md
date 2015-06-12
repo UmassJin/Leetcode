@@ -11,3 +11,8 @@
 | Use AVL Tree if less insert/delete ans more search |  Use RB Tree if more insert/delete | 
 | language dictionaries (or program dictionaries, such as the opcodes of an assembler or interpreter) | usage: computational geometry, Completely Fair Scheduler used in current Linux kernels|
 
+
+* A perfect binary tree is a binary tree in which all leaves have the same depth or same level.[19] (This is ambiguously also called a complete or full binary tree
+* A full binary tree (sometimes referred to as a proper[citation needed] or plane binary tree)[17][18] is a tree in which every node in the tree has either 0 or 2 children.
+
+![pic](https://cloud.githubusercontent.com/assets/9062406/8122459/f2d87036-106e-11e5-8eb5-44623b28d69d.png)
