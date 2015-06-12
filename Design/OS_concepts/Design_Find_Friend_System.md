@@ -13,7 +13,7 @@
 
 #### [Procudure](http://www.cnblogs.com/LBSer/p/3310455.html)
 
-#### [Disadvantage]((http://en.wikipedia.org/wiki/Geohash)):
+#### [Disadvantage]((http://en.wikipedia.org/wiki/Geohash))
 * 由于GeoHash是将区域划分为一个个规则矩形，并对每个矩形进行编码，这样在查询附近POI信息时会导致以下问题，
 比如红色的点是我们的位置，绿色的两个点分别是附近的两个餐馆，但是在查询的时候会发现距离较远餐馆的GeoHash编码与我们一样
 （因为在同一个GeoHash区域块上），而较近餐馆的GeoHash编码与我们不一致。这个问题往往产生在边界处
