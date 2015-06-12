@@ -253,5 +253,10 @@ A process must be waiting for a resource which is being held by another process,
   
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8141217/d06346d4-1118-11e5-943e-8bb59d8a4cd6.png)
 
+#### Which to use?
+* If your data needs are changing rapidly, you need high throughput to handle viral growth, or your data is growing fast and you need to be able to scale out quickly and efficiently, maybe NoSQL is for you. 
+* But if the data you have isn’t changing in structure and you’re experiencing moderate, manageable growth, your needs may be best met by SQL technologies. Certainly, SQL is not dead yet.
+
 #### Reference:
 * [SQL vs Non-SQL](http://dataconomy.com/sql-vs-nosql-need-know/)
+* [SQL NonSQL 区别](http://noican.blog.51cto.com/4081966/1355316)
