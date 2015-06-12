@@ -4,6 +4,7 @@
 ####[3. Semaphores](#semaphores)
 ####[4. Monitor](#monitor)
 ####[5. Static Numbers](#static-numbers)
+####[6. Relational SQL vs NoneSQL](#relationalsqlvsnonesql)
 
 ## Process
 #### Independent process and cooperating process 
@@ -228,4 +229,25 @@ A process must be waiting for a resource which is being held by another process,
 
 #### Architectural view of the storage hierarchy
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8048464/633deccc-0e06-11e5-95cd-c026b09d648d.png)
+
+
+## Relational SQL vs None-SQL
+* NoSQL
+  * MongoDB(Document)
+  * Google Big Table (Column)
+  * Cassandra (Column)
+  * HBase (Column)
+  * Amazon DynamoDB(Key-Value Eventually Consistent)
+  * Redis(Key-Value RAM)
+  * MemcacheDB(Key-Value RAM)
+* Eventually Consistent
+* Pros:
+  * Scalable
+  * Flexible
+  * It’s Administrator-Friendly
+  * It’s Cost-Effective and Open-Source
+  * The Cloud’s the Limit
+* Cons:
+  * A General Lack of Maturity
+  * Performance and Scaling > Consistency - Performance and Scaling is good, lack of Consistency
 
