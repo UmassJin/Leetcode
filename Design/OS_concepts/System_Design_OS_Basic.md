@@ -173,6 +173,13 @@ A process must be waiting for a resource which is being held by another process,
 
 
 ## Static Numbers
+#### Facebook(http://newsroom.fb.com/company-info/)
+* 1.44 billion active user per month
+* 1.25 billion mobile user per month
+* 936 million daily active user per day (远大于Monthly因为monthly的active user不能重复计算)
+* 798 million mobile daily active users on average for March 2015
+
+
 ####程序内
 * 一个char是1 byte, 一个int/float/long是4 bytes, 一个double是 8 bytes
 * 1 Million = 10^6, 1 Million char = 1MB, 1 Million int = 4MB, 1 Million double = 8MB
