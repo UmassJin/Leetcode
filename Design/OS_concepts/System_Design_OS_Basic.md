@@ -4,7 +4,7 @@
 ####[3. Semaphores](#semaphores)
 ####[4. Monitor](#monitor)
 ####[5. Static Numbers](#static-numbers)
-####[6. Relational SQL vs NoneSQL](#relationalsqlvsnonesql)
+####[6. Relational SQL vs NoneSQL](#relational-sql-vs-nonesql)
 
 ## Process
 #### Independent process and cooperating process 
