@@ -21,7 +21,7 @@ class Solution:
             while start + length < N:
                 if dp[start+1][start+length-1] and s[start] == s[start+length]:
                     dp[start][start+length] = True
-                    max_length = max(max_length, length)
+                    max_length = max(max_length, length+1)
                 start += 1
             length += 1
         return max_length
