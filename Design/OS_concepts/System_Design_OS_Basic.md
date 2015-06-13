@@ -5,6 +5,7 @@
 ####[4. Monitor](#monitor)
 ####[5. Static Numbers](#static-numbers)
 ####[6. Relational SQL vs NoneSQL](#relational-sql-vs-nonesql)
+####[7. Sharding](#sharding)
 
 ## Process
 #### Independent process and cooperating process 
@@ -260,3 +261,20 @@ A process must be waiting for a resource which is being held by another process,
 #### Reference:
 * [SQL vs Non-SQL](http://dataconomy.com/sql-vs-nosql-need-know/)
 * [SQL NonSQL 区别](http://noican.blog.51cto.com/4081966/1355316)
+
+## [Sharding](http://docs.mongodb.org/manual/core/sharding-introduction/)
+* 在了解了NonSQL和SQL区别之后，我们就会理解sharding, consistent hashing(Dynamo)这些技术是怎么用的
+* Storing data across multiple machines
+* Purpose - horizontal scaling
+* Advantages
+  * Sharding reduces the number of operations each shard handles
+  * Sharding reduces the amount of data that each server needs to store.
+* 三个重要的structure
+  * __Shards__ store the data
+  * __Query Routers__ interface with client applications and direct operations to the appropriate shard or shards
+  * __Config Servers__ store the cluster’s metadata.
+* Data Partitioning
+  * Range Based Sharding
+  * Hash Based Sharding
+* Splitting
+* Balancing
