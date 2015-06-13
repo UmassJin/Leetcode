@@ -14,7 +14,8 @@ class Solution:
             table[char] = i
             length = max(length, i-start+1)
         return length 
-          
+    
+    # O(n) time, O(n) space
     def lengthOfLongestSubstring(self, s):
         idict = {}
         result = 0
