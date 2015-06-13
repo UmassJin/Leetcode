@@ -15,22 +15,24 @@
 
 ### System Design
 
-Here are some articles about system design related topics.
-How to Rock a Systems Design Interview
-System Interview
-Scalability for Dummies
-Scalable Web Architecture and Distributed Systems
-Numbers Everyone Should Know
-Scalable System Design Patterns
-Introduction to Architecting Systems for Scale
-Transactions Across Datacenters
-A Plain English Introduction to CAP Theorem
-The CAP FAQ
-Paxos Made Simple
-Consistent Hashing
-NOSQL Patterns
-Scalability, Availability & Stability Patterns
-Hot Questions and Reference:
+* Here are some articles about system design related topics.
+* How to Rock a Systems Design Interview
+* System Interview
+* Scalability for Dummies
+* Scalable Web Architecture and Distributed Systems
+* Numbers Everyone Should Know
+* Scalable System Design Patterns
+* Introduction to Architecting Systems for Scale
+* Transactions Across Datacenters
+* A Plain English Introduction to CAP Theorem
+* The CAP FAQ
+* Paxos Made Simple
+* Consistent Hashing
+* NOSQL Patterns
+* Scalability, Availability & Stability Patterns
+
+
+### Hot Questions and Reference:
 
 There are some good references for each question. The references here are slides and articles.
 
@@ -49,9 +51,9 @@ Reference:
 Announcing Snowflake
 snowflake.
 
-Design a key-value database
-Reference:
-Introduction to Redis.
+#### Design a key-value database
+* Reference:
+* [Introduction to Redis](http://www.slideshare.net/dvirsky/introduction-to-redis)
 
 #### Design the Facebook news seed function
 Reference:
@@ -122,7 +124,7 @@ Reference:
 Implementing Real-Time Trending Topics With a Distributed Rolling Count Algorithm in Storm
 Early detection of Twitter trends explained
 
-Design a cache system
-Reference:
-Introduction to Memcached.
+#### Design a cache system
+* Reference:
+* [Introduction to Memcached](http://www.slideshare.net/oemebamo/introduction-to-memcached)
 
