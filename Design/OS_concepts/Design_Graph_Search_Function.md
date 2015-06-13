@@ -99,8 +99,13 @@
 
 #### 6. Building Blocks
 * Caching 
-* 
-* 
+* [Load Balancer](https://f5.com/glossary/load-balancer)
+      * Load balancers are generally grouped into two categories: Layer 4 and Layer 7. Layer 4 load balancers act upon data found in network and transport layer protocols (IP, TCP, FTP, UDP). Layer 7 load balancers distribute requests based upon data found in application layer protocols such as HTTP.
+      * Requests are received by both types of load balancers and they are distributed to a particular server based on a configured algorithm. Some industry standard algorithms are:
+      * Round robin
+      * Weighted round robin
+      * Least connections
+      * Least response time
 
 
 
