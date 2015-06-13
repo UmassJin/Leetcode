@@ -1,7 +1,7 @@
 * [ ] Design a CDN network
 * [ ] Design a Google document system
 * [ ] Design a random ID generation system
-* [x] Design a key-value database (Dynamo, Redis)
+* [x] [Design a key-value database (Dynamo, Redis)](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Dynamo_Design.md)
 * [x] [Design the Facebook news seed function](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_New_Feed.md)
 * [ ] Design the Facebook timeline function
 * [ ] Design the Facebook message system 
@@ -16,12 +16,15 @@
 * [ ] [Design a scalable web crawling system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Search_Engine.md)
 * [ ] Design the Facebook chat function
 * [ ] Design a trending topic system
-* [ ] Design a cache system
+* [ ] [Design a cache system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Memcache.md)
 * [x] [Design a spreads Sheet](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Spreadsheet_OOD.md)
 * [x] [Design a find frends system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Find_Friend_System.md)
 * [x] [Design a typeahead system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Facebook_Typeahead.md)
 
 
+
+#### 1. [Map Reduce](http://michaelnielsen.org/blog/write-your-first-mapreduce-program-in-20-minutes/)
+##### 1) [Word Count use Map Reduce](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Map_Reduce.py)
 
 
 
