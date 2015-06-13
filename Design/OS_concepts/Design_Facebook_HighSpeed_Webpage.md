@@ -28,7 +28,7 @@
 
 ##### New Mode 
 Details check the link!
-BigPipe breaks the page generation process into several stages:
+* BigPipe breaks the page generation process into several stages:
 
 * Request parsing: web server parses and sanity checks the HTTP request.
 * Data fetching: web server fetches data from storage tier.
