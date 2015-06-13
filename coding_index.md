@@ -113,7 +113,7 @@
 * 在Jump Ganme2中，注意把maxNextAval 给maxReachableDis, 不是maxNextAval - 1 
 
 ######[Palindrome Partitioning II](./Array/Palindrome_PartitioningII.py)
-* state: ```dp[i]```表示从s[0]到s[i]的子串中回文的数目是多少
+* state: ```dp[i]```表示从s[i]到 end 的子串中回文的数目是多少
 * function: ```dp[i] = min( dp[j]+1, j<i and j+1 ~ i 这一段是一个palindrome```) (这里需要用另外一个数组来储存是否是palindrome))
 * initialize: ```dp[0] = N-1```最少N-1次cut就行了
 * answer: ```dp[N]-1```(这里有些不一样，用回文的数目减去1得到min cut数目)
