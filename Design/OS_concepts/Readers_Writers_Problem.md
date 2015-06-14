@@ -97,5 +97,51 @@ class ReadWrite:
 
         roomEmpty.signal()
 
+# Version 3
+# Give priority of the writers 
+
+'''
+Write a solution to the readers-writers problem that gives priority
+to writers. That is, once a writer arrives, no readers should be allowed to enter
+until all writers have left the system
+'''
+
+class ReadWrite:
+    def __init__(self):
+        noReaders = BoundedSemaphore(1)
+        noWriters = BoundedSemaphore(1)
+        mutex = Semaphore(1)
+        readSwitch = Lightswitch()
+        writeSwitch = Lightswitch()
+
+
+    def read(self):
+        noReaders.wait()
+            readSwitch.lock(noWriters)
+        noReaders.signal()
+            # Critical section
+        readSwitch.unlock(noWriters)
+
+    def writers(self):
+        writeSwitch.lock(noReaders)
+            noWriters.wait()
+                # Critical section
+            noWriters.signal()
+        writeSwitch.unlock(noReaderss)
+
+'''
+When a writer is in the critical section it holds both noReaders and
+noWriters. This has the (relatively obvious) eect of insuring that there are no
+readers and no other writers in the critical section. In addition, writeSwitch
+has the (less obvious) eect of allowing multiple writers to queue on noWriters,
+but keeping noReaders locked while they are there. Thus, many writers can
+pass through the critical section without without ever signaling noReaders.
+Only when the last writer exits can the readers enter.
+Of course, a drawback of this solution is that now it is possible for readers
+to starve (or at least face long delays). For some applications it might be better
+to get obsolete data with predictable turnaround times.
+'''
+
+
   
   
