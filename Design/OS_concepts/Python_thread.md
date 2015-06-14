@@ -43,4 +43,9 @@ mutex.signal()
 ```
 
 
-#### [Reference](http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/)
+#### Reference:
+(http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/)
+* [Different Lock vs RLock](http://stackoverflow.com/questions/22885775/what-is-the-difference-between-lock-and-rlock)
+* [thread.start and thread.join](http://stackoverflow.com/questions/19138219/use-of-threading-thread-join)
+* [Python Synchronized](http://effbot.org/zone/thread-synchronization.htm)
+* [Python Synchronized](http://theorangeduck.com/page/synchronized-python)
