@@ -61,7 +61,7 @@ class Buffer:
         semaphore_room.signal()  # 注意， 这里是room.signal()
         return out
 
-# Polling Solution: Nultiple-Producer Multiple-Consumer
+# Polling Solution: Multiple-Producer Multiple-Consumer
 class Buffer:
     def __init__(self):
         buffersize = 10
@@ -85,20 +85,6 @@ class Buffer:
         return out
 
 ```
-
-
-### Producer-consumer 
-#### Variables 
-
-```python
-mutex = Semaphore(1) # mutex provides exclusive access to the buffer
-items = Semaphore(0) # When items is positive, it indicates the number of items in the buffer
-                     # When it is negative, it indicates the number of consumer threads in queue.
-local event    # event is a local variable, which in this context means that each thread has its own version.
-```
-
-#### Version 1
-
 
 
 
