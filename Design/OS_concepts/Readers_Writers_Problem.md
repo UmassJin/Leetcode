@@ -130,6 +130,13 @@ class ReadWrite:
         writeSwitch.unlock(noReaderss)
 
 '''
+If a reader is in the critical section, it holds noWriters, but it doesn't hold
+noReaders. Thus if a writer arrives it can lock noReaders, which will cause
+subsequent readers to queue.
+
+When the last reader exits, it signals noWriters, allowing any queued writers
+to proceed.
+
 When a writer is in the critical section it holds both noReaders and
 noWriters. This has the (relatively obvious) effect of insuring that there are no
 readers and no other writers in the critical section. In addition, writeSwitch
