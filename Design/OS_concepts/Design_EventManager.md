@@ -2,7 +2,8 @@
 
 ##### Note: Minimize critical section 
 ##### This solution is not the asychronous 
-```
+
+```python
 # Version 1
 class EventManager:
     def __init__(self):
