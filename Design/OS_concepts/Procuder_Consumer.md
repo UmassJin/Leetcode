@@ -2,7 +2,7 @@
 
 * semaphore_items 表示现在有多少资源可以用
 * semaphore_room 表示现在有多少space可以存放资源
-* 
+* _mutex 表示防止多个thread同时修改数值
 
 ```python
 from threading import BoundedSemaphore
