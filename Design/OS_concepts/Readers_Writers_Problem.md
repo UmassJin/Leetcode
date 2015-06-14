@@ -117,16 +117,16 @@ class ReadWrite:
 
     def read(self):
         noReaders.wait()
-            readSwitch.lock(noWriters)
-        noReaders.signal()
+            readSwitch.lock(noWriters)  
+        noReaders.signal()           # this could ensure multiple readers enter into the critical section
             # Critical section
         readSwitch.unlock(noWriters)
 
     def writers(self):
-        writeSwitch.lock(noReaders)
-            noWriters.wait()
+        writeSwitch.lock(noReaders) # once there is writers enter, will block the readers, no readers could enter in the queue
+            noWriters.wait()    
                 # Critical section
-            noWriters.signal()
+            noWriters.signal()    # this allow multiple writers enter, after ALL the writers finished, release readers
         writeSwitch.unlock(noReaderss)
 
 '''
