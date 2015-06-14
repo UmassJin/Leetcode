@@ -131,9 +131,9 @@ class ReadWrite:
 
 '''
 When a writer is in the critical section it holds both noReaders and
-noWriters. This has the (relatively obvious) eect of insuring that there are no
+noWriters. This has the (relatively obvious) effect of insuring that there are no
 readers and no other writers in the critical section. In addition, writeSwitch
-has the (less obvious) eect of allowing multiple writers to queue on noWriters,
+has the (less obvious) effect of allowing multiple writers to queue on noWriters,
 but keeping noReaders locked while they are there. Thus, many writers can
 pass through the critical section without without ever signaling noReaders.
 Only when the last writer exits can the readers enter.
