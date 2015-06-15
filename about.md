@@ -44,14 +44,20 @@ Areas you will need to prepare in advance:
 * based on the Pyramid framework, 
 
 ##### How you cope with problems and conflicts at work (e.g. with team mates)
-* Discussion 
-* 
+* Discussion in the team, point out the advantages and disadvantages between different plans 
+* Check the customer requirement
+* do the A/B testing to check the customer feedback 
 
 ##### Your biggest weaknesses and strengths
 * Advantage:
-   * focus on one things and also a good teamworker 
+   * focus on one thing, for example: blogger iparse, finished it in 3 months by myself 
+   * a good teamworker and good communication skills, like to discussion with people and ask questions in their area, learn more
+   * passionate about learning, furious on different things, and why, what, how
   
 * Disadvantage:
+    * "sometimes lack an attantion in details, While this is somewhat good in that it enables me to execute quickly, it also means that I can make careless mistakes. I have learned that I need to double or triple check important work before
+submitting.", think deeply and also think broadly.
+    * need to arrange the differnt work schedule 
 
 ##### Why you want to work at Facebook (from a developer point of view)
    * I like the company's culture: focus, passion, and fast, focused on building product and services that create a more open and connected world. 
