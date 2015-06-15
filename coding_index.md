@@ -23,8 +23,9 @@
 ####[8. Parentheses Serious](#parentheses-serious)
 ####[9. Duplicate Serious](#duplicate-serious)
 ####[10. Stock Serious](#stock-serious)
-####[11. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
-####[12. Python Buildin Function Usage](#python-buildin-function-usage)
+####[11. Implement Func Serious](#implement-func-serious)
+####[12. Interview Questions not in Leetcode](#interview-questions-not-in-leetcode)
+####[13. Python Buildin Function Usage](#python-buildin-function-usage)
 
 ## DP 
 注：转自cyandterry的总结，并加以适量修改
@@ -934,6 +935,10 @@ _____
 ##### [Best Time to Buy and Sell Stock IV](https://github.com/UmassJin/Leetcode/blob/master/Array/Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV.py)(回看！)
 ##### [Best Time to Buy and Sell Stock I & II & III](https://github.com/UmassJin/Leetcode/blob/master/Array/Best-Time-to-Buy-and-Sell-Stock1%262%263.py)
 
+## Implement Func Serious
+##### [Min Stack](https://github.com/UmassJin/Leetcode/blob/master/Array/Min_Stack.py)
+
+##### [Impletement Queues by Two Stacks](https://github.com/UmassJin/Leetcode/blob/master/Array/Implement%20Queue%20by%20Two%20Stacks.py)
 
 ## Interview Questions not in Leetcode
 | Question | Type |
