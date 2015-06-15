@@ -59,14 +59,20 @@ Areas you will need to prepare in advance:
    * Facebook only has around 10,000 employees, but could reach and service for more than 1 billion people in the world, which is amazing. 
 
 ##### Why we need to hire you ?
-* culture: fit the company's culture, 
+* Culture: fit the company's culture
+* I have the network background and also background about the webapplications 
+* I have spent my spare time to keep learning the tech blogs in your company and have a deep understanding of products
+* Recently, our component need to work with different teams simultaneously, I have been playing this intermediary role in my current position.
 
 ##### Ideas for new features (if you have any)
 * could talk about sth learned from the system design preparation 
 
 ##### Hardest problem you’ve solved
-• Time you went above and beyond at work
-• What you want to work on at Facebook
+
+##### Time you went above and beyond at work
+###### What you want to work on at Facebook
+* distributed systems develop
+* many aspects: like typeahead, newsfeed, graph storage
 
 ##### What kind of position/role/team you are looking for
 * Sth about develop the distributed systems, the scale system 
@@ -76,7 +82,8 @@ Areas you will need to prepare in advance:
 * Cisco is focus on the other generation produce rather than Nexus 7k till now
 
 ##### Why you want to work in a challenging environment
-* Learn a lot of 
+* Learn a lot of new thinks
+* grow up every day 
 
 #####Ideas on how to keep the quality of your work high while moving at a fast speed without a single QA
             
