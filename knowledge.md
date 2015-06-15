@@ -351,3 +351,7 @@ Content-Encoding:gzip
 ```
 
 * [Reference](http://refugeeks.com/using-url-shorteners-301-302-redirects-spam-google/)
+
+#### SSL
+* SSL stands for Secure Sockets Layer. 
+* It provides a secure connection between internet browsers and websites, allowing you to transmit private data online. Sites secured with SSL display a padlock in the browsers URL and possibly a green address bar if secured by an EV Certificate
