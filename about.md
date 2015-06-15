@@ -5,6 +5,7 @@
 a) Search with a query like recruiter *@adobe.com
 * For example: [top 25 recuriter at FB](https://www.linkedin.com/title/recruiter-at-facebook)
 b) Alumni Network 
+
 ##### 2) Prepare the resume 
 
 ####2. 跳槽目的:
@@ -23,13 +24,23 @@ software development to make an impact on Google.
 
 ####4. 工作内容:
 
-| Projects | F3 | Vinci | Blogger | 
+| Projects | Flanker(F3) | Vinci | Blogger | 
 | --- | --- | --- | --- | 
-| Most Challenging | | | | 
-| What You Learned | | | |
-| Influencing Someone | | | | 
-| Conflict | | | | 
-| Mistake | | | | 
+| Most Challenging | details of different traffic flow | Learn the high-level structure, scale issue |  Scale, speed up| 
+| What You Learned | traffic flows | IaaS| build website |
+| Influencing Someone | new product | next generation data center | QA in data center | 
+| Improvement | speed up the component time | improve the scale, reduce the driver calls etc. | 1) more random input 2) add the timestamp, component filter | 
+| Mistake |  | | | 
+
+##### Vinci 
+1. Current data center architectures are unable to meet growing customer needs in terms of scale, service, flexibility, managebility 
+2. Cisco’s solution and strategy is “Vinci” – a next gen data center architecture for scalable multi-tenant data centers – initially targeting Service Provider and Enterprise Data Center segments.  
+3. Multi Tenancy is a critical technology in cloud computing. One instance of application can serve multiple customers by sharing the resources. Important technology for N7K to move towards virtualization. Implemented on Vinci architecture with Spine-Leaf topology 
+4. Vinci provides a next-generation data center architecture that is built on a spine-leaf topology that provides optimal connectivity at Layer-2 and Layer-3 between hosts at the leaf switches in the fabric and between the hosts and the external network. The fabric essentially provides an overlay network that allows the spine nodes to act as transit nodes that only switch on the fabric overlay header. 
+
+##### Flanker
+
+
 
 ####5. Questions
 Cultural Behavior Interview(this interview also has a shorter coding problem in it
