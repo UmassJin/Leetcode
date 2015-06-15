@@ -5,12 +5,16 @@
 a) Search with a query like recruiter *@adobe.com
 * For example: [top 25 recuriter at FB](https://www.linkedin.com/title/recruiter-at-facebook)
 b) Alumni Network 
-
 ##### 2) Prepare the resume 
+
 ####2. 跳槽目的:
 1. I have learned a lot and enjoyed working with currect team recently, but I have joined the Cisco for almost three years and participate in design and develop the 2 generation productions in Nexus 7k, right now, we almost focus on the maintaince of the productions, so I want to try the differnt opportunity outside the Cisco. 
 2. I want to build my experience in a new industry, I’m interested in working at [name of employer] based on the great things I have learned about it. 
-3. Instead of the network area, I want to learn the distributed systems technology, how to handle the scale issues...facebook is the leader in this industry, so working here would mean that I would be at the top of my field. 
+3. Instead of the network area, I want to learn the distributed systems technology, how to build the large systems...facebook is the leader in this industry, so working here would mean that I would be at the top of my field. 
+4. I really believe that the most important thing for any job is to make sure that you’re learning a lot. Whereas at many companies you really learn only about your own team, at Facebook/Google, employees seem to be encouraged to transfer teams, to share knowledge across teams, to do tech talks about their team’s architecture,
+
+I feel confident that I can leverage my academic, professional, and “extracurricular” experience with
+software development to make an impact on Google.
 
 ####3. 工作类型:
 1. Have participated in design and develop two generations in Nexus 7k products, focus on the L2/L3 features on different generations for forwarding ASICs. 
@@ -19,18 +23,33 @@ b) Alumni Network
 
 ####4. 工作内容:
 
+| Projects | F3 | Vinci | Blogger | 
+| --- | --- | --- | --- | 
+| Most Challenging | | | | 
+| What You Learned | | | |
+| Influencing Someone | | | | 
+| Conflict | | | | 
+| Mistake | | | | 
 
 ####5. Questions
-
-Cultural Behavior Interview(this interview also has a shorter coding problem in it)
+Cultural Behavior Interview(this interview also has a shorter coding problem in it
 Areas you will need to prepare in advance:
-* Information on your background as a developer
-* Projects you’re most proud of and that you’ve worked on
-* How you cope with problems and conflicts at work (e.g. with team mates)
+##### Information on your background as a developer
+* Python, C
+* Network, web application
+* learn the distributed systems informaiton by myself
+
+##### Projects you’re most proud of and that you’ve worked on
+* Blogger, iParse 
+* based on the Pyramid framework, 
+
+##### How you cope with problems and conflicts at work (e.g. with team mates)
+* Discussion 
+* 
 
 ##### Your biggest weaknesses and strengths
 * Advantage:
-   * teamwork 
+   * focus on one things and also a good teamworker 
   
 * Disadvantage:
 
@@ -39,12 +58,25 @@ Areas you will need to prepare in advance:
    * I am very interested in the Facebook's products and keep following the news about Facebook, such as the 6-pack, F4, cold storage tech for pictures. But instead of just reading the tech blogs and understanding the open source technology, I wanna participate in the development. 
    * Facebook only has around 10,000 employees, but could reach and service for more than 1 billion people in the world, which is amazing. 
 
-• Ideas for new features (if you have any)
-• Hardest problem you’ve solved
+##### Why we need to hire you ?
+* culture: fit the company's culture, 
+
+##### Ideas for new features (if you have any)
+* could talk about sth learned from the system design preparation 
+
+##### Hardest problem you’ve solved
 • Time you went above and beyond at work
 • What you want to work on at Facebook
-• What kind of position/role/team you are looking for
-• Difficulties/restrictions  about your current work place (e.g. from a technical point of view)
-• Why you want to work in a challenging environment
-• Ideas on how to keep the quality of your work high while moving at a fast speed without a single QA
+
+##### What kind of position/role/team you are looking for
+* Sth about develop the distributed systems, the scale system 
+
+##### Difficulties/restrictions  about your current work place (e.g. from a technical point of view)
+* current work is most about maintaince, little features, almost the same for each generation 
+* Cisco is focus on the other generation produce rather than Nexus 7k till now
+
+##### Why you want to work in a challenging environment
+* Learn a lot of 
+
+#####Ideas on how to keep the quality of your work high while moving at a fast speed without a single QA
             
