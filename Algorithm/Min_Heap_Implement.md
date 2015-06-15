@@ -84,6 +84,8 @@ class Solution:
 * Time complexity:
 * Heapify: O(lg n)
 * Build-Heap: O(n)
+    * [why build heap is O(n)](http://www.cs.umd.edu/~meesh/351/mount/lectures/lect14-heapsort-analysis-part.pdf)
+    * [stack flow](http://stackoverflow.com/questions/9755721/build-heap-complexity)
 * Heap Sort: O(nlogn)
 * Extract-Max: O(logn)
 
