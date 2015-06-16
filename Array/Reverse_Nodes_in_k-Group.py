@@ -27,31 +27,29 @@ class Solution:
     # @param {integer} k
     # @return {ListNode}
     def reverseKGroup(self, head, k):
-        if not head or k < 2: return head
+        if not head or k == 1: return head
+        dummy = ListNode(0)
+        dummy.next = head
+        pre = dummy; cur = dummy
+        num = 0
         
-        next_head = head
-        for i in xrange(k-1): # Note 1) 
-            next_head = next_head.next
-            if not next_head:
-                return head
-        ret = next_head
+        while cur.next:
+            cur = cur.next 
+            num += 1
         
-        current = head
-        while next_head:
-            tail = current 
-            prev = None
-            for i in xrange(k):
-                if next_head:
-                    next_head = next_head.next
-                _next = current.next
-                current.next = prev
-                prev = current 
-                current = _next
-            tail.next = next_head or current  # 注意这里必须是next_head or current 
-            # test case: [1,2,3,4] 2; [1,2,3] 2
-            #tail.next = current
-        return ret
+        while num >= k:
+            cur = pre.next
+            for i in xrange(k-1):
+                tmp = pre.next
+                pre.next = cur.next
+                cur.next = cur.next.next
+                pre.next.next = tmp 
+            
+            pre = cur
+            num -= k
         
-  # 这题的解题思路是，先把next_head 找到第k个节点(Note 1), 然后 ret = next_head, 这个ret将是新的header
-  # 然后将tail 始终指向链表的头部，当reverse done的时候，指向next_head，如果next_head不为空
+        return dummy.next 
+        
   # https://leetcode.com/discuss/20923/simple-python-solution-one-pass-no-additional-space-109ms
+  # https://leetcode.com/discuss/21301/short-but-recursive-java-code-with-comments
+  # https://leetcode.com/discuss/39901/python-o-n-time-o-1-space-recursive-solution
