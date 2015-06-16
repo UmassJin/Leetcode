@@ -1,3 +1,4 @@
+'''
 1. http://www.mitbbs.com/article_t/JobHunting/32005597.html
 1) Implement a simple calculator (+,-,*,/);
     2) Implement "+1" for a large integer;
@@ -1241,4 +1242,4 @@ conque，直到小于16为止。
 代步骤，直到i=n。
 
 
-
+'''
