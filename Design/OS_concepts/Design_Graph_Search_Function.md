@@ -12,6 +12,10 @@
 #### Future
 * Today's Graph Search beta is just the beginning. We're starting with a focus on people, photos, places and interests, but are looking forward to incorporating posts and Open Graph actions, as well as making Graph Search available on mobile and in every language
 
+### Prototype
+* use the exist search field atop each page
+* just enter the user key words
+
 ### [Build out the Infrastructure for Graph Search](https://www.facebook.com/note.php?note_id=10151347573598920)
 * Typeahead: 
     * a new search product
