@@ -87,7 +87,13 @@
                   * for each node id, let's say the peer with id 33, the first peer id is 
                    id >= n + 2^i (mod 2^m)
                   * details see the video, charpter 3.5 P2P
-                
+      * How we place the files?
+         * SHA-1(filename) 160 bit string (key)
+         * File is stored at first peer with id greater than its key (mod 2^m)
+      * How the search works ?
+         * At node n, send query for key k to largest successor/finger entry <= k
+         * if none exist, send query to successor(n)
+      
         
       
       
