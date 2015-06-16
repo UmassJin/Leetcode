@@ -123,4 +123,26 @@ Cassandra 的架构：Cloud Computing Concept的课有讲
     
 
 最后，祝大家都有好offer。
+
+
+
+所以这里我觉得比较有用的准备方法是，在弄明白一个design之前，先要做好几个准备
+
+1. 先把一个process或者一个系统是怎么工作的搞清楚，这里是指，design一个
+service需要cpu，memory，disk，network等等很多component协调工作，这些东西分别
+都在什么时候用到，为什么要有这些东西，分别有什么特点。
+相信大家都很熟悉有一篇文章叫做The numbers eveyone should know，在没有这篇文
+章基础上的design都是瞎扯。
+
+2. 要清楚这个design到底是为了解决什么问题，use case是什么，design一个系统根
+本上讲是为了解决一个存在的problem，这个problem会有general的要求，比如latency
+，比如throughput，比如load，比如哪种操作比较频繁，比如有没有consistency要求
+，是不是reactive，是不是需要highly available，等等等等，这样跟第1点相结合才
+能明白瓶颈可能在哪里，哪些东西可以tradeoff，进而才会有design的solution
+
+3. knowledge base的储备要尽量够，操作系统，distributed system，concurrency这
+些东西很难啃，我也曾经自学过几个大学的distributed system公开课，很多同学想绕
+过这些走捷径，但是越难的东西就越有价值。知识量不够不是问题，看一点补充一点，
+只要能坚持下来，到了一个时间点基本上还是可以有质变的。
+
 '''
