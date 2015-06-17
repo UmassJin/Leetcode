@@ -138,7 +138,7 @@ until down replica comes back up.When all replicas are down, the Coordinator (fr
          * Stabilization Protocol 
       
       * Virtual Nodes
-         * 
+         * ensure load balance
         
       
       
