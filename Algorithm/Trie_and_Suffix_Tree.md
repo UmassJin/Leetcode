@@ -97,7 +97,7 @@ class Trie:
 ```
 
 #### Time complexity 
-* Create Trie: O(n*len) (n is number of total wors, len is the length of word)
+* Create Trie: O(n*len) (n is number of total words, len is the length of word)
 * Insert: O(m) (m is the length of insert word)
 * Search: O(m) (m is the length of search word)
 
