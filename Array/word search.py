@@ -86,3 +86,5 @@ class Solution:
 
         return result 
         
+# Time complexity: O(m^2*n^2) or O(m*n*4^len*(word))
+# Space complexity: O(m*n)
