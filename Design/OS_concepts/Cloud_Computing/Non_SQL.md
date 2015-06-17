@@ -94,6 +94,21 @@
          * At node n, send query for key k to largest successor/finger entry <= k
          * if none exist, send query to successor(n)
       
+      * How we handle the failures ? 
+         * we may not find the node which store the data 
+            * Save r successors in table
+            * Choose r = 2log(N) suffices to maintain lookup
+         * if the node which save the data has failure 
+            * duplicate the key in the Predecessors and successors
+      
+      * When the new node inserted
+         * update the successor and predesessor
+         * talks to neighbors to update finger table (Stablization protocol used by each node)
+         * a new peer affects O(logN) other finger entries in the system 
+         * Stabilization Protocol 
+      
+      * Virtual Nodes
+         * 
         
       
       
