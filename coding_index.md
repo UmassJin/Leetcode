@@ -940,6 +940,8 @@ _____
 
 ##### [Impletement Queues by Two Stacks](https://github.com/UmassJin/Leetcode/blob/master/Array/Implement%20Queue%20by%20Two%20Stacks.py)
 
+##### [Add and Search Word - Data structure design](https://github.com/UmassJin/Leetcode/blob/master/Array/Add%20and%20Search%20Word%20-%20Data%20structure%20design.py)
+
 ## Interview Questions not in Leetcode
 | Question | Type |
 |:---|:---|
