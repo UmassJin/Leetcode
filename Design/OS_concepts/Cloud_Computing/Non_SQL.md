@@ -34,7 +34,37 @@
 
 * Cassandra
   * a distributed key-value store
-
+     * Based on the Distributed Hash Table (DHT), each data center keep a ring store servers and keys
+     * Coordinator could be per query/client/data center based 
+     * Instead of using the finger table, Coordinator need to know all the keys store in which nodes
+       (include the duplicate nodes), 
+  
+  * Replication Strategy (two options)
+      * SimpleStrategy
+      * NetworkTopologyStrategy
+      * SimpleStrategy: uses the Partitioner, of which there are two kinds
+         * 1. RandomPartitioner: Chord-like hash partitioning
+         * 2. ByteOrderedPartitioner: Assigns ranges of keys to servers.
+               * Easier for range queries (e.g., get me all twitter users starting with [a-b])
+      * NetworkTopologyStrategy: for multi-DC deployments
+         * Two replicas per DC
+         * Three replicas per DC
+         * Per DC
+            * How to set the replicas in per DC
+               * First replica placed according to Partitioner
+               * Then go clockwise around ring until you hit a different rack
+   * Snitches:
+      * Maps IPs to racks and DCs,  Configured in cassandra.yaml config file
+         * SimpleSnitch: Unaware of Topology (Rack-unaware)
+         * RackInferring: Assumes topology of network by octet of server’s IP address
+            * 101.201.301.401 = x.<DC octet>.<rackoctet>.<node octet>
+         * PropertyFileSnitch: uses a config file
+   
+  * Writes (Check the slides, important !) 
+      * Hinted Handoff mechanism 
+          * If any replica is down, the coordinator writes to all other replicas, and keeps the write locally
+until down replica comes back up.When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).   
+      * Election of coordinate per datacenter using ZooKeeper
 
 
 * P2P Systems
