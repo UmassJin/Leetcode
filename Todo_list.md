@@ -5,7 +5,7 @@
     * [x] Operation System Concept 
     * [ ] CDN
     * [ ] Graph Storage System
-    * [ ] DHT
+    * [x] DHT
     * [ ] Map Reduce 
     * [ ] OOD
 
@@ -21,6 +21,6 @@
 4. Behavior Question:
     * [x] project in the resume 
 
-LeetCode Round:
-LinkedList Done
-Backtrack 
+* LeetCode Round:
+      * LinkedList Done
+      * Backtrack 
