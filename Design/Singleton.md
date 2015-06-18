@@ -8,6 +8,7 @@ So we need to build a class that does not work like standard classes, which retu
 * [Different Methods to implement Singleton](http://stackoverflow.com/questions/6760685/creating-a-singleton-in-python)
 
 ##### Code:
+```python
 import threading 
 
 class Solution:
@@ -21,3 +22,4 @@ class Solution:
                 if not cls.__obj:
                     cls.__obj = cls()
         return cls.__obj
+```
