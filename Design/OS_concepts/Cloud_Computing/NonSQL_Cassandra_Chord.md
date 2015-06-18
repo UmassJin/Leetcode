@@ -199,6 +199,7 @@ until down replica comes back up.
    * Strong Consistency Model
          * Linerizability
          * Sequential Consistency 
+         * NewSQL system: Hyperdex(Connel), Spanner(Google)
 
 
 * P2P Systems
