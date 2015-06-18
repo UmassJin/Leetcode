@@ -201,6 +201,7 @@ until down replica comes back up.
          * Sequential Consistency 
          * NewSQL system: Hyperdex(Connel), Spanner(Google)
 
+![pic](https://cloud.githubusercontent.com/assets/9062406/8223959/e283eeee-1533-11e5-93c7-65d89a573a7e.png)
 
 * P2P Systems
     * A. Gnutella
