@@ -177,7 +177,7 @@ until down replica comes back up.
       * Client is allowed to choose a consistency level for each operation (read/write)
          * ANY: any server (may not be replica)
             * Fastest: coordinator caches write and replies quickly to client
-         * ALL: all replicas 
+         * ALL: all replicas (this is the lowest for the Read, since need to all the replic replied)
             * Ensures strong consistency, but slowest 
          * ONE: at least one replica
             * Faster than ALL, but cannot tolerate a failure
