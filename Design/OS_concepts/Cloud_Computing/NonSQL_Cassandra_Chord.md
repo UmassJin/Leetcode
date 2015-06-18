@@ -196,6 +196,9 @@ until down replica comes back up.
                   * (W=N, R=1): great for read-heavy workloads
                   * (W=N/2+1, R=N/2+1): great for write-heavy workloads
                   * (W=1, R=N): great for write-heavy workloads with mostly one client writing per key
+   * Strong Consistency Model
+         * Linerizability
+         * Sequential Consistency 
 
 
 * P2P Systems
