@@ -122,8 +122,20 @@ until down replica comes back up. When all replicas are down, the Coordinator (f
             * Add a tombstone to the log
             * Eventually, when compaction encounters tombstone it will delete item
             
-      * Read
-         * 
+      * Reads
+         * Read: Similar to writes, except
+            * Coordinator can contact X replicas (e.g., in same rack)
+                 *Coordinator sends read to replicas that have responded quickest in past
+                 * When X replicas respond, coordinator returns the latest-timestamped value from among those X
+                 * (X? We’ll see later.)
+            * Coordinator also fetches value from other replicas(some of values may be older, some maybe newer)
+                 * Checks consistency in the background, initiating a read repair if any two values are different
+                 * This mechanism seeks to eventually bring all replicas up to date
+            * A row may be split across multiple SSTables => reads need to touch multiple SSTables => reads slower than write(but still fast)
+      
+      * Membership
+         * Goosip Style membership
+
 
 * P2P Systems
     * A. Gnutella
