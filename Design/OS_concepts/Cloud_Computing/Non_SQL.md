@@ -36,36 +36,94 @@
   * a distributed key-value store
      * Based on the Distributed Hash Table (DHT), each data center keep a ring store servers and keys
      * Coordinator could be per query/client/data center based 
+     * Each data center will have a ring 
+     * there is no finger/routing tables in Cassandra ring
      * Instead of using the finger table, Coordinator need to know all the keys store in which nodes
        (include the duplicate nodes), 
-  
+   
+   * Partitionar: which find the servers to the particular key in the coordinator   
+
   * Replication Strategy (two options)
-      * SimpleStrategy
-      * NetworkTopologyStrategy
+      * A. SimpleStrategy
+      * B. NetworkTopologyStrategy
+      
       * SimpleStrategy: uses the Partitioner, of which there are two kinds
          * 1. RandomPartitioner: Chord-like hash partitioning
          * 2. ByteOrderedPartitioner: Assigns ranges of keys to servers.
+               * maintain a table in Cassandra, preserve the ordering of the keys in there, like timestamp 
                * Easier for range queries (e.g., get me all twitter users starting with [a-b])
+               * it's not based on the hash, just map the key value to the ring, so the order of keys in the real spaces 
+                 is the same in the ring space 
+
       * NetworkTopologyStrategy: for multi-DC deployments
          * Two replicas per DC
          * Three replicas per DC
          * Per DC
             * How to set the replicas in per DC
                * First replica placed according to Partitioner
-               * Then go clockwise around ring until you hit a different rack
+               * Then go clockwise around ring until you hit a different rack, rack failure tolerance 
+               
    * Snitches:
       * Maps IPs to racks and DCs,  Configured in cassandra.yaml config file
          * SimpleSnitch: Unaware of Topology (Rack-unaware)
          * RackInferring: Assumes topology of network by octet of server’s IP address
             * 101.201.301.401 = x.<DC octet>.<rackoctet>.<node octet>
          * PropertyFileSnitch: uses a config file
+         * EC2Snitch: uses EC2
    
   * Writes (Check the slides, important !) 
+      * The basic sequence: 
+         * Client sends write to one coordinator node in Cassandra cluster
+               * Coordinator may be per-key, per-client, or perquery 
+               * Per-key Coordinator ensures writes for the key are serialized
+         * Coordinator uses Partitioner to send query to all replica nodes responsible for key
+         * When X replicas respond, coordinator returns an acknowledgement to the client
+         
       * Hinted Handoff mechanism 
           * If any replica is down, the coordinator writes to all other replicas, and keeps the write locally
-until down replica comes back up.When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).   
-      * Election of coordinate per datacenter using ZooKeeper
+until down replica comes back up. When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).   
+          * When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).
+          * Coordinatior has the time-out of store 
+      * One ring per datacenter
+          * Per-DC coordinator elected to coordinate with other DCs, this coordinator is different with the coordinator
+            used in the query 
+          * Election of coordinate per datacenter using ZooKeeper
+      
+      * What's the replic do when the coordinator forwards the write ?
+          * On receiving a write
+            * 1. Log it in disk commit log (for failure recovery), if there is any failure for the replic, after it recovered,
+                 it could check this disk commit log and find if there are some writes finished partially, will ask for 
+                 coordinator to get the informaiton 
 
+            * 2. Make changes to appropriate memtables
+               * Memtable = In-memory representation of multiple keyvalue pairs
+               * Cache that can be searched by key
+               * Write-back cache(stored intentatively in memory) as opposed to write-through (write directly to the disk called write-through cache)
+               
+            * Later, when memtable is full or old, flush to disk, so SSTable, Index table and bloom filter are in disk
+               * Data file: An SSTable (Sorted String Table) – list of key-value pairs, sorted by key
+               * Index file: An SSTable of (key, position in data sstable) pairs, which is reduce the lookup time in SSTable
+               * sometimes we need to check the exist key in the table, but key not in memtable, how we check the SSTable ?
+                 if we use the binary search, very slow (O(logN))
+               * And a Bloom filter (for efficient search) 
+            
+            * Bloom Filter 
+               * use k hash functions 
+               * for each key-k, use k hash functions to map to the bit map and set as 1
+               * false positives 
+               * never false negatives 
+               
+      * Compaction
+         * Data updates accumulate over time and SStables and logs need to be compacted
+               * The process of compaction merges SSTables, i.e., by merging updates for a key
+               * Run periodically and locally at each server
+      * Delete
+         * Delete: don’t delete item right away
+            * Add a tombstone to the log
+            * Eventually, when compaction encounters tombstone it will delete item
+            
+      * Read
+         * 
 
 * P2P Systems
     * A. Gnutella
