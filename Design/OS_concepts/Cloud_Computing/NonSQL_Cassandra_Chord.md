@@ -81,7 +81,7 @@
          
       * Hinted Handoff mechanism 
           * If any replica is down, the coordinator writes to all other replicas, and keeps the write locally
-until down replica comes back up. When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).   
+until down replica comes back up. 
           * When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours).
           * Coordinatior has the time-out of store 
       * One ring per datacenter
@@ -135,6 +135,67 @@ until down replica comes back up. When all replicas are down, the Coordinator (f
       
       * Membership
          * Goosip Style membership
+      
+      * Cassandra VS RDBMS 
+        * MySQL
+            * Writes 300 ms avg
+            * Reads 350 ms avg
+        * Cassandra
+            * Writes 0.12 ms avg
+            * Reads 15 ms avg
+
+* CAP
+   * Consistency: all nodes see same data at any time, or reads return latest written value by any client
+      * When you access your bank or investment account via multiple clients (laptop, workstation, phone, tablet), you want the updates done from one client to be visible to other clients.
+      * When thousands of customers are looking to book a flight, all updates from any client (e.g., book a flight) should be accessible by other clients.
+   * Availability: Reads/writes complete reliably and quickly.
+   * Partition-tolerance
+      * Partitions can happen across datacenters when the Internet gets disconnected
+      * Internet router outages
+      * Under-sea cables cut
+      * DNS not working
+      * can occur within a datacenter
+   
+   * Since partition-tolerance is essential in today’s cloud computing systems, CAP theorem implies that a system has to choose between consistency and availability
+      * Cassandra
+         * Eventual (weak) consistency, availability, partition-tolerance 
+         * Traditional RDBMSs, only exist in the single servers, so do not need to care P
+            * Strong consistency over availability under a partition
+   
+   * RDBMS vs Key-Value Stores
+      * While RDBMS provide ACID
+         * Atomicity
+         * Consistency
+         * Isolation
+         * Durability   
+      * Key-value stores like Cassandra provide BASE
+         * Basically Available, Soft-state(in-memory infomraiton like memtable),  Eventual consistency
+         * Prefers availability over consistency
+      
+   * Consistency level in Cassendra
+      * Cassandra has consistency levels
+      * Client is allowed to choose a consistency level for each operation (read/write)
+         * ANY: any server (may not be replica)
+            * Fastest: coordinator caches write and replies quickly to client
+         * ALL: all replicas 
+            * Ensures strong consistency, but slowest 
+         * ONE: at least one replica
+            * Faster than ALL, but cannot tolerate a failure
+         * QUORUM: quorum across all replicas in all datacenters (DCs) (Important !)
+            * Quorum = majority > 50 % 
+            * Any two quorums intersect
+                  * Client 1 does a write in red quorum
+                  * Then client 2 does read in blue quorum
+            * At least one server in blue quorum returns latest write
+            * Quorums faster than ALL, but still ensure strong consistency
+            * Read R(<= N), Write W(<= N)
+               * W+R > N (intersection at least one server in W and R)
+               * W > N/2 (conflict detect)
+               * Select values based on application
+                  * (W=1, R=1): very few writes and reads
+                  * (W=N, R=1): great for read-heavy workloads
+                  * (W=N/2+1, R=N/2+1): great for write-heavy workloads
+                  * (W=1, R=N): great for write-heavy workloads with mostly one client writing per key
 
 
 * P2P Systems
