@@ -81,8 +81,7 @@ The Official Google Blog: “Baby steps to a new job” by Gretta Cook (Google E
 http://googleblog.blogspot.com/2008/01/baby-steps-to-new-job.html
 “How to Get Hired” by Dan Kegel (Google Engineer)
 http://www.kegel.com/academy/getting-hired.html
-鏉ユ簮涓€浜�.涓夊垎鍦拌鍧�. 
-.鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
+
 BOOKS:
 (#2 was highly recommended by several engineers and quite representative of the types of coding questions asked)
 
@@ -104,7 +103,7 @@ Google Bigtable http://research.google.com/archive/bigtable.html
 Google MapReduce http://research.google.com/archive/mapreduce.html
 
 4.) Sorting: Know how to sort. Don't do bubble-sort. You should know the details of at least one n*log(n) sorting algorithm, preferably two (say, quicksort and merge sort). Merge sort can be highly useful in situations where quicksort is impractical, so take a look at it.
-.鐣欏璁哄潧-涓€浜�-涓夊垎鍦�
+
 5.) Hashtables: Arguably the single most important data structure known to mankind. You absolutely should know how they work. Be able to implement one using only arrays in your favorite language, in about the space of one interview.
 
 6.) Trees: Know about trees; basic tree construction, traversal and manipulation algorithms. Familiarize yourself with binary trees, n-ary trees, and trie-trees. Be familiar with at least one type of balanced binary tree, whether it's a red/black tree, a splay tree or an AVL tree, and know how it's implemented. Understand tree traversal algorithms: BFS and DFS, and know the difference between inorder, postorder and preorder.. 鍥磋鎴戜滑@1point 3 acres
@@ -122,3 +121,6 @@ http://research.google.com/pubs/ ... allelComputing.html
 
 11.) Also, you can review some of our research publications: http://research.google.com/pubs/papers.html
 '''
+
+
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=97950&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26sortid%3D311
