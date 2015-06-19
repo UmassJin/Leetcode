@@ -131,7 +131,7 @@ TypeError: 'str' object does not support item assignment
 Jello, world!
 ```
 
-#### (String Operations example)[http://www.tutorialspoint.com/python/python_strings.htm]
+#### [String Operations example](http://www.tutorialspoint.com/python/python_strings.htm)
 * String could use "+" as Concatenation. 
 
 #### Compare reverse the string and reverse the list
