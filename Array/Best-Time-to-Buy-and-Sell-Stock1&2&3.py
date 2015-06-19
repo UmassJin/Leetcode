@@ -4,6 +4,20 @@ If you were only permitted to complete at most one transaction
 (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
 class Solution:
+    # @param {integer[]} prices
+    # @return {integer}
+    def maxProfit(self, prices):
+        if not prices or len(prices) < 2: return 0
+        maxprofit = 0
+        minvalue = 1 << 31 - 1
+        
+        for price in prices:
+            minvalue = min(minvalue, price)
+            maxprofit = max(maxprofit, price - minvalue)
+        
+        return maxprofit 
+
+class Solution:
     # @param prices, a list of integer
     # @return an integer
     def maxProfit(self, prices):
@@ -24,6 +38,20 @@ transactions at the same time (ie, you must sell the stock before you buy again)
 
 The optimization solution is add ALL the profits if Prices[i]>Prices[i-1]
 73ms
+
+class Solution:
+    # @param {integer[]} prices
+    # @return {integer}
+    def maxProfit(self, prices):
+        if not prices or len(prices) < 2: return 0
+        profit = 0
+        
+        for i in xrange(1, len(prices)):
+            if prices[i] > prices[i-1]:
+                profit += prices[i] - prices[i-1]
+                i += 1
+        return profit 
+
 class Solution:
     # @param prices, a list of integer
     # @return an integer
