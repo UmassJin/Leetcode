@@ -36,6 +36,7 @@
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8268024/90888042-172b-11e5-92d0-5b333ddff6d9.png)
 
+* Resource Scheduling 
 * YARN (Yet Another Resource Negotiator)
       * Treats each server as a collection of containers
          * Container = some CPU + some memory
@@ -49,5 +50,32 @@
          * Per-application (job) Application Master (AM)
             * Container negotiation with RM and NMs
             * Detecting task failures of that job
-       
+
+![pic](https://cloud.githubusercontent.com/assets/9062406/8268074/387be0aa-172c-11e5-86d9-1e50e82bfa97.png)       
+      
+* Fault Tolerance
+      * Server Failure 
+         * Server running the Node Manager, tasks, one of the server running the Resource Manager, and Application Master also running in the server 
+         * NM send hearbeats to RM
+            * when the server fails, RM lets all affected AMs know in the failure Node(server), and reschedule all the tasks in that Node
+         * NM keeps track of each task running at its server
+            * If task fails while in-progress, mark the task as idle and restart it
+         * AM heartbeats to RM
+            * On failure, RM restarts AM, which then syncs up with its running tasks
+      
+      * RM failure
+         * Use old checkpoints and bring up secondary RM
+      
+      * Heartbeats also used to piggyback container requests
+         * Avoid extra messages 
+   
+   * Slow server
+      * the slowes machine slows the entire job, (maybe the CPU issue, Bad Disk, Network Bandwidth or memory)
+         * since all the Map tasks need to finished before the Reduce tasks
+      * keep track of "progress" of each task (% done)
+      * perform backup (replicated) execution of straggler task: task considered done when first replica complete
+         called Speculative Execution
+
+   ![pic](https://cloud.githubusercontent.com/assets/9062406/8268174/7b07aae0-1730-11e5-8ceb-3bf483252413.png)
+  
       
