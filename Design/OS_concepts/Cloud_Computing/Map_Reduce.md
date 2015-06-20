@@ -19,3 +19,6 @@
       * Sorting as an application becomes very simple to write
 
 * [Implement](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Map_Reduce.py)
+
+* Programming MapReduce
+      * 
