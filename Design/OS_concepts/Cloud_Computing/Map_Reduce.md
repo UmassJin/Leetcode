@@ -34,6 +34,8 @@
       * 7. These file systems will store multiple replicas for the input data block, typlically multiple the input files for 3 times in 3 different servers, when the Map tasks start, it needs to fetch the input data block from whatever the server store it correctly, it fast if the Map task and DFS in the same server
       * 8. The output of the Map task will save in local file system, this shuffle between Map task and Reduce task need fast and do not visiable for users, you do not want to overhead the DFS, which has duplicate in different, you only want the output of Map task as fast as possible.
 
+![pic](https://cloud.githubusercontent.com/assets/9062406/8268024/90888042-172b-11e5-92d0-5b333ddff6d9.png)
+
 * YARN (Yet Another Resource Negotiator)
       * Treats each server as a collection of containers
          * Container = some CPU + some memory
