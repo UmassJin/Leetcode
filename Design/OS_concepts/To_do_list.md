@@ -14,7 +14,7 @@
 * [x] [Design a tinyurl system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_tiny_URL.md)
 * [ ] Design a garbage collection system
 * [ ] [Design a scalable web crawling system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Search_Engine.md)
-* [ ] Design the Facebook chat function
+* [x] [Design the Facebook chat function](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Facebook_Chat.md)
 * [ ] Design a trending topic system
 * [ ] [Design a cache system](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Memcache.md)
 * [x] [Design a spreads Sheet](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Spreadsheet_OOD.md)
