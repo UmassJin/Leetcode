@@ -136,8 +136,8 @@ Math:
 #### 3. Abstract Design
 ##### 1. Application service layer (serves the requests)
 * Shortening service: 
-    a) Generate the hash, checking if it is in the database, if already used, will keep generating until one unused is find
-    b) For the customer URL, check if it is in the data store
+    * a) Generate the hash, checking if it is in the database, if already used, will keep generating until one unused is find
+    * b) For the customer URL, check if it is in the data store
 * Rediction service 
 
 ##### 2. Data storage layer (keeps track of the hash => URL mapping)
