@@ -148,8 +148,8 @@ Math:
     * 3) The MD5 message-digest algorithm is a widely used cryptographic hash function producing a 128-bit (16-byte) hash value, typically expressed in text format as a 32 digit hexadecimal number.  
 
 ##### 3. Understanding Bottlenecks
-    * 1) Traffic - not going to be very hard
-    * 2) Lots of data - more interesting
+    * 1. Traffic - not going to be very hard
+    * 2. Lots of data - more interesting
   
 
 #### 4. Scaling your abstract design 
