@@ -141,14 +141,14 @@ Math:
 
 ##### 2. Data storage layer (keeps track of the hash => URL mapping)
 
-* Acts like a big hash table: stores new mappings, and retrieves a value given a key.
-  1) hashed_url = convert_to_base_62(md5(original_url + random_salt))[:6]
-  2) Base 62 是一种short ulr的encoding, encode之后只有62种字符0-9 a-z A-Z
-  3) The MD5 message-digest algorithm is a widely used cryptographic hash function producing a 128-bit (16-byte) hash value, typically expressed in text format as a 32 digit hexadecimal number.  
+* Acts like a big hash table: stores new mappings, and retrieves a value given a key.\
+    * 1) hashed_url = convert_to_base_62(md5(original_url + random_salt))[:6]
+    * 2) Base 62 是一种short ulr的encoding, encode之后只有62种字符0-9 a-z A-Z
+    * 3) The MD5 message-digest algorithm is a widely used cryptographic hash function producing a 128-bit (16-byte) hash value, typically expressed in text format as a 32 digit hexadecimal number.  
 
 ##### 3. Understanding Bottlenecks
-  1) Traffic - not going to be very hard
-  2) Lots of data - more interesting
+    * 1) Traffic - not going to be very hard
+    * 2) Lots of data - more interesting
   
 
 #### 4. Scaling your abstract design 
