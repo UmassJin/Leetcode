@@ -120,3 +120,37 @@ print find_h_index(test3)
 如果A[mid]值大于distance，那么继续向低位找end=mid-1。如果低位找到更大的distance，那么返回低位的，
 如果低位没找到更大的，就返回现在的distance。
 '''
+
+
+
+
+'''
+给一个数，要求把这个数分解成一些平方数的和，并且要求使用最短的平方数list 如 13 = 9 + 4 而不是 13 = 4+4+4+1
+'''
+def min_square(n):
+    dp = [0 for i in xrange(n + 1)]
+    dp[0] = 0; dp[1] = 1
+    
+    for i in xrange(2, n+1):
+        res = 1<<31 - 1
+        for j in xrange(1, i):
+            if j * j  > i:
+                break
+            else:
+                res = min(res, dp[i - j*j] + 1)
+        dp[i] = res
+        print "dp[%d]: %d" %(i, dp[i])
+    return dp[n]
+
+n = 12
+print min_square(n)
+
+
+'''
+第二问本质上是个DP题。思路如下，要求和为n的最小平方数序列，先求出和为1到n-1的最小平方数序列。然后从1到n的平方根之间寻找和为（n-i*i）的数的最短平方序列。1<i<sqrt(n)
+例如求和为12的最短的平方 序列 
+f（12） = 3*3 + f（3） f（3） = 1 + 1 + 1  i = 3 结果为 12 = 9 + 1 + 1 + 1
+f（12）=  2*2+ f( 8 )   f( 8 ) = 4 + 4   i = 2 结果为 12 = 4 + 4 + 4
+f（12） = 1*1 + f（11） f（11）= 9+1+1 结果为 12 = 9 + 1 + 1 + 1
+最后正确结果为 12 = 4 + 4 + 4
+'''
