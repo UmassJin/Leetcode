@@ -1,5 +1,5 @@
 * [ ] Design a CDN network
-* [ ] [Design a Google document system](https://neil.fraser.name/writing/sync/)
+* [x] [Design a Google document system](https://neil.fraser.name/writing/sync/)
 * [ ] Design a random ID generation system
 * [x] [Design a key-value database (Dynamo, Redis)](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Dynamo_Design.md)
 * [x] [Design the Facebook news seed function](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_New_Feed.md)
