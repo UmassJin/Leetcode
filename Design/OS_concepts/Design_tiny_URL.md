@@ -10,6 +10,7 @@
 
 ##### Improve the scalability:
 ###### More URLs: use multiple backend data-server: database sharding 
+
 * Distribute long_urls to N data-servers by round-robin, and each data-server has it’s own range of short_url.
 * Given short_url, find which data-server it belongs to, and send request only to that data-server.
 * Each data-server get 1/N write and (approx.) 1/N read.
@@ -109,16 +110,16 @@ Cache entries may also be disabled or locked depending on the context.
 * We: 100 Million URLs each month 
 
 Math:
-1. New URLs per month: 100 Million (shortening requests)
-2. 1 Billion requests per month 
-3. 10% from shortening and 90% from redirection 
-4. Requests per second: 400+ requests per sec (40 shortens, 360: redirects)
-5. Total URLs: 5 years x 12 months x 100 mins = 6 billion URLs in 5 years
-6. 500 bytes per URL, URL is case sensitive !
-7. 6 bytes per hash 
-8. 3 TBs for all urls, 36 GB for all hashes (over 5 years)
-9. New data written per second: 40 * (500+6): 20K
-10. Data read per second: 360 * 506 bytes: 180 K
+* 1. New URLs per month: 100 Million (shortening requests)
+* 2. 1 Billion requests per month 
+* 3. 10% from shortening and 90% from redirection 
+* 4. Requests per second: 400+ requests per sec (40 shortens, 360: redirects)
+* 5. Total URLs: 5 years x 12 months x 100 mins = 6 billion URLs in 5 years
+* 6. 500 bytes per URL, URL is case sensitive !
+* 7. 6 bytes per hash 
+* 8. 3 TBs for all urls, 36 GB for all hashes (over 5 years)
+* 9. New data written per second: 40 * (500+6): 20K
+* 10. Data read per second: 360 * 506 bytes: 180 K
 
 * All shortened URLs per Month: 1.5 Billion 
 * Sites below the top3: 300 M per month 
