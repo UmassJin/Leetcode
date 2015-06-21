@@ -84,7 +84,7 @@ print permutation_number(test2)
 # Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
 
 '''
-find h index element in the array, n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
+find h index element in the array, at least n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
 '''
 def find_h_index(arr):
     n = len(arr) - 1
