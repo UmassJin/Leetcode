@@ -157,7 +157,7 @@ Math:
       * Start with one machine
       * Measure how far it take us(load tests)
       * Add a load balancer + a cluster of machines over time
-        1. to deal with spiky traffice
+        1. to deal with spiky traffic
         2. Also avoid single failure and increase the availability
    2. Data Storage Layer
       1. What's data?
