@@ -114,7 +114,7 @@ Math:
 * 2. 1 Billion requests per month 
 * 3. 10% from shortening and 90% from redirection 
 * 4. Requests per second: 400+ requests per sec (40 shortens, 360: redirects)
-* 5. Total URLs: 5 years x 12 months x 100 mins = 6 billion URLs in 5 years
+* 5. Total URLs: 5 years x 12 months x 100 million/month = 6 billion URLs in 5 years
 * 6. 500 bytes per URL, URL is case sensitive !
 * 7. 6 bytes per hash 
 * 8. 3 TBs for all urls, 36 GB for all hashes (over 5 years)
