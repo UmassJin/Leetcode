@@ -113,5 +113,10 @@ print find_h_index(test1)
 print find_h_index(test2)
 print find_h_index(test3)
 
-
-
+'''
+具体思路如下，其实就是binary search。 首先根据start和end得出mid，看A[mid]值是否大于数组长度减去mid
+(假设A.length-mid = distance），如果是那么distance有可能成为h index. 因为数组有序，如果distance小于A[mid]，
+那么有distance个元素的值大于distance。 此时如果A[mid]值小于distance，那么继续向高位找，start=mid+1。
+如果A[mid]值大于distance，那么继续向低位找end=mid-1。如果低位找到更大的distance，那么返回低位的，
+如果低位没找到更大的，就返回现在的distance。
+'''
