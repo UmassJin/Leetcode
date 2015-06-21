@@ -152,4 +152,33 @@ Math:
     * 2. Lots of data - more interesting
   
 
-#### 4. Scaling your abstract design 
+##### 4. Scaling your abstract design 
+   1. Application Service Layer
+      * Start with one machine
+      * Measure how far it take us(load tests)
+      * Add a load balancer + a cluster of machines over time
+        1. to deal with spiky traffice
+        2. Also avoid single failure and increase the availability
+   2. Data Storage Layer
+      1. What's data?
+         * Billions of objects
+         * Each object is fairly small(<1k)
+         * There are no relationship between the objects
+         * Reads are 9x more frequent thant writes(360 reads, 40 writes per second)
+         * 3TBs of urls, 36GB of hashes
+      2. NoSQL vs Relation SQL
+         * MySQL:
+           * Widely used
+           * Mature technology
+           * Clear Scaling Paradimgs(sharding, master/slave replication, master/master replication)
+           * Used by Facebook, Twitter, Google etc
+           * Index lookups are very fast
+         * Mappings
+           * hash: varchar(6)
+           * original_url: varchar(512)
+      3. Create a unique index on the hash(36GB+). We want to hold it in memory to speed up lookups.
+         1. Vertical Scaling of the MySQL machine (memory is cheap) (vertical for a while)
+         2. Partition the data: 5 partitions, 600GB of data, 8GB of indexes (Eventually partiion)
+            * We can add more shards in the future. Easier for backup and replicate
+            * Default idea of this is: get the first char from the ```hash % num_of_partition```
+      4. Master/Slave replication(reading from the slave replicas, writes to the master)(如果有一天read/write不balance了的话) Master/Master
