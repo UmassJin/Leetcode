@@ -61,4 +61,6 @@ write the sorted list of URLs out to disk and switch to bulk mode.
       * We now use the Red-Black tree in main memory to buffer newly encountered URLs, and periodically merge the memory-resident data into the disk-resident data using a simple scan-and-copy operation, during which all necessary lookups and insertions are performed.
 
 * Domain-Based Throttling 
+* Crawl Manager Data Structures
+   ![pic](https://cloud.githubusercontent.com/assets/9062406/8276520/26662ef2-186c-11e5-9d8f-c32263bfb230.png)
       
