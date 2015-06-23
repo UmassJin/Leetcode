@@ -1022,3 +1022,5 @@ True
 * 对于数字的处理，还需要考虑到max_int 和 min_int, 注意float('inf')和float('-inf')的用法
 * 在对string处理的时候，可以提问的点: 是否允许duplicate ? 是否允许order changes ?  是否允许change the original string ?
 * 注意iterate的时候要用xrange, for i in xrange(n)
+* The / (division) and // (floor division) operators yield the quotient of their arguments. The numeric arguments are first converted to a common type. Plain or long integer division yields an integer of the same type; the result is that of mathematical division with the ‘floor’ function applied to the result. Division by zero raises the ZeroDivisionError exception
+* https://docs.python.org/2/reference/expressions.html#binary-arithmetic-operations
