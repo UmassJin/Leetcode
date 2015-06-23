@@ -996,6 +996,14 @@ True
 ```
 
 #### 5. string.ascii_lowercase and collections.deque()
+
+#### 6. re (regular expression)
+* re.findall('\d+|\S', s)
+* example question [Basic Calculator2](https://github.com/UmassJin/Leetcode/blob/master/Array/Basic_Calculator2.py)
+
+#### 7. [iteration](http://anandology.com/python-practice-book/iterators.html)
+* example question [Basic Calculator2](https://github.com/UmassJin/Leetcode/blob/master/Array/Basic_Calculator2.py)
+
 ##### [Word Ladder](https://github.com/UmassJin/Leetcode/blob/master/Array/word_ladder.py)
 
 ## Design Pattern
