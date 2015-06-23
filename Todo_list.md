@@ -1,12 +1,12 @@
 1. Design:
-    * [ ] class 6 video. 
+    * [x] class 6 video. 
     * [ ] Harvard Class video 
     * [ ] Python OOD 
     * [x] Operation System Concept 
     * [ ] CDN
     * [ ] Graph Storage System
     * [x] DHT
-    * [ ] Map Reduce 
+    * [x] Map Reduce 
     * [ ] OOD
 
 2. Algorithm:
