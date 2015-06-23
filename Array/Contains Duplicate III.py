@@ -13,14 +13,15 @@ class Solution:
         idict = collections.OrderedDict() # 用 ordered dict to track the order of the key 
         
         for num in nums:
-            bucket = num if t == 0 else num // t
+            bucket = num if t == 0 else num // t # 这里要考虑到 t == 0 的情况
             
             for m in (idict.get(bucket-1), idict.get(bucket), idict.get(bucket+1)):
                 if m != None and abs(num - m) <= t:  # here we could not use "if m ", since if m == 0: it will also return False!
                     return True 
                     
-            if len(idict) == k: 
+            if len(idict) == k:  # 这里先check长度，再将新的num存入idict，因为倘若新的元素满足条件，在上面的check中已经check过.
                 idict.popitem(False)
+                
             idict[bucket] = num
         
         return False 
