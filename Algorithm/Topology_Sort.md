@@ -59,6 +59,9 @@ def dfs_util(node, visited):
             def_util(adjacent, visited)
 
 ```
+##### Also could use BFS
+* https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
+* https://leetcode.com/discuss/35003/bfs-topological-sort-python-solution-with-comments
 
 ##### 4. Example Interview Questions  
 * [Find Order of Char in Sorted Dict](https://github.com/UmassJin/Leetcode/blob/master/Experience/Find_Order_of_Char_in_Sorted_Dict.md)
