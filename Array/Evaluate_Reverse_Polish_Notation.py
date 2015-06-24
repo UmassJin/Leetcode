@@ -9,6 +9,33 @@ Some examples:
 '''
 
 class Solution:
+    # @param {string[]} tokens
+    # @return {integer}
+    def __init__(self):
+        self.operation = {
+            '+': lambda y, x: x + y,  # Here, we could use Lambda ! 
+            '-': lambda y, x: x - y,
+            '*': lambda y, x: x * y,
+            '/': lambda y, x: int(operator.truediv(x, y))
+            }
+    
+    def evalRPN(self, tokens):
+        if not tokens: return 0
+        stack = []
+        
+        for char in tokens:
+            if char.isdigit():
+                stack.append(int(char))
+            elif char[0] == '-' and char[1:].isdigit():  # note here need to consider the negative number 
+                stack.append(-int(char[1:]))
+            elif char in self.operation:
+                stack.append(self.operation[char](stack.pop(), stack.pop()))
+        
+        return stack[0]
+        
+        
+# Original Solution
+class Solution:
     # @param tokens, a list of string
     # @return an integer
     def evalRPN(self, tokens):
