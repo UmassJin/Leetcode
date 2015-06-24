@@ -1615,6 +1615,8 @@ j:  2
 #### 13. [Lambda usage](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
 ##### Python supports a style of programming called functional programming where you can pass functions to other functions to do stuff
 
+##### [Usage Example](https://github.com/UmassJin/Leetcode/blob/master/Array/Evaluate_Reverse_Polish_Notation.py)
+
 ##### Format 
 
 ```python
