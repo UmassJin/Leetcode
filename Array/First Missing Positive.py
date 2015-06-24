@@ -40,6 +40,8 @@ class Solution:
 #    a = a + 1
 #    print "after2 a: %d b: %d" %(a,b)
 '''
+Output:
+
 b:  2
 after a: 3, b: 1
 after2 a: 4, b: 1
