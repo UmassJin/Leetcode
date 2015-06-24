@@ -26,7 +26,7 @@ class Solution:
             n, reminder = divmod(reminder*10, abs(denominator))
             result.append(str(n))
         
-        index = stack.index(reminder)
+        index = stack.index(reminder) # 1. 注意这里是get 在stack里面reminder的index，不是result
         result.insert(1+index, '(')
         result.append(')')
         
@@ -36,3 +36,4 @@ class Solution:
 # first, consider the sign, and add it into the result 
 # 注意在第一次求n 和 reminder的时候，必须要用abs(numerator), abs(denominator)，否则多加了一个sign
 # 注意一些python的用法，divmod, stack.index('str'), insert, append, replace, rstrip, lstrip 
+# 1 处是get stack的index，不是result，例如1/6 = 0.1(6),reminder是4，存在stack里面，而我们需要的值是6，注意这里detail！
