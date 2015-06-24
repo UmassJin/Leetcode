@@ -33,19 +33,21 @@ class Solution:
     # @param {integer[]} cost
     # @return {integer}
     # Time out 
-    def canCompleteCircuit_1(self, gas, cost):
+    def canCompleteCircuit(self, gas, cost):
+        total = 0; sum = 0
         n = len(gas)
+        j = 0
         
         for i in xrange(n):
-            left = 0
-            for j in xrange(n):
-                k = (i+j)%n
-                left = left + (gas[k] - cost[k])
-                if left < 0 : 
-                    break
-            if j == n: return i
-            i += j + 1
-        return -1
+            sum += gas[i] - cost[i]
+            total += gas[i] - cost[i]
+            if sum < 0:
+                j = i + 1
+                sum = 0
+                
+        if total < 0: 
+            return -1
+        return j 
  
 '''
 1. 几点注意的地方
