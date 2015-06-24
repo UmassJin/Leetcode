@@ -39,3 +39,17 @@ class Solution:
 #    print "after a: %d b: %d" %(a,b)
 #    a = a + 1
 #    print "after2 a: %d b: %d" %(a,b)
+'''
+b:  2
+after a: 3, b: 1
+after2 a: 4, b: 1
+b:  1
+after a: 5, b: 4
+after2 a: 6, b: 4
+b:  4
+after a: 10, b: 6
+after2 a: 11, b: 6
+b:  6
+after a: 17, b: 11
+after2 a: 18, b: 11
+'''
