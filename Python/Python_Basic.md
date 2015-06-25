@@ -155,6 +155,18 @@ Jello, world!
 
 ```
 
+
+#### Check Empty 
+```
+>>> s = ""
+>>> not s
+True
+>>> s = "   "
+>>> not s
+False
+```
+
+
 ##### Reference
 * [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
 * [Tutorial: String Method] (https://docs.python.org/2/library/stdtypes.html#string-methods)
