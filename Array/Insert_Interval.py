@@ -49,8 +49,13 @@ class Solution:
         #     newend = max(intervals[i].end, newInterval.end)
         # else:
         #     newend = newInterval.end
+        # i += 1
         # result.append(Interval(newstart, newend))
         # note, the newend initialization: corner case: [[1,5]] [0,0]
+        # 这里code wrong，因为我们在比较internal start and end和新的internal的start end时候注意
+        # 第一个while loop停下，可能internal[i].end < newinternal.start,这个时候两种可能，
+        # newinternal.start < internal[i].start, which means newinternal totally 在internal[i]的
+        # 外面，还有一种可能newinternal.start > internal[i].start,我们取max()就可以
         newend = newInterval.end
         while i < n and intervals[i].start <= newInterval.end:
             newend = max(intervals[i].end, newInterval.end)
