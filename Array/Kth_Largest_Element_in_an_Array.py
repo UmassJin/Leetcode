@@ -39,4 +39,5 @@ class Solution:
                 root = child 
             else:
                 break
-            
+
+# Time Complexity: O(k + (n-k)Logk)            
