@@ -166,6 +166,25 @@ True
 False
 ```
 
+* We could use the < and > compare the integer string
+
+```
+>>> s1 = '123'
+>>> s2 = '321'
+>>> s1 > s2
+False
+>>> s2 > s1
+True
+>>> 
+>>> 
+>>> s1 = 'a123'
+>>> s2 = '123'
+>>> s1 > s2
+True
+>>> s2 > s1
+False
+```
+
 
 ##### Reference
 * [Think in Python] (http://www.greenteapress.com/thinkpython/html/thinkpython009.html)
