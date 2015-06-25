@@ -1957,6 +1957,8 @@ sorted(data, cmp=None, key=None, reverse=False)
 [6, 7, 8]
 
 ```
+#### Example
+* [Create Largest Number](https://github.com/UmassJin/Leetcode/blob/master/Array/Create_Largest_Number.py)
 
 ##### String Sort
 * 对于string来说，不能用strs.sort(), 但是可以用sorted(strs), 返回一个string的list
