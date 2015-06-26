@@ -19,6 +19,7 @@ class Solution:
             '8':'tuv',
             '9':'wxyz'}
             
+    # Iteration 
     def letterCombinations(self, digits):
         if len(digits)==0: return []
         result = ['']  # Note: here we should use [''] not empty []
@@ -65,3 +66,5 @@ class Solution:
                     result2.append(temp)
         return self.get_result(result2, i+1, digit)            
         
+# Assuming the average number of letters on every number is m, 
+# and the length of digits string is n, then the time complexity: O(m^n)
