@@ -16,3 +16,12 @@
 * A full binary tree (sometimes referred to as a proper[citation needed] or plane binary tree)[17][18] is a tree in which every node in the tree has either 0 or 2 children.
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8122459/f2d87036-106e-11e5-8eb5-44623b28d69d.png)
+
+
+* [Segment Tree](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
+    * Full Tree, All levels of the constructed segment tree will be completely filled except the last level. Also, the tree will be a Full Binary Tree because we always divide segments in two halves at every level. Since the constructed tree is always full binary tree with n leaves, there will be n-1 internal nodes. So total number of nodes will be 2*n – 1.
+    * Segment tree can be used to do preprocessing and query in moderate time. With segment tree, preprocessing time is O(n) and time to for range minimum query is O(Logn). The extra space required is O(n) to store the segment tree.
+    * Representation of Segment trees
+        * 1. Leaf Nodes are the elements of the input array.
+        * 2. Each internal node represents minimum of all leaves under it.
+    * [Segment Tree application](http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/)
