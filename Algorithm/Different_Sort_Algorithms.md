@@ -6,6 +6,7 @@
 ####[5. Merge Sort](#merge-sort)
 ####[6. Quick Sort](#quick-sort)
 ####[7. Heap Sort](#heap-sort)
+####[8. Bucket Sort](#bucket-sort)
 ####[8. Compare different Sort Algorithm](#compare-different-sort-algorithm)
 ####[9. Master Theorem](#master-theorem)
 
@@ -490,6 +491,8 @@ def max_heapify(array, start, end):
 * Best: O(nlogn)
 * Worst: O(nlogn)
 * 建立一个heap, O(n); 每次插入或者删除一个节点，O(logn)
+
+## [Bucket Sort](http://www.geeksforgeeks.org/bucket-sort-2/)
 
 ## Compare different Sort Algorithm
 
