@@ -39,12 +39,33 @@ class Solution:
         return result 
     
     def combination_rec(self,digits,i,result,ret):
-        if i == len(digits):
+        if i == len(digits): #注意这里一定要check i == len(digits), check the following recursion solution ! 
             result.append(ret)
             return 
         for char in Solution.dict[digits[i]]:  # Here we do not need to for loop the digits !!!
             self.combination_rec(digits,i+1,result,ret+char)
-    
+
+    # Recursion 2
+    def letterCombinations(self, digits):
+            if not digits: return []
+            result = []
+            length = len(digits)
+            self.letter_com_helper(digits, result, '',length)
+            return result 
+            
+    def letter_com_helper(self, digits, result, substr,length):
+        if len(digits) == 0 and len(substr) == length:  # 这里如果我们传递digits[i+1:] 还需要check len(substr) == length
+            result.append(substr); return 
+        
+        for i, digit in enumerate(digits):
+            for char in Solution.dict[digit]:
+                self.letter_com_helper(digits[i+1:], result, substr + char,length)
+            
+    # test case:
+    # Input: "22"
+    # Output: ["aa","ab","ac","ba","bb","bc","ca","cb","cc","a","b","c"]
+    # Expected: ["aa","ab","ac","ba","bb","bc","ca","cb","cc"]
+
     # Recursion 2 
     def letterCombinations_2(self, digits):
         if digits == "":
