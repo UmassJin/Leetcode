@@ -52,3 +52,5 @@ class Solution:
                 start=i-maxLen
                 maxLen+=1
         return s[start:start+maxLen] 
+
+# https://leetcode.com/discuss/32204/simple-c-solution-8ms-13-lines
