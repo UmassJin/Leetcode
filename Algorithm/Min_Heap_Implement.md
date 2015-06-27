@@ -114,7 +114,7 @@ heapified :
 ------------------------------------
 ```
 
-
 * [Merge K sorted linked list](https://github.com/UmassJin/Leetcode/blob/master/Array/Merge_K_Sorted_Lists.py)
 * [Merge K sorted array](https://github.com/UmassJin/Leetcode/blob/master/Experience/Merge_k_sorted_array.md)
 * [Good Video about how to make max heap](https://www.youtube.com/watch?v=WsNQuCa_-PU)
+* [Median in stream data](https://github.com/UmassJin/Leetcode/blob/master/Experience/Median_in_stream_data.py)
