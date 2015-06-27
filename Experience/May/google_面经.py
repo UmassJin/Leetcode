@@ -154,3 +154,51 @@ f（12）=  2*2+ f( 8 )   f( 8 ) = 4 + 4   i = 2 结果为 12 = 4 + 4 + 4
 f（12） = 1*1 + f（11） f（11）= 9+1+1 结果为 12 = 9 + 1 + 1 + 1
 最后正确结果为 12 = 4 + 4 + 4
 '''
+
+# http://www.mitbbs.com/article_t/JobHunting/32966491.html
+'''
+一种encoding只有1 byte encode或者两byte encode两种形式，如果说第一byte的第一
+个bit是0，那么这个bit开始的这个byte encode一个字符；如果第一个byte的第一位是
+1，那么他一定是两个byte encode一个字符，并且他的第二个byte的首bit可以是1或者
+0. 题目要求，给你一串encode，请问最后一个字符是一个byte encode的还是两个byte
+encode的。不允许顺序parse bit串。
+'''
+
+
+// 末字节high bit为1，是非法单字节编码，所以必然是双字节编码
+if (lastByte & 0x80 != 0) return DoubleByteEncoding;
+
+// 末第二字节high bit为0，不带末字节混，所以末字节肯定是单字节编码
+if (last2ndByte & 0x80 == 0) return SingleByteEncoding;
+
+// 末字节high bit为0，末二字节high bit为1的情况，不能确定，需要检查末第三
+if (last3rdByte & 0x80 == 0)
+    return DoubleByteEncoding; // 末第3个高位0，不带末第2混，所以倒数2和1是
+双字节码
+
+if (last4thByte & 0x80 == 0) //末4不带末3混，末3和末2组成双字节，最末一个单了
+    return SingleByteEncoding;
+    
+到此为止，不用再继续推理了，可以总结规律了：
+
+if (n == 1) return 1;
+
+// 末高位1，必然是双字节编码
+if (bytes[n-1] & 0x80 != 0) return 2;
+// 末高位0，需要倒着扫描
+else {
+    for (int i = n - 2; i --; i >= 0) {
+      // 看到0，就可以确定答案了，因为0必然是一个编码序列的结尾，后面是11...
+110
+      // n - 1 - i是这个11...110的串的长度，如果是奇数，那么末字节单溜
+      if (bytes[i] & 0x80 == 0)
+         return 2 - (n - 1 - i) % 2;
+      // 到了第1个字节，并且高位是1，那么11...110串的长度是n - i，包括当前字节
+      if (i == 0)
+         return 2 - (n - i) % 2;
+
+      // else, 当前是字节高位是1，继续倒扫，直到看到0，或者扫描完
+    }
+}
+
+
