@@ -34,7 +34,7 @@ http://cslibrary.stanford.edu/109/TreeListRecursion.html
 
 # In-order convert 
 def BST_DDL(root):
-    pre = None, head = None
+    pre = [None], head = [None]
     BSTToDDL(root, pre, head)
     return head
 
@@ -42,20 +42,20 @@ def BSTToDDL(node, pre, head):
     if not node: return
     BSTToDDL(node.left, pre, head)# Use the recursion for the in-order traverse 
 
-    node.left = pre
-    if pre:
-        pre.right = node
+    node.left = pre[0]
+    if pre[0]:
+        pre[0].right = node
     else:
-        head = node # Current node (smallest element) is head of the list if previous node is None
+        head[0] = node # Current node (smallest element) is head of the list if previous node is None
 
     # as soon as the recursion ends, the head's left pointer 
     # points to the last node, and the last node's right pointer
     # points to the head pointer.
     right = node.right # Need to SAVE the right pointer here since after flatten, the pointer changes! 
-    head.left = node
-    node.right = head
+    head[0].left = node
+    node.right = head[0]
 
-    pre = node
+    pre[0] = node
     BSTToDDL(right, pre, head)
 
 # Convert BST to the Double linked list 
@@ -72,6 +72,30 @@ def inorder_doubly_flatten(root):
     if not head:
         head = root
     inorder_doubly_flatten(root.right)
+
+
+# Since the python does not support transfer the reference
+# So here we use the list to keep update the value
+# instead of use the global variable 
+def inorder_doubly_flatten(root):
+    last = [None]
+    head = [None]
+    inorder_ddl_helper(root, last, head)
+    return head[0]
+
+def inorder_ddl_helper(root, last, head):
+    if not root: return
+    inorder_ddl_helper(root.left, last, head)
+
+    if last[0]:
+        last[0].right = root  # update the previous and next pointer for each node 
+        root.left = last[0]
+    last[0] = root 
+    if not head[0]:
+        head[0] = root     # Always update the last 
+        
+    inorder_ddl_helper(root.right, last, head)
+
 
 # Convert BST to the Double linked list 
 # Pre-order convert
