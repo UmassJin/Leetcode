@@ -24,15 +24,23 @@ BOOKS:
 (#2 was highly recommended by several engineers and quite representative of the types of coding questions asked)
 
 1. Review of Basic Algorithms: Introduction to the Design and Analysis of Algorithms by Anany Levitin
-2. Types of coding questions Google asks: Programming Interviews Exposed; Secrets to Landing Your Next Job (Programmer to Programmer) by John Mongan, Noah Suojanen, and Eric Giguere.
+2. Types of coding questions Google asks: Programming Interviews Exposed; Secrets to Landing Your Next Job (Programmer to Programmer) 
+by John Mongan, Noah Suojanen, 
+and Eric Giguere.
 TIPS DIRECTLY FROM OUR ENGINEERS:
 One of our engineers drafted this overview of the main areas software engineers should prepare to have a successful interviews with Google:
 
-1.) Algorithm Complexity: You need to know Big-O. If you struggle with basic big-O complexity analysis, then you are almost guaranteed not to get hired. For more information on Algorithms you can visit:       
+1.) Algorithm Complexity: You need to know Big-O. If you struggle with basic big-O complexity analysis, then you are almost guaranteed 
+not to get hired. 
+For more information on Algorithms you can visit:       
 http://www.topcoder.com/tc?modul ... ls&d2=alg_index
 . visit 1point3acres.com for more.
-2.) Coding: You should know at least one programming language really well, and it should preferably be C++ or Java. C# is OK too, since it's pretty similar to Java. You will be expected to write some code in at least some of your interviews. You will be expected to know a fair amount of detail about your favorite programming language.
-*Strongly recommended* for information on Coding: Programming Interviews Exposed; Secrets to landing your next job by John Monagan and Noah Suojanen (Wiley Computer Publishing)
+2.) Coding: You should know at least one programming language really well, and it should preferably be C++ or Java. C# is OK too,
+since it's pretty similar to Java. 
+You will be expected to write some code in at least some of your interviews. You will be expected to know a fair amount of detail
+about your favorite programming language.
+*Strongly recommended* for information on Coding: Programming Interviews Exposed; Secrets to landing your next job by John Monagan 
+and Noah Suojanen (Wiley Computer Publishing)
 http://www.wiley.com/WileyCDA/Wi ... tCd-047012167X.html
 
 3.) System Design: http://research.google.com/pubs/ ... allelComputing.html. from: 1point3acres.com/bbs 
