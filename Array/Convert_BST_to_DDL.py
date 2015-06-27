@@ -56,7 +56,7 @@ def BSTToDDL(node, pre, head):
     node.right = head
 
     pre = node
-    BSTToDDL(node.right, pre, head)
+    BSTToDDL(right, pre, head)
 
 # Convert BST to the Double linked list 
 # In-order convert 
