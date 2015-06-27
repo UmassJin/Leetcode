@@ -1,4 +1,4 @@
-
+# reference: http://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
 
 import heapq
 
@@ -112,3 +112,5 @@ if __name__ == "__main__":
         m = test.getmedian(arr[i], m)
         print "m: ", m
                      
+
+# Time complexiy: O(nlogn)
