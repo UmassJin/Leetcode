@@ -89,6 +89,32 @@ class Solution:
 * Heap Sort: O(nlogn)
 * Extract-Max: O(logn)
 
+* 注意 heapify 只是建立一个最小堆，而并不是数组最后就是有序的，例如 下面这个例子，对于input array，after call
+* the heapq.heapify(data) 我们建立了最小堆，但是数组最后的结果并不是有序的，倘若我们不用heapify实现，用自己的
+* function实现，我们需要从数组的 length//2 到0开始遍历，假设为i, 对于每一个i，我们要保证它下面为最小堆
+* heapify  为O(logn)，但是针对所有的O(n)一次建立heap，为O(n) 复杂度
+
+```
+import heapq
+from heapq_showtree import show_tree
+from heapq_heapdata import data
+
+print 'random    :', data
+heapq.heapify(data)
+print 'heapified :'
+show_tree(data)
+$ python heapq_heapify.py
+
+random    : [19, 9, 4, 10, 11, 8, 2]
+heapified :
+
+                 2
+        9                 4
+    10       11       8        19
+------------------------------------
+```
+
+
 * [Merge K sorted linked list](https://github.com/UmassJin/Leetcode/blob/master/Array/Merge_K_Sorted_Lists.py)
 * [Merge K sorted array](https://github.com/UmassJin/Leetcode/blob/master/Experience/Merge_k_sorted_array.md)
 * [Good Video about how to make max heap](https://www.youtube.com/watch?v=WsNQuCa_-PU)
