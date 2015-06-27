@@ -145,4 +145,15 @@ service需要cpu，memory，disk，network等等很多component协调工作，�
 过这些走捷径，但是越难的东西就越有价值。知识量不够不是问题，看一点补充一点，
 只要能坚持下来，到了一个时间点基本上还是可以有质变的。
 
+
+FB 高频题
+1 sort colors, O(n)时间, O(1)空间.      https://leetcode.com/problems/sort-colors/
+2 One Edit Distance, Given two strings S and T, determine if they are both one edit distance apart.       https://leetcode.com/problems/one-edit-distance/
+3 A set of points(x, y), 返回前k个离原点最近的点, 用k-selection 或者堆（代码见附件）
+4 Flatten Binary Tree to Linked List   https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
+5 Remove Element 将一个01随机数列中，把1全部移到左边，要求移动次数最少
+
+
 '''
+
+
