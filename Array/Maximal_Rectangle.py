@@ -24,7 +24,7 @@ class Solution:
                     else:
                         height[j] = 0
                 
-                while stack and height[stack[-1]] >= height[j]:
+                while stack and height[stack[-1]] >= height[j]:  # 注意这里要用while ！！！否则只计算了一次的面积
                     h_index = stack.pop()
                     ht = height[h_index]
                     if stack:
@@ -35,3 +35,13 @@ class Solution:
                 stack.append(j)  
         return result 
                 
+
+'''
+Note1 : need to use "while" not "if"
+Input:
+["01101","11010","01110","11110","11111","00000"]
+Output:
+5
+Expected:
+9
+'''
