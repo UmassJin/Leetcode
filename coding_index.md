@@ -617,6 +617,9 @@ Solution2
     1. ```m = len(matrix); n = len(matrix[0])```
     2. ```matrix[x][y] ==> a [x*n + y]```
     3. ```a[x] ==> matrix[x/n][x%n] ```
+
+#####[Maximal Square](https://github.com/UmassJin/Leetcode/blob/master/Array/Maximal-Square.py)
+    1. Use DP, 注意optimization
     
 -----
 
