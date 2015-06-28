@@ -622,6 +622,8 @@ Solution2
     1. Use DP, 注意optimization
     2. [Good Analysis](https://leetcode.com/discuss/38489/easy-solution-with-detailed-explanations-8ms-time-and-space)
     
+#####[Maximal Rectangle](https://github.com/UmassJin/Leetcode/blob/master/Array/Maximal_Rectangle.py)    
+    1. 注意details ！
 -----
 
 ###String 
