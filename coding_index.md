@@ -620,6 +620,7 @@ Solution2
 
 #####[Maximal Square](https://github.com/UmassJin/Leetcode/blob/master/Array/Maximal-Square.py)
     1. Use DP, 注意optimization
+    2. [Good Analysis](https://leetcode.com/discuss/38489/easy-solution-with-detailed-explanations-8ms-time-and-space)
     
 -----
 
