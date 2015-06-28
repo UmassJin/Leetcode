@@ -379,6 +379,10 @@ Content-Encoding:gzip
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8398546/db7b9094-1da7-11e5-9b1a-cabda60b5466.png)
 
+#### How to ensure the HTTP POST request ?
+* the SSL connection is between the TCP layer and the HTTP layer. The client and server first establish a secure encrypted TCP connection (via the SSL/TLS protocol) and then the client will send the HTTP request (either GET or POST) over that encrypted TCP connection.
+
 ##### Reference
 * [What is the difference between POST and GET](http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get)
 * [w3school HTTP POST and GET](http://www.w3schools.com/tags/ref_httpmethods.asp)
+* [Are https URLs encrypted?](http://stackoverflow.com/questions/499591/are-https-urls-encrypted)
