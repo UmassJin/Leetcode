@@ -28,7 +28,7 @@ class Solution:
     
     def maxSubArray(self, A):
         current = 0
-        result = A[0]
+        result = A[0]  # 注意这里 result = A[0], the first number, not initialize as 0, test case: [-1]
         for i in A:
             current += i
             result = max(current,result)
