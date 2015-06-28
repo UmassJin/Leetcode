@@ -382,7 +382,23 @@ Content-Encoding:gzip
 #### How to ensure the HTTP POST request ?
 * the SSL connection is between the TCP layer and the HTTP layer. The client and server first establish a secure encrypted TCP connection (via the SSL/TLS protocol) and then the client will send the HTTP request (either GET or POST) over that encrypted TCP connection.
 
+#### 网页过期策略
+* Expires策略：Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据
+
+#### Cache Control 
+* HTTP defines three basic mechanisms for controlling caches: freshness, validation, and invalidation
+
+##### Freshness 
+* allows a response to be used without re-checking it on the origin server, and can be controlled by both the server and the client. For example, the Expires response header gives a date when the document becomes stale, and the Cache-Control: max-age directive tells the cache how many seconds the response is fresh for.
+
+##### Validation 
+* can be used to check whether a cached response is still good after it becomes stale. For example, if the response has a Last-Modified header, a cache can make a conditional request using the If-Modified-Since header to see if it has changed. The ETag (entity tag) mechanism also allows for both strong and weak validation.
+
+##### Invalidation 
+* is usually a side effect of another request that passes through the cache. For example, if a URL associated with a cached response subsequently gets a POST, PUT or DELETE request, the cached response will be invalidated.
+
 ##### Reference
+* [How cache works? (Good Blog!)](https://www.mnot.net/cache_docs/) 
 * [What is the difference between POST and GET](http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get)
 * [w3school HTTP POST and GET](http://www.w3schools.com/tags/ref_httpmethods.asp)
 * [Are https URLs encrypted?](http://stackoverflow.com/questions/499591/are-https-urls-encrypted)
