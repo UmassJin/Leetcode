@@ -37,7 +37,7 @@ class Solution:
                     dp[i][j] = 0
         return maxsize * maxsize
     
-# Best Solution: we only need one array           
+# Best Solution: we only need one-dimensional array           
 class Solution:
     # @param {character[][]} matrix
     # @return {integer}
