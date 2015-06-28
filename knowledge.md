@@ -355,3 +355,30 @@ Content-Encoding:gzip
 #### SSL
 * SSL stands for Secure Sockets Layer. 
 * It provides a secure connection between internet browsers and websites, allowing you to transmit private data online. Sites secured with SSL display a padlock in the browsers URL and possibly a green address bar if secured by an EV Certificate
+
+
+#### HTTP GET vs POST
+##### HTTP GET definition
+* GET requests a representation of the specified resource. Note that GET should not be used for operations that cause side-effects, such as using it for taking actions in web applications. One reason for this is that GET may be used arbitrarily by robots or crawlers, which should not need to consider the side effects that a request should cause.
+
+##### HTTP POST definition
+* POST submits data to be processed (e.g., from an HTML form) to the identified resource. The data is included in the body of the request. This may result in the creation of a new resource or the updates of existing resources or both.
+
+##### Difference
+* 1. Authors of services which use the HTTP protocol SHOULD NOT use GET based forms for the submission of sensitive data, because this will cause this data to be encoded in the Request-URI. Many existing servers, proxies, and user agents will log the request URI in some place where it might be visible to third parties. Servers can use POST-based form submission instead
+*  2
+      * It's not a matter of security. The HTTP protocol defines GET-type requests as being idempotent, while POSTs may have side effects. In plain English, that means that GET is used for viewing something, without changing it, while POST is used for changing something. For example, a search page should use GET, while a form that changes your password should use POST.
+
+      * Also, note that PHP confuses the concepts a bit. A POST request gets input from the query string and through the request body. A GET request just gets input from the query string. So a POST request is a superset of a GET request; you can use $_GET in a POST request, and it may even make sense to have parameters with the same name in $_POST and $_GET that mean different things.
+
+      * For example, let's say you have a form for editing an article. The article-id may be in the query string (and, so, available through $_GET['id']), but let's say that you want to change the article-id. The new id may then be present in the request body ($_POST['id']). OK, perhaps that's not the best example, but I hope it illustrates the difference between the two.
+
+* 3. 
+      * Some of the methods (for example, HEAD, GET, OPTIONS and TRACE) are, by convention, defined as safe, which means they are intended only for information retrieval and should not change the state of the server. In other words, they should not have side effects, beyond relatively harmless effects such as logging, caching, the serving of banner advertisements or incrementing a web counter. Making arbitrary GET requests without regard to the context of the application's state should therefore be considered safe. However, this is not mandated by the standard, and it is explicitly acknowledged that it cannot be guaranteed.
+      * By contrast, methods such as POST, PUT, DELETE and PATCH are intended for actions that may cause side effects either on the server, or external side effects such as financial transactions or transmission of email. Such methods are therefore not usually used by conforming web robots or web crawlers; some that do not conform tend to make requests without regard to context or consequences.
+
+![pic](https://cloud.githubusercontent.com/assets/9062406/8398546/db7b9094-1da7-11e5-9b1a-cabda60b5466.png)
+
+##### Reference
+* [What is the difference between POST and GET](http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get)
+* [w3school HTTP POST and GET](http://www.w3schools.com/tags/ref_httpmethods.asp)
