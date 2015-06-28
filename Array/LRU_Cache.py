@@ -24,6 +24,8 @@ class LRUCache:
         self.tail = self.head 
         self.capacity = capacity
     
+    # The structure is head --> oldest node1 -> node2 -> ... -> lastest node
+    #                   |-------------------------------------------| tail 
     def push_back(self, newnode):
         self.hash[newnode.key] = self.tail
         self.tail.next = newnode
