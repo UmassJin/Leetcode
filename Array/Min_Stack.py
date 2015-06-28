@@ -7,7 +7,39 @@ top() -- Get the top element.
 getMin() -- Retrieve the minimum element in the stack.
 '''
 
+# Use one queue
+class MinStack:
+    # initialize your data structure here.
+    def __init__(self):
+        self.q = []
 
+    # @param x, an integer
+    # @return nothing
+    def push(self, x):
+        minvalue = self.getMin()
+        if minvalue == None or x < minvalue:
+            minvalue = x
+        self.q.append((x,minvalue))    
+
+    # @return nothing
+    def pop(self):
+        if self.q:
+            self.q.pop()
+
+    # @return an integer
+    def top(self):
+        if self.q:
+            return self.q[-1][0]
+
+    # @return an integer
+    def getMin(self):
+        if not self.q:
+            return None
+        else:
+            return self.q[-1][1]
+            
+
+# Use two queues
 class MinStack:
     # @param x, an integer
     # @return an integer
