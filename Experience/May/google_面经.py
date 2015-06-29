@@ -84,7 +84,7 @@ print permutation_number(test2)
 # Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
 
 '''
-find h index element in the array, at least n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
+3. find h index element in the array, at least n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
 '''
 def find_h_index(arr):
     n = len(arr) - 1
@@ -125,7 +125,7 @@ print find_h_index(test3)
 
 
 '''
-给一个数，要求把这个数分解成一些平方数的和，并且要求使用最短的平方数list 如 13 = 9 + 4 而不是 13 = 4+4+4+1
+4. 给一个数，要求把这个数分解成一些平方数的和，并且要求使用最短的平方数list 如 13 = 9 + 4 而不是 13 = 4+4+4+1
 '''
 def min_square(n):
     dp = [0 for i in xrange(n + 1)]
@@ -157,7 +157,7 @@ f（12） = 1*1 + f（11） f（11）= 9+1+1 结果为 12 = 9 + 1 + 1 + 1
 
 # http://www.mitbbs.com/article_t/JobHunting/32966491.html
 '''
-一种encoding只有1 byte encode或者两byte encode两种形式，如果说第一byte的第一
+5. 一种encoding只有1 byte encode或者两byte encode两种形式，如果说第一byte的第一
 个bit是0，那么这个bit开始的这个byte encode一个字符；如果第一个byte的第一位是
 1，那么他一定是两个byte encode一个字符，并且他的第二个byte的首bit可以是1或者
 0. 题目要求，给你一串encode，请问最后一个字符是一个byte encode的还是两个byte
@@ -201,4 +201,39 @@ else {
     }
 }
 
+'''
+6. 题目： Given a rectangular grid of colored pixels and a particular 
+pixel in the grid, find the perimeter of the same-colored blob containing that pixel.
+补充一下，因为是求包含所给像素的图形的周长，所以就是DFS到每个相同颜色的邻接像素，然后检查这个像素周围四个像素的颜色，
+如果颜色不同或者越界了，周长+1，否则就继续DFS到那个像素。最后得到周长
 
+说是像素其实就是一个一个边长为1的正方形小格子，每个格子有一个颜色，所以就是从给定格子出发做DFS，直到抵达一个在边缘的格子
+（也就是说这个格子周围四个方向有一个方向颜色不同或者越界），有几个边满足条件就加几
+'''
+
+def find_pixel(grid, pixel):
+        if not grid or not grid[0]: return 0
+        perimeter = [0]
+
+        for i in xrange(len(grid)):
+                for j in xrange(len(grid[0])):
+                        if grid[i][j] == pixel:
+                            find_pixel_helper(grid, pixel, i, j, perimeter) 
+        return perimeter[0]
+
+def find_pixel_helper(grid, pixel, x, y, perimeter):
+        if x < 0 or x >= len(grid) or y < 0 or y >= len(grid[0]) or grid[x][y] != pixel:
+                perimeter[0] += 1
+                if x >= 0 and x < len(grid) and y>= 0 and y < len(grid[0]) and grid[x][y] == 'D':
+                    perimeter[0] -= 1
+                return
+        grid[x] = grid[x][:y] + 'D' + grid[x][y+1:]  
+        
+        find_pixel_helper(grid, pixel, x+1, y, perimeter)
+        find_pixel_helper(grid, pixel, x-1, y, perimeter)
+        find_pixel_helper(grid, pixel, x, y+1, perimeter)
+        find_pixel_helper(grid, pixel, x, y-1, perimeter)
+
+grid = ['01100','00011','00011','01110','00000']
+#grid = ['01100','00011']
+print find_pixel(grid, '1')
