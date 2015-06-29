@@ -123,8 +123,11 @@ A thread is a particular execution path of a process; when one thread modifies a
 
 
 ## Network
-#### [1. what happens when you type in a URL in browser](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
-[The other analysis](http://www.quora.com/What-are-the-series-of-steps-that-happen-when-an-URL-is-requested-from-the-address-field-of-a-browser)
+#### [1. what happens when you type in a URL in browser](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
+
+##### Reference 
+* [Analysis 1](http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
+*[The other analysis](http://www.quora.com/What-are-the-series-of-steps-that-happen-when-an-URL-is-requested-from-the-address-field-of-a-browser)
 
 1. browser checks cache; if requested object is in cache and is fresh, skip to #9
 2. browser asks OS for server's IP address
