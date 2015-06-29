@@ -237,3 +237,9 @@ def find_pixel_helper(grid, pixel, x, y, perimeter):
 grid = ['01100','00011','00011','01110','00000']
 #grid = ['01100','00011']
 print find_pixel(grid, '1')
+
+'''
+7. Median in stream data
+'''
+
+* [Median in Stream Data](https://github.com/UmassJin/Leetcode/blob/master/Experience/Median_in_stream_data.py)
