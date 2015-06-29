@@ -2,6 +2,8 @@
 ####[1. C Language](#c-language)
 ####[2. Operation System](#operation-system)
 ####[3. Network](#network)
+####[4. HTTP GET vs POST](#http-get-vs-post)
+####[5. DNS](#dns)
 
 ## C language 
 
@@ -360,7 +362,7 @@ Content-Encoding:gzip
 * It provides a secure connection between internet browsers and websites, allowing you to transmit private data online. Sites secured with SSL display a padlock in the browsers URL and possibly a green address bar if secured by an EV Certificate
 
 
-#### HTTP GET vs POST
+## HTTP GET vs POST
 ##### HTTP GET definition
 * GET requests a representation of the specified resource. Note that GET should not be used for operations that cause side-effects, such as using it for taking actions in web applications. One reason for this is that GET may be used arbitrarily by robots or crawlers, which should not need to consider the side effects that a request should cause.
 
@@ -405,3 +407,14 @@ Content-Encoding:gzip
 * [What is the difference between POST and GET](http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get)
 * [w3school HTTP POST and GET](http://www.w3schools.com/tags/ref_httpmethods.asp)
 * [Are https URLs encrypted?](http://stackoverflow.com/questions/499591/are-https-urls-encrypted)
+
+
+## DNS
+#### [How DNS works](http://www.verisigninc.com/en_US/domain-names/online/how-dns-works/index.xhtml)
+#### [How DNS works 2](http://computer.howstuffworks.com/dns3.htm)
+* key word
+      * ISP query recursive resolver 
+      * [what is recurisive resolver](http://serverfault.com/questions/422288/please-explain-authoritative-nameserver-and-recursive-resolver)
+      * Recursive resolver first checking the root server, each one knows DNS info about Top Level Domains(TLD) such as .com
+      * The TLD DNS name server stores the address informaiton for second level domains 
+      * Recursive resolver 
