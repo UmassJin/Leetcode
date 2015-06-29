@@ -243,3 +243,53 @@ print find_pixel(grid, '1')
 '''
 
 * [Median in Stream Data](https://github.com/UmassJin/Leetcode/blob/master/Experience/Median_in_stream_data.py)
+
+'''
+8. 让你设计个matrix class，提供两个方法：update(x, y) & query(x1, y1, x2, y2)，update方法是update matrix上一个cell的值，
+query方法是查询matrix上用(x1, y1)和(x2, y2)确定的矩形内所有值的总和。
+有三种scenario，
+第一种是update方法调用的次数远大于query方法的调用次数，
+第二种是query方法的调用次数远大于update方法的调用次数，
+第三种是两种方法调用次数一样多。
+'''
+'''
+分析：
+第一种情况，因为update次数多，那就不用对matrix做任何预处理，这样update是O(1)，query是O(N^2)。
+第二种情况，因为query次数多，那就预处理一下matrix，新建一个辅助二维数组dp,使得dp[y][x]等于以(0,0)和(x,y)
+两点确定的矩阵内的值的总和。这样update是O(N^2), query是O(1)
+第三种情况，我们可以改变辅助二维数组dp的构成，使得dp[y][x]等于(0,y)到(x,y)的所有值的和，这样update是O(N)，query也是O(N)
+'''
+
+'''
+9. 题目是给一个string,一个set of string, 问string里面是否包含一个substring，使得这个substring的任意一个prefix + suffix能
+组合成set里面的任意一个string，能就返回true，否则返回false
+是这样，我少说了个条件，输入除了一个string和一个set of string,还有个整形变量len表示set里面每个string的长度（
+也就是说set里的string长度都是一样的）。比如input string is "whoisyourdaddy", input set 包含两个 string "whu" and "ddy"，
+那么function应该返回true，因为给的input string里面的substring "whoisyou" 的 prefix "wh" 和 suffix "u" 组成了 "whu"，
+而另一个substring "daddy" or "ddy" 的 prefix "d" 和 suffix "dy" 组成了 "ddy"，因此这个例子里set里面所有的string都可以在
+input string里面找到一个substring的一个prefix+suffix组合构成。
+'''
+
+
+'''
+10. 给一个List，里面存着一些一个双向链表上的结点，这个List里面所有在双向链表上邻接的结点组成一个strong component，
+求List里strong component的个数
+
+给你个双向链表 1 <-> 2 <-> 4 <-> 7 <-> 9 <-> 11
+给你个List里面有1,2,7,9,11, 那么 1,2组成一个strong component，7,9,11组成一个strong component。
+解法就是建个HashSet然后把List里面的结点全丢进去，遍历一遍double linked List，遇到一个在HashSet里面的结点就从这个结点开始把所有
+能到的在List里面的邻接结点从HashSet里面删掉，count++。换言之就是简易版的图遍历。
+'''
+
+
+'''
+11.
+实现linux的diff命令，我就好好的问清楚了她期望的输入和输出，然后用java开始写，期间写遍历文件系统的function的时候一时半会想不起来java里相关的API了，
+就跟妹子问咋办，妹子说不要求非要死记硬背API，你自己想想有什么API比较make sense的在白板上注明一下就行了，我正好这段时间上班就是写python干类似的事，
+就一股脑把python的相关API在白板上注明出来，然后接着写代码。。写完后又大概跟妹子提了提如果给的路径下如果有symbolic link该怎么处理，妹子表示很满意。。
+follow-up是怎么判断两个文件内容是否相同，文件太大怎么优化。.
+
+第三题主要思路就是遍历两个输入路径，把路径树中的所有叶子结点找到（包括file和empty folder），把对应的相对路径拿出来放进对应的两个set里，
+然后就是同时遍历两个set，找第一个set里没有的而第二个set里有的（+），以及第一个set里有的而第二个set里没有的（-），遇到相对路径相同的file
+就转化为绝对路径读file content用md5算下hash value，比较看看内容是否一致。
+'''
