@@ -417,4 +417,6 @@ Content-Encoding:gzip
       * [what is recurisive resolver](http://serverfault.com/questions/422288/please-explain-authoritative-nameserver-and-recursive-resolver)
       * Recursive resolver first checking the root server, each one knows DNS info about Top Level Domains(TLD) such as .com
       * The TLD DNS name server stores the address informaiton for second level domains 
-      * Recursive resolver 
+      * Recursive resolver send the query to the domain name server. 
+      * The DNS knows the IP address for the full domain, return back to Recursive resolver.
+      * Then return back to browser 
