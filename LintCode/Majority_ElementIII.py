@@ -9,7 +9,20 @@ Given [3,1,2,3,2,3,3,4,4,4] and k=3, return 3.
 
 Note
 There is only one majority number in the array.
+
 '''
+# Best Solution: much more concise
+class Solution:
+    # @param {integer[]} nums
+    # @return {integer[]}
+    def majorityElement(self, nums):
+        ctr = collections.Counter()
+        for n in nums:
+            ctr[n] += 1
+            if len(ctr) == k:
+                ctr -= collections.Counter(set(ctr))
+        return [n for n in ctr if nums.count(n) > len(nums)/k]
+
 
 class Solution:
     """
@@ -69,3 +82,5 @@ class Solution:
 另一个例子：
 1 1 1 1 2 3 2 3 4 4 4 这个 1就会被消耗过多，最后余下的反而比4少。
 '''
+
+http://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/
