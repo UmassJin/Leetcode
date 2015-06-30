@@ -90,6 +90,36 @@
 |     | set_test = set('hello') | python 3.4: {'h', 'e', 'l', 'l', 'o'} | mutable
 | dict | dict_test = {'a': 1, 'b': 2} | {'a': 1, 'b': 2} | mutable 
 
+* 7) Count
+
+```
+>>> string = "hi how are you?"
+>>> string.count('h')
+2
+>>> string.count('y')
+1
+>>> string.count('i')
+1
+>>> string.count('b')
+0
+>>> 
+>>> string.count(3)           # Will have errors here !
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: expected a character buffer object
+
+
+>>> list = [1,2,3,4,5,6]
+>>> list.count(1)
+1
+>>> list.count(8)
+0
+>>> list.count('a')
+0                              # No errors here !
+>>> list.count('b')
+0
+```
+
 ##Strings
 ##### Definition 
 Creat string simply by enclosing characters in quotes. Python treats single quotes the same as double quotes.
