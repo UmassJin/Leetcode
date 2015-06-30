@@ -33,35 +33,3 @@ Given target = 3, return true
         
         return matrix[right/n][right%n] == target  # Use right, not left ! case: [[1]] 2
         
-
-# Bad answer, AC but not consice ! 
-    def searchMatrix(self, matrix, target):
-        m = len(matrix)
-        n = len(matrix[0])
-        if target < matrix[0][0] or target > matrix[m-1][n-1]:
-            return False
-        
-        left = 0; right = m-1; row = 0
-        while left <= right:
-            mid = (left+right)/2
-            if target > matrix[mid][0]:
-                if target <= matrix[mid][n-1]:
-                    row = mid
-                    break
-                left = mid + 1
-            elif target == matrix[mid][0]:
-                return True
-            else:
-                right = mid -1 
-        
-        if left > right: return False
-        left = 0; right = n-1
-        while left <= right:
-            mid = (left+right)/2
-            if target > matrix[row][mid]:
-                left = mid + 1
-            elif target == matrix[row][mid]:
-                return True
-            else:
-                right = mid - 1
-        return False 
