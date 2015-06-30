@@ -7,7 +7,7 @@
 ####[6.Basic Knowledge](#basic-knowledge)
 ####[7.Class Related Knowledge (Important!!)](#class-related-knowledge)
 ####[8.Sort and Sorted](#sort-and-sorted)
-
+####[9.Collections](#collections)
 ------------------------------------------------------------
 
 
@@ -1999,3 +1999,86 @@ AttributeError: 'str' object has no attribute 'sort'
 #### Reference
 * [Sorted and Sorted 详解](http://gaopenghigh.iteye.com/blog/1483864)
 * [Python Tutorial](https://wiki.python.org/moin/HowTo/Sorting)
+
+
+## Collections 
+### [Collections Counter](http://pymotw.com/2/collections/counter.html)
+#### Initializing
+```
+import collections
+
+print collections.Counter(['a', 'b', 'c', 'a', 'b', 'b'])
+print collections.Counter({'a':2, 'b':3, 'c':1})
+print collections.Counter(a=2, b=3, c=1)
+
+$ python collections_counter_init.py
+Counter({'b': 3, 'a': 2, 'c': 1})
+Counter({'b': 3, 'a': 2, 'c': 1})
+Counter({'b': 3, 'a': 2, 'c': 1})
+```
+
+#### Update 
+```
+
+import collections
+
+c = collections.Counter()
+print 'Initial :', c
+
+c.update('abcdaab')
+print 'Sequence:', c
+
+c.update({'a':1, 'd':5})
+print 'Dict    :', c
+
+
+$ python collections_counter_update.py
+Initial : Counter()
+Sequence: Counter({'a': 3, 'b': 2, 'c': 1, 'd': 1})
+Dict    : Counter({'d': 6, 'a': 4, 'b': 2, 'c': 1})
+# The count values are increased based on the new data, rather than replaced. In this example, the count for a goes from 3 to 4.
+
+```
+
+#### Arithmetic
+
+```
+import collections
+
+c1 = collections.Counter(['a', 'b', 'c', 'a', 'b', 'b'])
+c2 = collections.Counter('alphabet')
+
+print 'C1:', c1
+print 'C2:', c2
+
+print '\nCombined counts:'
+print c1 + c2
+
+print '\nSubtraction:'
+print c1 - c2
+
+print '\nIntersection (taking positive minimums):'
+print c1 & c2
+
+print '\nUnion (taking maximums):'
+print c1 | c2
+
+$ python collections_counter_arithmetic.py
+
+C1: Counter({'b': 3, 'a': 2, 'c': 1})
+C2: Counter({'a': 2, 'b': 1, 'e': 1, 'h': 1, 'l': 1, 'p': 1, 't': 1})
+
+Combined counts:
+Counter({'a': 4, 'b': 4, 'c': 1, 'e': 1, 'h': 1, 'l': 1, 'p': 1, 't': 1})
+
+Subtraction:
+Counter({'b': 2, 'c': 1})
+
+Intersection (taking positive minimums):
+Counter({'a': 2, 'b': 1})
+
+Union (taking maximums):
+Counter({'b': 3, 'a': 2, 'c': 1, 'e': 1, 'h': 1, 'l': 1, 'p': 1, 't': 1})
+
+```
+
