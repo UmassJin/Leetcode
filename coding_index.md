@@ -1012,6 +1012,8 @@ True
 
 ##### [Word Ladder](https://github.com/UmassJin/Leetcode/blob/master/Array/word_ladder.py)
 
+#### 8. [collections.Counter](https://github.com/UmassJin/Leetcode/blob/master/Python/Python_Basic.md#collections)
+
 ## Design Pattern
 * Blocking Queue (回看！)
 
