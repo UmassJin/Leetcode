@@ -322,6 +322,60 @@ input string里面找到一个substring的一个prefix+suffix组合构成。
 解法就是建个HashSet然后把List里面的结点全丢进去，遍历一遍double linked List，遇到一个在HashSet里面的结点就从这个结点开始把所有
 能到的在List里面的邻接结点从HashSet里面删掉，count++。换言之就是简易版的图遍历。
 '''
+class DoubleList_Node:
+    def __init__(self, val = 0, pre = None, inext = None):
+        self.val = val
+        self.pre = pre
+        self.next = inext
+
+class Solution:
+    def find_strong_comp(self, nodelist):
+        if not nodelist: return []
+        idict = { node.val: node for node in nodelist}
+        count = 0
+
+        for node in nodelist:
+            if idict and (node.val in idict):
+                tmp_pre = node.pre
+                tmp_next = node.next
+                while tmp_pre and (tmp_pre.val in idict):
+                    del idict[tmp_pre.val]
+                    tmp_pre = tmp_pre.pre
+                while tmp_next and (tmp_next.val in idict):
+                    del idict[tmp_next.val]
+                    tmp_next = tmp_next.next
+                del idict[node.val]
+                count += 1
+            elif not idict:
+                break
+        return count 
+    
+'''
+test:
+node1 = DoubleList_Node(2)
+node2 = DoubleList_Node(3)
+node3 = DoubleList_Node(5)
+node4 = DoubleList_Node(7)
+node5 = DoubleList_Node(9)
+node6 = DoubleList_Node(8)
+node7 = DoubleList_Node(6)
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node6
+node6.next = node7
+node2.pre = node1
+node3.pre = node2
+node4.pre = node3
+node5.pre = node4
+node6.pre = node5
+node7.pre = node6
+
+l = [node2, node1, node5, node4, node6, node7]
+test = Solution()
+print test.find_strong_comp(l)
+'''
 
 
 '''
