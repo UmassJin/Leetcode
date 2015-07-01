@@ -32,11 +32,20 @@ Every node of Interval Tree stores following information.
 
 All these data structures are used for solving different problems:
 
-* Segment tree stores intervals, and optimized for "which of these intervals contains a given point" queries.
-* Interval tree stores intervals as well, but optimized for "which of these intervals overlap with a given interval" queries. It can also be used for point queries - similar to segment tree.
-* Range tree stores points, and optimized for "which points fall within a given interval" queries.
-* Binary indexed tree stores items-count per index, and optimized for "how many items are there between index m and n" queries.
-Performance / Space consumption for one dimension:
+##### Segment tree stores intervals
+optimized for "which of these intervals contains a given point" queries.
+
+##### Interval tree stores intervals as well
+optimized for "which of these intervals overlap with a given interval" queries. It can also be used for point queries - similar to segment tree.
+
+##### Range tree stores points
+optimized for "which points fall within a given interval" queries.
+
+##### Binary indexed tree stores items-count per index
+for "how many items are there between index m and n" queries.
+
+
+#### Performance / Space consumption for one dimension:
 
 * Segment tree - O(n logn) preprocessing time, O(k+logn) query time, O(n logn) space
 * Interval tree - O(n logn) preprocessing time, O(k+logn) query time, O(n) space
@@ -56,7 +65,56 @@ Higher dimensions (d>1):
 * Interval tree - O(n logn) preprocessing time, O(k+(logn)^d) query time, O(n logn) space
 * Range tree - O(n(logn)^d) preprocessing time, O(k+(logn)^d) query time, O(n(logn)^(d-1))) space
 * Binary Indexed tree - O(n(logn)^d) preprocessing time, O((logn)^d) query time, O(n(logn)^d) space
+
+
+
+#### Implement 
+
+```python
+class Interval:
+    def __init__(self, low = None, high = None):
+        self.low = low
+        self.high = high
+
+class IntervalTree_Node:
+    def __init__(self, low = None, high = None, imax = None):
+        self.interval = Interval(low, high)
+        self.imax = imax
+        self.left = IntervalTree_Node()
+        self.right = IntervalTree_Node()
+        
+class IntervalTree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, root, interval):
+        if not root:
+            return IntervalTree_Node(interval.low, interval.high, interval.high)
+
+        rootlow = root.interval.low
+        
+        # Insert the interval into the Tree 
+        if interval.low < rootlow:
+            root.left = self.insert(root.left, interval)
+        elif interval.low > rootlow:
+            root.right = self.insert(root.right, interval)
+            
+        # Update the max in the Tree path
+        if interval.high > root.imax:
+            root.imax = interval.high
+
+        return root
+    
+    def find_overlap(self, root, interval):
+        if not root: return None
+        if root.interval.low <= interval.high and root.interval.high >= interval.low:
+            return root.interval
+        if root.left and root.left.imax > interval.low:
+            return self.find_overlap(root.left, interval)
+        else:
+            return self.find_overlap(root.right, interval)
 ```
+
 
 
 #### Reference
