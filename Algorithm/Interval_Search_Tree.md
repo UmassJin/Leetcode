@@ -119,5 +119,5 @@ class IntervalTree:
 
 #### Reference
 * [Interval Tree G4G](http://www.geeksforgeeks.org/interval-tree/)
-* [Video BST](https://www.youtube.com/watch?v=q0QOYtSsTg4)
+* [Video Algorithm Interval Tree](https://www.youtube.com/watch?v=q0QOYtSsTg4)
 * [Different between segment tree and interval tree](http://stackoverflow.com/questions/17466218/what-are-the-differences-between-segment-trees-interval-trees-binary-indexed-t)
