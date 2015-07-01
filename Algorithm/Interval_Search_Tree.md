@@ -13,8 +13,18 @@ Every node of Interval Tree stores following information.
 * Delete an interval (lo, hi)
 * Interval intersection query. given an interval (lo, hi), find all intervals in data structure overlapping (lo, hi)
 
+#### Insert an interval (lo, hi)
+* Use the lo as the key, and same like the BST insert 
+* Update max in each node on serach path 
 
 
+#### Search a intersects (lo, hi)
+* if interval in node intersects query interval, return it
+* elif left subtree is None, go right
+* elif max end point in left subtree is less than lo, go right
+* else go left 
+
+[The time complexity of Interval Search Tree](https://cloud.githubusercontent.com/assets/9062406/8466850/fbc28afe-200b-11e5-88b6-1da15f90a0ec.png)
 
 #### Reference
 * [Interval Tree G4G](http://www.geeksforgeeks.org/interval-tree/)
