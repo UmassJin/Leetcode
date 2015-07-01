@@ -24,7 +24,8 @@ Every node of Interval Tree stores following information.
 * elif max end point in left subtree is less than lo, go right
 * else go left 
 
-[The time complexity of Interval Search Tree](https://cloud.githubusercontent.com/assets/9062406/8466850/fbc28afe-200b-11e5-88b6-1da15f90a0ec.png)
+### The time complexity of Interval Search tree
+![pic](https://cloud.githubusercontent.com/assets/9062406/8466850/fbc28afe-200b-11e5-88b6-1da15f90a0ec.png)
 
 #### Reference
 * [Interval Tree G4G](http://www.geeksforgeeks.org/interval-tree/)
