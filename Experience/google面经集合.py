@@ -411,4 +411,10 @@ follow-up是怎么判断两个文件内容是否相同，文件太大怎么优�
 
 '''
 
+'''
+设计一个random queue，支持push，pop，要求pop是random的
+follow-up，每次push的时候会有相应的权重，要求pop按照权重random，换句话说，push 1,2,3，相应的权重1,2,3。那第一次pop需要保证1被pop的概率是1/6，
+以此类推。有一个类似b+ tree的结构能解决follow-up。
+''
+
 
