@@ -31,3 +31,15 @@ matrix = [[1, 2, 3], [6, 7, 5], [2, 6, 8]]
 print sort_colors(matrix)
 
 
+'''
+2. Copy Random List, optimization use O(1)
+'''
+
+
+'''
+3. large scale下怎么设计一个根据关键词查询status的service。我自然又是一顿瞎扯，神马invert index, consistent hashing, 想到什么扯什么。
+然而这并没有什么卵用。。不论扯到什么大哥都要刨根问底，我到最后就完全招架不住了。。大哥的表情也就越来越蛋疼了。。这轮结束后我觉得基本
+就没戏了，design面这么烂基本是硬伤，弥补不了了。
+'''
+
+
