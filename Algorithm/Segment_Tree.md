@@ -1,6 +1,6 @@
 #### [Segment Tree](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
 
-##### Scenario 1 
+#### Scenario 1: Find sum and update the value in array in O(logn)
 We have an array arr[0 . . . n-1]. We should be able to
     * 1 Find the sum of elements from index l to r where 0 <= l <= r <= n-1
     * 2 Change value of a specified element of the array arr[i] = x where 0 <= i <= n-1.
