@@ -1,0 +1,11 @@
+* 1D range count
+    * Insert key-value pair
+    * Search for key k
+    * Delete key k
+    * Range search: find all keys between k1 and k2
+    * Range count: number of keys between k1 and k2
+
+* Use the BST 
+    * keep the keys in BST, the keys could be the count that how many keys are less than this character
+        * for example: 
+        ![pic](https://cloud.githubusercontent.com/assets/9062406/8469463/0324385a-2030-11e5-8bcf-54bded3c43e6.png)    
