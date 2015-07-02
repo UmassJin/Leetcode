@@ -1,4 +1,4 @@
-* 1D range count
+#### 1D range count
     * Insert key-value pair
     * Search for key k
     * Delete key k
@@ -10,11 +10,11 @@
         * for example: 
         ![pic](https://cloud.githubusercontent.com/assets/9062406/8469463/0324385a-2030-11e5-8bcf-54bded3c43e6.png)    
 
-* Line Segment Intersection
+#### Line Segment Intersection
       * Problem: Check all pairs of line segments for intersection
       * Resolution: sweep-line algorithm 
 
-* Intersection of two line segment 
+#### Intersection of two line segment 
       * Orientation:
          * –counterclockwise
          * –clockwise
@@ -24,7 +24,7 @@
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8470461/7eafea04-2040-11e5-9927-99e7dd26e65c.png)
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8470767/3c8c8312-2045-11e5-8040-8a6be6aa488f.png)            
 
-* Implement
+#### Implement
 
 
 ```python
