@@ -25,3 +25,8 @@
 * Clustering 
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8482718/40b153d6-20a0-11e5-859d-c424ee0bee32.png)
+
+
+#### Reference
+* [Video Algorithm K-d tree](https://www.youtube.com/watch?v=EsY8KSXKe5k)
+* [G4G](http://www.geeksforgeeks.org/k-dimensional-tree/)
