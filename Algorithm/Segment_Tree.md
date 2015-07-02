@@ -28,11 +28,14 @@ def constructST(array):
     n = len(array)
     maxsize = 2 * n + 1
     segmentTree = [0 for i in xrange(maxsize)]
+    # 注意这里，我们是将array的长度，0到n-1传递到function中
     constructST_helper(array, 0, n - 1, segmentTree, 0)
     print "seg:", segmentTree
     return segmentTree
 
-def constructST_helper(array, start, end, segmentTree,index):
+# Here index always point to the segmentTree index, and start, end are the index 
+# in the input array
+def constructST_helper(array, start, end, segmentTree, index):
     if start == end:
         segmentTree[index] = array[start]
         return segmentTree[index]
@@ -45,10 +48,12 @@ def constructST_helper(array, start, end, segmentTree,index):
 def getsum(segmentTree, n, start, end):
     if start < 0 or end > n or start > end:
         return -1
-
     return getsum_helper(segmentTree, 0, n-1, start, end, 0)
     
 def getsum_helper(segmentTree, arr_s, arr_e, qs, qe, index):
+    # Note the changes here: 
+    # only in the following scenario, we return the segmentTree[index]
+    # [ qs, [arr_s, arr_e], qe]
     if arr_s >= qs and arr_e <= qe:
         return segmentTree[index]
 
@@ -60,6 +65,9 @@ def getsum_helper(segmentTree, arr_s, arr_e, qs, qe, index):
             getsum_helper(segmentTree, mid+1, arr_e, qs, qe, index*2+2)
 
 # update arr[index] = value
+# Here we first update the arr[index] = value, calculate the diff 
+# and then search in the segmenttree, note here we still pass the length of arrary 
+# into the helper function 
 def update(arr, segmentTree, index, value):
     if index < 0 or index > len(arr) - 1:
         return
