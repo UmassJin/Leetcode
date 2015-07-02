@@ -18,6 +18,8 @@ We have an array arr[0 . . . n-1]. We should be able to
 
 * An array representation of tree is used to represent Segment Trees. For each node at index i, the left child is at index 2*i+1, right child at 2*i+2 and the parent is at st1.
 
+####[Implement](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
+
 ```python
 # Here we do not need to create a class TreeNode for the segment tree
 
