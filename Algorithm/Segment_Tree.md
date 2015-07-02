@@ -1,8 +1,7 @@
 #### [Segment Tree](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
 
-##### Let us consider the following problem to understand Segment Trees.
-
-* We have an array arr[0 . . . n-1]. We should be able to
+##### Scenario 1 
+We have an array arr[0 . . . n-1]. We should be able to
     * 1 Find the sum of elements from index l to r where 0 <= l <= r <= n-1
     * 2 Change value of a specified element of the array arr[i] = x where 0 <= i <= n-1.
 
@@ -18,3 +17,90 @@
         The merging may be different for different problems. For this problem, merging is sum of leaves under a node.
 
 * An array representation of tree is used to represent Segment Trees. For each node at index i, the left child is at index 2*i+1, right child at 2*i+2 and the parent is at st1.
+
+```python
+# Here we do not need to create a class TreeNode for the segment tree
+
+def constructST(array):
+    if not array:
+        return None
+    # leaf nodes is n, internal nodes is n-1 for full tree
+    n = len(array)
+    maxsize = 2 * n + 1
+    segmentTree = [0 for i in xrange(maxsize)]
+    constructST_helper(array, 0, n - 1, segmentTree, 0)
+    print "seg:", segmentTree
+    return segmentTree
+
+def constructST_helper(array, start, end, segmentTree,index):
+    if start == end:
+        segmentTree[index] = array[start]
+        return segmentTree[index]
+
+    mid = (start + end) / 2
+    segmentTree[index] = constructST_helper(array, start, mid, segmentTree, index*2+1) +\
+                    constructST_helper(array, mid+1, end, segmentTree, index*2+2)
+    return segmentTree[index]
+
+def getsum(segmentTree, n, start, end):
+    if start < 0 or end > n or start > end:
+        return -1
+
+    return getsum_helper(segmentTree, 0, n-1, start, end, 0)
+    
+def getsum_helper(segmentTree, arr_s, arr_e, qs, qe, index):
+    if arr_s >= qs and arr_e <= qe:
+        return segmentTree[index]
+
+    if (qs > arr_e) or (qe < arr_s):
+        return 0
+
+    mid = (arr_s + arr_e) / 2
+    return getsum_helper(segmentTree, arr_s, mid, qs, qe, index*2+1) +\
+            getsum_helper(segmentTree, mid+1, arr_e, qs, qe, index*2+2)
+
+# update arr[index] = value
+def update(arr, segmentTree, index, value):
+    if index < 0 or index > len(arr) - 1:
+        return
+
+    diff = value - arr[index]
+    arr[index] = value
+
+    update_helper(segmentTree, 0, len(arr)-1, index, diff, 0)
+
+'''
+@segmentTree: is the segmentTree after construct
+@arr_s is the array start, not the segmentTree start
+@arr_e is the array end, not the segmentTree end
+@i is the index which get change
+@ diff is the difference btw new value and old value
+@ index is the index in segmentTree
+'''
+def update_helper(segmentTree, arr_s, arr_e, i, diff, index):
+    if i < arr_s or i > arr_e:
+        return
+    segmentTree[index] += diff
+    if arr_s != arr_e:
+        mid = (arr_s + arr_e) / 2
+        update_helper(segmentTree, arr_s, mid, i, diff, index*2 + 1)
+        update_helper(segmentTree, mid+1, arr_e, i, diff, index*2 + 2)
+
+
+test = [1,3,5,7,9,11]
+segment = constructST(test)
+print getsum(segment, len(test), 2, 4)
+update(test, segment, 3, 8)
+print getsum(segment, len(test), 2, 4)
+```
+
+
+#### Scenario 2: Range Minimum Query
+
+
+
+
+#### Reference:
+* [G4G Set1](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
+* [G4G Set2 Range Minimum Query](http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/)
+* [RMQ topcoder](https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/#Range_Minimum_Query_(RMQ))
