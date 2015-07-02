@@ -8,7 +8,8 @@
 * Use the BST 
     * keep the keys in BST, the keys could be the count that how many keys are less than this character
         * for example: 
-        ![pic](https://cloud.githubusercontent.com/assets/9062406/8469463/0324385a-2030-11e5-8bcf-54bded3c43e6.png)    
+
+![pic](https://cloud.githubusercontent.com/assets/9062406/8469463/0324385a-2030-11e5-8bcf-54bded3c43e6.png)    
 
 #### Line Segment Intersection
       * Problem: Check all pairs of line segments for intersection
