@@ -20,6 +20,8 @@
          * –clockwise
          * –colinear
       * How to calculate Orientation
+      
+
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8470461/7eafea04-2040-11e5-9927-99e7dd26e65c.png)
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8470767/3c8c8312-2045-11e5-8040-8a6be6aa488f.png)            
 
