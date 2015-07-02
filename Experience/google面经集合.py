@@ -416,9 +416,14 @@ https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Segment_Tree.md
 '''
 
 '''
-设计一个random queue，支持push，pop，要求pop是random的
+15. 设计一个random queue，支持push，pop，要求pop是random的
 follow-up，每次push的时候会有相应的权重，要求pop按照权重random，换句话说，push 1,2,3，相应的权重1,2,3。那第一次pop需要保证1被pop的概率是1/6，
 以此类推。有一个类似b+ tree的结构能解决follow-up。
-''
+'''
+
+'''
+16. 第二轮，偏向c++功底跟concurrency。实现memcopy，还有就是实现一个银行的类里面的几个算法，都很简单，但是对多线程调用的加锁需要有了解。
+最后又问了一个实现每次调用，运行5秒，期间不停循环自增的简单算法，follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了系统时间。
+'''
 
 
