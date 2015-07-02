@@ -411,6 +411,8 @@ follow-up是怎么判断两个文件内容是否相同，文件太大怎么优�
 不，面试官就是期待我提出这样的解法，他也说了如果写对应的代码的话不需要实现balanced interval tree，假设有这么个现成的数据结构给你用就行了。
 因为interval tree不难写，但是balanced的就没那么好写了。。
 
+https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Segment_Tree.md
+
 '''
 
 '''
