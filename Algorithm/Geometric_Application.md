@@ -71,11 +71,8 @@ def checkIntersect(p1, q1, p2, q2):
     
 ```
 
-* Reference:
-      * http://www.dcs.gla.ac.uk/~pat/52233/slides/Geometry1x1.pdf
-      * http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
-      
-      
 
 #### Reference:
 * http://www.geeksforgeeks.org/given-a-set-of-line-segments-find-if-any-two-segments-intersect/
+* http://www.dcs.gla.ac.uk/~pat/52233/slides/Geometry1x1.pdf
+* http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
