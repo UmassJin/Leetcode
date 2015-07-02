@@ -104,8 +104,56 @@ print getsum(segment, len(test), 2, 4)
 
 
 #### Scenario 2: Range Minimum Query
+##### We have an array arr[0 . . . n-1]. We should be able to efficiently find the minimum value from index qs (query start) to qe (query end) where 0 <= qs <= qe <= n-1. The array is static (elements are not deleted and inserted during the series of queries)
 
+* Segment tree can be used to do preprocessing and query in moderate time. With segment tree, preprocessing time is O(n) and time to for range minimum query is O(Logn). The extra space required is O(n) to store the segment tree.
 
+* Representation of Segment trees
+      * 1. Leaf Nodes are the elements of the input array.
+      * 2. Each internal node represents minimum of all leaves under it.
+
+#### [Implement](http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/)
+```python
+def constructST(array):
+    if not array: return []
+    n = len(array)
+    maxsize = 2 * n + 1
+    segmentTree = [(1<<31)-1 for i in xrange(maxsize)]
+    constructST_helper(array, 0, n-1, segmentTree, 0)
+    print "segmentTree: ", segmentTree
+    return segmentTree
+
+def constructST_helper(array, start, end, segmentTree, index):    
+    if start == end:
+        segmentTree[index] = array[start]
+        return segmentTree[index]
+
+    mid = (start + end)/2
+    segmentTree[index] = min(constructST_helper(array, start, mid, segmentTree, index*2+1),
+                constructST_helper(array, mid+1, end, segmentTree, index*2+2))
+    return segmentTree[index]
+
+def RMQ(segmentTree, n, start, end):
+    if start < 0 or end > n-1 or start > end:
+        return -1
+    return RMQ_helper(segmentTree, 0, n-1, start, end, 0)
+
+def RMQ_helper(segmentTree, arr_s, arr_e, qs, qe, index):
+    if (arr_s >= qs) and (arr_e <= qe):
+        return segmentTree[index]
+    
+    if qe < arr_s or qs > arr_e:
+        return (1<<31)-1
+
+    mid = (arr_s + arr_e) / 2
+    return min(RMQ_helper(segmentTree, arr_s, mid, qs, qe, index*2 + 1),
+            RMQ_helper(segmentTree, mid+1, arr_e, qs, qe, index*2 + 2))
+    
+test = [2,5,1,4,9,3]
+seg = constructST(test)
+print RMQ(seg, len(test), 3,5)
+
+```
 
 
 #### Reference:
