@@ -82,6 +82,9 @@ class kDTree:
 
 ```
 
+#### Resolve Problem
+* Range search in a 2d tree (check the video)
+* Nearest neighbor search in a 2d tree (check the video)
 
 #### Reference
 * [Video Algorithm K-d tree](https://www.youtube.com/watch?v=EsY8KSXKe5k)
