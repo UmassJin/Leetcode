@@ -37,7 +37,7 @@ class Solution:
  
         return dummy1.next
         
-        
+# https://leetcode.com/discuss/38306/simple-5-lines-python
     def mergeTwoLists(self, a, b):
         if a and b:
             if a.val > b.val:
