@@ -12,29 +12,26 @@ You may assume all elements in the array are non-negative integers and fit in th
 class Solution:
     # @param num, a list of integer
     # @return an integer
-    def maximumGap(self, num):
-        n = len(num)
-        if n<2: return 0
-        maxnum = num[0]; minnum = num[0]
-        for i in xrange(n):
-            minnum = min(num[i],minnum)
-            maxnum = max(num[i],maxnum)
-        
-        bucket_size = (maxnum-minnum-1)/(n-1)+1
-        bucket_min_max = [(float('inf'), float('-inf')) for i in xrange(n)]
-        
-        for i in xrange(n):
-            index = (num[i]-minnum)/bucket_size
-            bucket_min_max[index]=(min(bucket_min_max[index][0],num[i]),max(bucket_min_max[index][1],num[i]))
-        
+    def maximumGap(self, nums):
+        n = len(nums)
+        if n < 2: return 0
+        imin = min(nums); imax = max(nums)
         gap = 0
-        premax = bucket_min_max[0][1]
-        for bucket_min, bucket_max in bucket_min_max[1:]:
-            if bucket_min == float('inf'):
-                continue 
-            gap = max(bucket_min - premax, gap)
-            premax = bucket_max
-            
+        
+        bucket_size = (imax - imin - 1)/(n - 1) + 1
+        #bucket_size = int(math.ceil((imax - imin)/(n-1))) # wrong! [3,6,9,1]
+        bucket_arr = [[float('inf'), float('-inf')] for i in xrange(n)]
+        
+        for num in nums:
+            index = (num - imin) /bucket_size
+            bucket_arr[index][0], bucket_arr[index][1] = min(num, bucket_arr[index][0]), max(num, bucket_arr[index][1])
+        
+        pre_max = bucket_arr[0][1]
+        for bucket in bucket_arr[1:]:
+            if bucket[0] == float('inf'):
+                continue
+            gap = max(gap, bucket[0]-pre_max)
+            pre_max = bucket[1]
         return gap
         
 # test case: [1,1000000], 
