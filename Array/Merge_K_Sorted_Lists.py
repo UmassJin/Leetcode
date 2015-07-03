@@ -29,5 +29,5 @@ class Solution:
         return dummy.next
 
 # Total time complexity:
-# Here, the heapiify use O(k), and then insert each number, each one use O(logk), totally use O(nlogk)
-# O(k + nlogk)
+# Here, the heapiify use O(k), and then insert each number, each one use O(logk), totally use O((n-k)logk)
+# O(k + (n-k)logk)
