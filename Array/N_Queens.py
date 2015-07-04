@@ -64,3 +64,7 @@ class Solution:
         result = []
         dfs(0,[])
         return result
+
+# The most efficient Queen problem 
+# http://blog.csdn.net/hackbuteer1/article/details/6657109
+# http://www.cnblogs.com/TenosDoIt/p/3801621.html
