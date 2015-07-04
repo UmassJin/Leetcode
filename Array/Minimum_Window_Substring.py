@@ -10,8 +10,63 @@ If there is no such window in S that covers all characters in T, return the emtp
 
 If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
 
-# Reference: http://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
+# More efficient answer, ONLY need one dict 
+# https://leetcode.com/discuss/20053/three-concise-implemetation-according-leetcode-oj-discuss
+import collections 
 
+class Solution:
+    def minWindow(self, s, t):
+        m = len(s); n = len(t)
+        if m == 0 or n == 0 or m < n: return ""
+        idict = collections.defaultdict(int)
+        for i in xrange(n):
+            idict[t[i]] += 1
+        left = 0; count = 0
+        minlen = (1<<31) - 1; minindex = 0
+        for right in xrange(m):
+            idict[s[right]] -= 1
+            if idict[s[right]] >= 0:
+                count += 1
+            while count == n:
+                if right - left + 1 < minlen:
+                    minlen = right - left + 1
+                    minindex = left
+                idict[s[left]] += 1
+                if idict[s[left]] > 0:
+                    count -= 1
+                left += 1
+        if minlen == (1<<31) - 1: return ""
+        return s[minindex:minindex+minlen]
+        
+
+# The other answer 
+class Solution:
+    # @param {string} s
+    # @param {string} t
+    # @return {string}
+    def minWindow_1(self, s, t):
+        m = len(s); n = len(t)
+        if m == 0 or n == 0 or m < n: return ""
+        idict = {char: t.count(char) for char in t}
+        left, right = 0, 0
+        result = ''
+        minwindow = (1<<31) - 1
+        while right <= m:
+            if all(map(lambda x: True if x <= 0 else False, idict.values())):
+                if minwindow > right - left:
+                    minwindow = right - left
+                    result = s[left:right]
+                if s[left] in idict:
+                    idict[s[left]] += 1
+                left += 1
+            else:
+                if right == m: break
+                if s[right] in idict:
+                    idict[s[right]] -= 1
+                right += 1    
+        return result 
+
+# Reference: http://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
 class Solution:
     # @return a string
     def minWindow(self, S, T):
@@ -64,47 +119,3 @@ class Solution:
     # 判断是否找到，注意这里的思路，不能对left pointer and right pointer 做while循环，
     # 在找到所有的元素之后或者遍历到结尾之后在移动left
     # Test case: 'a', 'a'; 'a', 'b'; 'ab', 'b'
-
-
-# The following is the wrong answer !!!
-    # def minWindow(self, s, t):
-    #     if not s or not t: return None
-    #     if len(t) > len(s): return ""
-        
-    #     idict = {}
-    #     slow = 0; fast = 0
-    #     count = 0; 
-    #     result = ""
-    #     minlen = len(s)
-        
-    #     for char in t:
-    #         if char not in idict:
-    #             idict[char] = 1
-    #             count += 1
-    #         else:
-    #             idict[char] += 1
-                
-    #     for i, char in enumerate(s):
-    #         while fast < len(s) and slow <= fast:
-    #             if char not in idict:
-    #                 fast += 1
-    #             else:
-    #                 if idict[char] > 0:
-    #                     idict[char] -= 1
-    #                     if idict[char] == 0:
-    #                         count -= 1
-    #                 if count > 0:
-    #                     fast += 1
-    #                 else:
-    #                     if minlen >= (fast-slow+1):
-    #                         result = s[slow:fast+1]
-    #                         minlen = len(result)
-                        
-    #                     if s[slow] in idict:
-    #                         if idict[s[slow]] == 0:
-    #                             count += 1
-    #                         idict[s[slow]] += 1
-    #                     slow += 1
-        
-    #     return result 
-        
