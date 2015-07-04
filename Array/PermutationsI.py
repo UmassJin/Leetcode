@@ -35,3 +35,8 @@ class Solution:
                             permutations.append(temp)
                     result = permutations[:]
             return result
+
+# Time complexity: O(n * n!) n!: n factorial 
+# Without going into the details of any specific algorithm, an optimal permutation algorithm has to generate all the possible n! 
+# permutation, each with n characters. So the best time complexity one can attain would be O(n∗n!), which is same as the complexity
+# of almost all the permutation algorithms/code you can find online.
