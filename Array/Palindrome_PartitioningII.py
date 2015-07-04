@@ -32,6 +32,8 @@ class Solution:
                     dp[i] = min(dp[j+1] + 1, dp[i])  # Note: here is dp[j+1]
         return dp[0] - 1
 
+# https://leetcode.com/discuss/9476/solution-does-not-need-table-palindrome-right-uses-only-space
+
 # Faster method 
     def minCut(self, s):
         n = len(s)
