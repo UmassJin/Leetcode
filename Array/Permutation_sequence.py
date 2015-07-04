@@ -17,32 +17,30 @@ Note: Given n will be between 1 and 9 inclusive.
 
 Reference: https://leetcode.com/discuss/16064/an-iterative-solution-for-reference
 
+import math
 class Solution:
     # @param {integer} n
     # @param {integer} k
     # @return {string}
     def getPermutation(self, n, k):
-        result = []
-        ilist = []
-        factor = 1
-        
-        for i in xrange(1, n+1):
-            ilist.append(i)
-        for i in xrange(1, n+1):
-            factor *= i
-        
+        result = ""
+        ilist = [ i for i in xrange(1, n+1)]
+        factor = math.factorial(n)
         k -= 1
         while n > 0:
             factor = factor / n
             index = k / factor 
-            result.append(str(ilist[index]))  
-            # Here, ''.join(result), result must be the string list ! 
-            # result = ['1','2','3']
+            result += str(ilist[index]) 
             ilist.remove(ilist[index])
             k %= factor 
             n -= 1
         
-        return ''.join(result) 
+        return result
+        
+
+# result.append(str(ilist[index]))  
+# Here, ''.join(result), result must be the string list ! 
+# result = ['1','2','3']
 
 # For the permutation of n, the total amount is n!
 # so we could seperate into n group, each group has (n-1)! 
