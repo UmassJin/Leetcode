@@ -32,6 +32,26 @@ class Solution:
                     dp[i] = min(dp[j+1] + 1, dp[i])  # Note: here is dp[j+1]
         return dp[0] - 1
 
+# Faster method 
+    def minCut(self, s):
+        n = len(s)
+        cut = [i-1 for i in xrange(n+1)]  # cut[i] means the min cut for s[:i]
+        
+        for i in xrange(n):
+            j = 0
+            while (i-j >= 0) and (i+j < n) and (s[i-j] == s[i+j]): # for odd parlindrome 
+                cut[i+j+1] = min(cut[i+j+1], cut[i-j]+1)
+                j += 1
+            
+            j = 1
+            while (i-j+1 >= 0) and (i+j < n) and (s[i-j+1] == s[i+j]): # for the even palindrome 
+                cut[i+j+1] = min(cut[i+j+1], cut[i-j+1]+1)
+                j += 1
+        
+        return cut[n]
+        
+
+
     # Method 2 
     def minCut(self,s):
         length = len(s)
