@@ -30,18 +30,15 @@ class Solution:
     def permuteUnique(self, nums):
         if not nums: return []
         result = [[]]
-    
+        
         for num in nums:
-            if result == [[]]:
-                result = [[num]]
-            else:
-                permutation = []
+            permutation = []
                 
-                for subres in result:
-                    for k in xrange(len(subres)+1):
-                        temp = subres[:]
-                        temp.insert(k, num)
-                        if temp not in permutation:
-                            permutation.append(temp)
-                result = permutation[:]
-        return result 
+            for subres in result:
+                for k in xrange(len(subres)+1):
+                    temp = subres[:]
+                    temp.insert(k, num)
+                    if temp not in permutation:
+                        permutation.append(temp)
+            result = permutation[:]
+        return result
