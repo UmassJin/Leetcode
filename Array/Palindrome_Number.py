@@ -8,6 +8,7 @@ you know that the reversed integer might overflow. How would you handle such cas
 There is a more generic way of solving this problem.
 
 # Best answer ! 
+# https://leetcode.com/discuss/33500/an-easy-lines-code-only-reversing-till-half-and-then-compare
 class Solution:
     # @return a boolean
     def isPalindrome(self, x):
