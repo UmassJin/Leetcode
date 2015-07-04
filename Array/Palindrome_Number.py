@@ -7,6 +7,17 @@ You could also try reversing an integer. However, if you have solved the problem
 you know that the reversed integer might overflow. How would you handle such case?
 There is a more generic way of solving this problem.
 
+# Best answer ! 
+class Solution:
+    # @return a boolean
+    def isPalindrome(self, x):
+        if x < 0 or (x != 0 and x % 10 == 0): return False # except 10, 100
+        sum  = 0
+        while x > sum:
+            sum = sum * 10 + x % 10
+            x = x / 10
+        return (x == sum) or (x == sum/10)
+
 class Solution:
     # @return a boolean
     def isPalindrome(self, x):
