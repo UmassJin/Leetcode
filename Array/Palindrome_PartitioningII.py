@@ -18,18 +18,19 @@ class Solution:
     #           since s[i:j] is palindrome, so dp[i] = dp[j+1] + 1, # of palindrome in s[j+1:] add 1
     # result: dp[0]-1
     
+    
     def minCut(self, s):
-        p = [[False for i in xrange(len(s))] for j in xrange(len(s))]
-        dp = [ 0 for i in (range(len(s)+1))]  # Note: here we need to assign the range(len(s))+!
-        for i in range(len(s)+1):
-            dp[i] = len(s)-i
+        if not s: return 0
+        n = len(s)
+        dp = [ n-i for i in xrange(n+1)]  # Note: here we need to assign the range(len(s))+1
+        ispal = [[False for i in xrange(n)] for j in xrange(n)]
         
-        for i in range(len(s)-1,-1,-1):
-            for j in range(i, len(s)):
-                if s[i] == s[j] and (j-i<2 or p[i+1][j-1]):
-                    p[i][j] = True
+        for i in xrange(n-1, -1, -1):
+            for j in xrange(i, n):
+                if s[i] == s[j] and ((j-i<2) or ispal[i+1][j-1]):
+                    ispal[i][j] = True
                     dp[i] = min(dp[j+1] + 1, dp[i])  # Note: here is dp[j+1]
-        return dp[0]-1            
+        return dp[0] - 1
 
     # Method 2 
     def minCut(self,s):
