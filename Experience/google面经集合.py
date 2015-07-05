@@ -586,3 +586,205 @@ strs : "aa", "bcd" -> true
 strs : "ab", "ac"  -> false
 '''
 
+
+'''
+Leetcode: count islands
+-google 1point3acres
+後面的 follow up 都是討論而已, 沒寫 code
+Follow up: 如果是大地圖怎麼處理, 要你切 map, 考慮每個 submap 之間的關係. visit 1point3acres.com for more.
+Follow up2: 平行化處理, 這個條件, 可能會讓你前面所想方法要重新思考
+
+這時剩下15分鐘, 他就說再來個 follow up 好了 = =, 跟大圖無關, 一樣是 count island, 假設已經做了第一次的處理
+Follow up3: 如果他現在要新增島到地圖上, 請回傳最新的 count
+ex: int add(int x, int y), the function should return the new count
+
+Follow up3.1 這個 function 能不能做到比 O(N*N) 還要好? (N為 map 邊長)
+
+最後結束的時候, 他有跟我說解法, 就是當初在 count islands 的時候把每個 island 都建成一顆 tree
+所以再判斷新加上去的 island 周圍的時候, 只要判斷周圍的 island 是不是有 common ancestor O(lgN)
+如果是分開的兩個島, 現在被新的島串起來了的話, 就將兩顆 tree 接起來就好
+
+思路[转发]：
+本帖最后由 stellari 于 2015-6-29 20:44 编辑
+
+
+今天在Lintcode上刷到Number of Islands II这道题，发现恰好和前两天面经版的一个Youtube面试出现的题的follow up是相同的。在网上简单搜了一下并没有看到关于这道题的详细解法，所以自己写了一个，分享给大家。
+
+原题是这样的：
+
+----------------------
+Given a n,m which means the row and column of the 2D matrix and an array of pair A( size k). Originally, the 2D matrix is all 0 which means there is only sea in the matrix. The list pair has k operator and each operator has two integer A[i].x, A[i].y means that you can change the grid matrix[A[i].x][A[i].y] from sea to island. Return how many island are there in the matrix after each operator.
+
+Example 
+
+Given n = 3, m = 3, array of pair A = [(0,0),(0,1),(2,2),(2,1)].
+
+return [1,1,2,2].
+
+Note 
+
+0 is represented as the sea, 1 is represented as the island. If two 1 is adjacent, we consider them in the same island. We only consider up/down/left/right adjacent
+复制代码
+
+大意就是在一个由grid组成的海洋上，每次将一个方格从海洋改变成陆地。在每次完成这个操作后，都要得到此时的岛屿数目。
+--------------------
+
+这实际上就是要动态维护一个图的Connected Component。这是并查集(Union-find set)的典型应用。所谓并查集，就是满足下列特征的数据结构：
+
+1. 能表示一组不相交的集合，比如{{1, 2, 3}, {4, 5}, {6}, {7}}；
+2. 最少支持以下三个操作:
+    make-set(v): 加入一个新的集合，其中只有一个元素v。
+    find(v): 给定元素v，查询v在哪一个集合当中。
+    union(v1, v2): 给定元素v1和v2，将它们所在的集合合并为一个。
+
+并查集通常用树形结构来表示。每一个集合是一棵多叉树，所以一组不相交集合构成了一个“forest”。比如{{1, 2, 3}, {4, 5}, {6}, {7}}这组不相交集合，可以用四棵树来表示:
+   
+   1           4       6         7
+  / \         / 
+  2   3      5
+复制代码
+其中每棵树的root可以是这个集合中的任意元素（一般是第一个加入该集合的元素）。其他元素都是root的子node，或子node的子node……等等。
+
+我们可以用root来代表集合本身。这样，当给定树中的任何一个节点，我们就希望能够快速地找到这个节点所在的集合，也就是树的root。所以，每个节点必须储存它的parent节点。但是反过来，我们不需要在已知root的情况下，查找树中的一个节点，所以并不需要储存child节点。也就是说，并查集树和普通的树恰好相反。
+
+这样的话，find函数就很容易写了
+find(v)
+  while (v is not root) 
+        v = v->parent
+  return v
+复制代码
+至于union函数，我们可以先找到两个节点所在的树的root，然后把较浅的树插入到较深的树中去。这样做的原因是希望得到的树能尽量平衡。为此，我们在每个节点中保存“以这个节点为root的树的深度”。如果树中只有root一个元素时，深度为0。
+
+综合上述讨论，并查集树节点定义如下：
+struct DJSetNode{
+  int rank;
+  DJSetNode* parent;
+  DJSetNode(int r, DJSetNode* parent): 
+        rank(r), parent(p) 
+  {}
+};
+复制代码
+这里的rank就是深度。之所以不叫“depth”，是因为以后我们可以对上述的并查集实现做进一步优化，称为Path Compression（本文不作讨论）。在作完这步优化以后，这个rank就和深度不对应了。
+
+union函数可以实现如下：
+union(v1, v2)
+  root1 = find(v1)
+  root2 = find(v2)
+  if (root1 is root2) 
+    return root1
+  if (root1 has lower rank) 
+    root2.parent = root1
+    return root1
+  else if (root2 has lower rank)
+    root1.parent = root2
+    return root2
+  else // root1 and root2 have same depth
+    root2.parent = root1
+    root1.rank ++
+    return root1
+复制代码
+----------------
+
+在本题当中，我们可以将创建一个M x N的数组SEAMAP，类型为DJSetNode*。每次将一个坐标点(i, j)位置设为陆地时，我们做3件事：
+
+1. 创建一个新的DJSetNode对象N
+2. 将N作为一棵孤立的树插入到forest当中
+3. 让SEAMAP[i, j]指向N
+
+然后，我们查询SEAMAP[i, j]的四个邻位置。如果其中某些位置的值不为NULL，那么说明这里已经存在有岛屿，那么我们将N与那些位置所在的集合合并即可。对于四个邻位置，我们最多只要进行四次union操作即可。合并完成之后，forest中剩余的孤立树的个数即为孤立岛屿的个数。
+
+由于并查集树都是平衡树，所以find和union都有O(logn)复杂度（其中n为岛屿位置的个数）。也就是说每添加一块岛屿，都仅需要O(logn)时间。
+
+------------------
+代码如下:
+struct DJSetNode {
+    int label;  // 保留字。本程序中并未用到。
+    int rank;   // 在本程序中就是树的深度。
+    DJSetNode* parent;
+    DJSetNode(int lb, int r, DJSetNode* p): label(lb), rank(r), parent(p) {}
+};
+class Solution {
+    unordered_set<DJSetNode*> forest;   // 包含当前所有树的根
+    
+    // MAKESET: 产生一个仅含一个元素的set，并将其作为一棵树加入forest
+    DJSetNode* makeSet() {
+        DJSetNode* cur = new DJSetNode(0, 0, nullptr);    
+        forest.insert(cur);
+        return cur;
+    }
+
+    // FIND: 给定任意一个元素，找到这个元素所在树的root
+    DJSetNode* find(DJSetNode* n) {
+        if (n == nullptr) return nullptr;
+        while (n->parent) {
+            n = n->parent;
+        }
+        return n;
+    }
+
+    // MERGE: 给定两个元素，合并这两个元素所在的树，并返回合并后树的root
+    DJSetNode* merge(DJSetNode* n1, DJSetNode* n2) {
+        DJSetNode* r1 = find(n1);   // 分别找到两元素所在的树的root
+        DJSetNode* r2 = find(n2);
+        if (r1 == r2) {             // 如果本来就在同一树，则不做任何事
+            return r1;
+        }
+
+        if (r1->rank > r2->rank) {  // 如果树1的“深度”大于树2，
+            r2->parent = r1;        // 则以树1为基础合并
+            forest.erase(r2);       // 然后从forest中除去树2
+            return r1;              // 这是为了保证合并后树的深度尽可能小
+        }
+        else if (r1->rank < r2->rank) { // 反之则以树2为基础合并，
+            r1->parent = r2;
+            forest.erase(r1);
+            return r2;
+        }
+        else {                      // 若深度相同，则任选一树为基础合并
+            r2->parent = r1;        // 此处选为树1
+            forest.erase(r2);
+            r1->rank++;             // 合并以后，树1的深度增加了1
+            return r1;
+        }
+    }
+
+    int add(const Point& p) {
+        vector<DJSetNode*> nbs;     
+        // 查看当前位置的四个邻点，如果为island，则将其加入队列
+        if (p.x > 0 && seaMap[p.y][p.x-1]) nbs.push_back(seaMap[p.y][p.x-1]);
+        if (p.y > 0 && seaMap[p.y-1][p.x]) nbs.push_back(seaMap[p.y-1][p.x]);
+        if (p.x < NC-1 && seaMap[p.y][p.x+1]) nbs.push_back(seaMap[p.y][p.x+1]);
+        if (p.y < NR-1 && seaMap[p.y+1][p.x]) nbs.push_back(seaMap[p.y+1][p.x]);
+
+        DJSetNode* cur = makeSet(); // 先把当前加入的点看做一个新的孤立岛屿。
+        seaMap[p.y][p.x] = cur;     // 
+
+        for (int i = 0; i < nbs.size();++i) {
+            cur = merge(cur, nbs[i]);   // 将这个岛屿分别与周围的邻岛合并
+        }
+        return forest.size();       // 此时forest中的tree数就是孤立岛屿的数目
+    }
+public:
+    vector<vector<DJSetNode*> > seaMap;
+    int NR, NC;
+    vector<int> numIslands2(int n, int m, vector<Point>& operators) {
+        seaMap = vector<vector<DJSetNode*> >(m, vector<DJSetNode*>(n, nullptr));
+        NR = m, NC = n;
+
+        vector<int> res;
+        // 
+        for (int i = 0; i < operators.size(); ++i) {
+            int a = add(operators[i]);
+            res.push_back(a);
+        }
+        return res;
+    }
+};
+复制代码
+------------------------------
+
+
+
+# http://www.1point3acres.com/bbs/thread-137081-1-1.html
+# http://www.1point3acres.com/bbs/thread-137243-1-1.html
+'''
