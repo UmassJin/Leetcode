@@ -52,12 +52,48 @@ addressing.
     * linear probing 
       *  在实现 linear probing的时候，注意delete的function的实现，不是简单的空为1，要取一个特殊值，否则find func会出问题
     * quadratic probing
+      * x + 1^2, x + 2^2, x + 3^2,...
+      * the other problem for this method is cause the secondary clustering, the linear probing called the primary clustering 
     * double hashing 
-
+      * For the above issue, The solution is to hash the key a second time, using a different hash function, and use the result as the step size. 
+      * Experience has shown that this secondary hash function must have certain
+characteristics:
+         * It must not be the same as the primary hash function. 
+         * It must never output a 0 (otherwise, there would be no step; every probe would land on the same cell, and the algorithm would go into an endless loop).
+         ```java
+         public void insert(int key, DataItem item)
+         // (assumes table not full)
+         {
+            int hashVal = hashFunc1(key); // hash the key
+            int stepSize = hashFunc2(key); // get step size
+            // until empty cell or -1
+            while(hashArray[hashVal] != null && hashArray[hashVal].getKey() != -1)
+            {
+               hashVal += stepSize; // add the step
+               hashVal %= arraySize; // for wraparound
+            }
+            hashArray[hashVal] = item; // insert item
+         } // end insert()
+         ```
+      * Double hashing requires that the size of the hash table is a prime number. To see
+why, imagine a situation in which the table size is not a prime number. For example,
+suppose the array size is 15 (indices from 0 to 14), and that a particular key hashes to
+an initial index of 0 and a step size of 5. The probe sequence will be 0, 5, 10, 0, 5,
+10, and so on, repeating endlessly. Only these three cells are ever examined, so the
+algorithm will never find the empty cells that might be waiting at 1, 2, 3, and so on.
+The algorithm will crash and burn.  
+      
 * Seperate Chaining 
     * A second approach (mentioned earlier) is to create an array that consists of linked
 lists of words instead of the words themselves. Then, when a collision occurs, the
 new item is simply inserted in the list at that index. This is called separate chaining.
+    * load factor 
+         * The load factor (the ratio of the number of items in a hash table to its size) is typically
+different in separate chaining than in open addressing. In separate chaining it’s
+normal to put N or more items into an N cell array; thus, the load factor can be 1 or
+greater.
+      * With separate chaining, making the table size a prime number is not as important as
+it is with quadratic probes and double hashing.
 
 #### Implement 
 ##### Linear Probing 
