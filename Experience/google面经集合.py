@@ -960,8 +960,14 @@ class UnionFind:
 '''
 27. give a float array and the weight for each array element write a function to generate each element probablistically based on the weight, 
 这道题followup略难，根据weigt优化算法没答出来，最后问了面试小哥，要用Heap，想想也make sense，开始自己想到用heap但是小哥一直提示把我给带跑了。
-'''
 
+类似的题目:
+设计一个random queue，支持push，pop，要求pop是random的
+follow-up，每次push的时候会有相应的权重，要求pop按照权重random，换句话说，push 1,2,3，相应的权重1,2,3。那第一次pop需要保证1被pop的概率是1/6，以此类推。
+有一个类似b+ tree的结构能解决follow-up。
+
+事实证明这道题很tricky，直接上vector，每次先跟最后swap再pop_back()就好了。。。
+'''
 
 '''
 28. 一道面经题2D sparse matrix, how to get the number of 1's in constant time given two coordinate
@@ -971,23 +977,88 @@ class UnionFind:
 '''
 29. 设计合并若干个字符串到一个字符串的encoding算法与对应的decoding算法
 '''
+def encode_strings(str_list):
+    if not str_list: return ""
+    result = ""
 
+    for s in str_list:
+        n = len(s)
+        result += str(n) + '#' + s
+    return result
 
-'''
-30. 设计一个random queue，支持push，pop，要求pop是random的
-follow-up，每次push的时候会有相应的权重，要求pop按照权重random，换句话说，push 1,2,3，相应的权重1,2,3。那第一次pop需要保证1被pop的概率是1/6，以此类推。
-有一个类似b+ tree的结构能解决follow-up。
+def decode_strings(string):
+    if not string: return ""
+    result = []
+    while len(string) > 0:
+        index = string.index('#')
+        length = int(string[index-1]) 
+        substr = string[index+1: index+length+1]
+        result.append(substr)
+        string = string[index+length+1:]
+        print "string: ", string
+    return result
 
-事实证明这道题很tricky，直接上vector，每次先跟最后swap再pop_back()就好了。。。
-'''
+test = ['hello','world','how','are','you']
+result =  encode_strings(test)
+print result
+print decode_strings(result)
 
 
 '''
 31.给int n，求n所有factors，然后问问算法的running time
 接下来就是第一题的follow up，给distinct primes list，回传所有由这些primes组成的数字。再follow up，那给的primes有重复呢？
+# http://stackoverflow.com/questions/6800193/what-is-the-most-efficient-way-of-finding-all-the-factors-of-a-number-in-python
 '''
 
+def find_factor(x):
+    result = set()
+    i = 1
+    while i * i <= x:
+        if x % i == 0:
+            result.add(i)
+            result.add(x//i)
+        i += 1
+    return result
+    
+print find_factor(4)
+print find_factor(8)
+print find_factor(18)
 
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python find_factor.py
+set([1, 2, 4])
+set([8, 1, 2, 4])
+set([1, 2, 3, 6, 9, 18])
+
+
+'''
+follow up: 
+Efficient program to print all prime factors of a given number
+http://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
+'''
+
+def find_prime_factor(x):
+    result = set()
+    while x % 2 == 0:
+        result.add(2)
+        x = x / 2
+    i = 3
+    while i * i <= x:
+        while x % i == 0:
+            result.add(i)
+            x = x / i
+        i += 2
+        
+    if x > 2:
+        result.add(x)
+    return result
+
+
+print "prime factor:"
+print find_prime_factor(8)
+print find_prime_factor(9)
+print find_prime_factor(11)
+print find_prime_factor(121)
+print find_prime_factor(315)
 
 
 ========================================================================================
