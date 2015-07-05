@@ -29,3 +29,5 @@ the traversal processes the elements in a not particularly useful order.  This i
 ##### Reference
 * http://comscigate.com/HW/cs31/hashingVbst.htm
 * [G4G](http://www.geeksforgeeks.org/advantages-of-bst-over-hash-table/)
+* http://stackoverflow.com/questions/4128546/advantages-of-binary-search-trees-over-hash-tables
+
