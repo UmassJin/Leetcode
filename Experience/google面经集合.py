@@ -530,10 +530,44 @@ print rotation_number(number5)
 
 '''
 Followup question
+
+思路：
+奇数: 0, 1, 8
+偶数：00, 11, 88, 69, 96
+奇数：000, 010, 080, 101, 111, 181, 808, 818, 888, 609, 619, 689.....
+偶数：0000, 0110, 0880, 0690, 0960, 1001, 1111, 1881, 1691, 1961, 8008, 8118, 8888, ......
+
+奇数可以通过偶数加0, 1, 8 得到
+偶数则可以通过加上00, 11, 88, 69, 96得到
 '''
+def find_rotate_number(n):
+    if n < 1: return []
+    res = []; pre = ['']
+    list1 = ["0", "1", "8"]
+    idict = {'0':'0', '1':'1', '8':'8', '6':'9', '9':'6'}
+    i = 1
+    while i < n + 1:
+        cur = []
+        if i % 2 == 1:
+            if pre == ['']:
+                cur = list1
+            else:
+                for num in pre:
+                    for digit in list1:
+                        index = len(num)/2
+                        newnum = num[:index] + digit + num[index:]
+                        cur.append(newnum)
+        elif i % 2 == 0:
+            for num in pre:
+                for digit in idict:
+                    newnum = digit + num + idict[digit]
+                    cur.append(newnum)
+            pre = cur
+        res.extend(cur)
+        i += 1
+    return res
 
-
-
+print find_rotate_number(4)
 
 
 
@@ -550,6 +584,5 @@ pattern: "abc"
 strs : "ab", "cd"  -> true
 strs : "aa", "bcd" -> true
 strs : "ab", "ac"  -> false
-
 '''
 
