@@ -1,21 +1,20 @@
-```python
-'''
-Union Find algorithm 
+### Union Find algorithm 
 Reference: https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
 
-1) Number of Islands follow up:
+#### 1) Number of Islands follow up:
 在一个由grid组成的海洋上，每次将一个方格从海洋改变成陆地。在每次完成这个操作后，都要得到此时的岛屿数目
 这实际上就是要动态维护一个图的Connected Component
 Reference: http://www.1point3acres.com/bbs/thread-137243-1-1.html
 
-2) Check the tree is Valid or not
+#### 2) Check the tree is Valid or not
 Acturally check if there is cycle in the undirected graph 
 Reference: http://www.geeksforgeeks.org/union-find/
 
-3) 
-Reference: http://www.fgdsb.com/tags/Union-Find/
-'''
+```python
 # Check Tree is Valid or not, check the Graph is cycle or not 
+For each edge, make subsets using both the vertices of the edge. If both the vertices 
+are in the same subset, a cycle is found.
+
 class Graph:
     def __init__(self, V, E):
         self.V = V
@@ -64,3 +63,19 @@ class UnionFind:
 ```
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8512632/58fbbdf6-2301-11e5-9e26-85efa559670c.png)
+
+
+
+#### 3) Group Contacts
+有这么一个class Contact，里面有一个string的name，和一个vector 装着email address，是这个Contact有的address，用一个list装着是因为一个人有可 能有多个email，现在给你vector，比如
+{
+    { "John", {"john@gmail.com"} },
+    { "Mary", {"mary@gmail.com"} },
+    { "John", {"john@yahoo.com"} },
+    { "John", {"john@gmail.com", "john@yahoo.com", "john@hotmail.com"} },
+    { "Bob",  {"bob@gmail.com"} }
+}
+现在我们知道如果email address相同的话，那么就说明是同一个人，现在要做的是根据这些email address，
+把同一个contact给group起来
+
+Reference: http://www.fgdsb.com/tags/Union-Find/
