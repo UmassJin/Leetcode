@@ -529,7 +529,7 @@ print rotation_number(number4)
 print rotation_number(number5)
 
 '''
-Followup question
+19. Followup question
 
 思路：
 奇数: 0, 1, 8
@@ -572,7 +572,7 @@ print find_rotate_number(4)
 
 
 '''
-The pattern could be across the given set of strings.
+20. The pattern could be across the given set of strings.
 只要他給的 pattern 在連續的 strings 可以組合起來成為 pattern string, return true-google 1point3acres
 
 ex:
