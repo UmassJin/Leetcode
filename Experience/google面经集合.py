@@ -1006,7 +1006,6 @@ print decode_strings(result)
 
 '''
 31.给int n，求n所有factors，然后问问算法的running time
-接下来就是第一题的follow up，给distinct primes list，回传所有由这些primes组成的数字。再follow up，那给的primes有重复呢？
 # http://stackoverflow.com/questions/6800193/what-is-the-most-efficient-way-of-finding-all-the-factors-of-a-number-in-python
 '''
 
@@ -1031,8 +1030,45 @@ set([1, 2, 3, 6, 9, 18])
 
 
 '''
+follow up
+32. 接下来就是第一题的follow up，给distinct primes list，回传所有由这些primes组成的数字。再follow up，那给的primes有重复呢？
+原本题是n=20，回传{1, 2, 4, 5, 10, 20}；后面两道题是给你{2, 5}，回传{1, 2, 5, 10}，或是primes有重复，例如给你{2, 2, 5}，
+回传{1, 2, 4, 5, 10, 20}
+# 原题链接: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=134582&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+# Analysis: http://www.fgdsb.com/2015/01/17/factors-of-product-of-distinct-primes/
+'''
+# None-duplicate input 
+def all_factors(primes):
+    result = []
+    dfs(result, primes, 0, 1)
+    print result
+
+def dfs(result, primes, i, cur):
+    if i == len(primes):
+        result.append(cur)
+        return
+    dfs(result, primes, i+1, cur)
+    dfs(result, primes, i+1, cur*primes[i])
+     
+     
+test = [2,3,7]
+all_factors(test)
+
+test1 = [2,3,5]
+all_factors(test1)
+
+# Duplicate input
+
+# 通过一个pre来记录之前的数字primes，比如对于input[2,2,5]来说
+# 1 --- 1 (not use primes[0])
+#   ---- 1*2 (use primes[0])   
+# 1*2 --- 1*2 (not use primes[1])
+#     ---- 1*2*2 (use primes[1])
+
+
+'''
 follow up: 
-Efficient program to print all prime factors of a given number
+33. Efficient program to print all prime factors of a given number
 http://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
 '''
 
