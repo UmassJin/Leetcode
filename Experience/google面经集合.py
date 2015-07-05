@@ -427,3 +427,129 @@ follow-up，每次push的时候会有相应的权重，要求pop按照权重rand
 '''
 
 
+# http://www.1point3acres.com/bbs/thread-137081-1-1.html
+'''
+17. 
+UTF8 validation
+http://codereview.stackexchange.com/questions/59428/validating-utf-8-byte-array
+
+0xxxxxxx  single byte
+10xxxxxx  continous byte
+110xxxxx  2 bytes sequence
+1110xxxx  3 bytes sequence
+11110xxx  4 bytes sequence
+111110xx  5 bytes sequence
+1111110x  6 bytes sequence
+11111110  7 bytes sequence
+11111111  8 bytes sequence
+Valid    0xxxxxxx
+Valid    110xxxxx 10xxxxxx
+Valid    1110xxxx 10xxxxxx 10xxxxxx. 
+Valid    0xxxxxxx 110xxxxx 10xxxxxx 0xxxxxxx
+invalid  10xxxxxx
+invalid  110xxxxx 0xxxxxxx 10xxxxxx
+invalid  110xxxxx
+'''
+
+def validUTF8(data):
+    if not data: return False
+    
+    size = 0
+    for c in data:
+        if size == 0 and c >> 7 == 0b0:
+            continue
+        elif size == 0:
+            if c >> 5 == 0b110: size = 1
+            elif c >> 4 == 0b1110: size = 2
+            elif c >> 3 == 0b11110: size = 3
+            elif c >> 2 == 0b111110: size = 4
+            elif c >> 1 == 0b1111110: size = 5
+            else:
+                return False
+        else:
+            if (c >> 6) != 0b10:
+                return False
+            size -= 1
+    return size == 0
+
+data1 = [0b00000000] # T
+data2 = [0b11011111,0b10000000] # T
+data3 = [0b11011111,0b10000000,0b11000000] # F
+data4 = [0b11011111,0b00000000, 0b10111111] # F
+data5 = [0b00000000, 0b00011111, 0b11110111, 0b10111111,0b10111111] #F
+data6 = [0b00000000, 0b00011111, 0b11110111, 0b10111111,0b10111111, 0b10000000] #T
+print validUTF8(data1)
+print validUTF8(data2)
+print validUTF8(data3)
+print validUTF8(data4)
+print validUTF8(data5)
+print validUTF8(data6)
+
+# wiki: https://en.wikipedia.org/wiki/UTF-8#Description
+# Reference: http://codereview.stackexchange.com/questions/59428/validating-utf-8-byte-array
+# http://www.fgdsb.com/2015/01/10/valid-utf8/
+
+
+'''
+18.
+Symetric rotation number boolean checkNum(String num)
+ex: 16891 旋轉 180 以後還是 180 確認這個數有沒有符合這個規則
+Follow Up: List<String> genNum(int len)
+
+產生所有這個長度以下的所有組合
+ex: len=3, {0,1,8,00,11,88,69,96,000,010,080,101,111,181,808,818,888,609,619,689,906,916,986}
+'''
+
+def rotation_number(number):
+    if not number: return False
+    idict = {'0':'0', '1':'1', '8':'8', '6':'9', '9':'6'}
+    n = len(number)
+    left = 0; right = n - 1
+
+    while left <= right:
+        if number[left] not in idict or \
+                number[right] not in idict:
+                    return False
+        if idict[number[left]] != number[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+
+number1 = '8'
+number2 = '7'
+number3 = '609'
+number4 = '321'
+number5 = '916'
+print rotation_number(number1)
+print rotation_number(number2)
+print rotation_number(number3)
+print rotation_number(number4)
+print rotation_number(number5)
+
+'''
+Followup question
+'''
+
+
+
+
+
+
+'''
+The pattern could be across the given set of strings.
+只要他給的 pattern 在連續的 strings 可以組合起來成為 pattern string, return true-google 1point3acres
+
+ex:
+pattern: "horse"
+strings: ["ah", "or", "settle"]
+
+boolean contains(String pattern, Iterable<String> strs)
+pattern: "abc"
+strs : "ab", "cd"  -> true
+strs : "aa", "bcd" -> true
+strs : "ab", "ac"  -> false
+
+'''
+
