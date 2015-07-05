@@ -95,6 +95,75 @@ greater.
       * With separate chaining, making the table size a prime number is not as important as
 it is with quadratic probes and double hashing.
 
+#### Open Addressing Versus Separate Chaining
+* If open addressing is to be used, double hashing seems to be the preferred system by
+a small margin over quadratic probing. The exception is the situation in which
+plenty of memory is available and the data won’t expand after the table is created; in
+this case linear probing is somewhat simpler to implement and, if load factors below
+0.5 are used, causes little performance penalty.
+
+* If the number of items that will be inserted in a hash table isn’t known when the
+table is created, separate chaining is preferable to open addressing. Increasing the
+load factor causes major performance penalties in open addressing, but performance
+degrades only linearly in separate chaining.
+
+* When in doubt, use separate chaining. Its drawback is the need for a linked list class,
+but the payoff is that adding more data than you anticipated won’t cause performance
+to slow to a crawl.
+
+#### Summary 
+A hash table is based on an array.
+• The range of key values is usually greater than the size of the array.
+• A key value is hashed to an array index by a hash function.
+• An English-language dictionary is a typical example of a database that can be
+efficiently handled with a hash table.
+• The hashing of a key to an already-filled array cell is called a collision.
+• Collisions can be handled in two major ways: open addressing and separate
+chaining.
+• In open addressing, data items that hash to a full array cell are placed in
+another cell in the array.
+• In separate chaining, each array element consists of a linked list. All data items
+hashing to a given array index are inserted in that list.
+• We discussed three kinds of open addressing: linear probing, quadratic probing,
+and double hashing.
+• In linear probing the step size is always 1, so if x is the array index calculated
+by the hash function, the probe goes to x, x+1, x+2, x+3, and so on.
+• The number of such steps required to find a specified item is called the probe
+length.
+• In linear probing, contiguous sequences of filled cells appear. They are called
+primary clusters, and they reduce performance.
+• In quadratic probing the offset from x is the square of the step number, so the
+probe goes to x, x+1, x+4, x+9, x+16, and so on.
+• Quadratic probing eliminates primary clustering but suffers from the less severe
+secondary clustering.
+• Secondary clustering occurs because all the keys that hash to the same value
+follow the same sequence of steps during a probe.
+• All keys that hash to the same value follow the same probe sequence because
+the step size does not depend on the key, but only on the hash value.
+• In double hashing the step size depends on the key and is obtained from a
+secondary hash function.
+• If the secondary hash function returns a value s in double hashing, the probe
+goes to x, x+s, x+2s, x+3s, x+4s, and so on, where s depends on the key but
+remains constant during the probe.
+• The load factor is the ratio of data items in a hash table to the array size.
+• The maximum load factor in open addressing should be around 0.5. For double
+hashing at this load factor, searches will have an average probe length of 2.
+• Search times go to infinity as load factors approach 1.0 in open addressing.
+• It’s crucial that an open-addressing hash table does not become too full.
+• A load factor of 1.0 is appropriate for separate chaining.
+• At this load factor a successful search has an average probe length of 1.5, and
+an unsuccessful search, 2.0.
+• Probe lengths in separate chaining increase linearly with load factor.
+• A string can be hashed by multiplying each character by a different power of a
+constant, adding the products, and using the modulo operator (%) to reduce
+the result to the size of the hash table.
+• To avoid overflow, we can apply the modulo operator at each step in the
+process, if the polynomial is expressed using Horner’s method.
+• Hash table sizes should generally be prime numbers. This is especially
+important in quadratic probing and separate chaining.
+• Hash tables can be used for external storage. One way to do this is to have the
+elements in the hash table contain disk-file block numbers.
+
 #### Implement 
 ##### Linear Probing 
 
