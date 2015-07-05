@@ -588,7 +588,7 @@ strs : "ab", "ac"  -> false
 
 
 '''
-Leetcode: count islands
+21. Leetcode: count islands
 -google 1point3acres
 後面的 follow up 都是討論而已, 沒寫 code
 Follow up: 如果是大地圖怎麼處理, 要你切 map, 考慮每個 submap 之間的關係. visit 1point3acres.com for more.
@@ -788,3 +788,106 @@ public:
 # http://www.1point3acres.com/bbs/thread-137081-1-1.html
 # http://www.1point3acres.com/bbs/thread-137243-1-1.html
 '''
+
+
+'''
+# http://www.1point3acres.com/bbs/thread-120307-1-1.html
+22. 
+感觉稀里糊涂的，问了一个现在工作的问题，就接着问了一个coding的题目：
+实现一个Map，带有getRandomValue的方法，要求所有put，get，remove，getRandomValue都必须是O(1)
+
+在其中一个关键细节上卡了将近20分钟，中间面试官各种提示都没点醒问我，最后25分钟左右搞定，
+但是好像和面试官的思路还是不一样。面试官没有再问其他问题，不知道是不是因为我太慢了。
+# http://www.careercup.com/question?id=11353907
+'''
+
+class GetRandom:
+    def __init__(self):
+        self.idict = {}
+        self.array = []
+
+    def insert(number):
+        if number not in self.idict:
+            self.array.append(number)
+            index = self.array.index(number)
+            self.idict[number] = index
+
+    def remove(number):
+        if number in self.idict:
+            index = self.idict[number]
+            if index != len(self.array)-1:
+                self.array[len(self.array)-1], self.array[index] = \
+                        self.array[index], self.array[len(self.array)-1]
+                idict[self.array[index]] = index
+                del self.array[len(self.array)-1]
+            del self.idict[number]
+            
+    def getRandom():
+        randomnumber = random.randint(0, len(self.array)-1)
+        return self.idict[randomnumber]
+        
+# Some question:
+# 1) How could we handle duplicate number ?
+# 2) How could we ensure the insert sequence of the element ?
+# Discussion: http://www.careercup.com/question?id=11353907
+
+'''
+23. surpass count
+Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum. 
+Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
+# http://www.geeksforgeeks.org/counting-inversions/
+'''
+
+def merge_sort(array):
+    if not array: return None
+    n = len(array)
+    result = [0 for _ in xrange(n)]
+    return rec_mergesort(array, result, 0, n-1)
+
+def rec_mergesort(array, result, left, right):
+    inv_count = 0
+    if left < right:
+        mid = (left + right) / 2
+        inv_count = rec_mergesort(array, result, left, mid)
+        inv_count += rec_mergesort(array, result, mid+1, right)
+        inv_count += merge(array, result, left, mid+1, right)
+    return inv_count
+
+def merge(array, result, left, mid, right):
+    i = left; j = mid 
+    k = left
+    inv_count = 0
+    
+    while (i < mid) and (j <= right):
+        if array[i] <= array[j]:
+            result[k] = array[i]
+            i += 1
+        else:
+            result[k] = array[j]
+            j += 1
+            inv_count += mid - i
+        k += 1
+        
+    while i < mid:
+        result[k] = array[i]
+        k += 1
+        i += 1
+    
+    while j <= right:
+        result[k] = array[j]
+        k += 1
+        j += 1
+    
+    k = left
+    while k <= right:
+        array[k] = result[k]
+        k += 1
+    return inv_count 
+
+array = [1,20,6,4,5]  # output: 5
+array = [2,4,1,3,5]   # output: 3
+print merge_sort(array)
+
+
+
+
