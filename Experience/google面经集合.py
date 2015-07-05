@@ -900,6 +900,95 @@ fraction怎么办，数学的一些东西，算下值范围就好了，还问了
 
 
 
+'''
+25. Google 电面
+比较BST和hash table的优缺点
+'''
+
+
+
+'''
+26. detect cycle in a given tree, valid Tree.
+Union-Find Algorithm: 详见21题
+''' 
+class Graph:
+    def __init__(self, V, E):
+        self.V = V
+        self.E = E
+        self.edge = [Edge() for _ in xrange(self.E)]
+
+class Edge:
+    def __init__(self):
+        self.src = 0
+        self.dest = 0
+
+class UnionFind:
+    def __init__(self):
+        self.father = []
+        self.rank = []
+
+    def find(self, x):
+        if self.father[x] == -1:
+            return x
+        return self.find(self.father[x])
+
+    def union(self, x, y):
+        x = self.find(x)
+        y = self.find(y)
+        if x == y: return
+        if self.rank[x] < self.rank[y]:
+            self.father[x] = y
+        else:
+            self.father[y] = x
+            if self.rank[x] == self.rank[y]:
+                self.rank[x] += 1
+
+    def validTree(self, graph):
+        if not graph: return False
+        self.father = [-1 for _ in xrange(graph.V)]
+        self.rank = [0 for _ in xrange(graph.V)]
+
+        for i in xrange(graph.E):
+            x = self.find(graph.edge[i].src)
+            y = self.find(graph.edge[i].dest)
+            if x == y:
+                print "this is cycle graph!"
+                return True
+            self.union(x, y)
+
+
+'''
+27. give a float array and the weight for each array element write a function to generate each element probablistically based on the weight, 
+这道题followup略难，根据weigt优化算法没答出来，最后问了面试小哥，要用Heap，想想也make sense，开始自己想到用heap但是小哥一直提示把我给带跑了。
+'''
+
+
+'''
+28. 一道面经题2D sparse matrix, how to get the number of 1's in constant time given two coordinate
+'''
+
+
+'''
+29. 设计合并若干个字符串到一个字符串的encoding算法与对应的decoding算法
+'''
+
+
+'''
+30. 设计一个random queue，支持push，pop，要求pop是random的
+follow-up，每次push的时候会有相应的权重，要求pop按照权重random，换句话说，push 1,2,3，相应的权重1,2,3。那第一次pop需要保证1被pop的概率是1/6，以此类推。
+有一个类似b+ tree的结构能解决follow-up。
+
+事实证明这道题很tricky，直接上vector，每次先跟最后swap再pop_back()就好了。。。
+'''
+
+
+'''
+31.给int n，求n所有factors，然后问问算法的running time
+接下来就是第一题的follow up，给distinct primes list，回传所有由这些primes组成的数字。再follow up，那给的primes有重复呢？
+'''
+
+
+
 
 ========================================================================================
 '''
