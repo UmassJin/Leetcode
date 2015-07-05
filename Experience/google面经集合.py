@@ -1097,6 +1097,63 @@ print find_prime_factor(121)
 print find_prime_factor(315)
 
 
+'''
+34. 两个input，第一个是一个机器的total_mem，第二个是一堆job，每个job包含starting_time，duration，mem_needed，mem_needed就是说这个工作需要这么多的memeory。
+要求是输出bool，表示是否在任意时间内，所有重叠工作的memory总和都不能超过total_mem。也就是测试这个机器的total_mem够不够大。
+# 原题：http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=116931&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+'''
+首先其实这个内存使用变化是离散的，就是说类似一个直方图，而不是抛物线。
+一个job变成两个事件点
+Event{
+    bool is_in;
+    int time;
+    int mem_used;
+}
+
+比如job 从 0开始 10结束，用了200mem
+Event{true,0,200}, Event{false,10,200}.
+按照time排序，time相同，is_in = false的优先。
+
+然后你扫过去， is_in=true的你就加mem,is_in=false的你就-mem.每个事件点，你会加或减一次，每加或减一次后，就check是不是超过总的。
+你要保证end的先减。否则你会误以为交界点超载
+
+'''
+Similar problem in G4G
+http://www.geeksforgeeks.org/weighted-job-scheduling/
+35. Weighted Job Scheduling 
+Given N jobs where every job is represented by following three elements of it.
+1) Start Time
+2) Finish Time.
+3) Profit or Value Associated.
+Find the maximum profit subset of jobs such that no two jobs in the subset overlap
+注意，这里是不允许有overlap 的
+'''
+
+# 思路：
+1. first, sort each job based on the finish time
+2. maintain the dp[i], which means the max profit for the jobs till arr[i] (arr[i] included)
+3. initialization: dp[0] = arr[0].profit
+4. state: 
+    for i in xrange(1, n):
+        # calculate include this job, the max value
+        include_profit = arr[i].profit
+        l = latestNonConflict_job(arr, i)  # find the latest non-conflit previous job, if not, return -1
+        if l != -1: 
+            include_profit += table[l]
+        # calculate exclude this job, and find the max value 
+        table[i] = max(include_profit, table[i-1])
+    return table[n-1]
+    
+    
+'''
+36. input: 一个文件，包含了很多单词，可以全部装入内存一个target number
+output： 一个单词的最小set，这些单词的出现的频率的总和大于等于t
+比如，文件中 A 500次，B 300, C 200, D100, t = 1000.  结果为 A，B, C. 
+实际上就是求频率最高的一些单词，这个单词的总频率大于target。 我用了selection algorithm去解决的这个问题
+'''
+
+
+
 ========================================================================================
 '''
 Design 
