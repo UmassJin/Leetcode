@@ -3,6 +3,7 @@
 ####[2. Operation System](#operation-system)
 ####[3. Network](#network)
 ####[4. HTTP GET vs POST](#http-get-vs-post)
+####[5. HTTP vs HTTPS](#http-vs-https)
 ####[5. DNS](#dns)
 
 ## C language 
@@ -407,6 +408,14 @@ Content-Encoding:gzip
 * [What is the difference between POST and GET](http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get)
 * [w3school HTTP POST and GET](http://www.w3schools.com/tags/ref_httpmethods.asp)
 * [Are https URLs encrypted?](http://stackoverflow.com/questions/499591/are-https-urls-encrypted)
+
+## [HTTP vs HTTPS](https://www.instantssl.com/https-tutorials/what-is-https.html)
+* Instead of HyperText Transfer Protocol (HTTP), this website uses HyperText Transfer Protocol Secure (HTTPS).
+
+* Using HTTPS, the computers agree on a "code" between them, and then they scramble the messages using that "code" so that no one in between can read them. This keeps your information safe from hackers.
+
+* They use the "code" on a Secure Sockets Layer (SSL), sometimes called Transport Layer Security (TLS) to send the information back and forth
+
 
 
 ## DNS
