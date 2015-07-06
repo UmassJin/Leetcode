@@ -1150,8 +1150,10 @@ Find the maximum profit subset of jobs such that no two jobs in the subset overl
 output： 一个单词的最小set，这些单词的出现的频率的总和大于等于t
 比如，文件中 A 500次，B 300, C 200, D100, t = 1000.  结果为 A，B, C. 
 实际上就是求频率最高的一些单词，这个单词的总频率大于target。 我用了selection algorithm去解决的这个问题
+# http://www.1point3acres.com/bbs/thread-131722-2-1.html
 '''
-
+# Use quick select (O(n))
+# https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Quick_Select.md
 
 
 '''
