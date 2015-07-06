@@ -1166,6 +1166,106 @@ output： 一个单词的最小set，这些单词的出现的频率的总和大�
 # http://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/
 '''
 
+'''
+39. Write a function to get a positive integer n as input and return 0 or 1. The probability of returning 1 should be 1/(2^n)
+G家的题。因为是1/2^n，那么执行最多n次rand() % 2即可。连续n次随机到0的概率就是1/(2^n)，中途只要随机到1就立即返回0即可。
+# http://www.fgdsb.com/tags/Random/
+'''
+import random
+def random01(n):
+    for i in xrange(n):
+        if random.randrange(2) == 1:
+            return 0
+    return 1
+
+print random01(2)
+
+'''
+40.给一个Quack的类，里面有三个方法：
+pop(): 随机从头或者尾扔出一个元素；
+peek(): 随机看头或者尾的一个元素，peek()之后pop()的话一定会pop()出peek()的那个元素；
+push(): 向尾部插入一个元素
+
+问题是：给一个排序好的Quack,怎么把里面的元素原封不动的放到一个Array里面。
+Follow up：如果quack里面有重复的元素，怎么处理。
+
+
+对于不重复元素的情况，用queue存小的数，stack存大的数，先pop()一个数，再peek一下，比较这两个数，如果pop的大，
+就代表肯定是quack的尾巴，反之肯定是头，然后插入queue或者stack就行了。这里假设quack有empty方法。
+'''
+
+from collections import deque
+
+def recover_quack(quack):
+    queue = deque()
+    stack = []
+    result = []
+
+    while not quack.empty():
+        number1 = quack.pop()
+        if quack.empty():
+            queue.append(number1)
+            break
+
+        number2 = quack.peek()
+        if number1 > number2:
+            stack.append(number1)
+        else:
+            queue.append(number1)
+
+    while queue:
+        result.append(queue.popleft())
+
+    while stack:
+        result.append(stack.pop())
+
+    return result
+    
+'''
+41. Random Node in A Binary Tree
+Random return one node in the binary tree
+'''
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+        
+class Tree:
+    def __init__(self):
+        self.root = TreeNode(0)
+        
+    def choose_random(self):
+        result = [None]
+        self.choose_random_helper(self.root, 1, result)
+        print "result: ", result
+        return result[0].value
+
+    def choose_random_helper(self, node, idx, result):
+        if not node: return 
+        print "idx: ", idx 
+        if random.randrange(idx) == 0:
+            result[0] = node
+        
+        self.choose_random_helper(node.left, idx+1, result)
+        self.choose_random_helper(node.right, idx+1, result)
+        
+        
+tree = Tree()
+node1 = TreeNode(1)
+node2 = TreeNode(2)
+node3 = TreeNode(3)
+node4 = TreeNode(4)
+tree.root.left = node1
+tree.root.right = node2
+tree.root.left.left = node3
+tree.root.left.right = node4
+print "tree: ", tree.root.left.left.value
+print tree.choose_random()
+
+
+
 
 ========================================================================================
 '''
