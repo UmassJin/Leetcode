@@ -124,4 +124,35 @@ class Solution:
             result.append(rec)
         return result
 
+'''
+5. 给你一个array，返回array里面最大数字的index，
+但是必须是最大数字里面随机的一个index。比如[2,1,2,1,5,4,5,5]必须返回[4,6,7]中的随机的一个数字，要求O(1)space.
 
+# Reservoir Sampling https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Reservoir_Sampling_Google.md
+# http://www.fgdsb.com/2015/01/15/random-maximum/
+'''
+
+import random
+
+def random_max(array):
+    if not array: return None
+    n = len(array)
+    imax = -1 << 31
+    result = 0
+
+    for i in xrange(len(array)):
+        if array[i] > imax:
+            imax = array[i]
+            count = 1
+            result = array[i]
+        elif array[i] == imax:
+            count += 1
+            print "count: ", count
+            if random.randrange(count) == 0:
+                print "count: ", count
+                print "i: ", i
+                result = array[i]
+    return result           
+
+test = [2,1,2,1,5,4,5,5]
+print random_max(test)
