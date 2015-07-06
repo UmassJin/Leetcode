@@ -1161,6 +1161,12 @@ output： 一个单词的最小set，这些单词的出现的频率的总和大�
 '''
 # https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Segment_Tree.md
 
+'''
+38. 找出一个树是另一个树的子树
+# http://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/
+'''
+
+
 ========================================================================================
 '''
 Design 
