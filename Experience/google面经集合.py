@@ -1264,6 +1264,9 @@ tree.root.left.right = node4
 print "tree: ", tree.root.left.left.value
 print tree.choose_random()
 
+'''
+42. Implement rand10() with rand7()
+'''
 
 
 
