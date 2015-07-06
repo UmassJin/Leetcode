@@ -7,11 +7,10 @@
     * [ ] Graph Storage System
     * [x] DHT
     * [x] Map Reduce 
-    * [ ] OOD
 
 2. Algorithm:
     * [x] quick sort, merge sort, select sort
-    * [ ] implement the hashtable 
+    * [x] implement the hashtable 
     * [x] B tree, A grpah algorithm 
     * [ ] CTCI chapter 16, chapter 17
 
@@ -21,9 +20,6 @@
 4. Behavior Question:
     * [x] project in the resume 
 
-* LeetCode Round:
-      * LinkedList Done
-      * Backtrack 
 
 
 Good Blog to read:
