@@ -9,6 +9,7 @@
 ####[8.Sort and Sorted](#sort-and-sorted)
 ####[9.Collections](#collections)
 ####[10. Iterator and Generator](#iterator-and-generator)
+####[11. Print in format](#print-format)
 ------------------------------------------------------------
 
 
@@ -2142,3 +2143,39 @@ class yrange:
 #### Reference
 * http://anandology.com/python-practice-book/iterators.html
 * https://docs.python.org/3/tutorial/classes.html#iterators
+
+
+## Print Format
+* This example demonstrates the str.rjust() method of string objects, which right-justifies a string in a field of a given width by padding it with spaces on the left. There are similar methods str.ljust() and str.center(). These methods do not write anything, they just return a new string. If the input string is too long, they don’t truncate it, but return it unchanged; this will mess up your column lay-out but that’s usually better than the alternative, which would be lying about a value. (If you really want truncation you can always add a slice operation, as in x.ljust(n)[:n].)
+
+```python
+>>> for x in range(1, 11):
+...     print repr(x).rjust(2), repr(x*x).rjust(3),
+...     # Note trailing comma on previous line
+...     print repr(x*x*x).rjust(4)
+...
+ 1   1    1
+ 2   4    8
+ 3   9   27
+ 4  16   64
+ 5  25  125
+ 6  36  216
+ 7  49  343
+ 8  64  512
+ 9  81  729
+10 100 1000
+
+>>> for x in range(1,11):
+...     print '{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x)
+...
+ 1   1    1
+ 2   4    8
+ 3   9   27
+ 4  16   64
+ 5  25  125
+ 6  36  216
+ 7  49  343
+ 8  64  512
+ 9  81  729
+10 100 1000
+```
