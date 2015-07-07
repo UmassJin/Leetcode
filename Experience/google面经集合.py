@@ -1164,6 +1164,91 @@ output： 一个单词的最小set，这些单词的出现的频率的总和大�
 '''
 38. 找出一个树是另一个树的子树
 # http://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/
+# http://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/
+'''
+# O(n) algorithm
+
+# method 1
+def check_subtree(tree1, tree2):
+    if not tree1: return False
+    if not tree2: return True
+
+    if identical_tree(tree1, tree2):
+        return True
+
+    return identical_tree(tree1.left, tree2) or \
+            identical_tree(tree1.right, tree2)
+
+def identical_tree(tree1, tree2):
+    if not tree1 and not tree2:
+        return True
+    if not tree1 or not tree2:
+        return False
+
+    return tree1.val == tree2.val and \
+            identical_tree(tree1.left, tree2) and \
+            identical_tree(tree1.right, tree2)
+    
+# method 2    
+# Use the inorder and preorder/postorder equal to determine 
+def preorder(root):
+    result = []
+    queue = [root]
+    while queue:
+        node = queue.pop()
+        result.append(node.val)
+        if node.right:
+            queue.append(node.right)
+        if node.left:
+            queue.append(node.left)
+    result.append('#')
+    return result
+    
+def inorder(root):
+    result = []
+    queue = []
+    node = root
+    while True:
+        while node:
+            queue.append(node)
+            node = node.left
+        if not queue:
+            break
+        node = queue.pop()
+        result.append(node.val)
+        node = node.right  
+    result.append('#')  # Check the special case 
+    return result
+
+def check_subtree(tree1, tree2):
+    pre_array1 = preorder(tree1)
+    pre_array2 = preorder(tree2)
+
+    in_array1 = inorder(tree1)
+    in_array2 = inorder(tree2)
+
+    return check_strstr(pre_array1, pre_array2) and \
+            check_strstr(in_array1, in_array2)
+
+# here use KMP algorithm to check the strstr
+
+# we need to add '#' at the end of the preorder and inorder result 
+# for the following special case 
+'''
+        Tree1
+          x 
+        /    \
+      a       b
+     /        
+    c         
+
+
+        Tree2
+          x 
+        /    \
+      a       b
+     /         \
+    c            d
 '''
 
 '''
@@ -1267,7 +1352,17 @@ print tree.choose_random()
 '''
 42. Implement rand10() with rand7()
 '''
+import random
 
+def random7():
+    return random.randrange(7)
+
+def random10():
+    tmp = 7 * random7() + random7()
+    if tmp <= 40:
+        print tmp % 10
+    
+random10()
 
 
 ========================================================================================
