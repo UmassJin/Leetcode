@@ -1523,6 +1523,93 @@ peek:  2
 
 ========================================================================================
 
+'''
+47.写一个变形的iterator，给定两个iterator，让两个iterator进行交互输出。
+例子：
+A: 1234
+B: abcd
+则输出为：1a2b3c4d，如果一个读完了那就读没读完那个直到两个都读完为止。
+G家电面题，又是iterator系列。很简单，但是尽量写的容易扩展一些，因为interviewer很可能会让你扩展到k个iterator的情况。
+# http://www.fgdsb.com/2015/01/30/zigzag-iterator/
+'''
+
+import random
+
+class generator:
+    def __init__(self, n):
+        self.n = n
+        self.i = random.randrange(n)
+        self.start = self.i
+        print "self.start: ", self.start
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        if self.has_next():
+            i = self.i 
+            self.i += 1
+            return i 
+        else:
+            print "there is NO next value."
+            return None
+            #raise StopIteration()
+    
+    def has_next(self):
+        if self.i >= self.start + self.n:
+            return False
+        else:
+            return True 
+
+class ZigzagIterator:
+    def __init__(self, g1, g2):
+        self.its = [g1, g2]
+        self._pointer = 0 if g1.has_next() else 1
+
+    def get_next(self):
+        ret = self.its[self._pointer].next()
+        pre = self._pointer
+        if self.its[self._pointer].has_next() and self._pointer == pre:
+            self._pointer = (self._pointer + 1)%2
+        return ret     
+
+    def has_next(self):
+        return self.its[self._pointer].has_next()
+
+
+# test
+t1 = generator(5)
+t2 = generator(5)
+test = ZigzagIterator(t1, t2)
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.get_next()
+print test.has_next()
+
+# output
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python iterater.py
+self.start:  3
+self.start:  3
+3
+3
+4
+4
+5
+5
+6
+6
+7
+there is NO next value.
+None
+False
+
 
 '''
 Design 
