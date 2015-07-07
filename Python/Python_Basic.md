@@ -2145,7 +2145,7 @@ class yrange:
 * https://docs.python.org/3/tutorial/classes.html#iterators
 
 
-## Print Format
+## [Print Format](https://docs.python.org/2/tutorial/inputoutput.html)
 * This example demonstrates the str.rjust() method of string objects, which right-justifies a string in a field of a given width by padding it with spaces on the left. There are similar methods str.ljust() and str.center(). These methods do not write anything, they just return a new string. If the input string is too long, they don’t truncate it, but return it unchanged; this will mess up your column lay-out but that’s usually better than the alternative, which would be lying about a value. (If you really want truncation you can always add a slice operation, as in x.ljust(n)[:n].)
 
 ```python
