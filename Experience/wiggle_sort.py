@@ -1,7 +1,8 @@
+'''
 Given a sorted array, and re-arrange it to wiggle style in one pass.
 i.e. [1] A0 >= A1 <= A2 >= A3 .... .... An.
      [2] A0 <= A1 >= A2 <= A3 .... .... An.
-     
+'''     
      
 def wiggle_sort(arr):
     if not arr or len(arr) == 1: return arr
