@@ -10,6 +10,7 @@
 ####[9.Collections](#collections)
 ####[10. Iterator and Generator](#iterator-and-generator)
 ####[11. Print in format](#print-format)
+####[12. File Operation](#file-operation)
 ------------------------------------------------------------
 
 
@@ -2178,4 +2179,15 @@ class yrange:
  8  64  512
  9  81  729
 10 100 1000
+```
+
+## File Operation 
+
+```python
+        fullname = os.path.join(self.dirname, key)
+        try:
+            with open(fullname) as f:
+                return f.read()
+        except IOError:
+            raise KeyError(key)
 ```
