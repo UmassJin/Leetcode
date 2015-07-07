@@ -1439,7 +1439,87 @@ def mht_sum(pts, get_x):
 '''
 
 
+'''
+46. Peek Iterator 
+写一个PeekIterator，包装一个普通的Iterator，要实现peek()方法，
+返回当前iterator指向的元素，但是不能移动它。除此之外也要实现has_next()和next()方法。
+'''
 
+class generator:
+    def __init__(self, n):
+        self.n = n
+        self.i = 0
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        if self.has_next():
+            i = self.i
+            self.i += 1
+            return i
+        else:
+            print "there is NO next value."
+            return None
+            #raise StopIteration()
+    
+    def has_next(self):
+        if self.i >= self.n:
+            return False
+        else:
+            return True 
+
+class PeekIterator:
+    def __init__(self, generator):
+        self.peek = []
+        self.generator = generator
+
+    def __iter__(self):
+        return self
+
+    def peek(self):
+        if self.peek == []:
+            if self.has_next():
+                cur = self.generator.next()
+                self.peek.append(cur)
+                print "cur: ", cur
+                return cur
+        else:
+            return self.peek[-1]
+
+    def has_next(self):
+        if not self.generator.has_next() and not self.peek:
+            return False
+        else:
+            return True
+
+    def get_next(self):
+        if not self.peek:
+            if self.has_next():
+                return self.generator.next()
+        else:
+            ret = self.peek[-1]
+            self.peek.pop()
+            return ret
+
+gen = generator(5)
+test = PeekIterator(gen)
+print test.has_next()
+print test.get_next()
+print test.get_next()
+test.peek()
+
+'''
+Error
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python iterater.py 
+True
+0
+1
+Traceback (most recent call last):
+  File "iterater.py", line 63, in <module>
+    test.peek()
+TypeError: 'list' object is not callable
+'''
 
 ========================================================================================
 '''
