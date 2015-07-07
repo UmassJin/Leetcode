@@ -2114,10 +2114,30 @@ Counter({'b': 3, 'a': 2, 'c': 1, 'e': 1, 'h': 1, 'l': 1, 'p': 1, 't': 1})
 ```
 
 ## Iterator and Generator
-### Iterator
+### Introduction
+```python
+class yrange:
+    def __init__(self, n):
+        self.i = 0
+        self.n = n
 
+    def __iter__(self):
+        return self
 
+    def next(self):
+        if self.i < self.n:
+            i = self.i
+            self.i += 1
+            return i
+        else:
+            raise StopIteration()
+```        
+* The __iter__ method is what makes an object iterable. Behind the scenes, the iter function calls __iter__ method on the given object.
+* The return value of __iter__ is an iterator. It should have a next method and raise StopIteration when there are no more elements.
+* Check the following link for more information
 
+#### yield
+#### Two usages in Google interview experience 
 
 #### Reference
 * http://anandology.com/python-practice-book/iterators.html
