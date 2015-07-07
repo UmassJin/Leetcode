@@ -8,6 +8,7 @@
 ####[7.Class Related Knowledge (Important!!)](#class-related-knowledge)
 ####[8.Sort and Sorted](#sort-and-sorted)
 ####[9.Collections](#collections)
+####[10. Iterator and Generator](#iterator-and-generator)
 ------------------------------------------------------------
 
 
@@ -2112,3 +2113,12 @@ Counter({'b': 3, 'a': 2, 'c': 1, 'e': 1, 'h': 1, 'l': 1, 'p': 1, 't': 1})
 
 ```
 
+## Iterator and Generator
+### Iterator
+
+
+
+
+#### Reference
+* http://anandology.com/python-practice-book/iterators.html
+* https://docs.python.org/3/tutorial/classes.html#iterators
