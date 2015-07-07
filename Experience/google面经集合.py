@@ -1443,6 +1443,9 @@ def mht_sum(pts, get_x):
 46. Peek Iterator 
 写一个PeekIterator，包装一个普通的Iterator，要实现peek()方法，
 返回当前iterator指向的元素，但是不能移动它。除此之外也要实现has_next()和next()方法。
+# http://stackoverflow.com/questions/2425270/how-to-look-ahead-one-element-in-a-python-generator
+# http://anandology.com/python-practice-book/iterators.html
+# https://docs.python.org/3/tutorial/classes.html#iterators
 '''
 
 class generator:
@@ -1462,12 +1465,12 @@ class generator:
             print "there is NO next value."
             return None
             #raise StopIteration()
-    
+
     def has_next(self):
         if self.i >= self.n:
             return False
         else:
-            return True 
+            return True
 
 class PeekIterator:
     def __init__(self, generator):
@@ -1477,7 +1480,7 @@ class PeekIterator:
     def __iter__(self):
         return self
 
-    def peek(self):
+    def get_peek(self):  # Previous there is the error here since peek() function is duplicate with self.peek
         if self.peek == []:
             if self.has_next():
                 cur = self.generator.next()
@@ -1507,21 +1510,20 @@ test = PeekIterator(gen)
 print test.has_next()
 print test.get_next()
 print test.get_next()
-test.peek()
+print "peek: ", test.get_peek()
+print test.get_next()
 
-'''
-Error
+# Output: 
 [JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python iterater.py 
 True
 0
 1
-Traceback (most recent call last):
-  File "iterater.py", line 63, in <module>
-    test.peek()
-TypeError: 'list' object is not callable
-'''
+peek:  2
+2
 
 ========================================================================================
+
+
 '''
 Design 
 '''
