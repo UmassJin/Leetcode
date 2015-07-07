@@ -8,12 +8,11 @@ def wiggle_sort(arr):
     if not arr or len(arr) == 1: return arr
     lens = len(arr)
     
-    flag = False # flag == False means  
+    flag = False   
     cur = arr[0]
     for i in xrange(lens-1):
         if (flag and cur < arr[i+1]) or (not flag and cur > arr[i+1]):
             arr[i] = arr[i+1]
-            #arr[i+1] = cur
         else:
             arr[i] = cur
             cur = arr[i+1]
@@ -22,6 +21,8 @@ def wiggle_sort(arr):
     arr[lens-1] = cur
     return arr
 
+# flag = True means  arr[i-1] <= arr[i] >= arr[i+1]
+# flag = Flase means arr[i-1] >= arr[i] <= arr[i+1]
 
 arr = [1,2,3,4,5,6]
 print wiggle_sort(arr)
