@@ -1130,6 +1130,8 @@ Find the maximum profit subset of jobs such that no two jobs in the subset overl
 '''
 
 # 思路：
+DP + binary search 
+http://www.fgdsb.com/2015/01/03/non-overlapping-jobs/
 1. first, sort each job based on the finish time
 2. maintain the dp[i], which means the max profit for the jobs till arr[i] (arr[i] included)
 3. initialization: dp[0] = arr[0].profit
@@ -1143,6 +1145,8 @@ Find the maximum profit subset of jobs such that no two jobs in the subset overl
         # calculate exclude this job, and find the max value 
         table[i] = max(include_profit, table[i-1])
     return table[n-1]
+    
+
     
     
 '''
@@ -1362,7 +1366,70 @@ def random10():
     if tmp <= 40:
         print tmp % 10
     
-random10()
+
+'''
+43 Minimum Sum of Manhattan Distance
+已知平面(m*n)上有k个点，找到其中某个点P，使得P到其余所有点的Manhattan距离之和最短并求出这个最短距离。
+# http://www.jiuzhang.com/problem/30/
+O(klogk), k is the number of points in matrix, the time complexity of sort
+
+follow up question:
+如果要求这个点与所给的k个点不重合，该怎么办？
+
+进阶：通过初阶的算法得到一个最优位置，如果这个位置与k个点重合，则从这个位置开始进行搜索，
+将这个点周围的点和对应的距离放入到一个堆里，每次从堆中取出最小距离的点，然后将这个点周围的点放入堆中，
+直到取出的点不与所给k个点重合。时间复杂度klogk，因为最多从堆中取出k+1个点即可找到一个不与所给k个点重合的点。堆每次操作为logk。
+
+本题的最优算法较难想到。所以如果公司要求不高，答出O(nm)的方法即可。O(nm)的方法是因为假设我们知道在(x,y)这个位置的距离和为S，
+那么当(x,y)移动到(x+1,y)和(x,y+1)的时候，我们可以在O(1)的时间更新S。方法是预处理每一行上方/下方有多少个k个点中的点，
+每一列左侧/右侧有多少个k个点中的点。上面的解答基于nm>>klogk，如果k比较大，则还是O(nm)的方法更好。答题时需要答出对于给定参数
+不同情况下采用不用算法这一点。
+'''
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+def min_distance(pts):
+    pts = sorted(pts, key = lambda x: x[0])
+    x_sum = mht_sum(pts, True)
+    
+    pts = sorted(pts, key = lambda x: x[1])
+    y_sum = mht_sum(pts, False)
+
+    result = -1 << 31
+    for i in xrange(len(pts)):
+        result = min(result, x_sum[(pts[i].x, pts[i].y)] + y_sum[(pts[i].x, pts[i].y)])
+    return result
+
+def mht_sum(pts, get_x):
+    n = len(pts)
+    left = [0 for _ in xrange(n)]
+    right = [0 for _ in xrange(n)]
+    
+    isum = 0
+    for i in xrange(n):
+        left[i] = isum
+        isum += pts[i].x if get_x else pts[i].y
+        
+    isum = 0
+    for i in xrange(n-1, -1, -1):
+        right[i] = isum
+        isum += pts[i].x if get_x else pts[i].y
+        
+    # calculate xi isum
+    # (xi - x(i-1)) + (xi - x(i-2)) + ... + (x(i+1)-xi) + x(i+2)-xi..
+    # i * xi - left[i] + right[i] - (n-1-i) * xi
+    result = {}
+    for i in xrange(n):
+        p = pts[i].x if get_x else pts[i].y
+        result[(pts[i].x, pts[i].y)] = p * i - left[i] + right[i] - (n-1-i) * p
+    return result
+
+
+
+
 
 
 ========================================================================================
