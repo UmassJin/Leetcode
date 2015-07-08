@@ -1521,7 +1521,6 @@ True
 peek:  2
 2
 
-========================================================================================
 
 '''
 47.写一个变形的iterator，给定两个iterator，让两个iterator进行交互输出。
@@ -1610,6 +1609,81 @@ there is NO next value.
 None
 False
 
+
+'''
+48. We have a schedular. Timer is available to the schedular. The clients of this schedular want to call this schedular with 2 parameters, 
+1) time interval in ms 2) callback function. The schedular will invoke specified callback function after specified time intevals. 
+Design data structure and implement it. 
+
+这个函数的功能是用一个绝对时间点注册一个callback function。这个时间点你可以认为就是time(NULL)的返回值。当时间到时，系统会自动调用这个callback。
+如果这个absolute_time是现在或者已经过去，那么立即调用它。但是系统同时只能注册一个callback，如果你调用这个函数多次，只有最后一次的才有效。
+
+Analysis:
+
+G家电面题，题目的思路是按照时间点的顺序来维护一个数据结构。每次调用一个回调时，将自动注册下一个。
+比如现在有3个callback，按时间排序如下：
+func1 -> func2 -> func3
+首先注册func1，时间到时，系统调用func1。然后同时注册func2，以此类推。
+那么只需要把传进来的callback做一次封装即可，当调用完毕后，我们需要做一个额外操作，也就是注册下一个callback。
+因为要按照时间有序排列，我们需要一个map，以时间点为key。
+'''
+
+
+'''
+49. given a full binary tree, please write a function to encode the shape of the tree. Using the result that you get from part I to reconstruct the tree. 
+You should use as little space as you can to reconstrcut it.
+Generall Tree serialization 
+https://github.com/UmassJin/Leetcode/blob/master/LintCode/Binary%20Tree%20Serialization.py
+http://www.1point3acres.com/bbs/thread-131485-1-1.html
+'''
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+class Solution:
+    def __init__(self):
+        self.index = 0
+
+    def serization(self, root):
+        if not root: return None
+        ret = 0
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            ret <<= 1
+            if node.left and node.right:
+                ret |= 1
+                queue.append(node.left)
+                queue.append(node.right)
+        return ret
+
+    def deserization(self, array):
+        if not array: return None
+        bit_array = []
+
+        while array:
+            digit = array & 1
+            bit_array.insert(0,digit)
+            array >>= 1
+        root = TreeNode(0)
+        queue = [root]
+        for bit in bit_array:
+            if bit == 1:
+                node = queue.pop(0)
+                node.left = TreeNode(0)
+                node.right = TreeNode(0)
+                queue.append(node.left)
+                queue.append(node.right)
+            elif bit == 0:
+                queue.pop()
+        return root
+~                    
+
+
+
+========================================================================================
 
 '''
 Design 
