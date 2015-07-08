@@ -82,7 +82,12 @@ class Solution:
         node.right = self.deserialize_helper(data)
         return node
             
-        
+
+#### Reference
+# http://www.cs.usfca.edu/~brooks/S04classes/cs245/lectures/lecture11.pdf
+# http://www.geeksforgeeks.org/serialize-deserialize-binary-tree/
+# http://articles.leetcode.com/2010/09/saving-binary-search-tree-to-file.html
+# http://articles.leetcode.com/2010/09/serializationdeserialization-of-binary.html
         
         
         
