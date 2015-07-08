@@ -1739,6 +1739,91 @@ test.get_next(5)
 test.get_next(6)
 
 
+'''
+Google Phone interview 
+'''
+Please use this Google doc to code during your interview. To free your hands for coding, we recommend that you use a headset or a phone with speaker option.
+
+Write a function that accepts an array of numbers as input, and returns the largest product (multiplication)  of any two numbers in that array
+
+Input: [0, 3, 5, 7]
+Output: 35
+
+def maxProduct(nums):
+	if not nums or len(nums) < 2: return 0
+	minval = nums[0]
+	maxval = nums[0]
+	result = nums[0]	
+
+	for i in xrange(1, len(nums)):
+result = max(minval * nums[i], maxval* nums[i], result)
+		maxval = max(maxval, nums[i])
+		minval = min(minval, nums[i])
+	return result 
+
+def maxProduct(nums):
+	if not nums or len(nums) < 2: return 0
+	result = nums[0]
+	maxval = nums[0]
+	
+	for i in xrange(len(nums)):
+		if nums[i] == 0:
+			result = max(result, 0)
+			continue
+		else:
+			for j in xrange(i+1, len(nums)):
+				tmp = nums[i] * nums[j]
+				result = max(tmp, result)
+	return result 
+
+
+
+test case:
+[0] ⇒ 0
+[1] ⇒ 0
+[0, 1] ⇒ 0
+[-1, -6, 3] => 6
+[0, 3, 5, 7]
+
+
+ "internationalization" -> "i18n"
+ "localization" -> "l10n"
+
+Such abbreviations are not always unique -- for example, “a11y” could stand for “accessibility”, “automatically”, etc. Given a list of words, determine if the abbreviation of the word is unique. 
+
+
+ "internationalization" -> "i18n"
+ "localization" -> "l10n"
+accessibility -> “a11y”
+
+True
+
+ "internationalization" -> "i18n"
+ "localization" -> "l10n"
+accessibility -> “a11y”
+automatically -> a11y
+‘ab’ -> ‘a0b’
+False
+
+
+def abbreviation_unique(array):
+	if not array or len(array) < 2: return True
+	n = len(array)
+	check = {}
+	for i in xrange(n):
+		strlen = len(array[i])
+		abbre = array[i][0] + str(strlen-2) + array[i][strlen-1]
+ 		if abbre in check:
+			return False
+		else:
+			check[abbre] = 1
+	return True 
+
+n string in the input array
+time complexity: O(n)
+space complexity: O(n)
+
+
 
 ========================================================================================
 
