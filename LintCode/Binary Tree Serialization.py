@@ -81,7 +81,59 @@ class Solution:
         self.index += 1
         node.right = self.deserialize_helper(data)
         return node
-            
+
+
+'''
+# Google interview: http://www.1point3acres.com/bbs/thread-131485-1-1.html
+49. given a full binary tree, please write a function to encode the shape of the tree. Using the result that you get from part I to reconstruct the tree. 
+You should use as little space as you can to reconstrcut it.
+
+Generall Tree serialization 
+https://github.com/UmassJin/Leetcode/blob/master/LintCode/Binary%20Tree%20Serialization.py
+'''
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+class Solution:
+    def __init__(self):
+        self.index = 0
+
+    def serization(self, root):
+        if not root: return None
+        ret = 0
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            ret <<= 1
+            if node.left and node.right:
+                ret |= 1
+                queue.append(node.left)
+                queue.append(node.right)
+        return ret
+
+    def deserization(self, array):
+        if not array: return None
+        bit_array = []
+
+        while array:
+            digit = array & 1
+            bit_array.insert(0,digit)
+            array >>= 1
+        root = TreeNode(0)
+        queue = [root]
+        for bit in bit_array:
+            if bit == 1:
+                node = queue.pop(0)
+                node.left = TreeNode(0)
+                node.right = TreeNode(0)
+                queue.append(node.left)
+                queue.append(node.right)
+            elif bit == 0:
+                queue.pop()
+        return root            
 
 #### Reference
 # http://www.cs.usfca.edu/~brooks/S04classes/cs245/lectures/lecture11.pdf
