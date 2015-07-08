@@ -1628,6 +1628,28 @@ func1 -> func2 -> func3
 因为要按照时间有序排列，我们需要一个map，以时间点为key。
 '''
 
+class CallBack:
+    def __init__(self):
+        self.record = {}
+        self.current_timer = (1 << 31)-1
+
+    def wrapper(self):
+        self.record[self.current_timer]()
+        del self.record[self.current_timer]
+
+        if self.record:
+            self.current_timer = self.record.keys()[0]
+            register_system_timer_callback(self.current_timer, wrapper)
+
+    def register_system_timer_callback(self, relative_time, callback):
+        if relative_time == 0:
+            callback()
+            return
+        cur_time = time.time()
+        record[cur_time + relative_time] = callback
+        if (cur_time + relative_time < self.current_timer):
+            self.current_timer = cur_time + relative_time
+            register_system_timer_callback(self.current_timer, wrapper)
 
 '''
 49. given a full binary tree, please write a function to encode the shape of the tree. Using the result that you get from part I to reconstruct the tree. 
@@ -1680,6 +1702,41 @@ class Solution:
                 queue.pop()
         return root
 ~                    
+
+'''
+50. 要求实现对于一个window_size， 不停插入值，返回当前的平均数，
+如果输入没有达到window_size则输出所有数的平均值，达到后踢掉最早的输入输出最新的平均值。
+例子：
+For Window size: 2
+MovingAverage m(2)
+m.get_next(1) -> 1
+m.get_next(2) -> 1.5
+m.get_next(3) -> 2.5
+m.get_next(4) -> 3.5
+'''
+
+class MovingAverage:
+    def __init__(self, n):
+        self.num = []
+        self.size = n
+        self.sum = 0
+
+    def get_next(self, number):
+        self.num.append(number)
+        self.sum += number
+        while len(self.num) > self.size:
+            tmp = self.num.pop(0)
+            self.sum -= tmp
+        average = (1.0*self.sum)/len(self.num)
+        return average
+
+test = MovingAverage(3)
+test.get_next(1)
+test.get_next(2)
+test.get_next(3)
+test.get_next(4)
+test.get_next(5)
+test.get_next(6)
 
 
 
