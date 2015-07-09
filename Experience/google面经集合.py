@@ -1740,6 +1740,101 @@ test.get_next(6)
 
 
 '''
+51. Product of word length which words that share no letters(all lower case)
+E.g {feed , see, stuck }: max product: 5x4=20
+Complexity?
+Follow up:
+optimal way to exit earlier in loop.
+网上的一个思路
+# http://www.quora.com/Given-a-dictionary-of-words-how-can-we-efficiently-find-a-pair-words-s-t-they-dont-have-characters-in-common-and-sum-of-their-length-is-maximum
+'''
+'''
+自己的思路：
+1. go through each word in the input list, then create the dictionary for each word like: O(n * m), m is len of word
+'f': [0, ]
+'e': [0, 1]
+'d': [0]
+'s': [1, 2]
+...
+
+2. then for go through each word again, for the each word, find the union of each character, first one 
+is [0, 1], time complexity O(m * n), then find maxlen of the rest of word, check the product of this word
+and max length of word, update the result.
+'''
+
+'''
+52. RLE run-length compression
+Encode: helll=> he3xl,   decode
+Requirements:1. Decode(encode(s))==s; 2. Shortest length
+Follow up: unit test: test requirement 1&2
+
+
+'''
+
+'''
+53. Word abbreviation,
+e.g. Between=>b5n,  friend=>f4d
+Follow-up: implement
+Bool checkduplicate(string [] dict, string word)
+E.g. {feed }, feed => false;  {door }, deer =>true;  {dare}, deer => false
+如果dict里有word 和input word的abbreviation 一样，则return true
+
+和phone interview有点像
+'''
+
+'''
+54.Poland operation list convert to tree
+E.g. {push 4, push 5, add, push 9, mul, sqrt} => tree: {sqrt,  {mul,{9, add(4,5)}}}
+'''
+
+
+
+========================================================================================
+
+'''
+Design 
+'''
+
+'''
+你好，那我就讲一下music list那道题吧：
+你有一个music的播放列表，里面的歌曲unique，但是播放列表的长度未知。
+这个音乐播放器APP有两个模式：random模式和shuffle模式。
+random模式就是每次随机播放列表里的一首歌；
+shuffle模式就是shuffle列表里的歌，然后顺序播放，放完以后重新shuffle，再顺序播放；
+现在给你一个播放历史记录，要求你写一个函数来判断用户使用的是random模式，还是shuffle模式。
+'''
+
+'''
+1. 系统设计：给一个url和一个给定的api可以返回所有从这个url可以直接链接到的url。要求统计所有能访问到url数。
+结果先让我coding，我以为搞错了，后来coding完了，followup就是怎么解决scalable的问题，给定的那个API有什么问题
+以及怎么改进（最后引申到设计web crawler），怎么解决url无效等等问题。
+'''
+'''
+2. 第一题local minimum，第二题在数组中检查x距离内是否有重复。
+
+3. 1000个文件每个有1TB的大小，服务器每台100GB内存，1TB硬盘。文件基本上一次写入就不会变化了，读的次数比较多。问怎么设计这样的系统。followup怎么解决fault tolerance，再增加1000个这样文件，怎么办，等等。
+
+4. tic-tac-toe，给定场景是人机大战，人永远先开始下。要求把所有的棋盘布局组合都输出（人机各走一步算一个新的棋盘布局）。本轮有shadow。
+
+5. 保龄球计分，给一组分数，输出实际每轮投完后的累计得分。
+
+偏向c++功底跟concurrency。实现memcopy，还有就是实现一个银行的类里面的几个算法，都很简单，但是对多线程调用的加锁需要有了解。最后又问了一个实现每次调用，运行5秒，期间不停循环自增的简单算法，
+follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了系统时间
+
+6. Design Question: Get program running on data centers, try catch and
+scalability , cache followups
+
+第五题是design题。问我设计程序给一个program name, 得到它在哪些data center上运行
+
+我设计了 .
+List<String> getProgramOnDataCenter(String ProgramName)
+boolean isOnDataCenter(String ProgramName, String DCName)
+
+然后就是一些exception handle，server上如何处理dragger，如何设计cache
+'''
+
+
+'''
 Google Phone interview 
 '''
 Please use this Google doc to code during your interview. To free your hands for coding, we recommend that you use a headset or a phone with speaker option.
@@ -1823,38 +1918,3 @@ n string in the input array
 time complexity: O(n)
 space complexity: O(n)
 
-
-
-========================================================================================
-
-'''
-Design 
-'''
-
-'''
-你好，那我就讲一下music list那道题吧：
-你有一个music的播放列表，里面的歌曲unique，但是播放列表的长度未知。
-这个音乐播放器APP有两个模式：random模式和shuffle模式。
-random模式就是每次随机播放列表里的一首歌；
-shuffle模式就是shuffle列表里的歌，然后顺序播放，放完以后重新shuffle，再顺序播放；
-现在给你一个播放历史记录，要求你写一个函数来判断用户使用的是random模式，还是shuffle模式。
-'''
-
-'''
-1. 系统设计：给一个url和一个给定的api可以返回所有从这个url可以直接链接到的url。要求统计所有能访问到url数。
-结果先让我coding，我以为搞错了，后来coding完了，followup就是怎么解决scalable的问题，给定的那个API有什么问题
-以及怎么改进（最后引申到设计web crawler），怎么解决url无效等等问题。
-'''
-'''
-2. 第一题local minimum，第二题在数组中检查x距离内是否有重复。
-
-3. 1000个文件每个有1TB的大小，服务器每台100GB内存，1TB硬盘。文件基本上一次写入就不会变化了，读的次数比较多。问怎么设计这样的系统。followup怎么解决fault tolerance，再增加1000个这样文件，怎么办，等等。
-
-4. tic-tac-toe，给定场景是人机大战，人永远先开始下。要求把所有的棋盘布局组合都输出（人机各走一步算一个新的棋盘布局）。本轮有shadow。
-
-5. 保龄球计分，给一组分数，输出实际每轮投完后的累计得分。
-
-偏向c++功底跟concurrency。实现memcopy，还有就是实现一个银行的类里面的几个算法，都很简单，但是对多线程调用的加锁需要有了解。最后又问了一个实现每次调用，运行5秒，期间不停循环自增的简单算法，
-follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了系统时间
-
-'''
