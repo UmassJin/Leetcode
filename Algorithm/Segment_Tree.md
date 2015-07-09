@@ -24,7 +24,7 @@ We have an array arr[0 . . . n-1]. We should be able to
 
 ```python
 # Here we do not need to create a class TreeNode for the segment tree
-
+# Time complexity: O(n)
 def constructST(array):
     if not array:
         return None
@@ -49,6 +49,7 @@ def constructST_helper(array, start, end, segmentTree, index):
                     constructST_helper(array, mid+1, end, segmentTree, index*2+2)
     return segmentTree[index]
 
+# Time complexity: O(logn)
 def getsum(segmentTree, n, start, end):
     if start < 0 or end > n or start > end:
         return -1
@@ -72,6 +73,8 @@ def getsum_helper(segmentTree, arr_s, arr_e, qs, qe, index):
 # Here we first update the arr[index] = value, calculate the diff 
 # and then search in the segmenttree, note here we still pass the length of arrary 
 # into the helper function 
+
+# Time complexity: O(logn)
 def update(arr, segmentTree, index, value):
     if index < 0 or index > len(arr) - 1:
         return
