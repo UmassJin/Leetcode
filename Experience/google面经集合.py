@@ -1764,12 +1764,13 @@ and max length of word, update the result.
 
 '''
 52. RLE run-length compression
-Encode: helll=> he3xl,   decode
+Encode: helll=> he3l,   decode
 Requirements:1. Decode(encode(s))==s; 2. Shortest length
 Follow up: unit test: test requirement 1&2
 
-
+思路：check the amount of each character and then add the amount before character
 '''
+
 
 '''
 53. Word abbreviation,
@@ -1786,6 +1787,175 @@ E.g. {feed }, feed => false;  {door }, deer =>true;  {dare}, deer => false
 54.Poland operation list convert to tree
 E.g. {push 4, push 5, add, push 9, mul, sqrt} => tree: {sqrt,  {mul,{9, add(4,5)}}}
 '''
+import operator
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.operation = None
+        self.left = None
+        self.right = None
+        
+class polish_to_tree:
+    def __init__(self):
+        self.operation = {
+                '+': lambda y, x: x + y,
+                '-': lambda y, x: x - y,
+                '*': lambda y, x: x * y,
+                '/': lambda y, x: int(operator.truediv(x, y))
+                }
+
+    def build_tree(self, tokens):
+        if not tokens: return 0
+        stack = []
+        for char in tokens:
+            if char.isdigit():
+                newnode = TreeNode(int(char))
+                stack.append((int(char), newnode))
+            elif char[0] == '-' and char[1:].isdigit():
+                newnode = TreeNode(-int(char[1:]))
+                stack.append((-int(char[1:]), newnode))
+            elif char in self.operation:
+                y, nodey = stack.pop()
+                x, nodex = stack.pop()
+                value = self.operation[char](y, x)
+                newnode = TreeNode(int(value))
+                newnode.operation = char
+                newnode.left = nodey
+                newnode.right = nodex
+                stack.append((value, newnode))
+        print stack[-1][0]
+        return stack[-1][1].value
+    
+array = ["4", "13", "5", "/", "+"]
+test = polish_to_tree()
+print test.build_tree(array)
+
+
+
+'''
+55. 给定一个数字数组 ,其中每个元素是从末端数小于原数组中该元素的个数。求原数组。
+原数组中元素是一个[1,n]的随机排列。
+
+For example:
+Count array: [3, 0, 1, 0]
+Original array: [4, 1, 3, 2]
+
+Can you give an O(nlogn) solution?
+original question: http://www.mitbbs.com/article_t/JobHunting/32856675.html
+
+分析：
+Count array 就是一个rank
+表示当前数字在还存在的[1..n]中的第几个
+
+count array 
+i  C[3,0,1,0]   N[1,2,3,4] 
+0 C[0] = 3     N中第3个,N[3] = 4,在N里面删除4, N=[1,2,3]
+1 C[1] = 0     N中第0个,N[0] = 1,在N里面删除1, N=[2,3]
+2 C[2] = 1     N中第1个,N[1] = 3,在N里面删除3, N=[2]
+3 C[3] = 0     N中第0个,N[0] = 2
+
+所以答案是4 1 3 2
+
+# 思路
+1. 先简历一个segmenttree, 从[0, n-1]
+2. find_kth function, which find tree 中 the kth �小的数字
+3. delete that node, then find next one 
+'''
+class Node:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+        self.count = 0
+        self.left = None
+        self.right = None
+
+class SegmentTree:
+    def __init__(self, irange):
+        self.root = self.build_tree(0, irange-1)
+
+    def build_tree(self, left, right):
+        if left > right: return None
+        newnode = Node(left, right)
+        if left == right:
+            newnode.count = 1
+            return newnode
+
+        mid = (left + right) / 2
+        newnode.left = self.build_tree(left, mid)
+        newnode.right = self.build_tree(mid+1, right)
+        newnode.count = newnode.left.count + newnode.right.count
+        return newnode
+
+    def get_kth(self, k):
+        cur = self.root
+        while cur:
+            if cur.start == cur.end:
+                return cur.start
+            left_cover = 0
+            if cur.left:
+                left_cover = cur.left.count
+            if k < left_cover:
+                cur = cur.left
+            else:
+                k -= left_cover
+                cur = cur.right
+        return -1
+
+    def remove_leaf(self, val):
+        self.remove_helper(self.root, val)
+
+    def remove_helper(self, cur, val):
+        if not cur: return
+        cur.count -= 1
+        if cur.left and cur.left.start == val and cur.left.end == val:
+            cur.left = None
+
+        if cur.right and cur.right.start == val and cur.right.end == val:
+            cur.right = None
+        mid = (cur.start + cur.end)/2
+        if val <= mid:
+            self.remove_helper(cur.left, val)
+        else:
+            self.remove_helper(cur.right, val)
+
+if __name__ == "__main__":
+    array = [3, 0, 1, 0]
+    test = SegmentTree(4)
+    result = []
+    for i in array:
+        print "i: ", i
+        kth = test.get_kth(i)
+        print "kth: ", kth
+        result.append(kth + 1)
+        test.remove_leaf(kth)
+    print result
+
+
+'''
+56. Given an array of ages (integers) sorted lowest to highest, output the number of occurrences for each age.
+For instance:
+[8,8,8,9,9,11,15,16,16,16]
+should output something like:
+8: 3 
+9: 2 
+11: 1 
+15: 1 
+16: 3
+# http://www.fgdsb.com/2015/01/03/count-numbers/
+'''
+
+
+
+
+'''
+57.设计一个电话本系统，实现三个功能：查找号码 boolean isTaken()，添加号码 void takeNumber()，
+返回一个不在电话本里的没人用的号码 number giveMeANumber()。我一开始说用HashMap，这样前两个函数的复杂度都是O(1)，
+第三个是O(n)。面试官说能不能优化第三个函数，我说用BST，每个节点多存一个value记录这个节点下还有几个available的号码，
+giveMeANumber()的实现只要沿着value>0的node往下找就行了。这样三个函数的复杂度都是O(lgn).
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=137822&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26sortid%3D311
+'''
+
 
 
 
