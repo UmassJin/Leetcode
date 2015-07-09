@@ -12,6 +12,25 @@ Note: The sequence of integers will be represented as a string.
 # https://leetcode.com/discuss/6762/how-to-proof-the-count-is-always-less-than-10
 
 class Solution:
+    # @param {integer} n
+    # @return {string}
+    def countAndSay(self, n):
+        ret = '1'
+        for i in xrange(1, n):
+            s = ""; j = 0
+            while j < len(ret):
+                next = j
+                while next < len(ret) and ret[next] == ret[j]:
+                    next += 1
+                s += str(next-j)
+                s += ret[j]
+                j = next
+            ret = s
+        return ret
+        
+
+
+class Solution:
     # @return a string
     def countAndSay(self, n):
         s = '1'
