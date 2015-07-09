@@ -162,6 +162,110 @@ print RMQ(seg, len(test), 3,5)
 
 ```
 
+#### Scenario 3: interview question, recover the array
+
+```python
+'''
+55. 给定一个数字数组 ,其中每个元素是从末端数小于原数组中该元素的个数。求原数组。
+原数组中元素是一个[1,n]的随机排列。
+
+For example:
+Count array: [3, 0, 1, 0]
+Original array: [4, 1, 3, 2]
+
+Can you give an O(nlogn) solution?
+original question: http://www.mitbbs.com/article_t/JobHunting/32856675.html
+
+分析：
+Count array 就是一个rank
+表示当前数字在还存在的[1..n]中的第几个
+
+count array 
+i  C[3,0,1,0]   N[1,2,3,4] 
+0 C[0] = 3     N中第3个,N[3] = 4,在N里面删除4, N=[1,2,3]
+1 C[1] = 0     N中第0个,N[0] = 1,在N里面删除1, N=[2,3]
+2 C[2] = 1     N中第1个,N[1] = 3,在N里面删除3, N=[2]
+3 C[3] = 0     N中第0个,N[0] = 2
+
+所以答案是4 1 3 2
+
+# 思路
+1. 先简历一个segmenttree, 从[0, n-1]
+2. find_kth function, which find tree 中 the kth �小的数字
+3. delete that node, then find next one 
+'''
+
+
+class Node:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+        self.count = 0
+        self.left = None
+        self.right = None
+
+class SegmentTree:
+    def __init__(self, irange):
+        self.root = self.build_tree(0, irange-1)
+
+    def build_tree(self, left, right):
+        if left > right: return None
+        newnode = Node(left, right)
+        if left == right:
+            newnode.count = 1
+            return newnode
+
+        mid = (left + right) / 2
+        newnode.left = self.build_tree(left, mid)
+        newnode.right = self.build_tree(mid+1, right)
+        newnode.count = newnode.left.count + newnode.right.count
+        return newnode
+
+    def get_kth(self, k):
+        cur = self.root
+        while cur:
+            if cur.start == cur.end:
+                return cur.start
+            left_cover = 0
+            if cur.left:
+                left_cover = cur.left.count
+            if k < left_cover:
+                cur = cur.left
+            else:
+                k -= left_cover
+                cur = cur.right
+        return -1
+
+    def remove_leaf(self, val):
+        self.remove_helper(self.root, val)
+
+    def remove_helper(self, cur, val):
+        if not cur: return
+        cur.count -= 1
+        if cur.left and cur.left.start == val and cur.left.end == val:
+            cur.left = None
+
+        if cur.right and cur.right.start == val and cur.right.end == val:
+            cur.right = None
+        mid = (cur.start + cur.end)/2
+        if val <= mid:
+            self.remove_helper(cur.left, val)
+        else:
+            self.remove_helper(cur.right, val)
+
+if __name__ == "__main__":
+    array = [3, 0, 1, 0]
+    test = SegmentTree(4)
+    result = []
+    for i in array:
+        print "i: ", i
+        kth = test.get_kth(i)
+        print "kth: ", kth
+        result.append(kth + 1)
+        test.remove_leaf(kth)
+    print result
+```
+
 
 #### Reference:
 * [G4G Set1](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
