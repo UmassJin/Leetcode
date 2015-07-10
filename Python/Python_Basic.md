@@ -2208,8 +2208,11 @@ her hand, key in d essentially calls
 * In summary, key in d.keys() is never appropriate in python 2.
 
 ## Space usage 
-#### When the empty dictionay is created, it started with 8 slots, looks details in the following link
+#### When the empty dictionay is created, it started with 8 slots(hash, key, value), looks details in the following link
 http://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented
+
+Good Video about the dictionary:
+https://www.youtube.com/watch?v=C4Kc8xzcA68
 
 #### Reference
 * [Python time complexity wiki](https://wiki.python.org/moin/TimeComplexity)
