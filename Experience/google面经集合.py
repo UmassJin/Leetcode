@@ -2162,6 +2162,85 @@ print isAna(a, d)
 '''
 
 
+'''
+61. 有序数组中都是正数且为unique number，找出两个数A、B，so that A-B = 一个给定的数C。要求使用常数空间和O(N)时间。
+# http://www.mitbbs.com/article_t/JobHunting/32861939.html
+思路：use two pointers, p0 = 0 , p1 = 1
+if A[p1] - A[p0] < target: p1 +=1
+elif A[p1] - A[p0] > target: p0 += 1
+else return (p0, p1)
+
+if p1 == p2, p2 = p1 + 1
+'''
+
+'''
+63. 给一个字典，一个字符串， 找出可以由这个字串合法转成的最长单词。 转换操作时删除一个或多个字符 
+
+假设字典是 
+Apple orange banana
+输入 orange 返回 orange
+输入 daxpple 返回 apple
+'''
+
+
+
+
+'''
+64. similar question:
+Given a dictionary of words and an initial character. find the longest possible word in the dictionary by 
+successively adding a character to the word. At any given instance the word should be valid word in the dictionary.
+ex : a -> at -> cat -> cart -> chart ....
+
+# http://stackoverflow.com/questions/2534087/successive-adding-of-char-to-get-the-longest-word-in-the-dictionary
+# http://stackoverflow.com/questions/17717223/find-the-longest-word-in-the-dictionary-such-that-it-can-be-built-from-successiv
+'''
+import string
+import collections
+
+def find_longest_word(beginchar, wordDict):
+    if not beginchar or not wordDict:
+        return 0
+    chars = string.ascii_lowercase
+    queue = collections.deque([beginchar])
+    result = 0
+
+    while queue:
+        size = len(queue)
+        for _ in xrange(size):
+            word = queue.popleft()
+            for i in xrange(len(word)+1):
+                for char in chars:
+                    newword = word[:i] + char + word[i:]
+                    if newword in wordDict:        
+                        queue.append(newword)
+                        print "queue: ", queue
+                        result = max(result, len(newword))
+    print result                    
+    
+
+wordDict = ["hot","dot","dog","lot","log", "ta","tan", "tap","tape", "tang",
+            "taped", "tamped", "strang","strange","stamped","ta","ca","cat"]
+
+find_longest_word('a', wordDict)
+
+
+'''
+65. You are given a dictionary, in the form of a file that contains one word per line. E.g., 
+abacus 
+deltoid 
+gaff 
+giraffe 
+microphone 
+reef 
+qar 
+You are also given a collection of letters. E.g., {a, e, f, f, g, i, r, q}. 
+The task is to find the longest word in the dictionary that can be spelled with the collection of 
+letters. For example, the correct answer for the example values above is “giraffe”. (Note that 
+“reef” is not a possible answer, because the set of letters contains only one “e”.)
+'''
+
+
+
 
 ========================================================================================
 
@@ -2207,6 +2286,14 @@ boolean isOnDataCenter(String ProgramName, String DCName)
 然后就是一些exception handle，server上如何处理dragger，如何设计cache
 
 8. 然后是一个design题，design一个cache，然后需要设计哪些操作，需要考虑哪些参数，用什么hardware储存。。
+
+9. 设计贪吃蛇
+怎么定义蛇， 怎么移动， 怎么吃， 怎么判断时候活着， 怎么定义游戏版
+
+10. 设计售票系统， 要求
+1. 每次返回5张可选最多
+2. 保证不会给两个不同user返回同一个可选座位
+3. 用户2分钟之内，没有购买，重新开始
 
 '''
 
