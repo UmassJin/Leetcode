@@ -6,7 +6,7 @@ class Solution:
     # @param {integer} n
     # @return {float}
 
-# Solution 1: 二分法
+# Solution 1: 二分法 O(logn)
 # 优点是代码简洁，缺点是没有考虑到overflow的情况
     def myPow(self, x, n):
         if n == 0:
@@ -15,7 +15,7 @@ class Solution:
             return x
         if n < 0:
             n = -n
-            x = 1/x
+            x = operator.truediv(1,x)
         if n % 2 == 1:
             return self.myPow(x*x, n/2)*x
         if n % 2 == 0:
