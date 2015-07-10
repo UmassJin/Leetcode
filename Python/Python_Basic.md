@@ -2211,6 +2211,8 @@ her hand, key in d essentially calls
 #### When the empty dictionay is created, it started with 8 slots(hash, key, value), looks details in the following link
 http://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented
 
+#### Reasign the size when there are 2/3 full in dictionary 
+
 Good Video about the dictionary:
 https://www.youtube.com/watch?v=C4Kc8xzcA68
 
