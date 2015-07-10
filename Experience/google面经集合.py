@@ -833,9 +833,21 @@ class GetRandom:
 
 '''
 23. surpass count
-Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum. 
+Inversion Count for an array indicates – how far (or close) the array is from being sorted. 
+If array is already sorted then inversion count is 0. 
+If array is sorted in reverse order that inversion count is the maximum. 
 Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
 # http://www.geeksforgeeks.org/counting-inversions/
+'''
+
+'''
+similar: Maximal Surpasser Count Problem
+输入一个数组，返回数组元素的surpasser个数的最大值。
+数组元素a[i] 的surpasser是指元素a[j], j > i， a[j] > a[i]。
+比如[10, 3, 7, 1, 23, 14, 6, 9] 这个数组中10的surpasser是23,14，个数是2。
+而3的surpasser是7,23,14,6,9，个数为5，并且是最多的一个。所以返回5。
+# http://www.fgdsb.com/2015/01/11/maximal-surpasser-count/
+
 '''
 
 def merge_sort(array):
@@ -1858,8 +1870,15 @@ i  C[3,0,1,0]   N[1,2,3,4]
 所以答案是4 1 3 2
 
 # 思路
-1. 先简历一个segmenttree, 从[0, n-1]
-2. find_kth function, which find tree 中 the kth �小的数字
+1. 先简历一个segmenttree, 从[0, n-1]，每个叶子节点标记为1，
+其他节点的值为这个节点下面有多少个为1的叶子节点。
+
+2. find_kth function, which find tree 中 the kth 小的数字
+看左子树有多少个为1的节点，如果大于等于k，那么就在左子树找。如果不到k，那么
+就在右子树找k-左子树为1的叶子节点个数。
+当你找到相应的叶子节点，那么他表示的区间[l,r](l == r)，l或者r就是我们要找的
+[1..n]里面的第k个数
+
 3. delete that node, then find next one 
 '''
 class Node:
@@ -1895,7 +1914,7 @@ class SegmentTree:
             left_cover = 0
             if cur.left:
                 left_cover = cur.left.count
-            if k < left_cover:
+            if k <= left_cover:
                 cur = cur.left
             else:
                 k -= left_cover
@@ -1932,8 +1951,69 @@ if __name__ == "__main__":
     print result
 
 
+
 '''
-56. Given an array of ages (integers) sorted lowest to highest, output the number of occurrences for each age.
+56. You are given two array, first array contain integer which represent heights of persons and second array contain how many 
+persons in front of him are standing who are greater than him in term of height and forming a queue. Ex 
+A: 3 2 1 
+B: 0 1 1 
+It means in front of person of height 3 there is no person standing, person of height 2 there is one person in front of him 
+who has greater height then he, similar to person of height 1. Your task to arrange them 
+Ouput should be. 
+3 1 2 
+Here - 3 is at front, 1 has 3 in front ,2 has 1 and 3 in front.
+# 原题: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=114856&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+# 讨论：http://www.careercup.com/question?id=24532662
+'''
+
+'''
+# 解法1, time complexity O(n^2)
+假设队伍高度是：
+数组A: 2 3 1 5 4
+
+那么对应的在A之前比他高的人数是：
+数组B: 0 0 2 0 1
+
+那么首先把高度排序：
+数组C: 5 4 3 2 1
+
+然后对数组B从后往前扫
+B[4] = 1, 说明 A[4] = C[1] = 4，同时从数组C删除4，此时数组C为：5 3 2 1. 
+接下来：
+B[3] = 0, 说明A[3] = C[0] = 5，同时从数组C删除元素5. C: 3,2, 1
+...
+Finally, we could get the result [2,3,1,5,4]
+
+这个算法有个问题是，input should be 
+height: [5, 4, 3, 2, 1]
+taller: [0, 1, 0, 0, 2]
+so we do not get the input as [0 0 2 0 1], which can not use this algorithm
+
+# 解法2, check the discussion in the career cup:
+Input: 
+height:	6	5	4	3	2	1 
+values:	0	0	0	2	2	4 
+
+a) Each node when it enters has its "value" (Number of people greater in height) as its initial value. I am calling it the "current node" (till it reaches its final position).
+b) A "current node" goes "left" to the existing node, when its value is <= the existing node's value. At that time it increments the existing node's value by 1.
+When the "current node" goes "right", no change to any values.
+
+Repeat for all nodes. Nodes to be pushed in decreasing order of height. Finally do in-order traversal.
+The changes from the previous solution are no "right" rule & no +1 for the current node.
+
+With this, the following will be the iterations...
+a) 6 = 0
+b) 5 = 0, 6 = 1
+c) 4 = 0, 5 = 1, 6 = 2.
+d) 4 = 0, 5 = 1, 3 = 2, 6 = 3.
+e) 4 = 0, 5 = 1, 2 = 2, 3 = 3, 6 = 4.
+f) 4 = 0, 5 = 1, 2 = 2, 3 = 3, 1 = 4, 6 = 5.
+
+'''
+
+
+'''
+57. Given an array of ages (integers) sorted lowest to highest, output the number of occurrences for each age.
 For instance:
 [8,8,8,9,9,11,15,16,16,16]
 should output something like:
@@ -1942,20 +2022,142 @@ should output something like:
 11: 1 
 15: 1 
 16: 3
-# http://www.fgdsb.com/2015/01/03/count-numbers/
+Problem: # http://www.fgdsb.com/2015/01/03/count-numbers/
+Analysis: # https://books.google.com/books?id=iBNKMspIlqEC&pg=PA66#v=onepage&q&f=false
+思想是divide and conquer, first seperate the 32 bit into 16 blocks, and each block has 2 bits
+then check the 1s in each block, if 2 1s, output is 10, if only has 1 1s, output is 01,
+then move to the 4 bits in one block
 '''
+def count_one_array(x):
+    x = ((x & 0b1010101010101010) >> 1) + (x & 0b0101010101010101)
+    x = ((x & 0b1100110011001100) >> 2) + (x & 0b0011001100110011)
+    x = ((x & 0b1111000011110000) >> 4) + (x & 0b0000111100001111)
+    x = ((x & 0b1111111100000000) >> 8) + (x & 0b0000000011111111)
+    return x
 
-
+def count_one_array(x):
+    x = ((x & 0xAAAAAAAA) >> 1) + (x & 0x55555555)
+    x = ((x & 0xCCCCCCCC) >> 2) + (x & 0x33333333)
+    x = ((x & 0xF0F0F0F0) >> 4) + (x & 0x0F0F0F0F)
+    x = ((x & 0xFFFF0000) >> 8) + (x & 0x0000FFFF)
+    return x
 
 
 '''
-57.设计一个电话本系统，实现三个功能：查找号码 boolean isTaken()，添加号码 void takeNumber()，
+58.设计一个电话本系统，实现三个功能：查找号码 boolean isTaken()，添加号码 void takeNumber()，
 返回一个不在电话本里的没人用的号码 number giveMeANumber()。我一开始说用HashMap，这样前两个函数的复杂度都是O(1)，
 第三个是O(n)。面试官说能不能优化第三个函数，我说用BST，每个节点多存一个value记录这个节点下还有几个available的号码，
 giveMeANumber()的实现只要沿着value>0的node往下找就行了。这样三个函数的复杂度都是O(lgn).
+这里已经给出所有电话号码的范围是 10位数字 
 # http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=137822&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26sortid%3D311
+
+
+Analytis:
+可以用tries做，每加上一个电话号码，查询一个电话号码，都是O(logn)或者电话号码的长度
+在返回任意一个电话号码时候，直接看有没有出现trie里，并且返回
+
+
+我是这样想的：在每个Trie节点中，记录“从当前节点开始可使用的号码个数”nAvail:
+class TrieNode{
+    int nAvail;
+    int curDepth;
+    TrieNode* next[10];
+};
+
+比如现在进行在搜索当中，我们已经决定了前5位号码是313-12（也就是当前所在的节点为“2”）。那么我顺次查看next[0]~next[9]。
+如果这其中第next[ k ]为空，说明第6位号码只要是 k 的话，第7位以后是什么都没关系。那么我们新建一个next[ k ]节点。然后随机生成一个3位数(10-7=3)，插入到next[ k ]之后；
+
+如果所有的next都不为空，那么我们可以从中那些nAvail不为0的next中随便选一个节点。然后进入这个节点并重复之前的步骤即可。
+
+因为next的长度恒为10，所以在这个数组上进行的线性操作都可看做O(1)时间。因此搜索完L位号码的时间是O(L)
+
+不过回头看看，这种方法可能不如BST。一是检查每位数字虽是常数时间，但是常系数可能会较大；二是上面的这种用数组的implementation不仅没有省内存，而且还费了不少内存，因为最后一层总共有10^10个节点，每个节点有10个next，这些全为空值的next占据了10^11量级的内存。
+
+另外就算是用BST存的话，每个节点处也需要储存号码（32位整数）+左右指针（假设各32位）= 12 byte。最后总共需要12 x 10^10 = 120G内存，很可能放不到一台机器里。如果再跟面试官扯扯这时候如何处理的话，说不定会有加分。
+
+=============================
+
+第三题我也被面过，用的是Trie w/ boolean array, 不用Hashmap是因为 map的initial size是256，对于这种只需要存0-9十个数的情况就很不划算了, 用trie只需要存每层0-9十个boolean,如果这个数已用就把 相应的index set一下.
+补充内容 (2015-7-10 13:44):
+用boolean array更省地方，因为boolean 只是一个bit，int 是8个
 '''
 
+'''
+59. 给string a, string b,判断b里面是否存在子字符串是a的anagram。
+最开始写了个isAna(string a, string b)的函数，判断两个字符串是不是anagram。然后在主函数里移动window，
+调用isAna检查window里面的substring是不是anagram。然后问我有没有啥改进的，我想了半天觉得可以在isAna外面维持一个hashmap，
+每次移动window的时候加一个新字符减一个最后的字符，然后和目标字符串比较，但是时间复杂度还是没变。。十分郁闷的问他怎么搞，
+他说你这时间复杂度已经够低了。。改进的点是不要每次都在isAna里面建一个新的hashmap，并且不要每次pass一个substring给isAna，
+pass一个start point什么的就行。。。
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=87561&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+http://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
+
+'''
+
+import collections
+
+def check_ana(a, b):
+    if len(a) < len(b) or not a or not b: return False
+    idict = collections.defaultdict(int)
+    for char in b:
+        idict[char] += 1
+    m = len(a); n = len(b)
+    for i in xrange(m-n+1):
+        tmp = idict
+        if isAna(a[i:i+n], tmp):
+            return True
+    return False
+
+def isAna(a, tmp_idict):
+    for char in a:
+        tmp_idict[char] -= 1
+        if tmp_idict[char] < 0:
+            return False
+    if sum(tmp_idict.values()) > 0:
+        return False
+    return True 
+
+a = "helloworld"
+b = "ollel"
+print check_ana(a, b)
+
+
+# General check if two string are anagram or not
+import collections
+
+def isAna(a, b):
+    if len(a) != len(b):
+        return False
+    idict = collections.defaultdict(int)
+    for char in a:
+        idict[char] += 1
+
+    for char in b:
+        idict[char] -= 1
+        if idict[char] < 0:
+            return False
+    if sum(idict.values()) > 0:
+        return False
+    return True
+
+a = "hello"
+b = "lloeh"
+c = "helllo"
+d = "heoool"
+
+print isAna(a, b)
+print isAna(a, c)
+print isAna(a, d)
+
+
+
+'''
+60. 给一个整形数组，找离数组的平均值最近的数
+写完后问如果该成一个可能随时加数进去的list，怎么找最近的数。分别说说怎么实现add(int)和findNearestAvg()。
+我想了想说大概用list或者用tree维持一个sorted list然后再二分查找，但是感觉不能同时保证add和find都是logN的。。
+然后他觉得是对的就下一题了。。
+就是leetcode上面的maxPoint，但是返回的不是最多的穿过的点的数目，返回这条线
+'''
 
 
 
@@ -1994,15 +2196,17 @@ follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了�
 6. Design Question: Get program running on data centers, try catch and
 scalability , cache followups
 
-第五题是design题。问我设计程序给一个program name, 得到它在哪些data center上运行
+7. 第五题是design题。问我设计程序给一个program name, 得到它在哪些data center上运行
 
 我设计了 .
 List<String> getProgramOnDataCenter(String ProgramName)
 boolean isOnDataCenter(String ProgramName, String DCName)
 
 然后就是一些exception handle，server上如何处理dragger，如何设计cache
-'''
 
+8. 然后是一个design题，design一个cache，然后需要设计哪些操作，需要考虑哪些参数，用什么hardware储存。。
+
+'''
 
 '''
 Google Phone interview 
