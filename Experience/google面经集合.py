@@ -2184,7 +2184,6 @@ Apple orange banana
 
 
 
-
 '''
 64. similar question:
 Given a dictionary of words and an initial character. find the longest possible word in the dictionary by 
@@ -2237,8 +2236,71 @@ You are also given a collection of letters. E.g., {a, e, f, f, g, i, r, q}.
 The task is to find the longest word in the dictionary that can be spelled with the collection of 
 letters. For example, the correct answer for the example values above is “giraffe”. (Note that 
 “reef” is not a possible answer, because the set of letters contains only one “e”.)
+# http://www.careercup.com/question?id=16148684
+'''
+import collections
+
+def find_longest_word(letters, words):
+    if not letters or not words:
+        return None
+    dict_letter = collections.Counter(letters)
+    letter_len = len(dict_letter)
+    result = 0
+
+    for word in words:
+        flag = True
+        tmp = dict_letter.copy()
+        if len(word) > letter_len:
+            continue 
+        for char in word:
+            tmp[char] -= 1
+            if tmp[char] < 0:
+                flag = False
+                break
+        if flag:    
+            result = max(result, len(word))
+    return result
+
+words = ["abacus", "deltoid", "gaff", "giraffe", "microphone", "reef", "qar"]
+letters = ['a','e','f','f','g','i','r','q']
+print find_longest_word(letters, words)
+~                                       
+
+
+'''
+66. 一个logfile，有timestamp，userid，x，y。写个方法，找出任意两个userid，在一定的range里，timestamp最近的一对pair
 '''
 
+
+
+'''
+67. 加了一个小问题，三角形三个顶点各有一只小虫，小虫只能沿着线走，但方向任选，问一段时间后，两只小虫碰一块儿的几率是多少
+# http://www.programmerinterview.com/index.php/puzzles/3-ants-on-a-triangle-riddle/
+
+The only possibility that ants can not meet each other is 2, clockwise or anti-clockwise, but the totally 3 ants could choose
+the ways are 2^3 = 8, so the possiblity that any two ants meet each other is (8-2)/8 = 0.75
+'''
+
+'''
+68. 先上来问了下quicksort, 举一个worse case 时间复杂度的例子， 然后coding, 一个n的数组，没有重复， 0到n-1都在这个数组里面， 
+只能读，不能写（swap除外），问怎么排序，我上来就说quicksort ：）然后问有没有再优化的，想了下给了个O（n)的，不到20行搞定
+# quick sort: 
+# https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Different_Sort_Algorithms.md#quick-sort
+# quick sort disadvantage: 
+# http://www.geeksforgeeks.org/when-does-the-worst-case-of-quicksort-occur/
+
+The answer depends on strategy for choosing pivot. In early versions of Quick Sort where leftmost (or rightmost) element is 
+chosen as pivot, the worst occurs in following cases.
+
+1) Array is already sorted in same order.
+2) Array is already sorted in reverse order.
+3) All elements are same (special case of case 1 and 2)
+
+Since these cases are very common use cases, the problem was easily solved by choosing either a random index for the pivot, 
+choosing the middle index of the partition or (especially for longer partitions) choosing the median of the first, middle and 
+last element of the partition for the pivot. With these modifications, the worst case of Quick sort has less chances to occur, 
+but worst case can still occur if the input array is such that the maximum (or minimum) element is always chosen as pivot
+'''
 
 
 
@@ -2294,6 +2356,10 @@ boolean isOnDataCenter(String ProgramName, String DCName)
 1. 每次返回5张可选最多
 2. 保证不会给两个不同user返回同一个可选座位
 3. 用户2分钟之内，没有购买，重新开始
+
+11. system design，什么一堆page判断duplicate，如何断定一个page比另外一个page更trustful
+
+12. 设计题，问用什么数组实现搜索推荐，先讨论了几种方案，最后说用trie
 
 '''
 
