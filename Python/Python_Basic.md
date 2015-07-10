@@ -11,6 +11,7 @@
 ####[10. Iterator and Generator](#iterator-and-generator)
 ####[11. Print in format](#print-format)
 ####[12. File Operation](#file-operation)
+####[13. Time Complexity](#time-complexity)
 ------------------------------------------------------------
 
 
@@ -2191,3 +2192,20 @@ class yrange:
         except IOError:
             raise KeyError(key)
 ```
+
+
+## Time Complexity
+#### 1000 in dict.keys(): O(n)
+#### 1000 in dict: O(1)
+
+* d.keys() returns a list which is a copy of the dict keys, not a view. Constructing that list takes O(n), as does the lookup, which uses list.__contains__ i.e. iterating the keys.
+her hand, key in d essentially calls
+
+* d.__contains__(key)
+* The method dict.__contains__ is implemented efficiently with an O(1) hash lookup on the dict keys. This is precisely the raison d'être for the dict data structure, and it is the same reason you get a fast O(1) lookup when you access a dict with d[key].
+
+* In summary, key in d.keys() is never appropriate in python 2.
+
+#### Reference
+* [Python time complexity wiki](https://wiki.python.org/moin/TimeComplexity)
+* http://stackoverflow.com/questions/24540975/why-does-key-in-d-keys-finish-in-on-time-while-key-in-d-finishes-in-o1?lq=1
