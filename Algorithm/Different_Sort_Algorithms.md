@@ -425,6 +425,42 @@ None
 
 ```
 
+#### Use the random() to choose the pivot 
+```python
+import random
+
+def quick_sort(array):
+    if not array: return None
+    quick_sort_helper(array, 0, len(array)-1)
+    return array
+
+def quick_sort_helper(array, start, end):
+    if start >= end:
+        return
+    pivot_index = random.randint(start, end)
+    array[start], array[pivot_index] = array[pivot_index], array[start]
+    left = start + 1
+    right = end
+    pivot = array[start]
+    
+    while True:
+        while left <= right and array[left] <= pivot:
+            left += 1
+        while array[right] > pivot:
+            right -= 1
+        if left > right:
+            break
+        array[left], array[right] = array[right], array[left]
+    array[start], array[right] = array[right], array[start]
+    
+    quick_sort_helper(array, start, right-1)
+    quick_sort_helper(array, right+1, end)
+    
+arr = [3, 44, 38, 5, 3, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+print quick_sort(arr)
+```
+
+
 ##### 从以上3种快排的实现我们可以发现其与『归并排序』的区别主要有如下两点：
       * 归并排序将数组分成两个子数组分别排序，并将有序的子数组归并以将整个数组排序。递归调用发生在处理整个数组之前。
       * 快速排序将一个数组分成两个子数组并对这两个子数组独立地排序，两个子数组有序时整个数组也就有序了。递归调用发生在处理整个数组之后。
@@ -433,6 +469,8 @@ None
 * Best: O(nlogn)
 * Worst: O(n^2) when we choose the pivot always the max or the min
 * Average: O(nlogn)
+
+#### [quick select](https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Quick_Select.md)
 
 ##### Summary
       1. Quick Sort 更快
