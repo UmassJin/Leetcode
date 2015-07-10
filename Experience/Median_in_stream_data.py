@@ -1,4 +1,9 @@
 # reference: http://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
+'''
+Similar to balancing BST in Method 2 above, we can use a max heap on left side to represent elements 
+that are less than effective median, and a min heap on right side to represent elements that are greater 
+than effective median.
+'''
 
 import heapq
 
