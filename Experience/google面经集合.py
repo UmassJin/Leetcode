@@ -2092,6 +2092,8 @@ pass一个start point什么的就行。。。
 # http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=87561&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
 http://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
 
+# Better solution: http://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
+
 '''
 
 import collections
