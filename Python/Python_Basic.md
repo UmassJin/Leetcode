@@ -2195,6 +2195,7 @@ class yrange:
 
 
 ## Time Complexity
+
 #### 1000 in dict.keys(): O(n)
 #### 1000 in dict: O(1)
 
@@ -2205,6 +2206,10 @@ her hand, key in d essentially calls
 * The method dict.__contains__ is implemented efficiently with an O(1) hash lookup on the dict keys. This is precisely the raison d'être for the dict data structure, and it is the same reason you get a fast O(1) lookup when you access a dict with d[key].
 
 * In summary, key in d.keys() is never appropriate in python 2.
+
+## Space usage 
+#### When the empty dictionay is created, it started with 8 slots, looks details in the following link
+http://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented
 
 #### Reference
 * [Python time complexity wiki](https://wiki.python.org/moin/TimeComplexity)
