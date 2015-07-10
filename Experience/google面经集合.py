@@ -2284,10 +2284,12 @@ the ways are 2^3 = 8, so the possiblity that any two ants meet each other is (8-
 '''
 68. 先上来问了下quicksort, 举一个worse case 时间复杂度的例子， 然后coding, 一个n的数组，没有重复， 0到n-1都在这个数组里面， 
 只能读，不能写（swap除外），问怎么排序，我上来就说quicksort ：）然后问有没有再优化的，想了下给了个O（n)的，不到20行搞定
+
 # quick sort: 
 # https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Different_Sort_Algorithms.md#quick-sort
 # quick sort disadvantage: 
 # http://www.geeksforgeeks.org/when-does-the-worst-case-of-quicksort-occur/
+# O(n) sort algorithm: swap the element to the correct position in array 
 
 The answer depends on strategy for choosing pivot. In early versions of Quick Sort where leftmost (or rightmost) element is 
 chosen as pivot, the worst occurs in following cases.
@@ -2300,6 +2302,28 @@ Since these cases are very common use cases, the problem was easily solved by ch
 choosing the middle index of the partition or (especially for longer partitions) choosing the median of the first, middle and 
 last element of the partition for the pivot. With these modifications, the worst case of Quick sort has less chances to occur, 
 but worst case can still occur if the input array is such that the maximum (or minimum) element is always chosen as pivot
+'''
+
+
+'''
+69. Sort n numbers in range from 0 to n^2 – 1 in linear time
+# http://www.geeksforgeeks.org/sort-n-numbers-range-0-n2-1-linear-time/
+# Radix Sort: http://www.geeksforgeeks.org/radix-sort/
+
+Sort a nearly sorted array:
+http://www.geeksforgeeks.org/nearly-sorted-algorithm/
+'''
+
+'''
+70. 问garbage collection和arc的区别，各自的优点和缺点，我运气好，以前学ios programming的时候专门看了的，然后他让我用doubly linked list给他展示，
+随便画一画，然后问我arc有什么缺点（他是想问我memory cycle), 我但是没想到，就说我不太清楚，他说这个doubly linked list不会用cycle吗，
+我说如果你用weakref就不会，顿时向我投来了肯定的目光。。。也许是我yy的
+2 给以个二叉搜索树和一个iterator,先问你怎么存data才能让这个树可以接受重复元素，我说存一个object,里面是Key和计数器，他说好，
+然后开始写代码，问题是怎么判断这个树和Iterator里面元素和计数都一样，我说用一个hashmap的counter,先去in order traverse这个数，存在map里，
+然后再比较iterator，最后看看这个map 的counter是否为0或者为空，他说好，写吧，这题明显是想考bst 的 in order，然后用stack写了个iterative的traverse,
+中间粗心犯了个小错误，stack里面Object存错了，被面试官指出然后改正，后面的很简单的code没让写，不过时间也不多了，他说你问我问题吧。
+
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=118515&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 '''
 
 
