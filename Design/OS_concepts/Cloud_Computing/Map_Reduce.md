@@ -20,6 +20,10 @@
 
 * [Implement](https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Design_Map_Reduce.py)
 
+* Some applications of MapReduce
+      * Distributed Grep 
+      * sorting
+
 * Programming MapReduce
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8266036/602361ce-16cc-11e5-96d5-c904b4b694a7.png)
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8266038/7b1fe20e-16cc-11e5-943e-ba683e4e534c.png)
