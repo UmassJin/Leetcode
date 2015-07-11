@@ -2326,6 +2326,58 @@ http://www.geeksforgeeks.org/nearly-sorted-algorithm/
 # http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=118515&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 '''
 
+'''
+71. Count frequencies of all elements in array in O(1) extra space and O(n) time
+Given an unsorted array of n integers which can contain integers from 1 to n. Some elements can be repeated multiple times and 
+some other elements can be absent from the array. Count frequency of all elements that are present and print the missing elements.
+'''
+def count_frequency(array):
+    if not array: return None
+    n = len(array)
+    i = 0
+
+    while i < n:
+        if array[i] < 0:
+            i += 1
+            continue
+        index = array[i] - 1
+        if array[index] > 0:
+            array[i] = array[index]
+            array[index] = -1
+        else:
+            array[index] -= 1
+            array[i] = 0
+            i += 1
+    return array
+
+test = [2,3,3,2,5]
+test1 = [3,3,3,3,3]
+print count_frequency(test)
+print count_frequency(test1)
+
+
+def count_frequency2(array):
+    if not array: return None
+    n = len(array)
+    array = [array[i]-1 for i in xrange(n)]
+    
+    for i in xrange(n):
+        array[array[i]%n] = array[array[i]%n] + n
+        
+    array = [array[i]/n for i in xrange(n)]
+    return array
+
+test = [2,3,3,2,5]
+test1 = [3,3,3,3,3]
+print count_frequency2(test)
+print count_frequency2(test1)
+
+Output:
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python count_frequency.py 
+[0, -2, -2, 0, -1]
+[0, 0, -5, 0, 0]
+[0, 2, 2, 0, 1]
+[0, 0, 5, 0, 0]
 
 
 ========================================================================================
