@@ -156,3 +156,55 @@ def random_max(array):
 
 test = [2,1,2,1,5,4,5,5]
 print random_max(test)
+
+
+'''
+# http://www.mitbbs.com/article_t/JobHunting/33003737.html
+一个月以前面的了，没什么营养，还是发给大家看看吧, 希望对大家有帮助，已经跪了。
+
+电面： 中国大叔面的，大叔很nice，遇到我写有bug的时候都会着急的提醒我，题也很
+简单。
+
+1： 给n个点找出离远点最近的k个， k<<n。
+2: 给三个 api isSmall()  isMid() isBig() 给一个array 排序，只要不被迷惑， 知
+道其实是lc 上 sort color的变种就很简单了。
+
+On Site：
+
+1： 聊自己的research，白人manager，说自己以前是faculty，人非常nice。气场也比
+较合， 我讲完之后还说把email给我，说我面试后有问题可以问他，然后问了个 two 
+sum。
+
+2：亚洲小哥，也很nice，第一道题是 Lc 上的String Multiplication。 然后出了一
+个打印 tree路径的题，后来问我做过没有，只能说做过类似的，后来换了一道 的 
+decode way 变形，要把所有的可能的组合都打印出来，写了一个recursion。
+
+中午和内推我的本版汤唯姐姐吃饭，在此谢谢汤唯姐姐，大牛非常nice，大家内推可以
+去找他。吃饭的时候还说，上午过了最难的两轮，下午都是国人面试官，应该简单点。
+
+3：国人面试官，貌似气场不太合，我写code的时候尽量解释，可能人家
+觉得我也做不出来，无聊的看了很久手机。出了这个题
+http://www.mitbbs.com/article_t/JobHunting/32906379.html
+
+class IntFileIterator {
+  boolean hasNext();
+  int next();
+}
+
+class{
+  public boolean isDistanceZeroOrOne(IntFileIterator a, IntFileIterator b)；
+
+}
+// return if the distance between a and b is at most 1.. 
+// Distance: minimum number of modifications to make a=b
+// Modification:
+//   1. change an int in a
+//   2. insert an int to a
+//   3. remove an int from a
+
+都怪自己事先没把本版的题都做一遍，然后就跪在这道题上了，巧的是貌似帖子的一个
+妹子也是这个国人同学面的，大家记得一定把这道题做一下。
+
+4. 国人面试官面出的 design：Shorten Url。面试官人非常nice，可是自己答的一般
+，在此谢谢他。
+'''
