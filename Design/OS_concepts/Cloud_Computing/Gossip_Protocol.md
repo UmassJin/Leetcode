@@ -16,9 +16,7 @@
       * RMTP (Reliable Multicast Transport Protocol)
             * Use ACKs (positive acknowledgmetns)
             * But ACKs only sent to designated receivers, which then re-transmit missing multicasts 
-      
-
-
+            
 * A third Approach 
     * Gossip is used in Multicast problem, and tree-based multicast protocols, as known as epidemics 
     * 1 multicast sender 
@@ -30,16 +28,34 @@
 
 * Push VS Pull
 * So that was “Push” gossip
-    * Once you have a multicast message, you start  gossiping about it
+    * Once you have a multicast message, then become "infected" and start gossiping about it
     * Multiple messages? Gossip a random subset of them, or recently-received ones, or higher priority ones
-* There’s also “Pull” gossip
-    * Periodically poll a few randomly selected processes for new multicast messages that you haven’t received
-    * Get those messages
-* Hybrid variant: Push-Pull
-    * As the name suggests
-* Pull Gossip is faster than push gossip 
 
-* Group Membership List 
-    * mean time to failure (MTTF) of the 120 server is 1 month, and 12,000 servers is 7.2 hours
-    * failure detector program (distributed) and automatically detects failures 
+* There’s also “Pull” gossip
+    * Periodically poll a few randomly selected processes for new multicast messages that you haven’t received no
+       matter you are "infected" or "non-infected"
+    * Get those messages
+    * pull gossip is faster than push gossip
+    * Second half of pull gossip finishes in time O(log(log(N)) 
     
+* Hybrid variant: Push-Pull
+    * As the name suggests we could use push at beginning and then use pull to later round to get it out into everyone 
+     in the system very quickly 
+     
+* Pull Gossip is faster than push gossip 
+![pic](https://cloud.githubusercontent.com/assets/9062406/8636302/b194ff0a-280f-11e5-9b78-9a3c5065dccf.png)
+
+* Gossip Protocol 
+          * is lightweight in large groups
+          * spreads a multicast quickly
+          * fault tolerance 
+          * low latency
+          * reliability 
+
+* Topology Analysis
+          * In a datacenter topology with top of the rack switches talking to one core switch, there are 2 racks, each with N/2 nodes from the multicast group. The nodes execute push gossip. If each node picks a gossip target outside its rack with probability (1/N) and choose the local gossip is O(1-1/N), and gossip targets are selected uniformly at random from the target subgroup, the time to disseminate a gossip is O(logN)
+![pic](https://cloud.githubusercontent.com/assets/9062406/8636303/c0e0f306-280f-11e5-814b-7b0ff0e1e7bb.png)
+
+* Implementations
+          * Cassandra key-value store (an others) use gossip for maintaining membership lists
+
