@@ -4,6 +4,13 @@
     * Membership protocol
         * Failure dector
         * Dissemination 
+            * Multicast (Hardware / IP)
+               * unreliable
+               * multiple simultaneous multicasts
+            * Point-to-Point (TCP/UDP)
+               * expensive
+            * Zero extra messages: piggyback on failure detector messages
+               * Infection-style Dissemination
 
 ![pic](https://cloud.githubusercontent.com/assets/9062406/8636373/92b3dbc6-2812-11e5-96e0-fae60b13cfe2.png)
 
@@ -39,3 +46,7 @@
 
 * SWIM failure detector protocol
       ![pic](https://cloud.githubusercontent.com/assets/9062406/8636488/d1da8d62-2818-11e5-9796-236adb3e6d34.png)
+
+
+* Conclusion 
+![pic](https://cloud.githubusercontent.com/assets/9062406/8636553/c092b944-281d-11e5-8b29-6cc53c7ed707.png)
