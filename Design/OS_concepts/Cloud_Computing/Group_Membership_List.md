@@ -30,4 +30,9 @@
     ![pic](https://cloud.githubusercontent.com/assets/9062406/8636428/2273a618-2815-11e5-8153-8cfd5c518561.png)
 
 * Gossip Style Filure detection 
-
+      * Gossip period T_gossip is the tradeoff between bandwidth and the dection time
+      * If T_gossip is descreased, you have the higher bandwidth, have the shorter timeout for the failure detection itself
+      * If the T_fail, T_cleanup is increased, will have lower false positive rate 
+      * Tradeoff: False positive rate vs detection time vs bandwidth 
+      * 
+      ![pic]
