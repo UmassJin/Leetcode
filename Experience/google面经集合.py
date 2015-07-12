@@ -2381,6 +2381,32 @@ Output:
 [0, 0, 5, 0, 0]
 
 
+'''
+72. 进制转换， 十进制转换为any进制，会给一个base input
+'''
+
+
+'''
+73. BST构建，插入，删除, return the next node;
+'''
+
+'''
+74. 给一个array of 硬币，第i次翻面所有i的倍数的位置的硬币，（第0次，第1次全翻，第2次翻2, 4, 6, ...）输出最后结果。要求O(n logn)解法。
+'''
+
+
+'''
+75. cypher graphics equivalent, 判断两个string是不是cypher graphics equivalent，并证明cypher graphics equivalent是否symmetric和transitive。
+cypher graphics equivalent是指，比如说ABC和DEF就cypher graphics equivalent，因为A=>D, B=>E, D=>F。ABC和ADD就不是。
+
+给一个disordered array，判断是否有两个数相等。
+给一个disordered array和一个int dist，判断是否有两个数相等且距离小于dist。
+给一个disordered array和一个int targe和一个int dist，判断是否有两个数a, b使 Math.abs(a-b) <= target。且a, b的index距离小于dist。
+
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=124484&extra=page%3D2%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+'''
+
+
 ========================================================================================
 
 '''
@@ -2437,6 +2463,25 @@ boolean isOnDataCenter(String ProgramName, String DCName)
 11. system design，什么一堆page判断duplicate，如何断定一个page比另外一个page更trustful
 
 12. 设计题，问用什么数组实现搜索推荐，先讨论了几种方案，最后说用trie
+
+13. 德州扑克
+ we have n cards, four suites (H, C, D, S). 1<=value<=13， we have the following hands type:
+ Straight flush      Four of a kind      Full house  Flush Straight Three of a kind Two pair One pair
+ Questions: given n cards, and find out the best hands type we could have, n is not 52. and the output does 
+ not have to be five. 如果你找到three of a kind，但是没有找到比它更大的了，那这三张就是Output3. 
+
+14. 选址建房子。图论的题，意思是给一个matrix，上面有一堆商店，每个商店有建房子需要的材料，要求找到建房子最佳的地址，
+使到每家商店的距离之和最短，matrix里面还包含不能走的格子。要求先设计类后给算法
+
+15. 假设Google有一个内部系统，可以接受来自员工的各种订单，例如定个鲜花，定个蛋糕之类的。内部系统会连到一个外部系统，
+这个外部系统会处理这些订单，发给相应的vendor去接单。
+问，这两个系统有哪些问题需要考虑。
+
+16. 一辆车有Year, Make, Model。假设一个Dealer有很多很多车，如何才能得到每一种unique car有多少辆。unique car的意思是说，
+Year, Make, Model这三个特征，只要有一个和其他车不同，就是unique car。
+
+17. 假设用一个N叉树存一个员工管理系统，从上到下按照级别一级一级递减，最顶端是CEO，往下是各个级别的经理，再是普通员工，
+所以每一个节点都是一个员工。现在给出任意一个节点，要得到从这一点开始往上的职位层级，问要怎么做，不用写代码，说一说就行
 
 '''
 
