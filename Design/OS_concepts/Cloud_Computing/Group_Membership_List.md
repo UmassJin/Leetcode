@@ -26,13 +26,16 @@
 * All-to-All heartbeating (Better)
     * equal load member
     * problem:if you has one pj is slow and is receiving packets at longer delay than others, it may end up
-    marking all the other processes as filure, faluse postive 
+    marking all the other processes as filure, high failure postive 
     ![pic](https://cloud.githubusercontent.com/assets/9062406/8636428/2273a618-2815-11e5-8153-8cfd5c518561.png)
 
-* Gossip Style Filure detection 
+* Gossip Style Failure detection 
+      * 见讲义
       * Gossip period T_gossip is the tradeoff between bandwidth and the dection time
       * If T_gossip is descreased, you have the higher bandwidth, have the shorter timeout for the failure detection itself
       * If the T_fail, T_cleanup is increased, will have lower false positive rate 
       * Tradeoff: False positive rate vs detection time vs bandwidth 
-      * 
-      ![pic]
+      ![pic](https://cloud.githubusercontent.com/assets/9062406/8636472/6757adcc-2817-11e5-8ccd-bab5647796df.png)
+
+* SWIM failure detector protocol
+      ![pic](https://cloud.githubusercontent.com/assets/9062406/8636488/d1da8d62-2818-11e5-9796-236adb3e6d34.png)
