@@ -1,3 +1,24 @@
+* Multicast Protocol Problem
+      * Fault Tolerance: packets may dropped or delayed by underlying network 
+      * Scalability
+      
+* Centralized
+      * one sender, multiple receivers, using UDP/TCP packets
+      * problem: latency, the receivers that received the packets (average time) is O(n), size of the receivers 
+      
+* Tree Based topology 
+      * Spanning tree protocol, IPmulticast, SRM, RMTP, TRAM, TMTP 
+      * latency: O(logn)
+      * problem: need to take time to repair the internal nodes (not the leaf nodes) if internal nodes are down
+      * SRM (Scalable Reliable Multicast)
+            * Use NAKs (Negative Acknowledgements) to repair multicast not received 
+            * But adds random delays, and uses exponential backoff to avoid NAK storms
+      * RMTP (Reliable Multicast Transport Protocol)
+            * Use ACKs (positive acknowledgmetns)
+            * But ACKs only sent to designated receivers, which then re-transmit missing multicasts 
+      
+
+
 * A third Approach 
     * Gossip is used in Multicast problem, and tree-based multicast protocols, as known as epidemics 
     * 1 multicast sender 
