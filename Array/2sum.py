@@ -7,6 +7,8 @@ Output: index1=1, index2=2
 
 class Solution:
     # @return a tuple, (index1, index2)
+    # 48s
+    # O(n)
     def twoSum(self, nums, target):
         if not nums or len(nums) < 2: return None
         idict = {}
