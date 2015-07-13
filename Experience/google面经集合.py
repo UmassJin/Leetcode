@@ -2406,6 +2406,22 @@ cypher graphics equivalent是指，比如说ABC和DEF就cypher graphics equivale
 '''
 
 
+'''
+76. input string：“+++--++-+”
+游戏规则：每人每次可以 flip "++" to "--"（必须是相邻的）
+
+第一问：generate all possible moves
+第二问：determine if this player can will
+Extra：这两个问题的implementation的Big-O. 1
+
+下个人没法flip了这个人就赢；all possible moves for next flip
+# http://www.1point3acres.com/bbs/thread-137953-1-1.html
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=137928&extra=page%3D1%26filter%3Dsortid%26sortid%3D311&page=2
+# http://web.mit.edu/sp.268/www/nim.pdf
+'''
+
+
+
 ========================================================================================
 
 '''
