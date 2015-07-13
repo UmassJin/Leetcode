@@ -13,6 +13,23 @@ class Solution:
     # @param haystack, a string
     # @param needle, a string
     # @return an integer
+    def strStr(self, haystack, needle):
+        if len(haystack) < len(needle): return -1
+        if not haystack or not needle or len(needle) == 0: return 0
+        m = len(haystack)
+        n = len(needle)
+        
+        for i in range(m-n+1):
+            j = 0
+            while j < n:
+                if haystack[i+j] != needle[j]:
+                    break
+                j += 1
+            if j == n:
+                return i
+        return -1  
+    
+    
     def strStr_1(self, haystack, needle):
         if len(haystack) < len(needle): return -1
         if haystack == None or needle == None or len(needle) == 0: return 0
@@ -21,7 +38,7 @@ class Solution:
         
         for i in range(m-n+1):
             flag = True
-            for j in range(n):
+            for j in range(n): # 这里如果用range的话，j所取的最后一个数为n-1, 所以不能用上面的方法判断！
                 if haystack[i+j] != needle[j]:
                     flag = False
                     break
@@ -29,6 +46,8 @@ class Solution:
                 return i
         
         return -1  
+        
+
 
 # Use the [KMP algorithm]
 # https://github.com/UmassJin/Leetcode/blob/master/Algorithm/KMP_algorithm.md
