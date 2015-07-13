@@ -51,6 +51,31 @@ class Solution:
 
 # Use the [KMP algorithm]
 # https://github.com/UmassJin/Leetcode/blob/master/Algorithm/KMP_algorithm.md
+    def strStr(self, haystack, needle):
+        if len(haystack) < len(needle): return -1
+        if not haystack or not needle or len(needle) == 0: return 0
+        m = len(haystack); n = len(needle)
+        
+        next_arr = [-1 for i in xrange(n+1)]   
+        for i in xrange(1, n+1):
+            pos = next_arr[i-1]
+            while pos != -1 and needle[pos] != needle[i-1]:
+                    pos = next_arr[pos]
+            next_arr[i] = pos + 1
+        
+        i = 0; j = 0
+        while i < m and j < n:
+            if j == -1 or haystack[i] == needle[j]:
+                i += 1
+                j += 1
+            else:
+                j = next_arr[j]
+        if j == n:        
+            return i - j
+        else:
+            return -1
+
+
     def nextfuc(self,p):
         length = len(p)
         nextarr = [0] * length
