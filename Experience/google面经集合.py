@@ -591,7 +591,7 @@ strs : "ab", "ac"  -> false
 21. Leetcode: count islands
 -google 1point3acres
 後面的 follow up 都是討論而已, 沒寫 code
-Follow up: 如果是大地圖怎麼處理, 要你切 map, 考慮每個 submap 之間的關係. visit 1point3acres.com for more.
+Follow up: 如果是大地圖怎麼處理, 要你切 map, 考慮每個 submap 之間的關係. 
 Follow up2: 平行化處理, 這個條件, 可能會讓你前面所想方法要重新思考
 
 這時剩下15分鐘, 他就說再來個 follow up 好了 = =, 跟大圖無關, 一樣是 count island, 假設已經做了第一次的處理
@@ -2421,6 +2421,41 @@ Extra：这两个问题的implementation的Big-O. 1
 '''
 
 
+'''
+77. Three segments of lengths A, B, C form a triangle iff
+A + B > C
+B + C > A
+A + C > B
+
+e.g.
+6, 4, 5 can form a triangle
+10, 2, 7 can’t
+
+Given a list of segments lengths algorithm should find at least one triplet of segments that form a triangle (if any).
+
+Method should return an array of either:
+
+3 elements: segments that form a triangle (i.e. satisfy the condition above)
+empty array if there are no such segments
+Follow up:
+Could you return the number of all valid triangles? You can assume there’s no duplicates in the original array.
+
+# http://www.geeksforgeeks.org/find-number-of-triangles-possible/
+'''
+def triangle(array):
+    if not array or len(array) < 3: return 0
+    count = 0
+    n = len(array)
+    for i in xrange(n-2):
+        k = i + 2
+        for j in xrange(i+1, n):
+            while k < n and  array[i] + array[j] > array[k]:
+                k += 1
+            count += k - j - 1
+    return count
+
+arr = [10, 21, 22, 100, 101, 200, 300]
+print triangle(arr)
 
 ========================================================================================
 
