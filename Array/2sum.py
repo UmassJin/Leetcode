@@ -7,6 +7,27 @@ Output: index1=1, index2=2
 
 class Solution:
     # @return a tuple, (index1, index2)
+    def twoSum(self, nums, target):
+        if not nums or len(nums) < 2: return None
+        idict = {}
+        for i, value in enumerate(nums):
+            if target - value in idict:
+                return [idict[target-value], i+1]
+            idict[value] = i+1
+            
+        
+    # 79ms
+    def twoSum(self, num, target):
+        dic = {}
+        for i in xrange(len(num)):
+            if num[i] in dic:
+                result1 = dic[num[i]] +1
+                result2 = i +1
+            else:
+                dic[target-num[i]] = i
+        
+        return (result1,result2)
+    
     # 68ms
     def twoSum(self, num, target):
         tmpnum = num[:]
@@ -27,15 +48,4 @@ class Solution:
                   
             if tmpval < target:
                     i += 1
-    
-    # 79ms
-    def twoSum(self, num, target):
-        dic = {}
-        for i in xrange(len(num)):
-            if num[i] in dic:
-                result1 = dic[num[i]] +1
-                result2 = i +1
-            else:
-                dic[target-num[i]] = i
-        
-        return (result1,result2)
+
