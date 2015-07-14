@@ -1014,6 +1014,25 @@ True
 
 #### 8. [collections.Counter](https://github.com/UmassJin/Leetcode/blob/master/Python/Python_Basic.md#collections)
 
+#### 9. s[end].isalnum()
+* 判断是否为字母和数字，例如 
+```python
+>>> s = "afaf23#$%"
+>>> s.isalnum()
+False
+>>> s[0].isalnum()
+True
+>>> s[-1].isalnum()
+False
+>>> s[5].isalnum()
+True
+>>> s1 = 'ABDFA'
+>>> s1.isalnum()
+True
+```
+
+* [Valid Palindrome](https://github.com/UmassJin/Leetcode/blob/master/Array/Valid_Palindrome.py)
+
 ## Design Pattern
 * Blocking Queue (回看！)
 
