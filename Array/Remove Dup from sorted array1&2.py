@@ -32,6 +32,18 @@ Your function should return length = 5, and A is now [1,1,2,2,3].
 Analysis: Use a flag to indicate the count 
 
 class Solution:
+    # @param {integer[]} nums
+    # @return {integer}
+    def removeDuplicates(self, nums):
+        if len(nums) < 3: return
+        i = 0
+        for n in nums:
+            if i < 2 or n > nums[i-2]:
+                nums[i] = n
+                i += 1
+        return i
+
+class Solution:
     # @param A a list of integers
     # @return an integer
     def removeDuplicates(self, A):
