@@ -2457,6 +2457,115 @@ def triangle(array):
 arr = [10, 21, 22, 100, 101, 200, 300]
 print triangle(arr)
 
+
+'''
+78.给定一个word list 和一个target word，要求输出在word list 里跟target word的edit distance 相差不大于k的所有words。
+
+这是Airbnb的电面题。直接用edit distance挨个遍历一遍也能做，但是如果word list很大，那重复计算会非常多，这时候可以用trie来优化。
+下面举个例，假设字典为["cs", "ct", "cby"]，target word为"cat"，k=1。
+# 原题：http://www.mitbbs.com/article_t/JobHunting/32692817.html
+# 解法：http://stevehanov.ca/blog/index.php?id=114
+'''
+
+
+'''
+79.给一个dictionary, 一个string,找出dict 里能全部用string里的letter 表示的所有最长的词。
+For example:
+字典包含如下单词：
+abcde, abc, abbbc, abbbccca, abbbcccabbcx
+给string = "abc"，最长单词应为"abbbccca"
+
+# http://www.mitbbs.com/article_t/JobHunting/32634303.html
+
+80. Similar question:
+You are given a string 's' and you are given a dictionary of english words. 
+You goal is to write an algorithm that returns all words from the dictionary the can be formed by 
+characters from that string 's'. 
+
+Example: 
+s = "ogeg" 
+following words can be formed from 's': go egg ego . . . 
+Further it is given that string 's' always consists of four lower case characters. 
+Lets say that the dictionary is contained in a file and can be fitted in the memory. 
+It is up to you which data structure you use to represent the dictionary. 
+How would you design an efficient algorithm? Follow up: What if the dictionary file can not be fitted in the memory?
+# http://www.careercup.com/question?id=6270813198090240
+'''
+import collections
+
+class TrieNode:
+    def __init__(self):
+        self.value = None
+        self.end = False
+        self.children = collections.defaultdict(TrieNode)
+        
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+        
+    def add_word(self, word):
+        node = self.root
+        word = word.strip()
+        
+        for char in word:
+            node = node.children[char]
+        node.end = True
+        node.value = word
+        
+    def search_longest_str(self, idict, string):
+        if not idict or not string:
+            return None
+        for word in idict:
+            self.add_word(word)
+        print "node: ", self.root.children
+        result = [""]
+        self.search(result, "", self.root, string)
+        return result[0]
+
+    def search(self, result, cur, node, string):
+        if not node:
+            return
+        if node.end and len(cur) > len(result[0]):
+            print "node.value: ", node.value
+            result[0] = cur
+
+        for child in node.children:
+            if child in string:
+                self.search(result, cur + child, node.children[child], string)
+        
+test = Trie()
+idict = ["abcde ", " abc", " abbbc", "abbbccca", "abbbcccabbcx"]
+string = "abc"
+
+
+'''
+82. Given a dictionary of words, and a set of characters, judge if all the characters 
+can form the words from the dictionary, without any characters left. 
+For example, given the dictionary {hello, world, is, my, first, program}, 
+if the characters set is "iiifrssst", you should return 'true' because you can form {is, is, first} from the set; 
+if the character set is "eiifrsst", you should return 'false' because you cannot use all the characters from the set. 
+
+P.S. there may be tens of thousands of words in the dictionary, and the chars set length could be up to hundreds, 
+so I really need some efficient algorithm.
+'''
+
+
+
+'''
+83. 给一个dictionary, 再给一个set of coding string （g5, goo3, goog2, go2le………). 
+return all string from dictionary that can be matched with the coding string. 要求尽量减少dictionary look up 次数
+# http://www.fgdsb.com/tags/Trie/
+'''
+
+
+'''
+ 84. There are a set of dictionary words and a set of license   plate numbers. Write a code/algorithm to find the shortest 
+ dictionary word which contains all the characters in the license plate, irrespective of the order of characters. 
+ Ex: RC101 is the license plate number. The shortest word that can be found in the dictionary is CAR which has 
+ characters 'R' and 'C' in the license plate. 
+ '''
+
+
 ========================================================================================
 
 '''
