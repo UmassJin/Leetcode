@@ -2660,15 +2660,11 @@ shuffle模式就是shuffle列表里的歌，然后顺序播放，放完以后重
 
 3. 1000个文件每个有1TB的大小，服务器每台100GB内存，1TB硬盘。文件基本上一次写入就不会变化了，读的次数比较多。问怎么设计这样的系统。followup怎么解决fault tolerance，再增加1000个这样文件，怎么办，等等。
 
-4. tic-tac-toe，给定场景是人机大战，人永远先开始下。要求把所有的棋盘布局组合都输出（人机各走一步算一个新的棋盘布局）。本轮有shadow。
-
-5. 保龄球计分，给一组分数，输出实际每轮投完后的累计得分。
 
 偏向c++功底跟concurrency。实现memcopy，还有就是实现一个银行的类里面的几个算法，都很简单，但是对多线程调用的加锁需要有了解。最后又问了一个实现每次调用，运行5秒，期间不停循环自增的简单算法，
 follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了系统时间
 
-6. Design Question: Get program running on data centers, try catch and
-scalability , cache followups
+6. Design Question: Get program running on data centers, try catch and scalability , cache followups
 
 7. 第五题是design题。问我设计程序给一个program name, 得到它在哪些data center上运行
 
@@ -2679,9 +2675,6 @@ boolean isOnDataCenter(String ProgramName, String DCName)
 然后就是一些exception handle，server上如何处理dragger，如何设计cache
 
 8. 然后是一个design题，design一个cache，然后需要设计哪些操作，需要考虑哪些参数，用什么hardware储存。。
-
-9. 设计贪吃蛇
-怎么定义蛇， 怎么移动， 怎么吃， 怎么判断时候活着， 怎么定义游戏版
 
 10. 设计售票系统， 要求
 1. 每次返回5张可选最多
@@ -2711,7 +2704,146 @@ Year, Make, Model这三个特征，只要有一个和其他车不同，就是uni
 17. 假设用一个N叉树存一个员工管理系统，从上到下按照级别一级一级递减，最顶端是CEO，往下是各个级别的经理，再是普通员工，
 所以每一个节点都是一个员工。现在给出任意一个节点，要得到从这一点开始往上的职位层级，问要怎么做，不用写代码，说一说就行
 
+二面是一个哥们问如何对一个用户进行好友推荐，这个推荐的人应该和用户有最多的共同好友。是图问题。
+
+三面是写一个meeting schedule, 求最少的房间。
+
+题目一：社交网络中，如何实现好友推荐。抽象成图，然后找出共同好友最多的那个人。
+
+题目二：生产者消费者问题。
+题目三：假设google在火星上弄了个data center， 如何无人值守给他升级内核。如何判断机器挂掉了，挂掉了怎么办。
+
+＃ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=94183&extra=page%3D6%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+＃ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=107236&extra=page%3D6%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
 '''
+
+
+'''
+System Design 分类
+'''
+=========================================
+'''
+游戏类
+
+1. 设计贪吃蛇， 怎么定义蛇， 怎么移动， 怎么吃， 怎么判断时候活着， 怎么定义游戏版
+# https://github.com/UmassJin/Leetcode/blob/master/Design/OS_concepts/Game/snake.md
+# http://www.hawstein.com/posts/snake-ai.html
+# https://github.com/Hawstein/snake-ai/blob/master/snake.py
+
+# 我们可以通过一个二位数组来定义board, 一位数组定义snake
+# Initialization: snake_size = 1; snake_head = snake_array[0];
+# Move: up, down, left, right, avoid the snake itself, check the board size, recorde each step since snake need to move
+# empty the tail block in snake
+# Eat: the simplest method for "eat" is use the BFS to find the shortest path to the food, but this may lead to the no path
+# then we need to use the "Wander" function, after discuss the simple verion, we could use the "virtual snake" to test the 
+# safe path, if the path is "safe", which means whether snake has the path to follow it's tail, here we could use the tail as 
+# the fake "food" and then find whether there is path, then for each move, we use the BFS and check the safety, if there is no
+# path between head and food and head and tail, choose the random one, 
+
+1. 目标是食物时，走最短路径
+2. 目标是蛇尾时，走最长路径
+一般而言， 我们会让蛇每次都走最短路径。这是针对蛇去吃食物的时候， 可是蛇在追自己的尾巴的时候就不能这么考虑了。
+我们希望的是蛇头在追蛇尾的过程中， 尽可能地慢。这样蛇头和蛇尾间才能腾出更多的空间，空间多才有得发展。
+
+
+2. tic-tac-toe，给定场景是人机大战，人永远先开始下。要求把所有的棋盘布局组合都输出（人机各走一步算一个新的棋盘布局）。
+# Minmax wiki: https://en.wikipedia.org/wiki/Minimax
+# Minmax tic-tac-toe: http://neverstopbuilding.com/minimax
+# 中文版: http://univasity.iteye.com/blog/1170226
+
+Pseudocode:
+==========
+function minimax(node, depth, maximizingPlayer)
+    if depth = 0 or node is a terminal node
+        return the heuristic value of node
+    if maximizingPlayer
+        bestValue := -∞
+        for each child of node
+            val := minimax(child, depth - 1, FALSE)
+            bestValue := max(bestValue, val)
+        return bestValue
+    else
+        bestValue := +∞
+        for each child of node
+            val := minimax(child, depth - 1, TRUE)
+            bestValue := min(bestValue, val)
+        return bestValue
+
+(* Initial call for maximizing player *)
+minimax(origin, depth, TRUE)
+
+
+def minimax(game, depth):
+    if game.over:
+	return score(game) 
+    depth += 1
+    scores = []
+    moves = []
+     
+    # Populate the scores array, recursing as needed
+    game.get_available_moves.each do |move|
+        possible_game = game.get_new_state(move)
+        scores.push minimax(possible_game, depth)
+        moves.push move
+    end
+
+    # Do the min or the max calculation
+    if game.active_turn == @player
+        # This is the max calculation
+        max_score_index = scores.each_with_index.max[1]
+        @choice = moves[max_score_index]
+        return scores[max_score_index]
+    else
+        # This is the min calculation
+        min_score_index = scores.each_with_index.min[1]
+        @choice = moves[min_score_index]
+        return scores[min_score_index]
+    end
+end
+
+# max-min pruning 
+https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
+
+这一优化被称为alpha-beat剪枝，算法描述如下：
+   1. 有两个值被传递到每个树的节点：
+            值alpha，记录着找到的最好的“大值”（MAX value）；
+            值beta，记录着找到的最好的“小值”（MIN value）。
+   2. 在MAX层时，在对每个子路径进行估值前，用前一路径的返回值与beta值作比较。如果该值大于beta值，那么跳过对当前节点的搜索；
+   3. 在MIN层时，在对每个子路径进行估值前，用前一路径的返回值与alpha值作比较。如果该值小于alpha值，那么跳过对当前节点的搜索。
+
+
+01 function alphabeta(node, depth, α, β, maximizingPlayer)
+02      if depth = 0 or node is a terminal node
+03          return the heuristic value of node
+04      if maximizingPlayer
+05          v := -∞
+06          for each child of node
+07              v := max(v, alphabeta(child, depth - 1, α, β, FALSE))
+08              α := max(α, v)
+09              if β ≤ α
+10                  break (* β cut-off *)
+11          return v
+12      else
+13          v := ∞
+14          for each child of node
+15              v := min(v, alphabeta(child, depth - 1, α, β, TRUE))
+16              β := min(β, v)
+17              if β ≤ α
+18                  break (* α cut-off *)
+19          return v
+
+3. 保龄球计分，给一组分数，输出实际每轮投完后的累计得分。
+
+
+4. 设计扫雷游戏
+
+
+'''
+
+
+
+
+
 
 '''
 Google Phone interview 
