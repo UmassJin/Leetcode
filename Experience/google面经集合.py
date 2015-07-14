@@ -2563,6 +2563,12 @@ return all string from dictionary that can be matched with the coding string. �
  dictionary word which contains all the characters in the license plate, irrespective of the order of characters. 
  Ex: RC101 is the license plate number. The shortest word that can be found in the dictionary is CAR which has 
  characters 'R' and 'C' in the license plate. 
+ 
+ 思路: 一个brute force的想法是，把每个word排序，然后去掉数字，然后把每个字典里面的字母排序，然后依次比较word在不在每个字典里，
+ 找出最短的字典里的单词
+ 
+ 利用trie，将dictionary里面每个单词放入trie里的时候，排序，查找的时候，如果trie_node[char] < string[char], 查找
+ 
  '''
 
 
