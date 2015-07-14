@@ -2547,8 +2547,71 @@ if the character set is "eiifrsst", you should return 'false' because you cannot
 
 P.S. there may be tens of thousands of words in the dictionary, and the chars set length could be up to hundreds, 
 so I really need some efficient algorithm.
+
+some questions ask:
+1) If the input word could be used multiple times ?
+2) Just find one of the answer is fine and return True or False, do not need the shortst one ?
 '''
 
+import collections
+
+class TrieNode:
+    def __init__(self):
+        self.value = None
+        self.end = False
+        self.children = collections.defaultdict(TrieNode)
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def add_word(self, word):
+        node = self.root
+        word = word.strip()
+        word = ''.join(sorted(word))
+
+        for char in word:
+            node = node.children[char]
+        node.end = True
+        node.value = word
+
+    def search(self, word, idict):
+        wdict = collections.Counter(word)
+        result = []
+        for word in idict:
+            self.add_word(word)
+        self.search_helper(wdict, result, "", self.root)
+        if len(result) > 0:
+            print "True"
+        else:
+            print "False"
+        return result
+
+
+    def search_helper(self, wdict, result, cur, node):
+        if sum(wdict.values()) == 0:
+            if node.end:
+                result.append(cur)
+            return
+
+        if node.end:
+            temp = wdict.copy()
+            self.search_helper(temp, result, cur, self.root)
+
+        for child in node.children:
+            if child in wdict and wdict[child]-1 >= 0:
+                wdict[child] -= 1
+                self.search_helper(wdict, result, cur + child, node.children[child])
+                wdict[child] += 1
+
+def main():
+    test = Trie()
+    idict = ['abc', 'abde', 'cfg', 'cde','hello']
+    word = "abccde"
+    print test.search(word, idict)
+
+if __name__ == "__main__":
+    main()
 
 
 '''
