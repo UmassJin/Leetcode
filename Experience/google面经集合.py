@@ -2631,7 +2631,11 @@ return all string from dictionary that can be matched with the coding string. �
  找出最短的字典里的单词
  
  利用trie，将dictionary里面每个单词放入trie里的时候，排序，查找的时候，如果trie_node[char] < string[char], 查找
+ '''
  
+ '''
+ 85. similar question about Trie:
+ # http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver#746345
  '''
 
 
@@ -2715,7 +2719,13 @@ Year, Make, Model这三个特征，只要有一个和其他车不同，就是uni
 
 ＃ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=94183&extra=page%3D6%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 ＃ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=107236&extra=page%3D6%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+
+18. Design a google calendar 
+# http://martinfowler.com/apsupp/recurring.pdf
+# http://stackoverflow.com/questions/85699/whats-the-best-way-to-model-recurring-events-in-a-calendar-application
+
 '''
+
 
 
 '''
@@ -2836,7 +2846,7 @@ https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
 
 
 4. 设计扫雷游戏
-
+# http://code.tutsplus.com/tutorials/build-a-minesweeper-game-within-200-lines-of-code--active-8578
 
 '''
 
