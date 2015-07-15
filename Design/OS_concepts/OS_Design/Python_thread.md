@@ -48,7 +48,11 @@ cv.release()
 * As a design rule, multiple condition variables can be associated with the same mutex, but not vice versa.
 
 #### Producer Consumer using Condition Variable 
-```
+
+```python
+# Reference:
+# http://agiliq.com/blog/2013/10/producer-consumer-problem-in-python/
+# https://en.wikipedia.org/wiki/Monitor_(synchronization)
 import threading
 import time
 import random
