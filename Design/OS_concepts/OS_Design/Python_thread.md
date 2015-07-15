@@ -1,24 +1,108 @@
 ### Definition
 #### Atomic Operations 
-     * An atomic operation is an operation that is carried out in a single execution step, without any chance that another thread gets control.
+      * An atomic operation is an operation that is carried out in a single execution step, without any chance that another thread gets control.
 
 #### Mutual Exclusion
-##### 1. In computer science, mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their critical section at the same time; it is a basic requirement in concurrency control, to prevent race conditions.
-##### 2. Binary semaphores can provide mutual exclusion
+1. In computer science, mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their critical section at the same time; it is a basic requirement in concurrency control, to prevent race conditions.
+2. Binary semaphores can provide mutual exclusion
 
 #### Condition Variable
-##### A condition variable is basically a container of threads that are waiting on a certain condition. 
-##### A condition variable represents some condition that a thread can:
-          * Wait on, until the condition occurs; or
-          * Notify other waiting threads that the condition has occurred
-##### A condition variable is always associated with some kind of lock; this can be passed in or one will be created by default. 
-##### A condition variable has ```acquire()``` and ```release()``` methods that call the corresponding methods of the associated lock. It also has a ```wait()``` method, and ```notify()``` and ```notifyAll()``` methods. These three must only be called when the calling thread has acquired the lock, otherwise a RuntimeError is raised.
-##### Three operations:
-          * wait()
+1. A condition variable is basically a container of threads that are waiting on a certain condition. 
+
+2. A condition variable represents some condition that a thread can:
+      * Wait on, until the condition occurs; or
+      * Notify other waiting threads that the condition has occurred
+
+3.  A condition variable is always associated with some kind of lock; this can be passed in or one will be created by default. 
+
+4.  A condition variable has ```acquire()``` and ```release()``` methods that call the corresponding methods of the associated lock. It also has a ```wait()``` method, and ```notify()``` and ```notifyAll()``` methods. These three must only be called when the calling thread has acquired the lock, otherwise a RuntimeError is raised.
+
+5. Three operations:
+      * wait()
           The wait() method releases the lock, and then blocks until it is awakened by a notify() or notifyAll() call for the same condition variable in another thread. Once awakened, it re-acquires the lock and returns. It is also possible to specify a timeout.
-          * notify()
-          * notifyAll()
+      * notify()
+      * notifyAll()
           
+#### Details for Condition Variable
+```python
+# Consume one item
+cv.acquire()
+while not an_item_is_available():
+    cv.wait()
+get_an_available_item()
+cv.release()
+
+# Produce one item
+cv.acquire()
+make_an_item_available()
+cv.notify()
+cv.release()
+```
+* wait c, m, where c is a condition variable and m is a mutex (lock) associated with the monitor. This operation is called by a thread that needs to wait until the assertion P_c is true before proceeding. While the thread is waiting, it does not occupy the monitor. The function, and fundamental contract, of the "wait" operation, is to do the following steps:
+* first:
+      * 1.  release the mutex m
+      * 2.  move this thread from the "ready queue" to c's "wait-queue" (a.k.a. "sleep-queue") of threads, and
+      * 3.  sleep this thread.  (Context is synchronously yielded to another thread.)
+* Second:
+      * Once this thread is subsequently notified/signalled (see below) and resumed, then automatically re-acquire the mutex m.
+* As a design rule, multiple condition variables can be associated with the same mutex, but not vice versa.
+
+#### Producer Consumer using Condition Variable 
+```
+import threading
+import time
+import random
+from threading import Thread
+from threading import Condition
+
+queue = []
+MAX_NUM = 10
+condition = Condition()
+
+class ProducerThread(Thread):
+    def run(self):
+        nums = range(5)
+        global queue
+        while True:
+            condition.acquire()
+            if len(queue) == MAX_NUM:
+                print "Queue is full, producer is waiting"
+                condition.wait()
+                print "Space in queue, Consumer notified the producer"
+
+            num = random.choice(nums)
+            queue.append(num)
+            print "Produced", num
+            condition.notify()
+            condition.release()
+            time.sleep(random.random())
+
+class ConsumerThread(Thread):
+    def run(self):
+        while True:
+            condition.acquire()
+            if not queue:
+                print "Nothing in the queue, consumer is waiting"
+                condition.wait()
+                print "Produce added something to queue, notified the consumer"
+            num = queue.pop()
+            print "Consumed: ", num
+            condition.notify()
+            condition.release()
+            time.sleep(random.random())
+            
+def main():
+    try:
+        ProducerThread().start()
+        ConsumerThread().start()
+    except KeyboardInterrupt:
+        sys.exit()
+
+if __name__ == '__main__':
+    main()
+```
+
+
 #### spin-waiting
      * a mutex is used to protect the critical sections of code and busy-waiting is still used, with the lock being acquired and released in-between each busy-wait check
 
