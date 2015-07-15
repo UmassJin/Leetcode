@@ -3,18 +3,19 @@
      * An atomic operation is an operation that is carried out in a single execution step, without any chance that another thread gets control.
 
 #### Mutual Exclusion
-     * In computer science, mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their critical section at the same time; it is a basic requirement in concurrency control, to prevent race conditions.
-     * Binary semaphores can provide mutual exclusion
+##### 1. In computer science, mutual exclusion refers to the requirement of ensuring that no two concurrent processes are in their critical section at the same time; it is a basic requirement in concurrency control, to prevent race conditions.
+##### 2. Binary semaphores can provide mutual exclusion
 
 #### Condition Variable
-     * A condition variable is basically a container of threads that are waiting on a certain condition. 
-     * A condition variable represents some condition that a thread can:
+##### A condition variable is basically a container of threads that are waiting on a certain condition. 
+##### A condition variable represents some condition that a thread can:
           * Wait on, until the condition occurs; or
           * Notify other waiting threads that the condition has occurred
-     * A condition variable is always associated with some kind of lock; this can be passed in or one will be created by default. 
-     * A condition variable has ```acquire()``` and ```release()``` methods that call the corresponding methods of the associated lock. It also has a ```wait()``` method, and ```notify()``` and ```notifyAll()``` methods. These three must only be called when the calling thread has acquired the lock, otherwise a RuntimeError is raised.
-     * Three operations:
+##### A condition variable is always associated with some kind of lock; this can be passed in or one will be created by default. 
+##### A condition variable has ```acquire()``` and ```release()``` methods that call the corresponding methods of the associated lock. It also has a ```wait()``` method, and ```notify()``` and ```notifyAll()``` methods. These three must only be called when the calling thread has acquired the lock, otherwise a RuntimeError is raised.
+##### Three operations:
           * wait()
+          The wait() method releases the lock, and then blocks until it is awakened by a notify() or notifyAll() call for the same condition variable in another thread. Once awakened, it re-acquires the lock and returns. It is also possible to specify a timeout.
           * notify()
           * notifyAll()
           
