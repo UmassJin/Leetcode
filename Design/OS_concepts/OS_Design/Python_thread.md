@@ -53,6 +53,20 @@ cv.release()
 # Reference:
 # http://agiliq.com/blog/2013/10/producer-consumer-problem-in-python/
 # https://en.wikipedia.org/wiki/Monitor_(synchronization)
+
+'''
+For consumer, we check if the queue is empty before consuming.
+If yes then call wait() on condition instance.
+wait() blocks the consumer and also releases the lock associated with the condition. This lock was held by consumer, so basically consumer loses hold of the lock.
+Now unless consumer is notified, it will not run.
+Producer can acquire the lock because lock was released by consumer.
+Producer puts data in queue and calls notify() on the condition instance.
+Once notify() call is made on condition, consumer wakes up. But waking up doesn't mean it starts executing.
+notify() does not release the lock. Even after notify(), lock is still held by producer.
+Producer explicitly releases the lock by using condition.release().
+And consumer starts running again. Now it will find data in queue and no IndexError will be raised.
+'''
+
 import threading
 import time
 import random
@@ -77,7 +91,17 @@ class ProducerThread(Thread):
             num = random.choice(nums)
             queue.append(num)
             print "Produced", num
-            condition.notify()
+            condition.notify()  # http://www.eecs.harvard.edu/~mdw/course/cs61/mediawiki/images/7/7e/Lectures-semaphores.pdf
+            '''
+            Notice here: if we use 
+            if len(queue) == 1:
+               condition.notify() 
+            will have the issue, since If two threads call consume(), then two threads call produce(),
+            only one will wake up !
+            we could use the above method or use
+            if len(queue) == 1:
+               condition.notifyAll()
+            '''
             condition.release()
             time.sleep(random.random())
 
@@ -105,6 +129,90 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+#### Queue
+
+```python
+
+'''
+In place of list, we are using a Queue instance(hereafter queue).
+queue has a Condition and that condition has its lock. You don't need to bother about Condition and Lock if you use Queue.
+Producer uses put available on queue to insert data in the queue.
+put() has the logic to acquire the lock before inserting data in queue.
+Also put() checks whether the queue is full. If yes, then it calls wait() internally and so producer starts waiting.
+Consumer uses get.
+get() acquires the lock before removing data from queue.
+get() checks if the queue is empty. If yes, it puts consumer in waiting state.
+get() and put() has proper logic for notify() too. Why don't you check the source code for Queue now?
+'''
+
+from threading import Thread
+import time
+import random
+from Queue import Queue
+
+queue = Queue(10)
+
+class ProducerThread(Thread):
+    def run(self):
+        nums = range(5)
+        global queue
+        while True:
+            num = random.choice(nums)
+            queue.put(num)
+            print "Produced", num
+            time.sleep(random.random())
+
+
+class ConsumerThread(Thread):
+    def run(self):
+        global queue
+        while True:
+            num = queue.get()
+            queue.task_done()
+            print "Consumed", num
+            time.sleep(random.random())
+
+
+ProducerThread().start()
+ConsumerThread().start()
+```
+
+#### Daemon Thread 
+* Daemons are only useful when the main program is running, and it's okay to kill them off once the other non-daemon threads have exited. Without daemon threads, we have to keep track of them, and tell them to exit, before our program can completely quit. By setting them as daemon threads, we can let them run and forget about them, and when our program quits, any daemon threads are killed automatically.
+
+* Usually our main program implicitly waits until all other threads have completed their work. However, sometimes programs spawn a thread as a daemon that runs without blocking the main program from exiting. Using daemon threads is useful for services where there may not be an easy way to interrupt the thread or where letting the thread die in the middle of its work without losing or corrupting data. To designate a thread as a daemon, we call its setDaemon() method with a boolean argument. The default setting for a thread is non-daemon. So, passing True turns the daemon mode on.
+```python
+d = threading.Thread(name="daemon", target=daemon)
+d.setDaemon(True)
+
+import threading
+import time
+import logging
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='(%(threadName)-10s) %(message)s',
+                    )
+
+def daemon():
+    logging.debug('Starting')
+    time.sleep(2)
+    logging.debug('Exiting')
+
+d = threading.Thread(name='daemon', target=daemon)
+d.setDaemon(True)
+
+def non_daemon():
+    logging.debug('Starting')
+    logging.debug('Exiting')
+
+t = threading.Thread(name='non-daemon', target=non_daemon)
+
+d.start()
+t.start()
+```
+
+* Reference: http://pymotw.com/2/threading/ 
 
 
 #### spin-waiting
