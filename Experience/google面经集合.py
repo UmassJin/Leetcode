@@ -2638,6 +2638,100 @@ return all string from dictionary that can be matched with the coding string. �
  # http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver#746345
  '''
 
+'''
+86.Given a array of pairs where each pair contains the start and end time of a meeting (as in int),
+Determine if a single person can attend all the meetings
+For example:
+Input array { pair(1,4), pair(4, 5), pair(3,4), pair(2,3) }
+Output: false
+
+Follow up:
+determine the minimum number of meeting rooms needed to hold all the meetings.
+Input array { pair(1, 4), pair(2,3), pair(3,4), pair(4,5) }
+Output: 2
+'''
+
+class interval:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+def meeting_room(meetings):
+    if not meetings: return 0
+    result = 0
+    cur = 0
+    times = []
+    for meeting in meetings:
+        times.append(meeting.start)
+        times.append(-meeting.end)
+    times = sorted(times, cmp = lambda x, y: cmp(abs(x), abs(y)))
+    
+    for t in times:
+        if t >= 0:
+            cur += 1
+            result = max(cur, result)
+        else:
+            cur -= 1
+    return result
+
+a1 = interval(1,4)
+a2 = interval(2,3)
+a3 = interval(3,4)
+a4 = interval(5,6)
+meetings = [a1, a2, a3, a4]
+print meeting_room(meetings)
+
+
+'''
+87.Maximum Sum Rectangle in Matrix Feb 16 2015
+Given a 2D array, find the maximum sum subarray in it.
+
+For example:
+Given a matrix:
+
+# http://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
+'''
+def findmaxsum(matrix):
+    if not matrix or not matrix[0]:
+        return 0
+    m = len(matrix)
+    n = len(matrix[0])
+    result = 0
+    for left in xrange(n):
+        temp = [0 for i in xrange(m)]
+        for right in xrange(left,n):
+            for k in xrange(m):
+                temp[k] += matrix[k][right]
+            current = 0          
+            tmp_sum = temp[0]
+            for i in temp:
+                current += i
+                tmp_sum = max(current, result)
+                current = max(0, current)
+            result = max(result, tmp_sum)
+    return result
+
+m = [[1, 2, -1, -4, -20],[-8, -3, 4, 2, 1],[3, 8, 10, 1, 3], [-4, -1, 1, 7, -6]]
+print findmaxsum(m)
+
+'''
+88. 输入是一个 N*N的矩阵，代表地势高度。如果下雨水流只能流去比他矮或者一样高的地势。
+矩阵左边和上边是太平洋，右边和下边是大西洋。求出所有的能同时流到两个大洋的点。
+
+For example:
+Pacific: ~
+Atlantic: *
+~  ~   ~   ~   ~   ~  ~
+~  1   2   2   3  (5) *
+~  3   2   3  (4) (4) *
+~  2   4  (5)  3   1  *
+~ (6) (7)  1   4   5  *
+~ (5)  1   1   2   4  *
+*  *   *   *   *   *  *
+括号里即为结果：
+[[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]
+'''
+
 
 ========================================================================================
 
