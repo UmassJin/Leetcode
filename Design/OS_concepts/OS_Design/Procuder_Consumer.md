@@ -5,6 +5,50 @@
 * _mutex 表示防止多个thread同时修改数值
 
 ```python
+import random
+import time
+import threading
+from threading import Thread
+from threading import Semaphore
+from threading import BoundedSemaphore
+
+MAX_SIZE = 10
+mutex = threading.Lock()
+semaphore_room = BoundedSemaphore(MAX_SIZE)
+semaphore_items = Semaphore(0)  # Here we can not use the BoundedSemaphore!
+queue = []
+
+class Producer(Thread):
+    def run(self):
+        nums = range(5)
+        global queue
+        while True:
+            semaphore_room.acquire()
+            print "room has space: ",
+            with mutex:
+                num = random.choice(nums)
+                queue.append(num)
+                print "produced: ", num
+            semaphore_items.release()
+            time.sleep(random.random())
+
+class Consumer(Thread):
+    def run(self):
+        global queue
+        while True:
+            semaphore_items.acquire()
+            with mutex:
+                item = queue.pop()
+                print "consume item: ", item
+            semaphore_room.release()
+            time.sleep(random.random())
+        
+Producer().start()
+Consumer().start()
+
+```
+
+```python
 from threading import BoundedSemaphore
 
 # Singal-Producer Single-Consumer 
