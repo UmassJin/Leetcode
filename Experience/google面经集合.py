@@ -2732,6 +2732,55 @@ Atlantic: *
 [[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]
 '''
 
+def flow_water(matrix):
+    if not matrix or not matrix[0]:
+        return None
+    n = len(matrix)
+    result = []
+    visited_pac = {}
+    visited_alt = {}
+
+    for i in xrange(n):
+        visited_pac[(i,0)] = True
+        search(visited_pac, matrix, i, 0)
+
+    for i in xrange(n):
+        visited_pac[(0,i)] = True
+        search(visited_pac, matrix, 0, i)
+
+    print "pac: ", visited_pac
+    for i in xrange(n):
+        visited_alt[(i,n-1)] = True
+        search(visited_alt, matrix, i, n-1)
+
+    for i in xrange(n):
+        visited_alt[(n-1,i)] = True
+        search(visited_alt, matrix, n-1, i)
+
+    print "alt: ", visited_alt
+    for key, value in visited_pac.items():
+        if visited_alt.has_key(key):
+            result.append(key)
+    result.sort()
+    return result        
+
+def search(visited, matrix, x, y):
+    n = len(matrix)
+    dirs = [[0,1],[0,-1],[1,0],[-1,0]]
+    for d in dirs:
+        new_x = x + d[0]
+        new_y = y + d[1]
+        if new_x >= n or new_x < 0  or new_y >= n or new_y < 0:
+            continue
+        if matrix[x][y] > matrix[new_x][new_y] or visited.has_key((new_x, new_y)):
+            continue 
+        visited[(new_x, new_y)] = True
+        search(visited, matrix, new_x, new_y)
+
+test = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+print flow_water(test) 
+
+
 
 ========================================================================================
 
