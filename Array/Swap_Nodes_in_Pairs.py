@@ -13,6 +13,21 @@ Your algorithm should use only constant space. You may not modify the values in 
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+class Solution:
+    # @param {ListNode} head
+    # @return {ListNode}
+    def swapPairs(self, head):
+        if not head or not head.next: return head
+        dummy = ListNode(0)
+        pre = dummy
+        pre.next = head
+        while pre.next and pre.next.next:
+            a = pre.next
+            b = a.next
+            pre.next, a.next, b.next= b, b.next, a
+            pre = a 
+        return dummy.next
+
 
 class Solution:
     # @param {ListNode} head
