@@ -1579,9 +1579,9 @@ class ZigzagIterator:
 
     def get_next(self):
         ret = self.its[self._pointer].next()
-        pre = self._pointer
-        if self.its[self._pointer].has_next() and self._pointer == pre:
-            self._pointer = (self._pointer + 1)%2
+        tmp = (self._pointer+1)%2
+        if self.its[tmp].has_next():
+            self._pointer = tmp 	
         return ret     
 
     def has_next(self):
@@ -2779,6 +2779,134 @@ def search(visited, matrix, x, y):
 
 test = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
 print flow_water(test) 
+
+'''
+89. I was given this problem in an interview. How would you have answered?
+
+Design a data structure that offers the following operations in O(1) time:
+
+insert
+remove
+contains
+get random element
+
+
+Consider a data structure composed of a hashtable H and an array A. The hashtable keys are the elements in the data structure, and the values are their positions in the array.
+
+insert(value): append the value to array and let i be it's index in A. Set H[value]=i.
+remove(value): We are going to replace the cell that contains value in A with the last element in A. let d be the last element in the array A at index m. let i be H[value], the index in the array of the value to be removed. Set A[i]=d, H[d]=i, decrease the size of the array by one, and remove value from H.
+contains(value): return H.contains(value)
+getRandomElement(): let r=random(current size of A). return A[r].
+since the array needs to auto-increase in size, it's going to be amortize O(1) to add an element, but I guess that's OK.
+'''
+
+def __init__(self):
+    self.dict = {}
+    self.array = []
+    self.size = 0
+
+def insert(self, number):
+    array.append(number)
+    self.dict[number] = self.size
+    self.size += 1
+
+def remove(self, number):
+    if self.contains(number):
+      index = array.index(number)
+      if index != len(self.array) - 1:
+          hash[array[-1]] = index
+          array[index], array[-1] = array[-1], array[index]
+      del array[-1]
+      del hash[number]
+      self.size -= 1
+    else:
+      return False
+
+def contains(self, number):
+    if number not in self.dict.keys():
+      return False
+    else:
+      return True 
+
+def get_random_ele(self, index):
+    if index < len(self.array):
+        return self.array[index]
+    else:
+        return False 
+
+'''
+90.Given a quadtree structure:
+struct QuadNode {
+    QuadNode(int num_ones = 0) : ones(num_ones) {}
+    int ones{ 0 };
+    QuadNode* child[4]{ nullptr };
+};
+Please build a quadtree to represent a 0-1 matrix, assume the matrix is a square and the dimension is power of 2.
+Given two such quadtrees with same depth, please write a function to calculate how many 1s are overlapped.
+For example:
+Matrix 0:
+0 1
+1 1
+Matrix 1:
+0 0
+1 1
+Your function should return 2.
+'''
+import collections
+
+class QuadNode:
+    def __init__(self, num=0):
+        self.ones = num
+        self.children = {}
+
+class QuadTree:
+    def __init__(self):
+        self.root = QuadNode()
+
+    def build_tree(self, matrix):
+        if not matrix or not matrix[0]:
+            return None
+        n = len(matrix)
+        self.root = self.build_helper(n, matrix, 0, 0)
+        return self.root
+
+    def build_helper(self, size, matrix, row, col):
+        if size == 1:
+            return QuadNode(matrix[row][col])
+
+        node = QuadNode()
+        size = size/2
+        coord = [[row, col], [row+size, col], [row, col+size], [row+size, col+size]]
+        for i in xrange(4):
+            node.children[i] = self.build_helper(size, matrix, coord[i][0], coord[i][1])
+            node.ones += node.children[i].ones
+        return node
+
+
+class Solution:
+    def intersections(self, t1, t2):
+        return self.intersections_helper(t1, t2, 0)
+
+    def intersections_helper(self, t1, t2, sum):
+        if not t1 or not t2 or not t1.ones or not t2.ones:
+            return 0
+        ret = sum
+        if not t1.children or not t2.children:
+            ret += (t1.ones & t2.ones)
+        else:
+            for i in xrange(4):
+                ret += self.intersections_helper(t1.children[i], t2.children[i], sum)
+        return ret
+
+test1 = QuadTree()
+test2 = QuadTree()
+matrix1 = [[0,1],[1,1]]
+matrix2 = [[0,1],[1,1]]
+test1.build_tree(matrix1)
+test2.build_tree(matrix2)
+test = Solution()
+print test.intersections(test1.root, test2.root)
+
 
 
 
