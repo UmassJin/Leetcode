@@ -20,6 +20,21 @@ We have an array arr[0 . . . n-1]. We should be able to
 
 * An array representation of tree is used to represent Segment Trees. For each node at index i, the left child is at index 2*i+1, right child at 2*i+2 and the parent is at st1.
 
+* One optimization:
+    * 只存和，会导致每次加数的时候都要更新 到叶子节点，速度太慢，这是必须要避免的。
+本题树节点结构：
+```c
+struct CNode
+{
+int L ,R; //区间起点和终点
+CNode * pLeft, * pRight;
+long long nSum; //原来的和
+long long Inc; //增量c的累加
+}; //本节点区间的和实际上是nSum+Inc*(R-L+1)
+```
+    * 在增加时，如果要加的区间正好覆盖一个节点，则增加其节点的Inc值，不再往下走 ，否则要更新nSum,再将增量往下传
+    * 在查询时，如果待查区间不是正好覆盖一个节点，就将节点的Inc往下带，然后将Inc代表的所有增量累加到nSum上后将Inc清0，接下来再往下查询。
+
 ####[Implement](http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/)
 
 ```python
