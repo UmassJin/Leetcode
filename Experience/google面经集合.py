@@ -2622,7 +2622,7 @@ return all string from dictionary that can be matched with the coding string. è¦
 
 
 '''
- 84. There are a set of dictionary words and a set of license   plate numbers. Write a code/algorithm to find the shortest 
+ 84. There are a set of dictionary words and a set of license plate numbers. Write a code/algorithm to find the shortest 
  dictionary word which contains all the characters in the license plate, irrespective of the order of characters. 
  Ex: RC101 is the license plate number. The shortest word that can be found in the dictionary is CAR which has 
  characters 'R' and 'C' in the license plate. 
