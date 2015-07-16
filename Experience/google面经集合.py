@@ -2908,6 +2908,49 @@ test = Solution()
 print test.intersections(test1.root, test2.root)
 
 
+'''
+91.给你一组Treenode，他们每个有一个id，一个parentId，一个value，让你输出所有subtree的sum of value。
+注意这个是没有children node的，只有parentId。
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=114594&extra=page%3D1%26filter%3Dsortid%26sortid%3D311&page=1
+'''
+class TreeNode(object):
+    def __init__(self, id=0, parent=None, value=0):
+        self.id = id
+        self.parent = parent
+        self.value = value
+        self.level = 0
+        self.sum = value
+        
+class Solution:
+    def __init__(self):
+        self.maxlevel = 0
+
+    def all_sum(self, nodes):
+        if not nodes:
+            return
+        for node in nodes:
+            self.cal_level(node)
+
+        level = {}
+        for node in nodes:
+            level.setdefault(node.level, []).append(node)
+
+        for i in xrange(self.maxlevel, -1, -1):
+            for node in level[i]:
+                node.parent.sum += node.value            
+
+    def cal_level(self, node):
+        ret = 0
+        if node.level != 0 and node.parent:
+            return node.level
+        if not node.parent:
+            node.level = 0
+        else:
+            ret = self.cal_level(node.parent) + 1
+            node.level = ret
+            self.maxlevel = max(self.maxlevel, ret)
+        return ret 
+
 
 
 ========================================================================================
@@ -2996,6 +3039,8 @@ Year, Make, Model这三个特征，只要有一个和其他车不同，就是uni
 # http://stackoverflow.com/questions/85699/whats-the-best-way-to-model-recurring-events-in-a-calendar-application
 
 '''
+
+
 
 
 
