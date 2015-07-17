@@ -2961,6 +2961,63 @@ class Solution:
         return ret 
 
 
+'''
+92. 给一个0/1数组R代表一条河，0代表水，1代表石头。起始位置R[0]等于1，
+初速度为1. 每一步可以选择以当前速度移动，或者当前速度加1再移动。只能停留在石头上。问最少几步可以跳完整条河流。
+
+给定数组为R=[1,1,1,0,1,1,0,0]，最少3步能过河：
+第一步先提速到2，再跳到R[2]；
+第二步先提速到3，再跳到R[5]；
+第三步保持速度3，跳出数组范围，成功过河
+
+Sample solution like the following, always check the same speed and the speed + 1 part
+we could use the similar solution like jump game II
+
+if array[i+pre_speed]:
+	max_reachable = max(max_reachable, i + pre_speed)
+if array[i+pre_speed]:
+	max_reachable = max(max_reachable, i + pre_speed + 1)
+'''
+
+int min_river_jumps_dp(const vector<int>& river) {
+    if (river.empty()) return 0;
+    vector<vector<pair<size_t, int>>> vp(river.size());
+    vp[0].emplace_back(1, 1);
+   
+    int ret = INT_MAX;
+    for (auto i = 0; i < vp.size(); ++i) {
+        if (!river[i]) continue;
+       
+        for (auto pr : vp[i]) {
+            if (i + pr.first >= vp.size()) {
+                ret = min(pr.second, ret);
+            } else if (river[i + pr.first]) {
+                vp[i + pr.first].emplace_back(pr.first, pr.second + 1);
+            }
+            if (i + pr.first + 1 >= vp.size()) {
+                ret = min(pr.second, ret);
+            } else if (river[i + pr.first + 1]) {
+                vp[i + pr.first + 1].emplace_back(pr.first + 1, pr.second + 1);
+            }
+        }
+    }
+    return ret == INT_MAX ? -1 : ret;
+}
+
+
+'''
+93. Merge Two BST
+You are given two balanced binary search trees.
+Write a function that merges the two given balanced BSTs into a balanced binary search tree.
+Your merge function should take O(M+N) time and O(1) space.
+G家onsite题，算是很多小问题的综合题。因为不允许用extra space，可以先把两个输入BST给转换成链表，
+然后merge两个链表，再把merge完的链表重新转化成BST。
+
+#  注意用in-order的顺序来将BST转换为single linked list
+#  注意可以用recursion的方法merge two linked list
+
+'''
+
 
 ========================================================================================
 
