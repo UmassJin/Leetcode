@@ -3041,6 +3041,168 @@ pop掉最小的再push，[4,5,9]，min = 4, max = 9，当前最小range还是[0,
 继续，[20,22,24]，min = 20, max = 24，当前最小range变成[20,24]。
 '''
 
+'''
+94.
+二维矩阵里面有obstacle，已知有k个点，求房间中离这k个点距离之和最短的那个点。
+对所有的K个点做一次BFS，记录下每个点的最短距离和，最后扫一遍找出最小值即可。复杂度是O(K*N^2)，感觉有更优的解。
+'''
+
+import collections
+from collections import deque
+
+class Node(object):
+    def __init__(self):
+        self.visited = False
+        self.dis = 0
+
+def find_min_sum(matrix):
+    if not matrix or not matrix[0]:
+        return None
+    m = len(matrix); n = len(matrix[0])
+    food_queue = deque([])
+    node_matrix = [[None for i in xrange(n)] for j in xrange(m)]
+    for i in xrange(m):
+        for j in xrange(n):
+            node_matrix[i][j] = Node()
+            if matrix[i][j] == 'P':
+                food_queue.append((i,j))
+    for q in food_queue:
+        # reset all the nodes as Non-visited
+        for i in xrange(m):
+            for j in xrange(n):
+                node_matrix[i][j].visited = False 
+        # two queue to check the nodes around food 
+        dis_queue = deque([0])
+        node_queue = deque([q])
+        # BFS, check the around nodes 
+        node_matrix[q[0]][q[1]].visited = True
+        while node_queue:
+            node = node_queue.popleft()
+            dis = dis_queue.popleft()
+            row = node[0]; cal = node[1]
+            cord = [[0,1],[0,-1],[1,0],[-1,0]]
+            for c in cord:
+                newrow = row + c[0]
+                newcal = cal + c[1]
+                if newrow < 0 or newrow >= m or newcal < 0 or newcal >= n:
+                    continue 
+                if node_matrix[newrow][newcal].visited:
+                    continue 
+                if matrix[newrow][newcal] == '1':
+                    continue 
+                node_matrix[newrow][newcal].visited = True 
+                node_matrix[newrow][newcal].dis += dis + 1
+                node_queue.append((newrow, newcal))
+                dis_queue.append(dis+1)
+    result = (1 << 31) -1
+    result1 = []
+    for i in xrange(m):
+        for j in xrange(n):
+            if matrix[i][j] == '0':
+                if node_matrix[i][j].dis < result:
+                    result = node_matrix[i][j].dis
+                    result1 = [i, j]
+    print result
+    print result1
+
+matrix = [["0","0","1","0"],["1","P","0","0"],["0","0","P","0"],["0","0","0","P"]]
+find_min_sum(matrix)
+                    
+'''
+95.
+Rolling Ball Game Jan 6 2015
+一个球从起点开始沿着通道，看能不能滚到终点。不过有限制， 每次球一走到底要不到边界，要不到障碍物，中间不能停留。 可以上下左右走，然后让写个function 给定起点， 终点，和图，判断是不是solvable.
+For example (1代表有障碍, 0代表可以通过):
+'''
+import collections
+from collections import deque
+
+def bolling_game(matrix, start, end):
+    if not matrix or not matrix[0]:
+        return False
+    m = len(matrix); n = len(matrix[0])
+    visited = {}
+    visited[start] = True
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        next_pos = get_next(matrix, node[0], node[1])
+        for p in next_pos:
+            if p in visited:
+                continue
+            if p[0] == end[0] and p[1] == end[1]:
+                return True
+            visited[p] = True
+            queue.append(p)
+    return False
+
+def get_next(matrix, x, y):
+    m = len(matrix); n = len(matrix[0])
+    next_pos = []
+    stop = False
+    for i in xrange(x+1, m):
+        if matrix[i][y] == '1':
+            next_pos.append((i-1, y))
+            stop = True
+            break
+    if not stop and x != m-1:
+        next_pos.append((m-1,y))
+
+    stop = False
+    for i in xrange(x-1, -1, -1):
+        if matrix[i][y] == '1':
+            next_pos.append((i+1, y))
+            stop = True
+            break
+    if not stop and x != 0:
+        next_pos.append((0, y))
+
+    stop = False
+    for i in xrange(y+1, n):
+        if matrix[x][i] == '1':
+            next_pos.append((x, i-1))
+            stop = True
+            break
+    if not stop and y != n-1:
+        next_pos.append((x, n-1))
+
+    stop = False
+    for i in xrange(y-1, -1, -1):
+        if matrix[x][i] == '1':
+            next_pos.append((x, i+1))
+            stop = True
+            break
+    if not stop and y != 0:
+        next_pos.append((x, 0))
+
+    print "next: ", next_pos
+    return next_pos
+
+
+matrix = [["0","0","0","1"],["1","0","0","1"],["1","0","0","0"]] # True
+matrix1 = [["0","0","0","1"],["1","0","1","1"],["1","0","0","0"]] # False
+print bolling_game(matrix, (0,0),(2,3))
+print bolling_game(matrix1, (0,0),(2,3))
+                                          
+
+'''
+96.
+一个 n x n 矩阵，每个房间可能是封闭的房间，可能是警察，可能是开的房间，
+封闭的房间不能过，返回一个n x n矩阵，每一个元素是最近的警察到这个房间的最短距离。
+初始矩阵中-1代表封闭房间，INT_MAX代表普通房间，0代表有警察的房间。
+
+常规思路是对每一个警察做一次BFS，复杂度为O(n^3)。可以一开始找出所有警察，然后一起push到BFS的queue里面，同时搜索。复杂度可降为O(n^2)。
+本题出现的频率还是很高的，比如还有这样的描述形式：
+给一个matrix里面有人，墙和空格，把空格里填上需要走到最近的人那里的步数。
+
+注意这题目与94题，找出到k个点最小距离的区别，
+对于94题来说，我们要找出每个点到k个点的距离，所以对于每个点in k，需要遍历所有的相邻点 O(k*N^2)，
+但是对于这题来说，只要找出最近的警察的距离，所以我们可以用一个queue，先将所有警察的点放入，
+搜索邻接的点，然后再依次搜索邻接的点，这里是保证到最近的警察的最小距离的O(N^2).
+'''
+
+
+
 ========================================================================================
 
 '''
