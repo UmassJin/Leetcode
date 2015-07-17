@@ -2630,6 +2630,15 @@ return all string from dictionary that can be matched with the coding string. �
  思路: 一个brute force的想法是，把每个word排序，然后去掉数字，然后把每个字典里面的字母排序，然后依次比较word在不在每个字典里，
  找出最短的字典里的单词
  
+ 
+ 
+給一個車牌號碼(美國的)，以及一個dictionary，請找出dictionary裡含有所有該車牌號碼裡的所有英文字母(case insensitive)的最短字串
+ex:. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
+車牌 RO 1287 ["rolling", "real", "WhaT", "rOad"] => "rOad"
+follow up:-google 1point3acres
+(1) 如果dictionary裡有上百萬個字，該如何加速
+(2) 如果dictionary有上百萬個字，然後給你上千個車牌號碼，要你回傳相對應的最短字串，該如何optimize?. 
+ 
  利用trie，将dictionary里面每个单词放入trie里的时候，排序，查找的时候，如果trie_node[char] < string[char], 查找
  '''
  
