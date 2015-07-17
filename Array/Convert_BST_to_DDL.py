@@ -115,3 +115,20 @@ def preorder_doubly_flatten(root):
 
     preorder_doubly_flatten(left)
     preorder_doubly_flatten(right)
+
+# Convert BST to the Single linked list
+# In-order convert
+
+def inorder_single_BST(root):
+    if not root: return
+    left = inorder_single_BST(root.left)
+    right = inorder_single_BST(root.right)
+    
+    left_tail = left
+    while left_tail and left_tail.right:
+        left_tail = left_tail.right
+    if left_tail:
+        left_tail.right = root
+    root.left = None
+    root.right = right
+    return left or root
