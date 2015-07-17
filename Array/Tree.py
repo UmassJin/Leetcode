@@ -32,6 +32,7 @@
  * 23.判断二叉树是不是完全二叉树：isCompleteBinaryTree, isCompleteBinaryTreeRec 
  * 24. Populating Next Right Pointers in Each Node 
  * 25. Convert Sorted List to Binary Search Tree 
+ * 26. Find the closet Value in BST 
  */  
 '''
 
@@ -962,4 +963,22 @@ class Solution:
                     result.append(node.val)
         return result 
             
-            
+ 
+ # 41. Find the closed value in BST
+```c++
+TreeNode* closestBST(TreeNode* root, int val){
+    if(!root) return nullptr;
+    if(root->val == val) return root;
+    if(val < root->val){
+        if(!root->left) return root;
+        TreeNode * p = closestBST(root->left, val);
+        return abs(p->val-val) > abs(root->val-val) ? root : p;
+    } else {
+        if(!root->right) return root;
+        TreeNode * p = closestBST(root->right, val);
+        return abs(p->val-val) > abs(root->val-val) ? root : p;
+    }
+    return nullptr;
+}
+```
+
