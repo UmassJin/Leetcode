@@ -36,6 +36,17 @@ class Solution:
             pre.next = l2
  
         return dummy1.next
+  
+# Recursion   
+    def mergeTwoLists(self, a, b):
+        if not a or not b:
+            return a or b
+        if a.val < b.val:
+            a.next = self.mergeTwoLists(a.next, b)
+            return a
+        else:
+            b.next = self.mergeTwoLists(a, b.next)
+            return b
         
 # https://leetcode.com/discuss/38306/simple-5-lines-python
     def mergeTwoLists(self, a, b):
