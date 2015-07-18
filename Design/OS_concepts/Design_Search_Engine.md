@@ -110,3 +110,13 @@ An example will make everything clear. Let’s say we search for “computer sci
 * [Good implement for google search](http://www.ardendertat.com/2011/05/31/how-to-implement-a-search-engine-part-2-query-index/)
 * [Page Rank](http://en.wikipedia.org/wiki/PageRank)
 * [Internet Robot](http://en.wikipedia.org/wiki/Internet_bot)
+
+
+
+#### 笔记
+* Caching in web search systems
+      * Benefits:
+      * performance! a few machines do work of 100s or 1000s
+      * much lower query latency on hits
+         * queries that hit in cache tend to be both popular and expensive, expensive means like "single word search", which returns a lot of the documents or higher rankings 
+      * Beware: big latency spike/capacity drop when index updated or cache flushed, need to flushed aviod high speed 
