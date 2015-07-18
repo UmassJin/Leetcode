@@ -3269,12 +3269,15 @@ shuffle模式就是shuffle列表里的歌，然后顺序播放，放完以后重
 1. 系统设计：给一个url和一个给定的api可以返回所有从这个url可以直接链接到的url。要求统计所有能访问到url数。
 结果先让我coding，我以为搞错了，后来coding完了，followup就是怎么解决scalable的问题，给定的那个API有什么问题
 以及怎么改进（最后引申到设计web crawler），怎么解决url无效等等问题。
-'''
-'''
+
+
 2. 第一题local minimum，第二题在数组中检查x距离内是否有重复。
 
 3. 1000个文件每个有1TB的大小，服务器每台100GB内存，1TB硬盘。文件基本上一次写入就不会变化了，读的次数比较多。问怎么设计这样的系统。followup怎么解决fault tolerance，再增加1000个这样文件，怎么办，等等。
-
+* if reads are more frequency than write, we should keep Availability (low latency) than Consistency, since write may be very 
+small, we could use the cache to save the logs. 
+* Total amount of file is 10^3 * 10^12 = 10^15; 100GB = 100 * 10^9 = 10^11B main memory, 10^13B Disk, use the latest Recent Cache.
+* If there are many servers, could use the Quorums to ensure the consistency, choose W=N and R=1 to ensure the quick read.
 
 偏向c++功底跟concurrency。实现memcopy，还有就是实现一个银行的类里面的几个算法，都很简单，但是对多线程调用的加锁需要有了解。最后又问了一个实现每次调用，运行5秒，期间不停循环自增的简单算法，
 follow-up是如何应对系统管理员尴尬地恰巧在这段时间内改了系统时间
