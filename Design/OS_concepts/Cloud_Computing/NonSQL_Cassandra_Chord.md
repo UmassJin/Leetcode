@@ -41,7 +41,9 @@
      * Instead of using the finger table, Coordinator need to know all the keys store in which nodes
        (include the duplicate nodes), 
    
-   * Partitionar: which find the servers to the particular key in the coordinator   
+   * Partitionar:
+      * A mapping from key to server 
+      * which find the servers to the particular key in the coordinator   
 
   * Replication Strategy (two options)
       * A. SimpleStrategy
