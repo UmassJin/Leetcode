@@ -3199,6 +3199,15 @@ print bolling_game(matrix1, (0,0),(2,3))
 对于94题来说，我们要找出每个点到k个点的距离，所以对于每个点in k，需要遍历所有的相邻点 O(k*N^2)，
 但是对于这题来说，只要找出最近的警察的距离，所以我们可以用一个queue，先将所有警察的点放入，
 搜索邻接的点，然后再依次搜索邻接的点，这里是保证到最近的警察的最小距离的O(N^2).
+
+Similar question:
+Given a heatmap which is a 3 dimension matirx and define a movement rule: a point on the heatmap can only go down hill. 
+Ask: given some points on the heatmap, find out the higest point that can meet all the given points.
+说白了就是给个矩阵，上面都有自己的value，然后movement规定了只能从大的value走到小的value，然后再给几个点，问可以到这些点的最高的点是哪一个。
+
+1. 将每个给定的点的坐标放入一个deque里面，然后依次对每个点做BFS,
+2. 对于每个给定的点周围的点，如果
+
 '''
 
 '''
@@ -3232,6 +3241,10 @@ b之后出现a的机率是50%，b最为结尾的几率是50%。 a作为开头的
 就是建个字典比如 1010－》2， 1111-》4，1011-》3 这样的， 每个数字对应它的hammingdistance。 当你要查1001 0010这样的数字，
 你只要把头尾两段分别查一下加起来就好。这样只要2个operation。
 '''
+
+
+
+
 
 
 ========================================================================================
