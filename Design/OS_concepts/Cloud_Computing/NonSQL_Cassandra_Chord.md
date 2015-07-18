@@ -114,6 +114,7 @@ until down replica comes back up.
                * for each key-k, use k hash functions to map to the bit map and set as 1
                * false positives 
                * never false negatives 
+               * Hash the keys need to check and then check in bloom filter whether it exist or not 
                
       * Compaction
          * Data updates accumulate over time and SStables and logs need to be compacted
@@ -150,14 +151,16 @@ until down replica comes back up.
    * Consistency: all nodes see same data at any time, or reads return latest written value by any client
       * When you access your bank or investment account via multiple clients (laptop, workstation, phone, tablet), you want the updates done from one client to be visible to other clients.
       * When thousands of customers are looking to book a flight, all updates from any client (e.g., book a flight) should be accessible by other clients.
-   * Availability: Reads/writes complete reliably and quickly.
+   * Availability: Reads/writes complete reliably and quickly, small latency
+      * More 500ms latency will cause 5m in Amazon 
    * Partition-tolerance
       * Partitions can happen across datacenters when the Internet gets disconnected
-      * Internet router outages
-      * Under-sea cables cut
-      * DNS not working
+         * Internet router outages
+         * Under-sea cables cut
+         * DNS not working
       * can occur within a datacenter
-   
+   * Big Table and Spanner focus on Partition-tolerance and Consistency. Cassandra focus on P and Availability    
+
    * Since partition-tolerance is essential in today’s cloud computing systems, CAP theorem implies that a system has to choose between consistency and availability
       * Cassandra
          * Eventual (weak) consistency, availability, partition-tolerance 
