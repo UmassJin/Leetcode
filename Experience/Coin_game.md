@@ -50,3 +50,36 @@ print game_dp(array)
 3            7
 
 ```
+
+
+```c++
+当j == i时
+dp(i, j) = coins[i]
+当j == i + 1时
+dp(i, j) = max(coins[i], coins[j])
+当j - i >= 3时
+dp(i, j) = max(coins[i] + min(dp(i+2, j), dp(i+1, j-1) ), 
+               coins[j] + min(dp(i+1, j-1), dp(i, j-2) ))
+有递推公式代码就很容易了。
+
+int coins_in_line(const vector<int>& arr) {
+    if(arr.empty()) return 0;
+    int n = (int)arr.size();
+    int dp[n][n];
+    
+    for(int len = 0; len < n; ++len) {
+        for(int i = 0, j = len; j < n; ++i,++j) {
+            if(i == j) {
+                dp[i][j] = arr[i];
+            } else if(i+1 == j) {
+                dp[i][j] = max(arr[i], arr[j]);
+            } else {
+                dp[i][j] = max(arr[i] + min(dp[i+1][j-1], dp[j+2][j]),
+                               arr[j] + min(dp[i][j-2], dp[i+1][j-1]));
+            }
+        }
+    }
+    return dp[0][n-1];
+}
+
+```
