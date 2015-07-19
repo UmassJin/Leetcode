@@ -5,6 +5,43 @@ Empty cells are indicated by the character '.'.
 
 You may assume that there will be only one unique solution.
 '''
+# More efficient solution
+
+class Solution:
+    # @param {character[][]} board
+    # @return {void} Do not return anything, modify board in-place instead.
+    def solveSudoku(self, board):
+        def sudoku(board):    
+            for i in xrange(9):
+                for j in xrange(9):
+                    if board[i][j] == '.':
+                        g = 3 * (i/3) + j/3
+                        for k in xrange(9):
+                            if (not rows[i][k]) and (not cals[j][k]) and (not grids[g][k]):
+                                rows[i][k], cals[j][k], grids[g][k] = True, True, True
+                                board[i][j] = str(k+1)
+                                if sudoku(board):
+                                    return True
+                                rows[i][k], cals[j][k], grids[g][k] = False, False, False
+                                board[i][j] = '.'
+                        return False 
+            return True 
+                            
+        rows = [[False for i in xrange(9)] for j in xrange(9)]  
+        cals = [[False for i in xrange(9)] for j in xrange(9)] 
+        grids = [[False for i in xrange(9)] for j in xrange(9)] 
+        
+        for i in xrange(9):
+            for j in xrange(9):
+                if board[i][j] != '.':
+                    cell = board[i][j]
+                    rows[i][int(cell)-1] = True
+                    cals[j][int(cell)-1] = True
+                    grids[3 * (i/3) + j/3][int(cell)-1] = True
+        
+        sudoku(board)
+
+
 
 class Solution:
     # @param {character[][]} board
