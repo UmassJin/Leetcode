@@ -2697,7 +2697,6 @@ Given a 2D array, find the maximum sum subarray in it.
 
 For example:
 Given a matrix:
-
 # http://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
 '''
 def findmaxsum(matrix):
@@ -3206,8 +3205,12 @@ Ask: given some points on the heatmap, find out the higest point that can meet a
 说白了就是给个矩阵，上面都有自己的value，然后movement规定了只能从大的value走到小的value，然后再给几个点，问可以到这些点的最高的点是哪一个。
 
 1. 将每个给定的点的坐标放入一个deque里面，然后依次对每个点做BFS,
-2. 对于每个给定的点周围的点，如果
+2. 对于每个给定的点周围的点，如果这个点value > 给定的点，那么将这个点的数字+1
+3. 然后再走一遍整个matrix，找到数字等于k的点，并且找出matrix最大的值。
 
+optimization: 
+1. 可以每次扫描一个点之后，只针对范围内的点再次扫描？
+2. 从给定的点的最大值开始扫描？
 '''
 
 '''
@@ -3242,8 +3245,19 @@ b之后出现a的机率是50%，b最为结尾的几率是50%。 a作为开头的
 你只要把头尾两段分别查一下加起来就好。这样只要2个operation。
 '''
 
+'''
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=129346&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+100.
+第二轮来了个老硬，问了两个题，第一题先上来热身一下，问有好多个口袋，里面放了不同数量的硬币，并且口袋被从1到N标记了。两个人问游戏，
+每次可以从口袋里拿出和标记数一样多的硬币，知道有一方不能再拿硬币为止，然后那个人就输了。问给定这样的口袋，谁会赢。
+我一开始以为是之前地里有人遇到过的++--的string的那个题，但是听老硬说是个热身题，应该不会太难，再仔细一想，发现只要看一共可以做多少起拿硬币的动作，
+如果是奇数次就是先手赢，偶数次就是后手赢。我说了想法，老硬哈哈一笑说，简单吧，我们就不写code了，现在正式上题。然后第二道来了，
+也是我整个面试做的最不好的一道题。 
 
-
+第二题还是有很多口袋，里面好多硬币，然后可以对第i个和第i+1个做combine，combine的cost是第i个和第i+1个口袋里硬币数的sum，问怎么样做combine可以都到
+最少的cost。我一上来觉得这道应该用DP做，但是和老硬讨论了20分钟也没有什么好的方法，老硬似乎也不太满意，然后我就开始威逼利诱套hint，老硬说要把大case分成小case，
+我一下反应过来是要brute force做recursion，然后5分钟秒掉code，不过最后还是让老硬抓出一个小bug。诶，估计要挂就是挂在了这一轮。
+'''
 
 
 
