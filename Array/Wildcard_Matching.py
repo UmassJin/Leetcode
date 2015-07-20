@@ -55,3 +55,6 @@ class Solution:
 
 # Reference: [Yu's Garden] http://www.cnblogs.com/yuzhangcmu/p/4116153.html
 # [九章算法答案] http://www.jiuzhang.com/solutions/wildcard-matching/
+
+# DP solution
+# https://leetcode.com/discuss/26399/python-dp-solution
