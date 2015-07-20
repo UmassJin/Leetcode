@@ -3257,9 +3257,201 @@ b之后出现a的机率是50%，b最为结尾的几率是50%。 a作为开头的
 第二题还是有很多口袋，里面好多硬币，然后可以对第i个和第i+1个做combine，combine的cost是第i个和第i+1个口袋里硬币数的sum，问怎么样做combine可以都到
 最少的cost。我一上来觉得这道应该用DP做，但是和老硬讨论了20分钟也没有什么好的方法，老硬似乎也不太满意，然后我就开始威逼利诱套hint，老硬说要把大case分成小case，
 我一下反应过来是要brute force做recursion，然后5分钟秒掉code，不过最后还是让老硬抓出一个小bug。诶，估计要挂就是挂在了这一轮。
+# http://blog.csdn.net/acdreamers/article/details/18039073
+# http://www.cnblogs.com/titicia/p/4344765.html
+
 '''
 
 
+def stone_merge(stones):
+    if not stones: return 0
+    n = len(stones)
+    dp = [[(1<<31)-1 for i in xrange(n)] for j in xrange(n)]
+    isum = [0 for i in xrange(n)]
+    isum[0] = stones[0]
+    for i in xrange(1, n):
+        isum[i] = isum[i-1] + stones[i]
+
+    for step in xrange(n):
+        i = 0; j = step
+        while j < n:
+            if step == 0:
+                dp[i][j] = 0
+            elif step == 1:
+                dp[i][j] = stones[i] + stones[j]
+            elif step > 1:
+                tmp = isum[j] - (isum[i-1] if i > 0 else 0)
+                for k in xrange(i, j):
+                    dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + tmp)
+            i += 1
+            j += 1
+            
+    for i in xrange(n):
+        print "dp: ", dp[i]
+    return dp[0][n-1]
+
+test1 = [13, 7, 8]
+test = [7,13,7,8,16]
+print stone_merge(test)
+
+
+'''
+101.
+1.烙印，在面试前碰到了，刚刚好都等着，问我 你是哪个xxx么？ 我就是今天要面你的。。 当时我就心里想完了。。但是题目挺简单。
+给一个infinite array 只有0 - 9 设计一个
+def getprobability(n):得到某个数出现的概率。
+
+我用的reservoie sampling 做的，然后我补充如果直接hashing 会overflow. 然后考虑到一multi thread情况，需要写两个函数，一个专门产生 sampling list
+一个专门计算概率。 这里要有做个checker看看产生的list是不是有效，也就是 0-9数的概率和要为1
+follow up:
+现在你得到概率，你怎么按照概率产生刚刚的数。 
+两个方法，第一个直接用刚刚的array random index取数，但是问题是如果是multithread 调用这样做有问题。 第二个方法：定时产生所有数的accumulate probablilty 根据这个probabolity array generate number即可。
+答完烙印还挺满意，拍了照片。。
+'''
+
+
+'''
+102. 
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=115853&extra=page%3D5%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+说是一次party完以后，有的人负责酒水费用有的人负责汽油费用有的人负责。。这样形成一个有向图的结构，A欠B多少钱，B欠C多少钱，C可能欠A、B分别多少钱，
+问怎么reduce/combine到最后形成一些pairs，比如A欠B 20，C欠A20，reduce到最后只需要C给B20块就行。这个pairs表达的transactions做到最小。
+这题想了半天跟他说dfs、然后一边走一边修改edge最后还是没给出一个具体的答案。看来本人脑子太笨。。。无法符合Google Coder的要求啊
+
+第一轮第二题那个pair感觉应该是求二分图的最大权匹配。先把每个点拆成两个点，比如一个A只有出度，一个A'只有入度。然后在这个二分图里面求其最大权匹配。
+网上搜这个：二分匹配总结（匈牙利算法+最大权+最小权）
+
+Minimum vertex cover:
+Formally, a vertex-cover of an undirected graph G=(V, E) is a subset V′ of V such that if edge (u, v) is an edge of G, 
+then u is in V′, or v is in V′, or both. The set V′ is said to "cover" the edges of G. 
+The following figure shows examples of vertex covers in two graphs (and the set V' is marked with red).
+A minimum vertex cover is a vertex cover of smallest possible size.
+途中每条边都有一个顶点在minimum vertex set 中
+最小覆盖： 最小覆盖要求用最少的点（Ｘ集合或Ｙ集合的都行）让每条边都至少和其中一个点关联。
+
+Maximal matching:
+Given a graph G = (V,E), a matching M in G is a set of pairwise non-adjacent edges; that is, no two edges share a common vertex.
+In other words, a matching M of a graph G is maximal if every edge in G has a non-empty intersection with at least one edge in M.
+图中的每一条边，都有一个顶点和M中的定点相交
+# http://dingdongsheng.cool.blog.163.com/blog/static/1186187552009431405995/
+# https://en.wikipedia.org/wiki/Bipartite_graph
+
+'''
+
+'''
+103.
+web server使用多线程处理用户请求还是多进程处理，进程间怎么通信，线程和进程区别什么，什么是死锁，如何防止死锁，什么是virtual memory，
+什么是page fault等等。然后写Pascal Triangle，写完他让我reduce空间复杂度到O(1)，
+'''
+
+
+'''
+104.
+问了一个二叉树的问题，找出二叉树中所有的重复子树
+'''
+
+'''
+105.  
+How many balanced binary tree there are with n leaf nodes? Prove and write codes.
+http://ideone.com/PRusHP
+'''
+
+
+'''
+106.
+第一题, 找出一个二叉树的最深节点。
+这个题目实际是送分给我的。结果我太紧张，用递归函数完成算法，但是把返回最深节点程序写成了返回最深深度。后来考官提醒我不对，
+我方寸有点乱，推翻全部递归算法，重新用DFS写了一个非递归算法。结果虽然正确，但是过于复杂。后来想了想，
+其实这个问题稍微修改一下原有递归算法就好了。面试官是个老白，人还算NICE。
+'''
+max_height = 0
+result_node = tree_node(0)
+def find_deepest_node(root):
+    if not root:
+        return None
+    global max_height
+    global result_node
+    find_deepest_helper(root, 0)
+    return result_node.val
+    
+def find_deepest_helper(root, height):
+    global max_height
+    global result_node
+    if not root:
+        return
+    if not root.left and not root.right:
+        if max_height < height:
+            print "height: ", height
+            max_height = height
+            result_node = root 
+    
+    find_deepest_helper(root.left, height+1)
+    find_deepest_helper(root.right, height+1)
+
+max_height_left = 0
+left_node = tree_node(0)
+def find_deepest_left_node(root):
+    if not root:
+        return None
+    global max_height_left
+    global left_node   
+    find_deepest_left_helper(root, 0, False)
+    return left_node.val
+    
+def find_deepest_left_helper(root, height, isleft):
+    global max_height_left
+    global left_node
+    if not root:
+        return
+    if not root.left and not root.right and isleft:
+        if max_height_left < height:
+            print "height: ", height
+            max_height_left = height
+            left_node = root
+
+    find_deepest_left_helper(root.left, height+1, True)
+    find_deepest_left_helper(root.right, height+1, False)
+
+'''
+107.
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=111785&extra=page%3D5%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+1. We can write a 3 level for loop body directly as follows:
+    for (int i  = 0;  i < 56; ++i){
+                do_something(i);
+                for(int j = 0; j < 151; ++j){
+                        do_something(j);
+                        for(int k = 0; k < 151; ++k){
+                                do_something(k);. 
+                        }
+                }
+    }
+   
+However, when the levels are very deep (such as 50 levels), we cannot manually write the for loop body directly just like above codes. 
+Given an array arr, where arr[i] represents the loop count at level i, write an iterative algorithm to implement the multi-level loop.
+
+其实一开始我是用递归来解的，写完代码后面试官问递归有什么问题。问题就是递归是利用了线程的栈，
+由于栈一般只有几百K，所以当层数很大时栈空间不够用。于是就自己在堆上创建空间来模仿栈 (其实就是层数大小的int数组)，
+栈的每一层(数组的每个元素)记录该层已经做到第几步了。面试官对这个解法很满意，于是编程并写测试用例验证。
+
+void multiLevelOperation(int *levelCountArr, int n) {
+    if(n == 0) return;
+    int *levelStack = new int[n + 1];
+    int curSP = 0;
+    levelStack[0] = 0;
+    while(curSP >= 0) {
+        if(curSP == n || levelStack[curSP] == levelCountArr[curSP]) {
+            --curSP;
+            if(curSP >= 0) ++levelStack[curSP];
+        }
+        else {        
+            do_operation(levelStack[curSP]);
+            levelStack[++curSP] = 0;
+        }
+    }
+    delete [] levelStack;
+}
+
+
+# http://ideone.com/JAAQ4Y
 
 ========================================================================================
 
@@ -3283,6 +3475,40 @@ Linux 中的交换空间（Swap space）在物理内存（RAM）被充满时被�
 而硬 盘空间动辄几十G上百G，为了解决这个问题，Windows中运用了虚拟内存技术，即拿出一部分硬盘空间来充当内存使用。 
 
 
+1 billion files  each file 4k you have more id than files, which means files are dupliacte.
+your computer has 4k memory 1TB disk.
+design a method to remove duplicate files and store those files
+given id track the file from your disk...
+
+做法是  hashing files to disk and store the id. but hashing always has collusion, which means you need to  have another map<id, location>
+写完简单的想法大哥拍了照片。。。然后follow up了一下我加了几个case 大哥又拍了照片。。。因为都是psudo code.... 我只用python....可是这题明显没法用。。. 
+讲起来很复杂，后来才知道是google big table 但是是在准备材料system design的倒数第二条。。。.
+
+
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=106364&extra=page%3D2%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3089%5D%5Bvalue%5D%5B3%5D%3D3%26searchoption%5B3089%5D%5Btype%5D%3Dcheckbox%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+有N个node,每个都不停的向外发送timestamps,具体发送哪些timestamp是每个node决定的,从其他node来说是随机的.现在要收集这些node发送的所有timestamp.
+如果某个timestamp被发现从超过99%的node上发送出来,记录下来.需要怎么做?这些timestamp很多,是不能完全放进去内存里面的.如果node非常多,怎么scale?
+我给的方案是用HashMap<Timestamp, count>,分布存到多台机器上面。阿三表示数据很多，每台机器的内存都存不下，让我优化。我的进一步方案是再设定一个时限T，
+过期的数据可以丢掉。阿三要求进一步优化。我的再进一步方案是对于这个时限T再分割成n个小格。这个n需要通过实验根据具体实际情况来确定。
+如果在T／n时间里面，某些Timestamp的count小于某个设定值，比如0.01N，认为这个timestamp被收集到0.99N的可能性已经趋近于0，可以忽略了，
+从HashMap里面删除。最后阿三还是表示不满意，不能完全理解我的方案
+
+
+
+面试官看上去有点百度的张曈气质，一上来就气势汹汹的问了个google的cas，一个分块存储的文件系统，给你一个read block的接口和write block的接口，
+要求把一个文件存储到这个系统上，设计一个读一个文件，和一个写一个文件的类，并实现。。。。写完就没时间了，还出了个bug。。。。。。。
+面试官感觉很不满意
+
+
+#http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=116504&extra=page%3D5%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+第三题，设计一个 KEY-VALUE机制，必须在O(1)做下列操作: 插入，删除，get(),random_get（）,可以使用hashmap.
+这个题目非常tricky. 貌似可以直接使用一个HASHMAP就能完成，但是实际上random_get必须把每个K-V对与一个0到N的整数关联，这个如果直接
+把MAP放到一个LIST里面去，算法效率就变成了O(N). 我最终使用了两个HASHMAP来实现这个功能，一个HASH表记录0-N的整数下标与KEY的关系，
+另外一个HASH表记录K-V，还有这个下标。这个算法其实在删除时也有问题，因为删除后会有下标GAP.我实际上是使用了一个机制，让删除操作，. 1point3acres.com/bbs
+每次只删除HASH表最后那个K-V值（之前让最后值与删除值换个位置）。面试官是个亚裔小年轻，非常NICE.
+
+
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=129355&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
 '''
 你好，那我就讲一下music list那道题吧：
 你有一个music的播放列表，里面的歌曲unique，但是播放列表的长度未知。
