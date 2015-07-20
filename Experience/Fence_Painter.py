@@ -48,3 +48,42 @@ def num_colors(n, k):
         a, b = b, (k-1)*(a + b)
     return a   # Note: here we need to return a 
             
+
+'''
+Similar question
+第二轮是给一个int N，让输出所有的长度为N的valid string的个数，valid string的
+定义是由A,B,C三种字母组成，并且在这个string中任意连续的三个字母不能包括A,B,C
+三个字母，比如BACCA就不是valid string，因为前三个字母B,A,C包含了这三个字母。
+
+假设dp_same[i]为长度=i+1，最后两位相同的valid string个数，dp_dif[i]为长度=i+1，最后两位不同的valid string个数。转移方程如下：
+dp_same[i] = dp_same[i-1] + dp_dif[i-1]
+dp_dif[i] = dp_same[i-1] * 2 + dp_dif[i-1]
+
+dp_same[0] = 3
+dp_dif[0] = 0
+
+f(0): a; b; c
+f(1) = dp_same[1] + dp_dif[1] 
+f(1) means valid string number for string length is 2
+aa; 
+bb;
+cc;
+ab;
+ac;
+bc;
+ba;
+ca;
+cb;
+
+dp_same[3]: dp_same[2] + dp_diff[2]
+dp_dif[3]: dp_same[2] * (k-1) + dp_dif[2]
+f(3) = dp_same[3] + dp_dif[3]
+'''
+
+def valid_string(n):
+    dp_same = 3
+    dp_dif = 0
+    
+    for i in xrange(n-1):
+        dp_same, dp_dif = dp_same+dp_dif, dp_same*2 + dp_dif
+    return dp_same + dp_dif
