@@ -3453,6 +3453,24 @@ void multiLevelOperation(int *levelCountArr, int n) {
 
 # http://ideone.com/JAAQ4Y
 
+
+'''
+
+'''
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=106578
+107. tic－tac－toe： 给一个board，以current state判断是o 赢， x 赢， 
+还是没人赢。follow up每次只能取一行的信息，每次只能存储O（2N＋K）的数据
+'''
+
+'''
+108. 给一个list和k（number）。找一个区域k，使得这个区域里k的最大值和最小值的差值最大，返回这个值。用heap或priority queue做dp。
+'''
+
+'''
+109. tourament question:  input is players like（A,B,C,D）, print total rounds[[(A, B), (C, D)], [(A, C), (B, D)], [(A, D), (B, C)]]
+
+'''
+
 ========================================================================================
 
 '''
@@ -3516,6 +3534,13 @@ given id track the file from your disk...
 random模式就是每次随机播放列表里的一首歌；
 shuffle模式就是shuffle列表里的歌，然后顺序播放，放完以后重新shuffle，再顺序播放；
 现在给你一个播放历史记录，要求你写一个函数来判断用户使用的是random模式，还是shuffle模式。
+'''
+
+
+'''
+# http://www.1point3acres.com/bbs/thread-135955-1-1.html
+3. design: distributed game ,   付费转账 如何 减少 transcation fee 
+4. group Card  ,  follow up: 如何定义接口 让客户可以自己定义 hashfunction. 
 '''
 
 '''
