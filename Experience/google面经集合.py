@@ -2843,6 +2843,10 @@ def get_random_ele(self, index):
         return False 
 
 '''
+四叉树压缩黑白图片，一个图片递归分成2x2四部分，如果一个区域颜色一样就设为叶子节点，算黑像素比例
+follow up是给两个图片，把白色视为不透明，黑色视为透明，重叠在一起，返回一个图片，都用四叉树表示
+这个递归不难，感觉做的不错，最后出了一个小bug，在他提示下改了
+
 90.Given a quadtree structure:
 struct QuadNode {
     QuadNode(int num_ones = 0) : ones(num_ones) {}
@@ -3059,10 +3063,9 @@ def find_min_sum(matrix):
         return None
     m = len(matrix); n = len(matrix[0])
     food_queue = deque([])
-    node_matrix = [[None for i in xrange(n)] for j in xrange(m)]
+    node_matrix = [[Node() for i in xrange(n)] for j in xrange(m)]
     for i in xrange(m):
         for j in xrange(n):
-            node_matrix[i][j] = Node()
             if matrix[i][j] == 'P':
                 food_queue.append((i,j))
     for q in food_queue:
@@ -3110,7 +3113,8 @@ find_min_sum(matrix)
 '''
 95.
 Rolling Ball Game Jan 6 2015
-一个球从起点开始沿着通道，看能不能滚到终点。不过有限制， 每次球一走到底要不到边界，要不到障碍物，中间不能停留。 可以上下左右走，然后让写个function 给定起点， 终点，和图，判断是不是solvable.
+一个球从起点开始沿着通道，看能不能滚到终点。不过有限制， 每次球一走到底要不到边界，要不到障碍物，中间不能停留。 
+可以上下左右走，然后让写个function 给定起点， 终点，和图，判断是不是solvable.
 For example (1代表有障碍, 0代表可以通过):
 '''
 import collections
@@ -3468,8 +3472,193 @@ void multiLevelOperation(int *levelCountArr, int n) {
 
 '''
 109. tourament question:  input is players like（A,B,C,D）, print total rounds[[(A, B), (C, D)], [(A, C), (B, D)], [(A, D), (B, C)]]
+'''
 
 '''
+110.
+# http://www.mitbbs.com/article_t/JobHunting/32582249.html
+第二轮是给一个int N，让输出所有的长度为N的valid string的个数，valid string的
+定义是由A,B,C三种字母组成，并且在这个string中任意连续的三个字母不能包括A,B,C
+三个字母，比如BACCA就不是valid string，因为前三个字母B,A,C包含了这三个字母。
+我用了一个三维的DP做，但是边界条件没有写好
+# similar question: https://github.com/UmassJin/Leetcode/blob/master/Experience/Fence_Painter.py
+'''
+def valid_string(n):
+    dp_same = 3
+    dp_dif = 0
+    
+    for i in xrange(n-1):
+        dp_same, dp_dif = dp_same+dp_dif, dp_same*2 + dp_dif
+    return dp_same + dp_dif
+
+
+'''
+111.
+多叉树，每个节点是一个整数，求书中最长递增路径比如5,6,7,8,9
+'''
+
+'''
+112.
+第二题是个矩阵，每个节点是一个计算机，计算机之间传一个文件的cost是节点值x路径长度，选择所有计算机为接收端，求所有文件传输的cost
+快速写了个暴力方法
+尝试动态规划无果
+后来想到可以cache所有行列的cost和，正这一边反着一遍，然后状态转移就是O(1)了，但是没时间写了，在他提议下写了一个一维特殊情况的代码，中间有个加号还忘了写，算是sloppy coding吧
+希望大牛们指点一下这个题
+'''
+
+'''
+http://www.1point3acres.com/bbs/thread-133413-1-1.html
+113.
+一堆密码箱，每个密码都是四位0-9之间，算一个暴力破解序列，包含所有可能的四位序列，让这个序列尽量短
+给了一个贪心算法，代码写的比较长，而且没bug free.
+'''
+
+'''
+114.
+最后一轮，求sum(n^i) 就是1+n+n2+n3+...+n^N， 快速写了一个O(N)之后让我优化，
+其实这个二分O(lgN)很容易想的，但是当时用了很长时间表现不太好。
+'''
+
+'''
+115.
+Given a rod of length n inches and an array of prices that contains prices of all pieces of size smaller than n. 
+Determine the maximum value obtainable by cutting up the rod and selling the pieces. 
+For example, if length of the rod is 8 and the values of different pieces are given as following, 
+then the maximum obtainable value is 22 (by cutting in two pieces of lengths 2 and 6)
+
+Example:
+Pricing list: {1, 5, 8, 9, 10, 17, 17, 20}
+Result = 22 (cut into two pieces of length 2 and 6)
+'''
+
+def rod_cut(price):
+    '''
+    args; return; raise
+    '''
+    if not price: return 0
+    n = len(price)
+    dp = [0 for _ in xrange(n+1)]
+    for i in xrange(1, n+1):
+        dp[i] = price[i-1]
+        for j in xrange(1, i):
+            dp[i] = max(dp[i], price[j-1] + dp[i-j])
+    return dp[n]
+
+price = [1, 5, 8, 9, 10, 17, 17, 20]
+print rod_cut(price)
+
+
+'''
+116.
+Given a rope of length n meters, cut the rope in different parts of integer lengths in a way that 
+maximizes product of lengths of all parts. You must make at least one cut. Assume that the length 
+of rope is more than 2 meters.
+Examples:
+Input: 2, return 1 because 1x1 = 1
+Input: 5, return 6 because 2x3 = 6
+'''
+def cut_rope(length):
+    dp = [0 for i in xrange(length + 1)]
+    for i in xrange(2, length+1):
+        for j in xrange(1, i):
+            dp[i] = max(dp[i], j*(i-j), j*dp[i-j])
+    return dp[n]
+    
+'''
+这题还有一个O(n)的解法。当n>4的时候，
+每次cut实际上都是按照每隔3来一次。比如n=5的时候，解就是3x2，n=7的时候，解就是3x4，n=10的时候，解就是3x3x4。
+int cut_rope(int n) {
+    if (n == 2 || n == 3) return n - 1;
+   
+    int ret = 1;
+    while (n > 4) {
+        n -= 3;
+        ret *= 3;
+    }
+    return n * ret;
+}
+'''
+    
+'''
+117.
+Given an integer array, adjust each integers so that the difference of every adjcent integers are not greater 
+than a given number target.
+If the array before adjustment is A, the array after adjustment is B, you should minimize the sum of |A[i]-B[i]|
+Note:
+You can assume each number in the array is a positive integer and not greater than 100
+Example:
+Given [1,4,2,3] and target=1, one of the solutions is [2,3,2,3], the adjustment cost is 2 and it’s minimal. Return 2.
+
+# https://github.com/UmassJin/Leetcode/blob/master/LintCode/Minimum%20Adjustment%20Cost.py
+'''
+    
+'''
+118.
+Given an array of integers. Find two disjoint contiguous subarrays such that the absolute difference 
+between the sum of two subarray is maximum.
+Note: The subarrays should not overlap.
+
+For example:
+Array: { 2, -1, -2, 1, -4, 2, 8 }
+Result subarrays: {-1, -2, 1, -4 }, { 2, 8 }
+Maximum difference = 16
+'''
+ 
+def max_diff_two_subarr(array):
+    """
+    @ args:
+    @ return:
+    @ raise error:
+    """
+    if not array:
+        return None
+    n = len(array)
+    left_max = list(array)
+    left_min = list(array)
+    right_max = list(array)
+    right_min = list(array)
+    sum_min = array[0]; sum_max = array[0]
+
+    for i in xrange(1, n):
+        if sum_min > 0: sum_min = 0
+        if sum_max < 0: sum_max = 0
+        sum_min += array[i]
+        sum_max += array[i]
+
+        left_min[i] = min(left_min[i-1], sum_min)
+        left_max[i] = max(left_max[i-1], sum_max)
+
+    sum_min = array[n-1]; sum_max = array[n-1]
+    for i in xrange(n-2, -1, -1):
+        if sum_min > 0: sum_min = 0
+        if sum_max < 0: sum_max = 0
+        sum_min += array[i]
+        sum_max += array[i]
+        
+        right_min[i] = min(right_min[i+1], sum_min)
+        right_max[i] = max(right_max[i+1], sum_max)
+    print "left_max: ", left_max
+    print "left_mix: ", left_min
+    print "right_max: ", right_max
+    print "right_min: ", right_min
+
+    result = -1 << 31 
+    for i in xrange(n-1):
+        result = max((right_max[i+1] - left_min[i]), result)
+    for i in xrange(1, n):
+        result = max((left_max[i-1] - right_min[i]), result)
+    print result
+    
+test = [2, -1, -2, 1, -4, 2, 8]
+print max_diff_two_subarr(test)
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python max_diff_subarr.py
+left_max:  [2, 2, 2, 2, 2, 2, 10]
+left_mix:  [2, -1, -3, -3, -6, -6, -6]
+right_max:  [10, 10, 10, 10, 10, 10, 8]
+right_min:  [-6, -6, -5, -4, -4, 2, 8]
+16
+None
 
 ========================================================================================
 
