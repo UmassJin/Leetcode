@@ -13,6 +13,31 @@ Note
 You can assume each number in the array is a positive integer and not greater than 100.
 '''
 
+def min_adjust_cost(array, target):
+    '''
+    @args:
+    @return:
+    @raise error:
+    '''
+    if not array:
+        return None
+    n = len(array)
+    s = 100
+    dp = [[(1 << 31)-1 for _ in xrange(s+1)] for _ in xrange(n)]
+    for i in xrange(n):
+        for j in xrange(1, s+1):
+            if i == 0:
+                dp[i][j] = abs(array[i] - j)
+            else:
+                for k in xrange(max(1, j-target), min(s,j+target)+1):
+                    dp[i][j] = min(dp[i][j], abs(j-array[i])+dp[i-1][k])
+    result = (1 << 31) -1
+    for i in xrange(1, s+1):
+        result = min(result, dp[n-1][i])
+    return result
+
+test = [1, 4, 2, 3]
+print min_adjust_cost(test, 1)
 
 
 # Reference: http://www.cnblogs.com/yuzhangcmu/p/4153927.html
