@@ -121,6 +121,13 @@ just buy 1st stock, if we've just sold 1nd stock, if we've just buy 2nd stock, i
 we've just sold 2nd stock. Very simple code too and work well. I have to say the logic 
 is simple than those in Single Number II."
 
+'''
+Profit of stock 2 is based on existing profit of release of stock 1.
+Profit of release is based on profit at hold. The first line is actually using hold2 for i-1, 
+the 2nd line update hold2 to i, also using release1 for i-1, then the 3rd line update release1 to i, 
+using hold1 for i-1, the 4th line update it at last.
+'''
+
 class Solution:
     # @param prices, a list of integer
     # @return an integer
