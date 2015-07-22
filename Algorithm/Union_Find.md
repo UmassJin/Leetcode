@@ -7,7 +7,8 @@ Reference: https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
 * Reference: http://www.1point3acres.com/bbs/thread-137243-1-1.html
 
 #### 2) Check the tree is Valid or not
-Acturally check if there is cycle in the undirected graph 
+Acturally check if there is cycle in the directed graph and also need to check if there is more than one root ! 
+并查集的理解思路相对简单一些，首先初始化一个长度为n的并查集，遍历所有edge，首先find这个edge的两个节点，如果已经有同一个祖先，则表明存在环，也就不可能是树。构建并查集之后，再扫一遍找出祖先的数量即可，超过一个就不是树。
 * Reference: http://www.geeksforgeeks.org/union-find/
 
 ```python
