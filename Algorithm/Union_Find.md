@@ -47,6 +47,13 @@ class UnionFind:
             self.father[y] = x
             if self.rank[x] == self.rank[y]:
                 self.rank[x] += 1  # 注意在更新rank的时候，只有当两个rank相等的时候才需要加一，否则不变，如下图
+    
+    def num_sets(self, n):
+        count = 0
+        for i in xrange(n):
+            if self.father[i] == i:
+                count +=1
+        return count 
 
     def validTree(self, graph):
         if not graph: return False
@@ -60,6 +67,9 @@ class UnionFind:
                 print "this is cycle graph!"
                 return True
             self.union(x, y)
+        
+        # Important here ! Need to check if the V is more than 1 or not ! 
+        return num_sets(graph.V) == 1
 
 ```
 
