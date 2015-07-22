@@ -1,8 +1,9 @@
-* [G4G] (http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/)
+'''
+*[G4G] (http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/)
 * Similar to CC150, good questions !
 * Several ways to ask 1. How many ways? 2. What are the ways? 3. Minimum coin number?
+'''
 
-```python
 # s: means {1,2,3}, list of coins
 # m: how many kinds of coins provided 
 # n: total sum  
@@ -41,4 +42,28 @@ def coin_change_dp(s, m, n):
 test = [2,3,5,6]
 print "coin_change: ", coin_change(test, 4, 10)
 print "coin_change_dp: ", coin_change_dp(test, 4, 10)
-```
+
+
+# Optimization 
+# table[i] will be storing the number of solutions for
+# value i. We need n+1 rows as the table is consturcted
+# in bottom up manner using the base case (n = 0)
+
+def coin_change_optimize(s, m, n):
+    '''
+    @ args:
+    s: coin array
+    m: how many coins totally
+    n: how much need to change
+    @ total change options 
+    @ return: min number
+    '''
+    dp = [0 for i in xrange(n+1)]
+    dp[0] = 1
+    for i in xrange(m):
+        for j in xrange(s[i],n+1):
+            dp[j] += dp[j-s[i]]
+    return dp[n]
+ 
+test1 = [2,3,5,6]
+print "coin_change: ", coin_change_optimize(test1, 4, 10)
