@@ -31,12 +31,7 @@ def get_LCA(root, node1, node2):
     if left and right: 
         return root
     # Otherwise check if left subtree or right subtree is LCA
-    if left:
-        return left
-    elif right:
-        return right
-    else:
-        return None
+    return left or right
 ```
 
 * Maybe input tree node does not exist in the Binary Tree O(n)
@@ -93,6 +88,25 @@ class Solution:
             return right 
 
 ```
+
+```python
+class Solution:
+    # @param {TreeNode} root
+    # @param {TreeNode} p
+    # @param {TreeNode} q
+    # @return {TreeNode}
+    def lowestCommonAncestor(self, root, p, q):
+        if not root:
+            return
+        if p == root or q == root:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if left and right:
+            return root
+        return left or right
+```       
+
 
 #### Method 2 (O(n))
 * By Storing root to n1 and root to n2 paths):
