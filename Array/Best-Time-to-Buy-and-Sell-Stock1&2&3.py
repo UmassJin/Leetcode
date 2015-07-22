@@ -141,3 +141,11 @@ class Solution:
             release1 = max(release1, hold1+i)
             hold1 = max(hold1,-i)
         return release2
+
+# test:   [6, 1, 3, 2, 4, 7]
+'''
+release2: 0,  0,  2,  2,  4, 7
+hold2:    -6, -1, -1, 0,  0, 0
+release1: 0,  0,  2,  2,  3, 6
+hold1:    -6, -1, -1, -1, -1, -1
+'''
