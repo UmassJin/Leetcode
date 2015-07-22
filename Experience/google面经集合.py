@@ -3298,6 +3298,30 @@ test1 = [13, 7, 8]
 test = [7,13,7,8,16]
 print stone_merge(test)
 
+'''
+similar question:
+Least cost to cut a batten
+The cost of cutting each segment is the cost of the segment length, an array is storing each end point,
+For example:
+[0, 3, 7, 8, 11, 12], the batten length is 12, there are 4 cuting point
+
+
+int getMinCost(int a[], int n){
+    if (NULL == a || n <= 1)
+        return -1;
+    int rec[100][100] = {0};
+    for (int i = 2; i < n; i++){
+        for (int j = 0; j < n-i; j++){
+            int nMin = INT_MAX;
+            for (int k = 1; k < i; k++)
+                nMin=min(nMin,rec[j][j+k]+rec[j+k][j+i]+a[j+i]-a[j]);
+            rec[j][j+i] = nMin;
+        }
+    }
+   
+    return rec[0][n-1];
+}
+'''
 
 '''
 101.
@@ -3784,6 +3808,40 @@ def find_all_source(array, dest):
 test = [1,3,0,2,4,7]
 print find_all_source(test, 0)
 
+
+'''
+122.
+Count Numbers Jan 3 2015
+Given an array of ages (integers) sorted lowest to highest, output the number of occurrences for each age.
+For instance:
+[8,8,8,9,9,11,15,16,16,16]
+should output something like:
+
+'''
+def count_number(array):
+    if not array:
+        return None
+    count = 0; step = 1; number = array[0]
+    index = 0
+    result = []
+    n = len(array)
+    while index < n:
+        count += step
+        step *= 2
+        if index + step >= n or array[index+step] != number:
+            step = 1
+            if index + step < n and array[index+step] != number:
+                result.append((number, count))
+                count = 0
+                number = array[index+step]
+        index += step
+    result.append((number, count))
+    return result 
+
+test1 = [8,8,8,9,9,11,15,16,16,16]
+test2 = [1,2,3,4,5]
+print count_number(test1)
+print count_number(test2)
 
 ========================================================================================
 
