@@ -3660,6 +3660,131 @@ right_min:  [-6, -6, -5, -4, -4, 2, 8]
 16
 None
 
+
+'''
+119.
+Given a directed graph, check whether the graph contains a cycle or not. Your function should 
+return true if the given graph contains at least one cycle, else return false. 
+For example, the following graph contains three cycles 0->2->0, 0->1->2->0 and 3->3, 
+so your function must return true.
+
+有向图中存在环当且仅当这个图中有back edge。Back edge指的是一条从一个节点到自身或者到他的祖先的edge。
+下图中有三条back edge（用x表示）。
+然后用DFS做就好了。用一个vector或者set来保存当前DFS过程中经过的节点，如果已经经过，则有cycle。
+注意每个顶点都要判断一次。
+时间复杂度：
+如果做一个full DFS, 时间复杂度是O(V^2 + VE)，但是这里我们在碰到之前已经访问过的节点就返回了，
+所以每个节点只被访问一次，所以最终时间复杂度是O(V + E)。
+
+'''
+class Graph:
+    def __init__(self, v, edge):
+        self.V = v
+        self.E = edge
+
+def dfs(node, visited, backtrack):
+    if not visited[node]: 
+        visited[node] = True
+        backtrack[node] = True
+        for neighbor in node.neighbors:
+            if not visited[neighbor] and dfs(neighbor, visited, backtrack):
+                return True
+            elif backtrack[neighbor]:
+                return True
+    backtrack[node] = False
+    return False     
+
+def detect_cycle_graph(graph):
+    if not graph: return None
+    visited = [False for i in xrange(graph.V)]
+    backtrack = [False for i in xrange(graph.V)]
+    
+    for node in graph.V:  # Note, here we need to check each node 
+        if dfs(node, visited, backtrack):
+            return True
+    return False
+    
+
+'''
+120. Strongly Connected Graph 
+# https://github.com/UmassJin/Leetcode/blob/master/Algorithm/Strongly_Connect_Graph.py
+'''
+
+'''
+121. Maximum length of the loop 
+Given an array
+Indexes 0 1 2 3 4
+Values 3 2 1 4 0
+Values are the next index of the jump 0 -> 3 -> 4 -> 0... 1 -> 2 -> 1...
+Write a function to detect if there are loops. If yes, get the max length of the loop possible, otherwise just return zero.
+'''
+def max_length_loop(array):
+    def dfs(index, len):
+        if visited[index]:
+            result[0] = max(result[0], len-length[index])
+            return 
+        visited[index] = True
+        length[index] = len
+        dfs(array[index], len + 1)
+
+    if not array:
+        return 0
+    n = len(array)
+    visited = [False for _ in xrange(n)]
+    length = [0 for _ in xrange(n)]
+    result = [0]
+    for i in xrange(n): # check each index in the array 
+        dfs(i, 0)
+    return result[0] 
+
+
+test = [1,2,3,4,0]
+print max_length_loop(test)
+
+
+'''
+122.
+一个数组 A: 1 3 0 2 4 7
+input: dest-node: A0
+output: all the source nodes: (A1, A3, A4)
+
+数组中每个元素表示他能走的步数，既能向左走 又能向右走，能到A[0]的点有A[1]和A[4]，A[1]可以走3步到A[4] A[4]能走4步道A[0]。
+'''
+
+
+import collections
+
+def find_all_source(array, dest):
+    if not array:
+        return None
+    graph = {}
+    visited = {}
+    result = []
+    n = len(array)
+    for i in xrange(len(array)):
+        if array[i] == 0:
+            continue
+        if array[i] + i < n and array[i] + i >= 0:
+            graph.setdefault((array[i]+i),[]).append(i)
+        if i - array[i] < n and i - array[i] >= 0:
+            graph.setdefault((i - array[i]),[]).append(i)
+    
+    visited[dest] = True
+    queue = collections.deque([dest])
+    while queue:
+        node = queue.popleft()
+        if node in graph:
+            for src in graph[node]:
+                if src not in visited:
+                    result.append(src)
+                    queue.append(src)
+                    visited[src] = True
+    return result 
+
+test = [1,3,0,2,4,7]
+print find_all_source(test, 0)
+
+
 ========================================================================================
 
 '''
