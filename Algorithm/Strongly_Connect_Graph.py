@@ -16,3 +16,27 @@ Naive的方法是，对每一个节点做一次DFS，如果存在一个节点在
 把reverse后的图的所有定点重新标记为unvisited。
 继续对新图走一次DFS，起点跟2中的顶点V。如果DFS没有访问到所有点则返回false，否则返回true。
 '''
+
+def dfs(node, visited):
+    visited[node] = True
+    for neighbor in node.neighbor:
+        if not visited[neighbor]:
+            dfs(neighbor)
+
+def strongly_connected_graph(graph):
+    visited = [False for i in xrange(graph.V)]
+    dfs(graph.V[0], visited)
+    
+    for i in xrange(graph.V):
+        if not visited[i]:
+            return False
+        visited[i] = False
+        
+    graph = get_transpose()
+    dfs(graph.V[0], visited)
+    for i in xrange(graph.V):
+        if not visited[i]:
+            return False
+
+    return True
+
