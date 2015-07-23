@@ -6,6 +6,24 @@ Given n points on a 2D plane, find the maximum number of points that lie on the 
 #         self.x = a
 #         self.y = b
 
+# More simple solution
+# https://leetcode.com/discuss/43604/11-lines-python
+class Solution:
+    def maxPoints_1(self, points):
+        result = 0
+        for p in points:
+            samepoint = 0
+            table = collections.Counter() # here we could only use Counter, can not use dict
+            for q in points:
+                x, y = p.x-q.x, p.y-q.y
+                samepoint += x == y == 0
+                table[float(y)/x if x else 'inf'] += 1 
+                # since if use dict, here return error
+                # because Python raises a KeyError whenever a dict() object is requested (using the format a = adict[key]) and the key is not in the dictionary.
+            table['inf'] -= samepoint
+            result = max(result, samepoint + max(table.values()))
+        return result 
+
 class Solution:
     # @param {Point[]} points
     # @return {integer}
