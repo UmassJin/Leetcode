@@ -159,6 +159,40 @@ print random_max(test)
 
 
 '''
+输出count最多的连续的字符。
+For example:
+"this is a sentence" => [t, h, i, s, i, s, a, s, e, n, t, e, n, c, e]
+"thiis iss a senntencee" => [i, s, n, e]
+"thiisss iss a senntttenceee" => [s, t, e]
+"thiisss iss a sennnntttenceee" => [n]
+
+'''
+def contiguous_letter(s):
+    if not s: return 0
+    l = 0; maxlen = 0
+    n = len(s)
+    result = []
+    while l < n:
+        while l < n and s[l] == ' ':
+            l += 1
+        c = l + 1
+        while c < n and s[c] == s[l]:
+            c += 1
+        if maxlen == c - l:
+            result.append(s[l])
+        elif maxlen < c - l:
+            result = [s[l]]
+            maxlen = c - l
+        l = c
+    return result
+
+test1 = "thiisss iss a senntttenceee"
+test2 = "this is a sentence"
+print contiguous_letter(test1)
+print contiguous_letter(test2)
+
+
+'''
 # http://www.mitbbs.com/article_t/JobHunting/33003737.html
 一个月以前面的了，没什么营养，还是发给大家看看吧, 希望对大家有帮助，已经跪了。
 
