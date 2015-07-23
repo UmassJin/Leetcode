@@ -3869,6 +3869,21 @@ ListNode * interleave(ListNode *p, ListNode *q) {
 Design 
 '''
 
+This is just a plug, from me, for you to know about processes, threads and concurrency issues. 
+A lot of interviewers ask about that stuff, and it's pretty fundamental, so you should know it. 
+Know about locks and mutexes and semaphores and monitors and how they work. Know about deadlock 
+and livelock and how to avoid them. Know what resources a processes needs, and a thread needs, 
+and how context switching works, and how it's initiated by the operating system and underlying 
+hardware. Know a little about scheduling. The world is rapidly moving towards multi-core, and 
+you'll be a dinosaur in a real hurry if you don't understand the fundamentals of "modern" 
+(which is to say, "kinda broken") concurrency constructs.
+
+The best, most practical book I've ever personally read on the subject is Doug Lea's Concurrent 
+Programming in Java. It got me the most bang per page. There are obviously lots of other books 
+on concurrency. I'd avoid the academic ones and focus on the practical stuff, since it's most 
+likely to get asked in interviews.
+
+
 swap space 
 
  交换空间和虚拟内存的区别在于使用的系统不一样,产生的技术手段不一样,以下是详解,希望对你有所帮助! 
