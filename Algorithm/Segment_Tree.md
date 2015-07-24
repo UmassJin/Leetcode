@@ -176,6 +176,13 @@ seg = constructST(test)
 print RMQ(seg, len(test), 3,5)
 
 ```
+* Time Complexity:
+      * Build the tree: T(n) = 2T(n/2) + O(1) = O(n)
+      * Query the tree: O(log(n))
+
+* Time Complexity for tree construction is O(n). There are total 2n-1 nodes, and value of every node is calculated only once in tree construction.
+
+*Time complexity to query is O(Logn). To query a range minimum, we process at most two nodes at every level and number of levels is O(Logn).
 
 #### Scenario 3: interview question, recover the array
 
