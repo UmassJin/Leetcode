@@ -178,6 +178,55 @@ ProducerThread().start()
 ConsumerThread().start()
 ```
 
+####  Sequential Outputting using CV
+one thread output odd number, one thread output even number 
+
+
+```python
+import threading
+import time
+import random
+from threading import Thread
+from threading import Condition
+
+condition = Condition()
+isodd = True     
+
+class EvenThread(Thread):
+    def run(self):
+        global isodd
+        for i in xrange(2, 11, 2):
+            condition.acquire()
+            if isodd:
+                condition.wait()
+            print "even, i: ", i
+            isodd = True
+            condition.notify()
+            condition.release()    
+            time.sleep(random.random())
+            
+class OddThread(Thread):
+    def run(self):
+        global isodd
+        for i in xrange(1, 10, 2):
+            condition.acquire()
+            if not isodd:
+                condition.wait()
+            print "odd, i: ", i
+            isodd = False
+            condition.notify()
+            condition.release()
+            time.sleep(random.random())
+
+def main(): 
+        OddThread().start()
+        EvenThread().start()
+
+if __name__ == '__main__':   
+    main()
+  
+```
+
 #### Daemon Thread 
 * Daemons are only useful when the main program is running, and it's okay to kill them off once the other non-daemon threads have exited. Without daemon threads, we have to keep track of them, and tell them to exit, before our program can completely quit. By setting them as daemon threads, we can let them run and forget about them, and when our program quits, any daemon threads are killed automatically.
 
