@@ -40,21 +40,21 @@ class Solution:
         
         stack = [root]
         while stack:
-            node = stack.pop()
-            if node != -1:
+            node = stack.pop(0)
+            if node != '#':
                 result.append(str(node.val))
                 
                 if node.right:
                     stack.append(node.right)
                 elif not node.right:
-                    stack.append(-1)
+                    stack.append('#')
                     
                 if node.left:
                     stack.append(node.left)
                 elif not node.left:
-                    stack.append(-1)
+                    stack.append('#')
             else:
-                result.append(str(node))
+                result.append(node)
         
         return result
         
@@ -71,7 +71,7 @@ class Solution:
         return self.deserialize_helper(data)
 
     def deserialize_helper(self, data):
-        if data[self.index] == '-1':
+        if data[self.index] == '#':
             return None
 
         value = int(data[self.index])
