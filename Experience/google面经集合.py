@@ -1139,7 +1139,7 @@ Given N jobs where every job is represented by following three elements of it.
 3) Profit or Value Associated.
 Find the maximum profit subset of jobs such that no two jobs in the subset overlap
 注意，这里是不允许有overlap 的
-'''
+
 
 # 思路：
 DP + binary search 
@@ -1157,7 +1157,38 @@ http://www.fgdsb.com/2015/01/03/non-overlapping-jobs/
         # calculate exclude this job, and find the max value 
         table[i] = max(include_profit, table[i-1])
     return table[n-1]
-    
+# http://cs.stackexchange.com/questions/11265/find-non-overlapping-scheduled-jobs-with-maximum-cost
+'''    
+
+def non_overlapping(array):
+    if not array:
+        return None
+    result = []
+    n = len(array)
+    array = sorted(array, key = lambda x: x[1])
+    print "array: ", array
+    dp = [ 0 for _ in xrange(n+1)]
+    for i in xrange(1, n+1):
+        cur = array[i-1]
+        index = find_interval(array, cur[0], 0, n-1)
+        dp[i] = max( dp[index+1]+cur[2], dp[i-1]) 
+        print "dp: ", dp
+    return dp[n]
+
+def find_interval(array, target, start, end):
+    if start > end:
+        return end # Note: here we return end, not start not None 
+    while start <= end:
+        mid = (start + end)/2
+        if array[mid][1] == target:
+            return mid
+        elif array[mid][1] > target:
+            return find_interval(array, target, start, mid-1)
+        elif array[mid][1] < target:
+            return find_interval(array, target, mid+1, end)
+        
+test = [[3,8,3], [2,3,2],[1,5,2], [2,9,3], [8,13,2]]
+print non_overlapping(test)
 
     
     
