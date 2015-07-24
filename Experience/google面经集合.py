@@ -3914,6 +3914,37 @@ Follow up: how to optimize and speed up your algorithm
 '''
 
 
+'''
+125. given the level of the tree, find how many full trees are there. 
+'''
+def full_tree(level):
+    '''
+    @args: level is input level of the tree
+    @output: how many full binary tree for this level
+    @let's say need to calculate level 4's full tree
+    @maintain the left tree as i-1, then right tree may have sum(dp[i-k] (2<=k<=i-1))
+    @maintain the right tree as i-1, left is also sum(dp[i-k] (2<=k<=i-1))
+    @and then add dp[i-1]*dp[i-1]
+    '''
+    if level == 0:
+        return 0
+    dp = [0 for _ in xrange(level+1)]
+    dp[1] = 1; dp[2] = 1
+    for i in xrange(3, level+1):
+        tmp = 1
+        for k in xrange(2, i):
+            tmp = tmp * dp[i-k]
+        dp[i] = dp[i-1] * (2 * tmp + dp[i-1])
+        #dp[i] = dp[i-1] * tmp * 2 + dp[i-1] * dp[i-1]
+    return dp[level]
+
+
+print full_tree(3)
+print full_tree(4)
+print full_tree(5)
+
+
+
 
 ========================================================================================
 
