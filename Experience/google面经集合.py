@@ -1824,6 +1824,14 @@ E.g. {feed }, feed => false;  {door }, deer =>true;  {dare}, deer => false
 如果dict里有word 和input word的abbreviation 一样，则return true
 
 和phone interview有点像
+
+some questions need to clear:
+1) how about the word length less than 2 ?
+2) we only consider the first letter and last letter ?
+3) is there any limitation of the word length ?
+brute force思路是: check each abbr of each word in dictionary, optimization is
+use the trie to optimize the dictionary 
+
 '''
 
 '''
@@ -3894,6 +3902,19 @@ ListNode * interleave(ListNode *p, ListNode *q) {
     return p;
 }
 
+
+'''
+124.
+第二轮是个阿三，感觉很吊的样子，一副大爷样地坐在那里，让我很不爽。他就问了很
+简单的一道题，然后就是不停地问我如何改进。
+2. Given a list of words, find two strings S & T such that:
+    a. S & T have no common character
+    b. S.length() * T.length() is maximized
+Follow up: how to optimize and speed up your algorithm
+'''
+
+
+
 ========================================================================================
 
 '''
@@ -4235,7 +4256,8 @@ test case:
  "internationalization" -> "i18n"
  "localization" -> "l10n"
 
-Such abbreviations are not always unique -- for example, “a11y” could stand for “accessibility”, “automatically”, etc. Given a list of words, determine if the abbreviation of the word is unique. 
+Such abbreviations are not always unique -- for example, “a11y” could stand for “accessibility”, “automatically”, etc. 
+Given a list of words, determine if the abbreviation of the word is unique. 
 
 
  "internationalization" -> "i18n"
