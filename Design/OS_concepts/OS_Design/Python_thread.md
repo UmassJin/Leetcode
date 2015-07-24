@@ -212,7 +212,9 @@ d.start()
 t.start()
 ```
 
-* Reference: http://pymotw.com/2/threading/ 
+* Reference: 
+* [Reference solution for producer consumer in CV](http://agiliq.com/blog/2013/10/producer-consumer-problem-in-python/)
+* http://pymotw.com/2/threading/ 
 
 
 #### spin-waiting
