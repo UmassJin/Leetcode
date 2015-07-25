@@ -49,6 +49,9 @@ A typical memory representation of C program consists of following sections.
 #### [Delete a given node in Linked List under given constraints](http://www.geeksforgeeks.org/delete-a-given-node-in-linked-list-under-given-constraints/)
 
 #### [Compiled languages vs. Scripting Languages](https://eimg.wordpress.com/2007/12/31/compiled-languages-vs-scripting-languages/)
+When Google released Chrome 41 and Chrome 42 beta earlier this month, the company said the former included “lots of under the hood changes for stability and performance” and that the latter was a “performance-focused build.” Today, the company has shared that users can expect a speed boost thanks to two new features: script streaming and code caching.
+
+The former feature optimizes the parsing of JavaScript files while the latter helps speed up page loading. Both are designed to reduce the waiting time spent staring at a white screen, both on desktop and on mobile devices.
 
 
 ## Operation System 
