@@ -3996,6 +3996,14 @@ def snake_ladder(move, n):
             queue.append((i, cur_dis+1))
     return -1
 
+
+'''
+129.
+define a tree, how to check whether a n-ary tree is unival tree (the value in each node is same). 
+How to get how many unival tree in a n-ary tree  
+'''
+
+
 ========================================================================================
 
 '''
