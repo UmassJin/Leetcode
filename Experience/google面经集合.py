@@ -3957,7 +3957,44 @@ You can’t use extra memory like converting BST into one array and then solve t
 # http://www.geeksforgeeks.org/snake-ladder-problem-2/
 '''
 
+'''
+128. Given a snake and ladder board, find the minimum number of dice throws required to reach the 
+destination or last cell from source or 1st cell. Basically, the player has total control over 
+outcome of dice throw and wants to find out minimum number of throws required to reach last cell.
+If the player reaches a cell which is base of a ladder, the player has to climb up that ladder 
+and if reaches a cell is mouth of the snake, has to go down to the tail of snake without a dice throw.
+# http://www.fgdsb.com/categories/Not-in-LeetCode/page/9/
+# http://www.geeksforgeeks.org/snake-ladder-problem-2/
+'''
 
+import collections
+from collections import deque
+
+def snake_ladder(move, n):
+    '''
+    @ move: move[-1] means this is regular cell, move[i] != -1 
+      means there is ladder or snake in this cell
+    @ n: means the total number of the board 
+    '''
+    queue = [(0,0)]
+    visited = {0:True}
+    
+    while queue:
+        node = queue.popleft()
+        index = node[0]
+        cur_dis = node[1]
+        
+        while (move[index] != -1):
+            index = move[index]
+        for i in xrange(index+1, index+7):
+            if i in visited:
+                continue
+            if i == n -1:
+                return cur_dis + 1
+            
+            visited[i] = True      
+            queue.append((i, cur_dis+1))
+    return -1
 
 ========================================================================================
 
