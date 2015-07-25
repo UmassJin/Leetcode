@@ -397,6 +397,9 @@ threads = [Thread(function, i, i, i) for i in range(10)]
 ```
 
 
+#### Spin Lock
+* [Spin Lock](http://stackoverflow.com/questions/5869825/when-should-one-use-a-spinlock-instead-of-mutex)
+* [Spin Lock wiki](https://en.wikipedia.org/wiki/Spinlock)
 
 
 #### Reference:
