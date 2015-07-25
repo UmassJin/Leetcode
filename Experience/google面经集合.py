@@ -3944,6 +3944,19 @@ print full_tree(4)
 print full_tree(5)
 
 
+'''
+126.
+Given a BST and a number x, find two nodes in the BST whose sum is equal to x.
+You can’t use extra memory like converting BST into one array and then solve this like 2sum.
+# http://codercareer.blogspot.com/2013/03/no-46-nodes-with-sum-in-binary-search.html
+'''
+
+
+'''
+127.Snake and Ladder Problem
+# http://www.geeksforgeeks.org/snake-ladder-problem-2/
+'''
+
 
 
 ========================================================================================
