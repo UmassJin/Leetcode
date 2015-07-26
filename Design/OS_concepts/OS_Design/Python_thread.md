@@ -401,6 +401,8 @@ threads = [Thread(function, i, i, i) for i in range(10)]
 * [Spin Lock](http://stackoverflow.com/questions/5869825/when-should-one-use-a-spinlock-instead-of-mutex)
 * [Spin Lock wiki](https://en.wikipedia.org/wiki/Spinlock)
 
+#### Virtual Memory
+[Virtual Memory](http://www.tutorialspoint.com/operating_system/os_virtual_memory.htm)
 
 #### Reference:
 * [Python Synchronized](http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/)
