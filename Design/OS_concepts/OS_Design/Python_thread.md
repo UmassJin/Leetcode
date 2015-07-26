@@ -137,14 +137,17 @@ if __name__ == '__main__':
 
 '''
 In place of list, we are using a Queue instance(hereafter queue).
-queue has a Condition and that condition has its lock. You don't need to bother about Condition and Lock if you use Queue.
+queue has a Condition and that condition has its lock. 
+You don't need to bother about Condition and Lock if you use Queue.
 Producer uses put available on queue to insert data in the queue.
 put() has the logic to acquire the lock before inserting data in queue.
-Also put() checks whether the queue is full. If yes, then it calls wait() internally and so producer starts waiting.
+Also put() checks whether the queue is full. 
+If yes, then it calls wait() internally and so producer starts waiting.
 Consumer uses get.
 get() acquires the lock before removing data from queue.
 get() checks if the queue is empty. If yes, it puts consumer in waiting state.
-get() and put() has proper logic for notify() too. Why don't you check the source code for Queue now?
+get() and put() has proper logic for notify() too.
+Why don't you check the source code for Queue now?
 '''
 
 from threading import Thread
