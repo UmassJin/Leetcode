@@ -4162,6 +4162,17 @@ Year, Make, Model这三个特征，只要有一个和其他车不同，就是uni
 # http://martinfowler.com/apsupp/recurring.pdf
 # http://stackoverflow.com/questions/85699/whats-the-best-way-to-model-recurring-events-in-a-calendar-application
 
+1.2 system design：一种新型的storage，怎么样用来scan engineer的hard disk来做备份
+4. system design：logging query － 有好几个小问，例如，如何得到过去一个月浏览某主页的次数，来自某个国家的浏览数，等等
+
+5. design: chromecast, how to know which app can be supported? There is a 
+cloud that can give the information to the chrome cast, appID, deviceID, 
+cache design. 
+
+3. design: distributed game ,   付费转账 如何 减少 transcation fee 
+4. group Card  ,  follow up: 如何定义接口 让客户可以自己定义 hashfunction. 
+
+
 '''
 
 
