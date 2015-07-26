@@ -57,7 +57,8 @@ cv.release()
 '''
 For consumer, we check if the queue is empty before consuming.
 If yes then call wait() on condition instance.
-wait() blocks the consumer and also releases the lock associated with the condition. This lock was held by consumer, so basically consumer loses hold of the lock.
+wait() blocks the consumer and also releases the lock associated with the condition. 
+This lock was held by consumer, so basically consumer loses hold of the lock.
 Now unless consumer is notified, it will not run.
 Producer can acquire the lock because lock was released by consumer.
 Producer puts data in queue and calls notify() on the condition instance.
