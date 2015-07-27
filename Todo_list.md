@@ -28,14 +28,7 @@ Good Blog to read:
 * CC150 中文: http://www.hawstein.com/posts/ctci-solutions-contents.html
 * 系统面试设计: http://dongxicheng.org/search-engine/system-designing-in-finging-jobs/
 * 我的面试总结: http://www.mitbbs.co.nz/article_t/JobHunting/32564237.html#top
-
-
-07/13 - 07/17 interview prepare:
-* 算法题目和概念：10题
-* 面经：10题
-* System Design: clouding computing， 5课题/Day
-* OOD: 看一个概念/2 Days 
-* OS: 每天一个概念，或者一个小题目，
+，
 
 Prepare the Google Interview 
 * Algorithm 
