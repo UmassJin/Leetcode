@@ -8,49 +8,15 @@ Given the following matrix:
 ]
 You should return [1,2,3,6,9,8,7,4,5].
 
-class Solution:
-    # @param matrix, a list of lists of integers
-    # @return a list of integers
-    # Brute Force Solution 
+# Very nice solution
+# https://leetcode.com/discuss/46516/lines-recursive-python-solution-lines-solution-recursion
     def spiralOrder(self, matrix):
-      result = []
-    
-      while matrix:
-        for element in matrix[0]:
-            result.append(element)
-        del matrix[0]
+        result = []
+        while matrix:
+            result.extend(matrix.pop(0))
+            matrix = zip(*matrix)[::-1] # 注意这里zip的用法
+        return result
         
-        if matrix:
-            i = 0
-            j = 0
-            while i < len(matrix):
-                n = len(matrix[j])
-                result.append(matrix[i][n-1])
-                del matrix[i][n-1]
-                if len(matrix[i])==0:
-                    del matrix[i]
-                    i -= 1
-                    j -= 1
-                i += 1
-                j += 1
-        
-        if matrix: 
-            m = len(matrix)
-            for i in range(len(matrix[m-1])-1,-1,-1):
-                result.append(matrix[m-1][i])
-                del matrix[m-1][i]
-                if len(matrix[m-1])==0:
-                    del matrix[m-1]
-        
-        if matrix:
-            for i in range(len(matrix)-1,-1,-1):
-                result.append(matrix[i][0])
-                del matrix[i][0]
-                if len(matrix[i])==0:
-                    del matrix[i]
-            
-      return result       
-    
     # Method 2
     def spiralOrder(self, matrix):
         result = []
@@ -117,55 +83,20 @@ You should return the following matrix:
  [ 8, 9, 4 ],
  [ 7, 6, 5 ]
 ]
-Method 1 
-class Solution:
-    # @return a list of lists of integer
+
+# https://leetcode.com/discuss/46720/4-9-lines-python-solutions
+# Nice solution: 
     def generateMatrix(self, n):
-        result = []
-        loop = 1
-        value = 1
-
-        if n == 0:
-            return []
-        if n == 1:
-            return [[1]]
-
-        for i in range(n):
-            result.append([])
-
-        for i in range(n):
-            result[0].append(value)
-            value += 1
-
-        step = 0
-        while loop <= n:
-            row = step+1
-
-            while row <= n-(step+1):
-                result[row].insert(step,value)
-                value += 1
-                row += 1
-            row = n-step-1
-
-            tmp = step
-            for i in range(n-loop):
-                result[row].insert(tmp,value)
-                value += 1
-
-            loop += 1
-            row = row-1
-
-            while row >= step+1:
-                result[row].insert(step,value)
-                value +=1
-                row -= 1
-            row += 1
-            for i in range(n-loop):
-                result[row].insert(i+step+1, value)
-                value+= 1
-            loop += 1
-            step += 1
-        return result
+        result = [[0]*n for _ in xrange(n)]
+        i, j = 0, 0
+        di, dj = 0, 1
+        for k in xrange(n*n):
+            result[i][j] = k + 1
+            if result[(i+di)%n][(j+dj)%n]:
+                di, dj = dj, -di
+            i += di
+            j += dj
+        return result 
 
 Method 2 
     def generateMatrix(self, n):
