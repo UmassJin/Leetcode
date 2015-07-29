@@ -21,14 +21,15 @@ class Solution:
             
     # Iteration 
     def letterCombinations(self, digits):
-        if len(digits)==0: return []
+        if not digits: return []
         result = ['']  # Note: here we should use [''] not empty []
         for digit in digits:
             ret = []
             for comb in result:
                 for char in Solution.dict[digit]:
                     ret.append(comb+char)
-            result = ret
+            if ret:     # Note: add ret here, we need to consider the case "12" 
+                result = ret
         return result 
             
     # Recursion 1
