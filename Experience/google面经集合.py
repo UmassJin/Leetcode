@@ -4498,3 +4498,11 @@ n string in the input array
 time complexity: O(n)
 space complexity: O(n)
 
+'''
+onsite:
+1. find the shortest distance for each unlocked cell in matrix (警察那题)
+2. find whether three points in the same line, if in the same line, the rate is 1.0, otherwise is 0
+3. game, matrix, each matrix is dead or alive, if x < 2, died, if x > 3 died, if x = 3, alive, others maintain the same 
+4. two rows array, find the minimum obstacle need to move if we want to move from the top left to right down 
+   do the in-order for the two trees, use the minimum space, less than O(n), maybe O(logn)
+'''
