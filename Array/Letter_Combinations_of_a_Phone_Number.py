@@ -9,7 +9,8 @@ Although the above answer is in lexicographical order, your answer could be in a
 
 class Solution:
     # @return a list of strings, [s1, s2]
-    dict = {'1':'',
+    dict = {'0':'',
+            '1':'',
             '2':'abc',
             '3':'def',
             '4':'ghi',
@@ -32,7 +33,31 @@ class Solution:
                 result = ret
         return result 
             
+
     # Recursion 1
+    def letterCombinations(self, digits):
+            if not digits: return []
+            result = []
+            length = len(digits)
+            self.letter_com_helper(digits, result, '', length)
+            return result 
+            
+    def letter_com_helper(self, digits, result, substr,length):
+        if len(substr) == length:
+            result.append(substr); return 
+        
+        for i, digit in enumerate(digits):
+            if digit == "1" or digit == '0':  # take care the special '1' and '0' case 
+                length -= 1
+            for char in Solution.dict[digit]:
+                self.letter_com_helper(digits[i+1:], result, substr + char,length)
+            
+    # test case:
+    # Input: "22"
+    # Output: ["aa","ab","ac","ba","bb","bc","ca","cb","cc","a","b","c"]
+    # Expected: ["aa","ab","ac","ba","bb","bc","ca","cb","cc"]
+
+    # Recursion 2
     def letterCombinations_1(self, digits):
         if len(digits)==0: return []
         result = []
@@ -46,28 +71,7 @@ class Solution:
         for char in Solution.dict[digits[i]]:  # Here we do not need to for loop the digits !!!
             self.combination_rec(digits,i+1,result,ret+char)
 
-    # Recursion 2
-    def letterCombinations(self, digits):
-            if not digits: return []
-            result = []
-            length = len(digits)
-            self.letter_com_helper(digits, result, '',length)
-            return result 
-            
-    def letter_com_helper(self, digits, result, substr,length):
-        if len(digits) == 0 and len(substr) == length:  # 这里如果我们传递digits[i+1:] 还需要check len(substr) == length
-            result.append(substr); return 
-        
-        for i, digit in enumerate(digits):
-            for char in Solution.dict[digit]:
-                self.letter_com_helper(digits[i+1:], result, substr + char,length)
-            
-    # test case:
-    # Input: "22"
-    # Output: ["aa","ab","ac","ba","bb","bc","ca","cb","cc","a","b","c"]
-    # Expected: ["aa","ab","ac","ba","bb","bc","ca","cb","cc"]
-
-    # Recursion 2 
+    # Recursion 3
     def letterCombinations_2(self, digits):
         if digits == "":
             return [""]
