@@ -21,6 +21,55 @@ Represent a deck of playing cards in an object-oriented design. (1) Write a func
 接着聊了聊怎么 code review，加一些comments啊什么的
 '''
 
+class Solution:
+    # @return a list of strings, [s1, s2]
+    dict = {'0':'',
+            '1':'',
+            '2':'abc',
+            '3':'def',
+            '4':'ghi',
+            '5':'jkl',
+            '6':'mno',
+            '7':'pqrs',
+            '8':'tuv',
+            '9':'wxyz'}
+            
+    # Iteration 
+    def letterCombinations(self, digits):
+        if not digits: return []
+        result = ['']  # Note: here we should use [''] not empty []
+        for digit in digits:
+            ret = []
+            for comb in result:
+                for char in Solution.dict[digit]:
+                    ret.append(comb+char)
+            if ret:     # Note: add ret here, we need to consider the case "12" 
+                result = ret
+        return result 
+            
+
+    # Recursion
+    def letterCombinations(self, digits):
+            if not digits: return []
+            result = []
+            length = len(digits)
+            self.letter_com_helper(digits, result, '', length)
+            return result 
+            
+    def letter_com_helper(self, digits, result, substr,length):
+        if len(substr) == length:
+            result.append(substr); return 
+        
+        for i, digit in enumerate(digits):
+            if digit == "1" or digit == '0':  # take care the special '1' and '0' case 
+                length -= 1
+            for char in Solution.dict[digit]:
+                self.letter_com_helper(digits[i+1:], result, substr + char,length)
+            
+    # test case:
+    # Input: "22"
+    # Output: ["aa","ab","ac","ba","bb","bc","ca","cb","cc","a","b","c"]
+    # Expected: ["aa","ab","ac","ba","bb","bc","ca","cb","cc"]
 
 '''
 subsetsI and subsetsII
