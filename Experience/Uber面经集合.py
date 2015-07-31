@@ -1,7 +1,8 @@
 '''
 1. Given a list of words, find whether a new word is anagram of word in list
 2. Implement an LRU cache. 
-3. Using Object Oriented Design principles, design a method to check if a Sudoku board is valid (skeleton code was provided which was initially passed in through a 2-d array).  
+3. Using Object Oriented Design principles, design a method to check if a Sudoku board is valid 
+(skeleton code was provided which was initially passed in through a 2-d array).  
 4. Lots of question related to hash table.  
 5. Implement boggle 
 6. Implement LRU cache with get and set operations in constant time O(1). 
@@ -10,8 +11,10 @@
 '''
 
 '''
-先是问了project，涉及很具体的算法和dataset处理之类；问了hadoop；然后就是用coderpad考了一题OOD
-Represent a deck of playing cards in an object-oriented design. (1) Write a function to output the deck. (2) Write a fn to shuffle the deck.
+先是问了project，涉及很具体的算法和dataset处理之类；问了hadoop；
+然后就是用coderpad考了一题OOD
+Represent a deck of playing cards in an object-oriented design. 
+(1) Write a function to output the deck. (2) Write a fn to shuffle the deck.
 '''
 
 
