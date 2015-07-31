@@ -114,6 +114,186 @@ heapified :
 ------------------------------------
 ```
 
+
+#### Heap use ```__cmp__```
+##### How could we sort the string "abc" and "adef" (which are sorted in each string)?
+
+```python
+import random
+from random import randint
+import heapq
+
+class MyLine(object):
+    def __init__(self, string):
+        self.string = string
+
+    def __cmp__(self, other):
+        for i in xrange(min(len(self.string), len(other.string))):
+            if self.string[i] > other.string[i]:
+                return 1
+            elif self.string[i] < other.string[i]:
+                return -1
+            else:
+                continue
+        if len(self.string) > len(other.string):
+            return 1
+        elif len(self.string) < len(other.string):
+            return -1
+        else:
+            return 0
+
+def merge_karray(files):
+    '''
+    @ input files list: [file1, file2, file3...]
+    @ output:
+    '''
+    if not files: return None
+    heap = []
+    result = []
+    k = len(files)
+    for i in xrange(k):
+        ele = files[i]
+        if ele:
+            heap.append((MyLine(ele), i))
+    heapq.heapify(heap)
+
+    while heap:
+        element = heapq.heappop(heap)
+        value, file_index = element[0], element[1]
+        result.append(value.string)
+    return result
+
+if __name__ == '__main__':
+    lines = []
+    for i in xrange(5):
+        lines.append('abc' + str(randint(1,200)))
+        lines.append('efg' + str(randint(1,200)))
+        lines.append('xyz' + str(randint(1,200)))
+    print merge_karray(lines)
+
+```
+
+##### Uber phone interview
+```
+# given a list of filenames, each file has been sorted
+# merge into a big file
+
+from random import randint
+import heapq
+
+class MyFile(object):
+    def __init__(self, n):
+        self.lines = []
+        self.i = 0
+        self.length = 3
+        r = 0
+        for i in xrange(n):
+            pass
+            # r = randint(r, r + 100)
+            # self.lines.append(str(r))
+        self.lines.append('abc' + str(randint(1,200)))
+        self.lines.append('efg' + str(randint(1,200)))
+        self.lines.append('xyz' + str(randint(1,200)))
+        
+        # sort by alphabetical order
+        # compare 1st letter
+        # if 1st letter is same,compare 2nd, etc.
+        # content of file:
+        # acd
+        # abc
+        # xyz
+        # xyy
+        # sorted:
+        # abc
+        # acd
+        # xyy,
+        # xyz
+        # sorted(str, cmp = lambda x: )
+    
+    def nextline(self):
+        if self.i < self.length:
+            self.i += 1
+            return self.lines[self.i - 1]
+        else:
+            return None
+
+def merge_karray(files):
+    '''
+    @ input files list: [file1, file2, file3...]
+    @ output:
+    '''
+    if not files:
+        return None
+    heap = []
+    result = []
+    k = len(files)
+    for i in xrange(k):
+        ele = files[i].nextline()
+        if ele:
+            heap.append((MyLine(ele), i))
+    heapq.heapify(heap)
+    #print "heap: ", heap
+    
+    while heap:
+        element = heapq.heappop(heap)
+        value, file_index = element[0], element[1]
+        result.append(value.string)
+        new_value = files[file_index].nextline()
+        if new_value:
+            heapq.heappush(heap, (MyLine(new_value), file_index))
+    return result 
+
+
+#  "abc", "abcd"
+class MyLine(object):
+    def __init__(self, string):
+        self.string = string
+        
+    def __cmp__(self, other):
+        for i in xrange(min(len(self.string), len(other.string))):
+            if self.string[i] > other.string[i]:
+                return 1
+            elif self.string[i] < other.string[i]:
+                return -1
+            else:
+                continue
+        if len(self.string) > len(other.string):
+            return 1
+        elif len(self.string) < len(other.string):
+            return -1
+        else:
+            return 0
+        # comapre between 2 strings
+        
+        
+            
+if __name__ == '__main__':
+    f1 = MyFile(10)
+    f2 = MyFile(20)
+    f3 = MyFile(15)
+    k = 10
+    files = []
+    for i in xrange(k):
+        files.append(MyFile(3))
+    str1 = "abcd"
+    str2 = "abcf"
+    # test = MyLine(str1)
+    # __cmp__
+    #print MyLine("abcz") < MyLine("abcd")
+    
+    # files
+#     for f in files:
+#         print '-'*20
+#         l = f.nextline()
+#         while l:
+#             print l
+#             l = f.nextline()
+    print merge_karray(files)
+
+
+```
+
+
 * [Merge K sorted linked list](https://github.com/UmassJin/Leetcode/blob/master/Array/Merge_K_Sorted_Lists.py)
 * [Merge K sorted array](https://github.com/UmassJin/Leetcode/blob/master/Experience/Merge_k_sorted_array.md)
 * [Good Video about how to make max heap](https://www.youtube.com/watch?v=WsNQuCa_-PU)
