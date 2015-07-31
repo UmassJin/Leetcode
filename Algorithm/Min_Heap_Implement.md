@@ -174,7 +174,7 @@ if __name__ == '__main__':
 ```
 
 ##### Uber phone interview
-```
+```python
 # given a list of filenames, each file has been sorted
 # merge into a big file
 
