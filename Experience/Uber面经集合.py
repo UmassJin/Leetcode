@@ -94,9 +94,6 @@ sprial matrix
 4，问当你用browser打开www.uber.com的时候，发生了生么。我就用http请求，到dns，到server，再返回，浏览器render之类的讲了一下
 '''
 
-'''
-Phone interview
-'''
 
 # given a list of filenames, each file has been sorted
 # merge into a big file
