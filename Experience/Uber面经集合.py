@@ -8,18 +8,7 @@
 6. Implement LRU cache with get and set operations in constant time O(1). 
 7. 1. Segment Tree; 2. How to diagnose latency in data center;  
 8. Print all permutations of 3 pair of parens. ()()(), (()()), (())(),,,. etc 
-'''
-
-'''
-先是问了project，涉及很具体的算法和dataset处理之类；问了hadoop；
-然后就是用coderpad考了一题OOD
-Represent a deck of playing cards in an object-oriented design. 
-(1) Write a function to output the deck. (2) Write a fn to shuffle the deck.
-'''
-
-
-'''
-电话combination那道，算法很熟悉了，dfs，不过好长时间没做，边think aloud 边码，还算顺利
+9. 电话combination那道，算法很熟悉了，dfs，不过好长时间没做，边think aloud 边码，还算顺利
 让自己弄几个test case 跑跑，但没有一次bug free，忘了考虑0，1的case ＝＝还有关于unsigned int 的warning
 接着聊了聊怎么 code review，加一些comments啊什么的
 '''
@@ -75,13 +64,20 @@ class Solution:
     # Expected: ["aa","ab","ac","ba","bb","bc","ca","cb","cc"]
 
 '''
-subsetsI and subsetsII
-search in rotated array
-sprial matrix
+10. subsetsI and subsetsII
+11. search in rotated array
+12. sprial matrix
 
-2 Word Ladder II
+13. 
+Word Ladder II
 以前只写过找所有path然后在dfs出最短path的解，烙印不让用，问有没有更好的方法
 。。。我建了个Graph，用BFS+mp搜，磕磕碰碰写了个大概。。。
+
+14. 
+给一个tuple list, 按weight random select. 比如给 [(“hello”, 2.34), (“world”, 4.68)…] world出现的概率是hello的两倍
+第二题, reverse string的变种。 只reverse word不reverse punctuation。比如 “this,,,is.a word” -> “word,,,a.is this”
+
+
 '''
 
 
@@ -96,6 +92,102 @@ sprial matrix
 
 4，问当你用browser打开www.uber.com的时候，发生了生么。我就用http请求，到dns，到server，再返回，浏览器render之类的讲了一下
 '''
+
+----------------------------------------------
+
+'''
+System Design:
+
+1. 第三轮：一个漂亮国人妹纸加一个白男。 systemdeisgn，给两个题目，让我选一个，一个是designnetflix另一个是design uber, 
+我就直接选 了designuber。我跟面thumbtack一样先用了最经典 的3tier 架构大法，然后一点一点改进。
+system design问的很细，问mobile app怎么跟backend通信，问通信是哪些protocal， 传输的信息是什么，
+哪里加cache，distributed db怎么弄之类。基本我答的还算顺利。感觉面试官挺满意这轮的。
+
+2.  设计excel， 先实现基本功能再优化（比如存图片怎么弄）
+
+3. 先是问了project，涉及很具体的算法和dataset处理之类；问了hadoop；
+然后就是用coderpad考了一题OOD
+Represent a deck of playing cards in an object-oriented design. 
+(1) Write a function to output the deck. (2) Write a fn to shuffle the deck.
+
+4. 
+design一个uber eat。说是system design结果我感觉更像product design
+
+5. 
+之前也看了好多uber的面经， 本以为会考算法 leetcode， 结果却考了一个ood的题目
+
+直接上原题
+Develop an API Rate-limit Throttling Client
+要求写一个api， 请求第三方api， 如果一秒内的请求太多， 自己的api就直接忽略掉。
+面试小哥给了个框架
+import time
+import datetime
+
+class GoogleMapsClient(object):
+“””3rd party maps client; we CANT EDIT THIS.”””
+
+def __init__(self):
+self.requests_made = 0
+
+
+ 
+def make_request(self):
+self.requests_made += 1
+now = datetime.datetime.now().time()
+return “%d – %s – San Francisco” % (self.requests_made, now)
+
+刚开始对python time的单位不熟悉，有个bug。后来改了
+class MyRequest(object):
+
+def __init__(self):
+self.client = GoogleMapsClient()
+self.time = time.time()
+self.request_times = 0
+
+def make_request(self):
+
+if (time.time()-self.time)>1:
+self.time = time.time()
+self.request_times = 0
+else:
+self.request_times += 1
+if self.request_times>=10:
+time.sleep(1)
+return self.client.make_request()
+
+
+ 
+Follow up 是如何让myclient 继续接受request。 可能我也没听明白题意， 小哥直接说time.sleep(1).
+
+面试题目就这一个， 开始还有介绍自己和简历。求水果啊。。
+
+
+6. 电面是一个美国小哥，开始聊了聊简历之后给了一道系统设计题，设计一个Service可以输入用户location查询附近的
+公交站台和所有即将到这些站台的公交车。我随便和他扯了一些系统设计的还有优化算法之类的东西，后来让我写一个
+控制访问API频率（Ratelimit）的function， 用了一个Queue写完就结束了。
+
+7. 让我设计一个 Netflix， follow up 很多 比如如何限制同一个用户多处登录不能同时看一个资源，
+如何实现根据用户的网速调整清晰度，怎么热门推荐等等。
+
+8. 第二个人 ： 进来直接不闲聊直接让我打开自己电脑开始写一些代码，设计一个 Excel ， 
+每个cell里面是一个String。 一开始想当然说可以直接用二维矩阵存，后来改成list of lists， 
+最后改成了HashMap。后续还有evaluate一个string相关的问题（给了黑盒evaluate函数，
+对每个cell实现evaluate和支持修改）。
+
+9. 第三个人 ： 纯聊简历，干聊project，面试官没有准备一道题，到最后我就已经是在找话说了。
+
+
+'''
+
+-----------------------------------------
+
+'''
+culture fit:
+她让我说了下我现在的proj，具体问了proj怎么设计的，为什么，有哪些可以值得改进的。然后问些behavior，
+比如你之前 有没有projfail过，为什么之类的。最后问了我whyuber, where’s ur passion之类的。
+'''
+
+
 
 
 # given a list of filenames, each file has been sorted
@@ -212,3 +304,7 @@ if __name__ == '__main__':
 #             print l
 #             l = f.nextline()
     print merge_karray(files)
+
+
+
+
