@@ -11,6 +11,13 @@
 9. 电话combination那道，算法很熟悉了，dfs，不过好长时间没做，边think aloud 边码，还算顺利
 让自己弄几个test case 跑跑，但没有一次bug free，忘了考虑0，1的case ＝＝还有关于unsigned int 的warning
 接着聊了聊怎么 code review，加一些comments啊什么的
+
+10. 面试四轮，第一轮是个韩裔小哥，两道题，happy number和anagram。
+第二轮白人，换硬币那题。
+第三轮ABI经理，问了一大顿behavioural question，最后剩10分钟问了八皇后。
+第四轮白人，设计扫雷的游戏，实现其中点一个格子，返回结果（要么失败，要么一片没有雷的区域，list of JSON object)。
+其中第二轮第四轮都是要求现场编译运行的。我用python所以相对比较轻松一点。
+
 '''
 
 class Solution:
