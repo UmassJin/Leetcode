@@ -172,7 +172,7 @@ to do ripple calculation.
 # mMap structure: 
 # {x1 : {y1 : Cell1}, x2: {y2: Cell2}}
 
-class Sheet:
+class Sheet(object):
     def __init__(self):
         self.mMap = dict()
 
@@ -197,7 +197,7 @@ class Sheet:
         else:
             return None
 
-class Cell:
+class Cell(object):
     def __init__(self, sheet, x, y, value):
         self.mSheet = sheet
         self.mPosx = x
@@ -209,7 +209,7 @@ class Cell:
         try:
 
         except:
-class ExpressionCell(self, sheet, x, y, expression_str):
+class ExpressionCell(object):
     def __init__(self, sheet, x, y, expression_str):
         self.mSheet = sheet
         self.mPosx = x
