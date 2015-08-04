@@ -207,16 +207,20 @@ class Cell(object):
 
     def getDoubleValue(self ): # if input is not integer, will return error
         try:
-
         except:
+
+# For example: change the cell (2,3) to the new cell
+# old expression in cell(2,3) is (1,1) + (2,2) * (3,3)
+# new expression in cell(2,3) is (2,5) + (6,4)
+# other cells that depend on (2,3) is (5,6) and (7,8)
 class ExpressionCell(object):
     def __init__(self, sheet, x, y, expression_str):
         self.mSheet = sheet
         self.mPosx = x
         self.mPosy = y
-        self.mExpression = Parser.parse(s, expression_str)
-        # mInEdges 表示dependent是什么，如果例子中是(0,1)
-        # mOutEdges 表示这个cell影响谁
+        self.mExpression = Parser.parse(sheet, expression_str)
+        # mInEdges 表示dependent是什么，如果例子中是(1,1),(2,2),(3,3)
+        # mOutEdges 表示这个cell影响谁 
         self.mInEdges = OutEdgeExtractor.extract(mExpression)
 
         self.updateCurrentValue()
