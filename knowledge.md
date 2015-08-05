@@ -420,6 +420,8 @@ Content-Encoding:gzip
 * They use the "code" on a Secure Sockets Layer (SSL), sometimes called Transport Layer Security (TLS) to send the information back and forth
 
 
+#### [Conditional GET Request](https://ruturajv.wordpress.com/2005/12/27/conditional-get-request/)
+#### [HTTP Made Really Easy](http://www.jmarshall.com/easy/http/)
 
 ## DNS
 #### [How DNS works](http://www.verisigninc.com/en_US/domain-names/online/how-dns-works/index.xhtml)
