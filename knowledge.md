@@ -422,6 +422,7 @@ Content-Encoding:gzip
 
 #### [Conditional GET Request](https://ruturajv.wordpress.com/2005/12/27/conditional-get-request/)
 #### [HTTP Made Really Easy](http://www.jmarshall.com/easy/http/)
+#### [Facebook Caching Exercise](https://code.facebook.com/posts/964122680272229/web-performance-cache-efficiency-exercise/)
 
 ## DNS
 #### [How DNS works](http://www.verisigninc.com/en_US/domain-names/online/how-dns-works/index.xhtml)
