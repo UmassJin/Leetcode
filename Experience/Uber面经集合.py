@@ -194,6 +194,16 @@ culture fit:
 比如你之前 有没有projfail过，为什么之类的。最后问了我whyuber, where’s ur passion之类的。
 '''
 
+'''
+change the people's traditional life style, 
+safety is the most important problem
+add the mini meter to know how long to the desitination
+how to ensure there is no overcharged 
+language issue 
+add/set the time for pick up 
+
+
+'''
 
 
 
