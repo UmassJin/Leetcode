@@ -27,6 +27,19 @@ For instance, [...[2 3], [4 5], [7 5], [11 5], [12 7]...] is not acceptable; the
 merged into one in the final output as such: [...[2 3], [4 5], [12 7], ...]
 '''
 
+'''
+analysis:
+The idea is to do line sweep and just process the buildings only at the start and end points. 
+The key is to use a priority queue to save all the buildings that are still "alive". 
+The queue is sorted by its height and end time (the larger height first and if equal height, 
+the one with a bigger end time first). For each iteration, we first find the current process time, 
+which is either the next new building start time or the end time of the top entry of the live queue. 
+If the new building start time is larger than the top one end time, then process the one in the queue 
+first (pop them until it is empty or find the first one that ends after the new building); otherswise, 
+if the new building starts before the top one ends, then process the new building (just put them in the queue). 
+After processing, output it to the resulting vector if the height changes. Complexity is the worst case O(NlogN)
+'''
+
 from heapq import *
 
 class Solution:
