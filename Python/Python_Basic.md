@@ -1737,7 +1737,51 @@ The list looks like this now: [ func(func(s1, s2),s3), ... , sn ]
 
 #### 14. [Why we do not need to specific type in Python?](http://stackoverflow.com/questions/2489669/function-parameter-types-in-python)
 
-#### 15. Reference
+#### 15. [AND operation] (https://docs.python.org/2/reference/expressions.html#boolean-operations) 
+* In the context of Boolean operations, and also when expressions are used by control flow statements, the following values are interpreted as false: False, None, numeric zero of all types, and empty strings and containers (including strings, tuples, lists, dictionaries, sets and frozensets). All other values are interpreted as true. 
+* The expression x and y first evaluates x; if x is false, its value is returned; otherwise, y is evaluated and the resulting value is returned.
+* (Note that neither and nor or restrict the value and type they return to False and True, but rather return the last evaluated argument. This is sometimes useful, e.g., if s is a string that should be replaced by a default value if it is empty, the expression s or 'foo' yields the desired value. Because not has to invent a value anyway, it does not bother to return a value of the same type as its argument, so e.g., not 'foo' yields False, not ''.)
+* For example
+```python
+>>> liveHR = [1,2,3,4,5]
+>>> len(liveHR)
+5
+>>> len(liveHR) and liveHR[-1]
+5
+>>> liveHR[-1]
+5
+>>> len(liveHR) and liveHR[1]
+2
+>>> len(liveHR) and liveHR[2]
+3
+>>> len(liveHR) and liveHR[3]
+4
+>>> len(liveHR) and liveHR[0]
+1
+>>> s = []
+>>> len(s)
+0
+>>> len(s) and liveHR[0]
+0
+>>> 
+>>> len(s) and liveHR[1]
+0
+>>> len(s) and liveHR[2]
+0
+>>> s = [1]
+>>> len(s) and liveHR[2]
+3
+>>> len(s) and liveHR[1]
+2
+>>> 
+>>> 
+>>> liveHR[1] and len(s)
+1
+>>> liveHR[3] and len(s)
+1
+```
+
+#### 16. Reference
 
 * [What's new in Python 3](https://docs.python.org/3/whatsnew/3.0.html)
 * [Tutorial: Python Build-in function](https://docs.python.org/2/library/functions.html#)
