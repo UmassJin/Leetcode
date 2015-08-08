@@ -12,6 +12,7 @@
 ####[11. Print in format](#print-format)
 ####[12. File Operation](#file-operation)
 ####[13. Time Complexity](#time-complexity)
+####[14. Decorator](#decorator)
 ------------------------------------------------------------
 
 
@@ -2263,3 +2264,54 @@ https://www.youtube.com/watch?v=C4Kc8xzcA68
 #### Reference
 * [Python time complexity wiki](https://wiki.python.org/moin/TimeComplexity)
 * http://stackoverflow.com/questions/24540975/why-does-key-in-d-keys-finish-in-on-time-while-key-in-d-finishes-in-o1?lq=1
+
+
+
+## Decorator
+
+```python
+>>> def outer1():
+...     def inner1():
+...             print "inside inner1"
+...     return inner1()
+... 
+>>> foo = outer1()
+inside inner1
+>>> 
+>>> def outer():
+...     x = 1
+...     def inner():
+...             print x
+...     return inner()
+... 
+>>> foo = outer()
+1
+>>> foo = outer()
+1
+
+>>> import random
+>>> random.random()
+0.6539368726060638
+>>> 
+>>> 
+>>> def outer():
+...     x = random.random()
+...     def inner():
+...             print x
+...     return inner()
+... 
+>>> outer()
+0.0717367602537
+>>> 
+>>> outer()
+0.40143942734
+>>> outer()
+0.134812035114
+>>> outer()
+0.280289368236
+>>> 
+
+```
+
+#### Reference
+* [12 步骤搞定Decorator](http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=209540854&idx=1&sn=0b7a85228126842a493adb1ff44c57bb&scene=5#rd)
