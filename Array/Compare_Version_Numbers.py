@@ -9,6 +9,13 @@ Here is an example of version numbers ordering:
 
 0.1 < 1.1 < 1.2 < 13.37
 
+# https://leetcode.com/discuss/45331/2-4-lines-python-3-different-ways
+def compareVersion(self, version1, version2):
+    v1, v2 = (map(int, v.split('.')) for v in (version1, version2))
+    d = len(v2) - len(v1)
+    return cmp(v1 + [0]*d, v2 + [0]*-d)
+
+
 class Solution:
     # @param version1, a string
     # @param version2, a string
