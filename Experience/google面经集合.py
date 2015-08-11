@@ -4110,6 +4110,30 @@ define a tree, how to check whether a n-ary tree is unival tree (the value in ea
 How to get how many unival tree in a n-ary tree  
 '''
 
+'''
+130
+'''
+import random
+
+def weighted_choice(seq):
+    if not seq:
+        return None
+    total_value = sum(v for _, v in seq)
+    random_value = random.randint(0, total_value-1)
+    print "random_value: ", random_value
+    pre = 0
+    partial_sum = 0
+    for value, i in seq:
+        partial_sum += i
+        if pre <= random_value < partial_sum:
+            print ""
+            return value
+        pre = partial_sum
+    return None
+
+
+seq = [("a",3),("b",5),("c",8)]
+print weighted_choice(seq)
 
 ========================================================================================
 
@@ -4497,6 +4521,7 @@ def abbreviation_unique(array):
 n string in the input array
 time complexity: O(n)
 space complexity: O(n)
+
 
 '''
 onsite:
