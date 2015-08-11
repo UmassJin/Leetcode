@@ -326,4 +326,26 @@ if __name__ == '__main__':
 
 
 
-
+'''
+onsite:
+1. given the intervals, find the largest interval and the maximum overlap interval 
+2. culture fit
+3. system design, design the msgs, what's app, wechat
+4. living code
+   give the file, which has
+   > input:
+   column1, column2
+   "a",b
+   "a,b","c/"f"
+   > output:
+   [{
+   "column1":"a",
+   "column2": "b"
+   },
+   { 
+   "column1": "a,b",
+   "column2": "c"f"
+   }]
+   
+5. culture fit, and simple coding 
+'''
