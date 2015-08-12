@@ -4236,6 +4236,63 @@ def happy_number(n):
     
 happy_number(500)
 
+'''
+134.Implement a function to perform basic string compression using the counts of repeated characters.
+For example, the string aabcccccaaa would become a2b1c5a3.
+'''
+def compress_string(string):
+    if not string: return None
+    count = 1; i = 1
+    cur = string[0]
+    result = []
+    while i <= len(string):
+        if i < len(string) and string[i] == cur:
+            count +=1
+        else:
+            result.append(cur+str(count))
+            if i < len(string):
+                cur = string[i]
+            count = 1
+        i += 1
+    return ''.join(result)
+
+print compress_string("aabccccaaadddddd")
+
+
+'''
+135. compress string 
+For example, the string aabcccccaaa would become a*2b*1c*5a*3. the original string may still have 
+number and *
+'''
+
+def compress_string(string):
+    if not string: return None
+    count = 1; i = 1
+    cur = string[0]
+    result = []
+    while i < len(string):
+        if cur.isdigit():
+            result.append("#"+cur)
+            cur = string[i]
+            i += 1
+        elif cur == "*":
+            result.append("#"+cur)
+            cur = string[i]
+            i += 1
+        else:
+            while i < len(string) and string[i] == cur:
+                count +=1
+                i += 1
+            result.append(cur+"*"+str(count))
+            if i < len(string):
+                cur = string[i]
+            count = 1 
+            i += 1
+    return ''.join(result)
+
+print compress_string("aa2*5bccc")
+print compress_string("aa2*5bcccc3*aaadddddd")
+
 
 ========================================================================================
 
