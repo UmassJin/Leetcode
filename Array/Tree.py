@@ -415,8 +415,7 @@ def hasPathSum(root, sum):
     if not root: return False
     sum = sum - root.val
     if not root.left and not root.right:
-        if sum == 0: return True
-        else: return False
+        return sum == 0
     return hasPathSum(root.left, sum) or hasPathSum(root.right, sum)
 
 # 这道题容易做错的几点: 
