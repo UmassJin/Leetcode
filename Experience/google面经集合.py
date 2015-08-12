@@ -4294,6 +4294,30 @@ print compress_string("aa2*5bccc")
 print compress_string("aa2*5bcccc3*aaadddddd")
 
 
+'''
+136. 
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=134847&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+Q)  Write a program to count the total number of pages reachable from a website.
+For example, given "nytimes.com", count the number of pages reachable from there.
+You can assume you are given a function to fetch the page and extract the inner links, e.g.:
+List<String> fetchPageAndExtractUrls(String url);
+'''
+
+
+
+'''
+137.
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=134847&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+Q) Given a tiny computer with a 1 MHz CPU and 1 KiB of RAM memory;
+no input;
+only output is an LED light that says “I am done”.
+(1 MHz == 1 million instructions per second)
+I load an arbitrary unknown program onto this computer.. 
+How long do we have to wait in wall-clock time before we can prove the program has an infinite loop?
+'''
+
+
+
 ========================================================================================
 
 '''
