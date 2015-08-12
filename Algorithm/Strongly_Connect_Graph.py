@@ -26,7 +26,7 @@ def dfs(node, visited):
     visited[node] = True
     for neighbor in node.neighbor:
         if not visited[neighbor]:
-            dfs(neighbor)
+            dfs(neighbor, visited)
 
 def strongly_connected_graph(graph):
     visited = [False for i in xrange(graph.V)]
