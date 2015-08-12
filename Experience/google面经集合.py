@@ -4135,6 +4135,39 @@ def weighted_choice(seq):
 seq = [("a",3),("b",5),("c",8)]
 print weighted_choice(seq)
 
+
+'''
+131.
+http://www.mitbbs.com/article_t1/JobHunting/33021975_0_1.html
+1.leetcode上原题  number of islands
+2.follow up：count rank 2 islands, where a rank 2 island is an island inside
+a lake located on a continent. A continent is a piece of land located in 
+the ocean; the ocean is any body of water that touches the edges of the map.
+
+Example:
+000000000
+000001100
+001111100
+011000100
+001010100
+001000100
+001111100
+000000000
+上面这个例子里应该返回1.
+
+3.If the input 2d array is too large to fit in memory, how to handle?
+
+我从第二个follow up开始就回答的磕磕绊绊，最后也没写code，一直在跟面试官讨论
+。后来思路终于讨论出来了，但第二个follow up面试官提示说water的那个dfs和第一
+问里的dfs有什么不同，后来明白他想说water的dfs要考虑对角线情况。第三个follow 
+up更是不知道怎么回答，瞎扯了一通。
+
+请教各位大侠们，第三问该怎么考虑？
+'''
+
+
+
+
 ========================================================================================
 
 '''
