@@ -4302,8 +4302,22 @@ For example, given "nytimes.com", count the number of pages reachable from there
 You can assume you are given a function to fetch the page and extract the inner links, e.g.:
 List<String> fetchPageAndExtractUrls(String url);
 '''
+def fetch_pages(url):
+    visited = {}
+    total_url = [0]
+    fetch_helper(url, total_url, visited)
+    return total_url[0]
 
-
+def fetch_helper(url, total_url, visited):
+    children = fetchPageAndExtractUrls(url)
+    if not children:
+        return
+    for child in children:
+        if child not in visited:
+            visited[child] = True
+            total_url[0] += 1
+            fetch_helper(child, total_url, visited)
+            
 
 '''
 137.
@@ -4315,7 +4329,16 @@ only output is an LED light that says “I am done”.
 I load an arbitrary unknown program onto this computer.. 
 How long do we have to wait in wall-clock time before we can prove the program has an infinite loop?
 '''
+因为数据和程序都在内存中，所以，如果在某这两个时间点，内存中的内容处于完全相同的状态，
+那么从这两个时间点之后的所有状态也一定会完全相同（除非这是台量子计算机）。
+那么，如果一个程序在开始执行之后，内存先后出现两个完全相同的状态的话，那么这个程序一定是死循环。. 
 
+1kilobyte = 2^13 bit, 所以该计算机内存可能存在的不同状态是2^14种。
+因为每次instruction都一定会改变内存的状态（因为但凡有一次不改变，那就已经死循环了），
+所以这个计算机最大能执行的不相同操作是2^14次（因为如果程序在2^14次操作中还没能停机，
+那第2^14+1次操作一定和之前的2^14次操作中的某一个相同）。
+又因为运行速度是1秒10^6 = 2^20次操作，因此在2^(-6) = 0.016秒内，就能够进行2^14次操作。
+也就是说，如果0.016秒内还没能停下的程序，就永远不会停下了。
 
 
 ========================================================================================
