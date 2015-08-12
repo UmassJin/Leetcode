@@ -1,7 +1,11 @@
 '''
-Design an algorithm and write code to serialize and deserialize a binary tree. Writing the tree to a file is called 'serialization' and reading back from the file to reconstruct the exact same binary tree is 'deserialization'.
+Design an algorithm and write code to serialize and deserialize a binary tree.
+Writing the tree to a file is called 'serialization' and reading back from the file to 
+reconstruct the exact same binary tree is 'deserialization'.
 
-There is no limit of how you deserialize or serialize a binary tree, you only need to make sure you can serialize a binary tree to a string and deserialize this string to the original structure.
+There is no limit of how you deserialize or serialize a binary tree, 
+you only need to make sure you can serialize a binary tree to a string and 
+deserialize this string to the original structure.
 
 Have you met this question in a real interview? Yes
 Example
@@ -13,7 +17,6 @@ An example of testdata: Binary tree {3,9,20,#,#,15,7}, denote the following stru
   /  \
  15   7
 Our data serialization use bfs traversal. This is just for when you got wrong answer and want to debug the input.
-
 You can use other method to do serializaiton and deserialization.
 '''
 
@@ -82,6 +85,50 @@ class Solution:
         node.right = self.deserialize_helper(data)
         return node
 
+'''
+
+If given Tree is Binary Search Tree?
+If the given Binary Tree is Binary Search Tree, we can store it by either storing preorder or postorder traversal. 
+In case of Binary Search Trees, only preorder or postorder traversal is sufficient to store structure information.
+'''
+
+class TreeNode:
+    def __init__(self, value=0):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def construct_BST_from_preorder(preorder):
+    if not preorder:
+        return None
+    size = len(preorder)
+    root = TreeNode(preorder[0])
+    stack = [root]
+    for value in preorder[1:]:
+        temp = None
+        while stack and value > stack[-1].value:
+            temp = stack.pop()
+        if temp:
+            temp.right = TreeNode(value)
+            stack.append(temp.right)
+        else:
+            stack[-1].left = TreeNode(value)
+            stack.append(stack[-1].left)
+    return root
+
+
+'''
+If given Binary Tree is Complete Tree?
+A Binary Tree is complete if all levels are completely filled except possibly the last level and all nodes of 
+last level are as left as possible (Binary Heaps are complete Binary Tree). For a complete Binary Tree, 
+level order traversal is sufficient to store the tree. We know that the first node is root, next two nodes 
+are nodes of next level, next four nodes are nodes of 2nd level and so on.
+
+If given Binary Tree is Full Tree?
+A full Binary is a Binary Tree where every node has either 0 or 2 children. It is easy to serialize such 
+trees as every internal node has 2 children. We can simply store preorder traversal and store a bit with 
+every node to indicate whether the node is an internal node or a leaf node.
+'''
 
 '''
 # Google interview: http://www.1point3acres.com/bbs/thread-131485-1-1.html
