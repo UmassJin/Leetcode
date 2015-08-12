@@ -4166,6 +4166,75 @@ up更是不知道怎么回答，瞎扯了一通。
 '''
 
 
+'''
+132. 给一个binary tree 打印所有的path~~然后问了时间空间复杂度~~就用一般递归做的
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=139354&extra=page%3D1%26filter%3Dsortid%26sortid%3D311&page=1
+'''
+ # 42. print out the path from root to the leaf in the binary tree
+ 
+def print_path(root):
+    if not root:
+        return
+    result = []
+    print_path_helper(root, result, [])
+    return result
+
+def print_path_helper(node, result, subpath):
+    if not node:
+        return
+    if not node.left and not node.right:
+        result.append(subpath[:]+[node.value])  # Note: here we should use the subpath[:], not the subpath directly 
+    else:
+        print_path_helper(node.left, result, subpath+[node.value])
+        print_path_helper(node.right, result, subpath+[node.value])
+
+# time complexity: O(nlogn)
+# space complexity: O(n)
+
+>>> list1 = [1,2,3]
+>>> result = []
+>>> result.append(list1)
+>>> result
+[[1, 2, 3]]
+>>> id(result[0])
+4565113024
+>>> id(list1)
+4565113024
+>>> list1.append(5)
+>>> result
+[[1, 2, 3, 5]]
+
+
+'''
+133.
+2. good number问题。 一个数如果能用（至少两组）两个立方数相加得到那么就是good number。print小于等于n的所有good number。
+   分析时间复杂度。
+   我先把小于n的所有立方数存起来。然后就变成了2 sum问题了。。。
+   
+第二题答的是O(n^(4/3))，外层大循环是O(n)，里层的存的立方数是O(n^(1/3))，两个相乘。阿三考官嘟囔了半天我也没太听明白他到底什么意思= =
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=139354&extra=page%3D1%26filter%3Dsortid%26sortid%3D311&page=1
+'''
+import collections
+
+def happy_number(n):
+    if n == 0: return 0
+    seq = []
+    result = []
+    for i in xrange(1, n+1):
+        tmp = i * i * i
+        if tmp > n:
+            break
+        seq.append(tmp)
+    print "seq: ", seq 
+    table = collections.defaultdict(int)
+    for i in xrange(len(seq)):
+        for j in xrange(i+1, len(seq)):
+            table[seq[i]+seq[j]] += 1   
+            if table[seq[i]+seq[j]] > 1:
+                result.append(seq[i] + seq[j])
+    print result
+    
+happy_number(500)
 
 
 ========================================================================================
