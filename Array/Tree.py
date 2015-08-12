@@ -982,5 +982,38 @@ TreeNode* closestBST(TreeNode* root, int val){
     }
     return nullptr;
 }
+
+ # 42. print out the path from root to the leaf in the binary tree
+ 
+def print_path(root):
+    if not root:
+        return
+    result = []
+    print_path_helper(root, result, [])
+    return result
+
+def print_path_helper(node, result, subpath):
+    if not node:
+        return
+    if not node.left and not node.right:
+        result.append(subpath[:]+[node.value])  # Note: here we should use the subpath[:], not the subpath directly 
+    else:
+        print_path_helper(node.left, result, subpath+[node.value])
+        print_path_helper(node.right, result, subpath+[node.value])
+
+>>> list1 = [1,2,3]
+>>> result = []
+>>> result.append(list1)
+>>> result
+[[1, 2, 3]]
+>>> id(result[0])
+4565113024
+>>> id(list1)
+4565113024
+>>> list1.append(5)
+>>> result
+[[1, 2, 3, 5]]
+
+
 ```
 
