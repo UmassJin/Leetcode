@@ -36,6 +36,9 @@
  */  
 '''
 
+# why we can not reconstruct tree based on preorder and postorder
+# http://www.cmi.ac.in/~madhavan/courses/programming06/lecture12-21sep2006.txt
+
 class tree_node(object):
     def __init__(self, value):
         self.val = value
