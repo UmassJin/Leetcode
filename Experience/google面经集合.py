@@ -4341,6 +4341,128 @@ How long do we have to wait in wall-clock time before we can prove the program h
 也就是说，如果0.016秒内还没能停下的程序，就永远不会停下了。
 
 
+'''
+138. 
+# http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=138912&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+第二题，一道Math题。就是求float number 的squre root: public float sqrt(float f, int p)， 
+precision是表示小数点后位数（2就要两位一致）。我就先找到result两边的integer标为l , r。 
+然后就一阵二分法。问题是， 判断precision和大于一小于一时出错了。然后一阵改。。。。。
+表示很无奈。这种math， corner cases特别多的没准备好。说好的array， string，说好的tree，说好的recursive呢，都没有。。.
+
+判断数据是否符合精确度，就用两个数都乘以10^p，再取整比较是否相等。比如p=2， f=0.64, curRes = 0.639就不行因为
+都乘以100以后取整是64， 和63不相等。 如果curRes = 0.645就没问题。
+
+至于curRes，我就先二分法取到整数范围，比如8开平方根在（2,3）范围，再再（2,3)范围内二分，判断精确度。要注意的是，
+（2,3）大于1和（0,1）小于一两种范围二分的时候方向不同。大于一越平方越大，小于一越平方越小
+
+精确度要求是小数点平方根res的平方和要求根的数f，小数点之后p位要保持一致。所以比如p=2，如果res^2和f分别是1.50和1.501是可以的，
+如果是1.499和1.50就不行了。然而这两个却都符合相差绝对值小于0.01
+'''
+
+def sqrt_float(num, p):
+    '''
+    @num: float number
+    @p: precision after dot 
+    '''
+    if num <=0: return 0
+    l = 0; r = num
+    if num < 1: r = 1
+
+    while l <= r:
+        mid = (l + r) / 2.0
+        print "l: %f, r: %f, mid: %f" %(l, r, mid)
+        if mid * mid > num:
+            r = mid 
+        elif mid * mid < num:
+            l = mid
+        if judge_precision(num, mid*mid, p): 
+            return mid 
+    return None    
+    
+def judge_precision(num, res, p):
+    if int(num*(10**p)) == int(res*(10**p)):
+        print "res: ", int(res*(10**p))
+        return True
+    return False
+        
+print sqrt_float(1.6, 2)
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python sqrt_float.py 
+l: 0.000000, r: 1.600000, mid: 0.800000
+l: 0.800000, r: 1.600000, mid: 1.200000
+l: 1.200000, r: 1.600000, mid: 1.400000
+l: 1.200000, r: 1.400000, mid: 1.300000
+l: 1.200000, r: 1.300000, mid: 1.250000
+l: 1.250000, r: 1.300000, mid: 1.275000
+l: 1.250000, r: 1.275000, mid: 1.262500
+l: 1.262500, r: 1.275000, mid: 1.268750
+res:  160
+1.26875
+
+
+print sqrt_float(0.556, 2)
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python sqrt_float.py 
+l: 0.000000, r: 1.000000, mid: 0.500000
+l: 0.500000, r: 1.000000, mid: 0.750000
+l: 0.500000, r: 0.750000, mid: 0.625000
+l: 0.625000, r: 0.750000, mid: 0.687500
+l: 0.687500, r: 0.750000, mid: 0.718750
+l: 0.718750, r: 0.750000, mid: 0.734375
+l: 0.734375, r: 0.750000, mid: 0.742188
+res:  55
+0.7421875
+
+'''
+139.
+Given an array of N=10^6 int32 and an int32 X, compute the exact number of triples (a, b, c) 
+of distinct elements of the array so that a + b + c <= X
+其实就是和3Sum差不多，不过写完被他问了可能的overflow问题，然后立马改了下就结束了
+
+假设X很大，比如是2^31，而数组中的数字是1,2,3...10^6，那么数组中的每一个triplet都满足条件，
+最后数出来的个数会是C(3, 10^6) ~= 2^58。这在C++中就必须上long long了。但是如果数组再稍微大一点，
+比如到10^7的话，long long就可能hold不住了；所谓的overflow应该就是指这个。所以这个限制非常关键，
+如果是面试官一开始主动提出来这个限制的话，我觉得算是比较良心的。
+
+当然，三个int32的和会超过int32这也是一个重要的overflow的点。多谢指出。这两个overflow的点都可以通过使用long long进行规避
+'''
+
+'''
+140
+Binary Tree Maximum Path Sum
+Can not have the near node in the final path 
+'''
+def maxpathsum_bt(root):
+    if not root:
+        return None
+    result = [-1<<32]
+    maxpath(root, result)
+    return result[0]
+
+def maxpath(node, result):
+    '''
+    return (include node, exclude node)
+    '''
+    if not node: return (0,0)
+    l = maxpath(node.left, result)
+    r = maxpath(node.right, result)
+    
+    isum = max(0, l[1]) + max(0, r[1]) + node.value
+    result[0] = max(result[0], isum)
+    include = node.value + max(0, l[1],r[1])
+
+    isum = 0
+    isum1 = max(0, l[0], l[1]) 
+    isum2 = max(0, r[0], r[1])
+    isum = isum1 + isum2
+    result[0] = max(result[0], isum)
+    exclude = max(isum1, isum2)
+
+    return (include, exclude)
+    
+    
+
+
 ========================================================================================
 
 '''
