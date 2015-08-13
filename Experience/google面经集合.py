@@ -4425,6 +4425,9 @@ of distinct elements of the array so that a + b + c <= X
 如果是面试官一开始主动提出来这个限制的话，我觉得算是比较良心的。
 
 当然，三个int32的和会超过int32这也是一个重要的overflow的点。多谢指出。这两个overflow的点都可以通过使用long long进行规避
+
+如果限定数组小于等于10^6次，用64位整型就一定可以表示结果；但是如果数组较大，恐怕就要考虑1）用string表示，
+2）用一个数组表示，3）抛出异常，根据实际情况选择方案。这些方案都可以跟面试官提
 '''
 
 '''
@@ -4524,6 +4527,55 @@ print combination(lists3)
 ~                               
 
 
+'''
+142.
+第二题是找Binary Search Tree 里面的出现次数最多的integer.....
+
+TreeNode pre = null;
+        int max = 0;.
+        int val = 0;.
+        public void commonValue(TreeNode root){
+                if(root == null){
+                        max = Math.max(max, val);
+                        return;
+                }
+                
+                commonValue(root.left);.
+                
+                if(pre == null){
+                        val = 1;
+                }else if(pre.val == root.val){.
+                        val++;
+                }else{
+                        max = Math.max(max, val);
+                        val = 1;
+                }-
+                pre = root;. 
+                
+                commonValue(root.right);
+        }
+
+'''
+
+'''
+143.
+input:一个字符串可能含有 ‘*’，‘*’可以代表'j' 或'k'
+要求打印所有可能的字符串
+'''
+
+def dfs(s, i):
+    if len(s) == i:
+        print s
+        return
+    if s[i] == '*':
+        dfs(s[:i]+'j'+s[i+1:], i+1)
+        dfs(s[:i]+'k'+s[i+1:], i+1)
+    else:
+        dfs(s, i+1)
+        
+        
+s = "abc*e*d"
+print dfs(s,0)
 
 ========================================================================================
 
