@@ -4638,17 +4638,6 @@ example：
 1, 2, 3, 4, 6, 7, 8, 9, 10, 11 → 6, 7,8, 9, 10, 11.
 11, 10, 9, 8, 7, 6 4, 3, 2,1 ->11, 10, 9, 8, 7, 6
 1, 2, 3, 1, 2, 3, 4, 5 -> 1, 2, 3, 4, 5
-
-2.第1题的follow－up
-numbers变成二叉树，找longest consecutive numbers 
-example:
-     1
-  2     3
-      5    3
-
-→ 1, 2
-树的题一向做的不好，感觉和树这种数据结构不来电，花了挺长时间，最后面试官说简化只要求最长的length就好，
-因为时间紧迫，随便写了一个递归就交了，不知道有没有bug，但是从面试官反应来看，应该写的不是太没水平～～
 '''
 
 def longest_consecutive(num):
@@ -4690,11 +4679,52 @@ print longest_consecutive(test)
 # Output:	7
 # Expected:	9
 
+'''
+147.第1题的follow－up
+numbers变成二叉树，找longest consecutive numbers 
+example:
+     1
+  2     3
+      5    3
 
+→ 1, 2
+题目简化：连续递增from leaf to root，只考虑单向，
+用一个 global update maxlen，每个节点返回(value, MaxLentoThisNode)
+
+树的题一向做的不好，感觉和树这种数据结构不来电，花了挺长时间，最后面试官说简化只要求最长的length就好，
+'''
+
+def longest_consecutive_list(root):
+    '''
+    @only consider the path from root to each leaf
+    @only consider the increasing path from root 
+    '''
+    if not root:
+        return None
+    result = [-1<<32]
+    consecutive_helper(root, result)
+    return result[0]
+
+def consecutive_helper(node, result):
+    if not node: return None
+    if not node.left and not node.right:
+        return (node.value, 1)
+    
+    l = consecutive_helper(node.left, result)
+    r = consecutive_helper(node.right, result)
+    
+    tmpleft = 0; tmpright = 0
+    if l and node.value == (l[0] + 1):
+        tmpleft = l[1] + 1
+    if r and node.value == (r[0] + 1):
+        tmpright = r[1] + 1
+    result[0] = max(tmpleft, tmpright, result[0])
+
+    return (node.value, max(tmpleft, tmpright))
 
 
 '''
-146.
+148.
 第一轮，给一个字符串数组，找出这样的字符串对（str1,str2），使得1，两个字符串不包含一样的字符，2. 长度乘积最大。
 我一开始对面试官说O(n^2)比较intuitive，然后写完了之后让我改进，后来想了一个按长度先排序，
 然后设置两个指针慢慢移动，估计会好很多。 
@@ -4738,13 +4768,17 @@ print compare_str(lists1)
 
 
 '''
-147.
+149.
 将一个数组right rotate k次。要求O(N),in-place
 # http://www.geeksforgeeks.org/array-rotation/
 '''
 
 
-
+'''
+150.
+1. 字符串匹配 -> anagram -> 结合起来 不用完全的字符串匹配 只要是anagram就算成功 
+也就是有两个字符串s和word word和s的某个子字符串是anagram就行。时间复杂度 空间复杂度 尽量优化
+'''
 
 ========================================================================================
 
