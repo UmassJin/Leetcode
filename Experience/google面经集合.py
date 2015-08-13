@@ -4462,6 +4462,68 @@ def maxpath(node, result):
     
     
 
+'''
+141.
+# http://www.mitbbs.com/article_t1/JobHunting/32972467_0_1.html
+2.combination
+给你一个list of list [[Hello, Hi], [world, girl, boy]]
+print:
+Hello world
+Hello girl
+Hello boy
+Hi world
+Hi girl
+Hi boy
+
+给出了recursive解法，有个地方忘写return了被指出，改正
+followup： how to do it iteratively？
+
+'''
+def combination(lists):
+    if not lists or not lists[0]:
+        return None
+    result = []
+    n = len(lists)
+    combination_helper(lists, result, [], n)
+    return result
+    
+def combination_helper(lists, result, sublist, length):
+    if len(sublist) == length:
+        result.append(sublist)
+        return
+
+    for i, list_member in enumerate(lists):
+        for l in list_member:
+            combination_helper(lists[i+1:], result, sublist+[l], length)
+            
+#lists = [["hello", "world"], ["fight", "cisco", "hi"], ["google","fighting!"]]            
+#print combination(lists)
+
+lists1 = [["hello", "world"], ["fight", "cisco", "hi"]]             
+print combination(lists1)
+
+def combination2(lists):
+    if not lists or not lists[0]:
+        return None
+    result = [[]]
+    for list_member in lists:
+        ret = []
+        for comb in result:
+            for l in list_member:
+                ret.append(comb+[l])
+                #print "ret: ", ret
+        if ret:
+            result = ret
+    return result 
+    
+#lists2 = [["hello", "world"], ["fight", "cisco", "hi"], ["google","fighting!"]]            
+#print combination2(lists2)
+
+lists3 = [["hello", "world"], ["fight", "cisco", "hi"]]
+print combination(lists3)
+~                               
+
+
 
 ========================================================================================
 
