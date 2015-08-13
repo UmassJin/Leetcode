@@ -4577,6 +4577,83 @@ def dfs(s, i):
 s = "abc*e*d"
 print dfs(s,0)
 
+'''
+144.
+Find the longest increasing(increasing means one step) sequence in an integer matrix in 4 directions 
+(up down left right), return the sequence
+
+直接DFS效率太低，这题主要考DP+记忆化。
+DP方程很明显：
+opt[i][j] = max{ opt[i+1][j], opt[i-1][j], opt[i][j+1], opt[i][j-1] } +１
+可以参考POJ原题,1088滑雪。
+'''
+def longest_inc(matrix):
+    if not matrix or not matrix[0]:
+        return None
+    m = len(matrix); n = len(matrix[0])
+    mem = [[0 for _ in xrange(n)] for _ in xrange(m)]
+    path = 0; maxpath = 0
+    for i in xrange(m):
+        for j in xrange(n):
+            path = dfs(mem, matrix, i, j)
+            if path > maxpath:
+                maxstart = matrix[i][j]
+                maxpath = path
+    print "start: ",maxstart
+    return maxpath
+            
+def dfs(mem, matrix, i, j):
+    m = len(matrix); n = len(matrix[0])
+    if mem[i][j]:
+        return mem[i][j]
+    dirs = [[-1,0],[1,0],[0,-1],[0,1]]
+    for d in dirs:
+        newi = i + d[0]
+        newj = j + d[1]
+        if newi < 0 or newi >=m or newj < 0 or newj >= n:
+            continue
+        if matrix[newi][newj] == (matrix[i][j] + 1):
+            mem[i][j] = max(mem[i][j], dfs(mem, matrix, newi, newj))
+    mem[i][j] += 1
+    print mem 
+    return mem[i][j]
+
+matrix = [  [1,9,8,6],
+            [7,3,4,5],
+            [5,2,6,8]]
+
+print longest_inc(matrix)
+
+# mem table:
+[[1, 1, 2, 1], [1, 4, 3, 2], [1, 5, 1, 1]]
+start:  2
+5
+
+
+'''
+145.
+
+1. longest consecutive numbers
+lc原题，但要考虑重复，而且numbers无序， 并且[size=13.3333330154419px]要输出最长的numbers,
+example：
+1, 2, 3, 4, 6, 7, 8, 9, 10, 11 → 6, 7,8, 9, 10, 11.
+11, 10, 9, 8, 7, 6 4, 3, 2,1 ->11, 10, 9, 8, 7, 6
+1, 2, 3, 1, 2, 3, 4, 5 -> 1, 2, 3, 4, 5
+
+1, 2, 3, 4, 3, 4, 5, 6, 7 -> 3, 4, 5, 6, 7
+
+2.第1题的follow－up
+numbers变成二叉树，找longest consecutive numbers 
+example:
+     1
+  2     3
+      5    3
+
+→ 1, 2
+树的题一向做的不好，感觉和树这种数据结构不来电，花了挺长时间，最后面试官说简化只要求最长的length就好，
+因为时间紧迫，随便写了一个递归就交了，不知道有没有bug，但是从面试官反应来看，应该写的不是太没水平～～
+'''
+
 ========================================================================================
 
 '''
