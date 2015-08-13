@@ -4651,6 +4651,45 @@ example:
 因为时间紧迫，随便写了一个递归就交了，不知道有没有bug，但是从面试官反应来看，应该写的不是太没水平～～
 '''
 
+def longest_consecutive(num):
+    if not num:
+        return None
+    n = len(num)
+    table = {}
+    result = 0
+    resultlist = []
+    for i in num:
+        left = 0; right = 0
+        leftlist = []; rightlist = []
+        if i not in table:
+            if i-1 in table:
+                left = table[i-1][0]
+                leftlist = table[i-1][1]
+            if i+1 in table:
+                right = table[i+1][0]
+                rightlist = table[i+1][1]
+
+            isum = left + right + 1
+            ilist = leftlist + [i] + rightlist
+
+            table[i] = (isum,ilist)
+            table[i-left] = (isum,ilist)
+            table[i+right] = (isum,ilist)
+            if len(ilist) > len(resultlist):
+                resultlist = ilist
+            result = max(isum, result)
+    print resultlist
+    return result
+
+
+test = [100, 4, 200, 1, 3, 2, 201, 202, 5]
+print longest_consecutive(test)
+
+# Corner Case 
+# Input:	[0,3,7,2,5,8,4,6,0,1]
+# Output:	7
+# Expected:	9
+
 
 
 
