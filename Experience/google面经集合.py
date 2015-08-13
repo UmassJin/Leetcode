@@ -4632,15 +4632,12 @@ start:  2
 
 '''
 145.
-
 1. longest consecutive numbers
-lc原题，但要考虑重复，而且numbers无序， 并且[size=13.3333330154419px]要输出最长的numbers,
+lc原题，但要考虑重复，而且numbers无序， 并且要输出最长的numbers,
 example：
 1, 2, 3, 4, 6, 7, 8, 9, 10, 11 → 6, 7,8, 9, 10, 11.
 11, 10, 9, 8, 7, 6 4, 3, 2,1 ->11, 10, 9, 8, 7, 6
 1, 2, 3, 1, 2, 3, 4, 5 -> 1, 2, 3, 4, 5
-
-1, 2, 3, 4, 3, 4, 5, 6, 7 -> 3, 4, 5, 6, 7
 
 2.第1题的follow－up
 numbers变成二叉树，找longest consecutive numbers 
@@ -4653,6 +4650,62 @@ example:
 树的题一向做的不好，感觉和树这种数据结构不来电，花了挺长时间，最后面试官说简化只要求最长的length就好，
 因为时间紧迫，随便写了一个递归就交了，不知道有没有bug，但是从面试官反应来看，应该写的不是太没水平～～
 '''
+
+
+
+
+'''
+146.
+第一轮，给一个字符串数组，找出这样的字符串对（str1,str2），使得1，两个字符串不包含一样的字符，2. 长度乘积最大。
+我一开始对面试官说O(n^2)比较intuitive，然后写完了之后让我改进，后来想了一个按长度先排序，
+然后设置两个指针慢慢移动，估计会好很多。 
+
+给你一个很大的字典。一对词如果不share 任何字母，比如dog, cat不share字母，而dog, boy就share一个o，
+则是interesting pair.找出所以interesting pairs中长度乘积最大的pair.输出这个乘积。
+'''
+
+def compare_str(lists):
+    '''
+    assume the input string only has the lowercase letters
+    @first could transfer each string into the bit, then compare
+    each pair of string whether they are the same or not
+    '''
+    if not lists:
+        return None
+    n = len(lists)
+    bit_pattern = []
+    lists = sorted(lists, key=len)
+    for s in lists:
+        x = 0
+        for char in s:
+            x = x | 1 << ord(char)-ord('a')
+        bit_pattern.append(x)
+    print "bit: ", bit_pattern
+    maxlen = 0
+    for i in xrange(n):
+        j = n - 1
+        while i < j:
+            if not bit_pattern[i] & bit_pattern[j]:
+                maxlen = max(maxlen, len(lists[i])*len(lists[j]))
+                print "two lists: %s, %s" %(lists[i], lists[j])
+                break
+            j -= 1
+    return maxlen 
+
+lists = ['fighting', 'google', 'hello', 'hi', 'how','']
+lists1 = ['hello','cisc','cisco','wlddd']
+print compare_str(lists)
+print compare_str(lists1)
+
+
+'''
+147.
+将一个数组right rotate k次。要求O(N),in-place
+# http://www.geeksforgeeks.org/array-rotation/
+'''
+
+
+
 
 ========================================================================================
 
