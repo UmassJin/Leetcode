@@ -2025,27 +2025,19 @@ Here - 3 is at front, 1 has 3 in front ,2 has 1 and 3 in front.
 '''
 
 '''
-# 解法1, time complexity O(n^2)
-假设队伍高度是：
-数组A: 2 3 1 5 4
+# 解法1, time complexity O(nlogn)
+This can be solved using rope data structure. 
+It's like a binary tree except that each node maintains the number of nodes in the left subtree+1 for itself. Whenever a new number is inserted, if the value is smaller than the node's number it goes to the left otherwise right. When it goes to the right, the value of the node is decreased by the value of the branch node. 
+Ex Nodes:	6	5	4	3	2	1 
+values:	0	0	0	2	2	4 
+1. Make 6 as the root of the tree, its value = 1; 
+2. Insert 5. Value of 5(0) < value of 6(1) so it goes to the left. New value of 6 = 2, value of 5=1; 
+3. Insert 4, value of 4 < value of 6 so goes to the left; again goes to the left of 5. New values of 4 = 1, value of 5 = 2, value of 6 = 3 
+4. Insert 3, goes to the left of 6 but to the right of 5. New values 6 = 4, value of 3 = 1, rest unchanged 
+5. Insert 2, goes to the left of 6, right of 5 (value of 2 is decreased by value of 5 so its now 0), left of 3. New values of 3 = 2, value of 2 = 1, value of 6 = 5 
+6. Insert 1, goes to the left of 6, right of 5, right of 3. 
+Do an in-order traversal of tree. It is imperative to insert the nodes in decreasing order
 
-那么对应的在A之前比他高的人数是：
-数组B: 0 0 2 0 1
-
-那么首先把高度排序：
-数组C: 5 4 3 2 1
-
-然后对数组B从后往前扫
-B[4] = 1, 说明 A[4] = C[1] = 4，同时从数组C删除4，此时数组C为：5 3 2 1. 
-接下来：
-B[3] = 0, 说明A[3] = C[0] = 5，同时从数组C删除元素5. C: 3,2, 1
-...
-Finally, we could get the result [2,3,1,5,4]
-
-这个算法有个问题是，input should be 
-height: [5, 4, 3, 2, 1]
-taller: [0, 1, 0, 0, 2]
-so we do not get the input as [0 0 2 0 1], which can not use this algorithm
 
 # 解法2, check the discussion in the career cup:
 Input: 
