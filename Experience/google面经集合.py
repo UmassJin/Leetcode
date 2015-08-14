@@ -4816,6 +4816,49 @@ l2 = "abcfedgsfdaf"
 w2 = "abcdefg"
 print string_anagram(l2, w2)
 
+
+'''
+compare the string using heapq
+'''
+
+import heapq
+
+class MyLine(object):
+    def __init__(self, string):
+        self.string = string
+
+    def __cmp__(self, other):
+        for i in xrange(min(len(self.string), len(other.string))):
+            if self.string[i] > other.string[i]:
+                return 1
+            elif self.string[i] < other.string[i]:
+                return -1
+            else:
+                continue
+        if len(self.string) > len(other.string):
+            return 1
+        elif len(self.string) < len(other.string):
+            return -1
+        else:
+            return 0
+
+class Solution(object):
+    def heapq_str(self):
+        heap = ["hello","world","fighting","cisco"]
+        heap1 = []
+        for s in heap:
+            heap1.append(MyLine(s))
+        heapq.heapify(heap1)
+        result = []
+        while heap1:
+            element = heapq.heappop(heap1)
+            result.append(element.string)
+
+        return result
+
+test = Solution()
+print test.heapq_str()
+
 ========================================================================================
 
 '''
