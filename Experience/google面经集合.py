@@ -2073,6 +2073,29 @@ should output something like:
 15: 1 
 16: 3
 Problem: # http://www.fgdsb.com/2015/01/03/count-numbers/
+'''
+void count_number(const vector<int>& arr) {
+    if(arr.empty()) return;
+    
+    int id = 0, step = 1, cur_num = arr[0], cur_count = 0;
+    while(id < arr.size()) {
+        cur_count += step;
+        step *= 2;
+        if(id + step >= arr.size() || arr[id + step] != cur_num) {
+            step = 1;
+            if(id + step < arr.size() && arr[id + step] != cur_num) {
+                cout << cur_num << ": " << cur_count << endl;
+                cur_count = 0;
+                cur_num = arr[id + step];
+            }
+        }
+        id += step;
+    }
+    cout << cur_num << ": " << cur_count << endl << endl;
+}
+
+'''
+Count 1 bits 
 Analysis: # https://books.google.com/books?id=iBNKMspIlqEC&pg=PA66#v=onepage&q&f=false
 思想是divide and conquer, first seperate the 32 bit into 16 blocks, and each block has 2 bits
 then check the 1s in each block, if 2 1s, output is 10, if only has 1 1s, output is 01,
