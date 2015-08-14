@@ -84,34 +84,51 @@ print permutation_number(test2)
 # Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
 
 '''
-3. find h index element in the array, at least n elements in the arrary larger than n, but here is no n+1 elements larger than n+1
+3. find h index element in the array, at least n elements in the array larger than n, but here is no n+1 elements larger than n+1
 '''
 def find_h_index(arr):
     n = len(arr) - 1
     start = 0; end = n
     distance = 0
     while start <= end:
-        if end % 2 == 0:
-            mid = (start + end) / 2
-        else:
-            mid = (start + end) / 2 + 1
-        
+        mid = (start + end + 1) / 2
         if arr[mid] >= (n - mid):
             distance = n - mid
+            #print "mid: ", mid
+            #print "distance: ", distance
             end = mid - 1
-        
+
         elif arr[mid] < (n - mid):
             start = mid + 1
-            
+
     return distance
 
-test1 = [0,3,4,7,8,9,10]
-test2 = [0,3,4,7,8,9]
-test3 = [1]
+test1 = [0,3,4,7,8,9,10]  -> 4
+test2 = [0,3,4,7,8,9]  -> 3
+test3 = [1,2,4,7,8,9]  -> 3
+test4 = [1]
 
 print find_h_index(test1)
 print find_h_index(test2)
 print find_h_index(test3)
+
+[JINZH2-M-20GQ: ~/Desktop/Python_training/Leetcode]: python find_h_index.py
+mid:  3
+distance:  3
+mid:  2
+distance:  4
+4
+mid:  3
+distance:  2
+mid:  2
+distance:  3
+3
+mid:  3
+distance:  2
+mid:  2
+distance:  3
+3
+
 
 '''
 具体思路如下，其实就是binary search。 首先根据start和end得出mid，看A[mid]值是否大于数组长度减去mid
