@@ -36,6 +36,9 @@ array = [12, 3, 5, 7, 4, 19, 26]
 print KthSmallest(array, 0, len(array)-1, 3)
 ```
 
+time complexity:
+The worst case time complexity of the above solution is still O(n2). In worst case, the randomized function may always pick a corner element. The expected time complexity of above randomized QuickSelect is Θ(n)
+
 #### Reference
 * [G4G set1](http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/)
 * [G4G set2](http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/)
