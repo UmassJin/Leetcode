@@ -84,7 +84,8 @@ print permutation_number(test2)
 # Best Reference: http://stackoverflow.com/questions/25285792/generate-all-permutations-of-a-list-without-adjacent-equal-elements
 
 '''
-3. find h index element in the array, at least n elements in the array larger than n, but here is no n+1 elements larger than n+1
+3. find h index element in the array, at least n elements in the array larger than n, 
+but here is no n+1 elements larger than n+1
 '''
 def find_h_index(arr):
     n = len(arr) - 1
@@ -164,7 +165,8 @@ print min_square(n)
 
 
 '''
-第二问本质上是个DP题。思路如下，要求和为n的最小平方数序列，先求出和为1到n-1的最小平方数序列。然后从1到n的平方根之间寻找和为（n-i*i）的数的最短平方序列。1<i<sqrt(n)
+第二问本质上是个DP题。思路如下，要求和为n的最小平方数序列，先求出和为1到n-1的最小平方数序列。
+然后从1到n的平方根之间寻找和为（n-i*i）的数的最短平方序列。1<i<sqrt(n)
 例如求和为12的最短的平方 序列 
 f（12） = 3*3 + f（3） f（3） = 1 + 1 + 1  i = 3 结果为 12 = 9 + 1 + 1 + 1
 f（12）=  2*2+ f( 8 )   f( 8 ) = 4 + 4   i = 2 结果为 12 = 4 + 4 + 4
