@@ -5289,3 +5289,95 @@ onsite:
 4. two rows array, find the minimum obstacle need to move if we want to move from the top left to right down 
    do the in-order for the two trees, use the minimum space, less than O(n), maybe O(logn)
 '''
+
+
+
+Given a list of words as input do two things, build a model which allows you to generate similar but pseudo random words based on the input corpus. 
+
+BuildModel(String[] words);
+String GeneratePseudorandomWord();
+
+A → C -> E
+  ->P ->D
+      ->L
+	
+
+root
+|
+A (value, time, possibility) 
+| |     |
+C P     L
+| |  |  | 
+E P  D  E
+        |
+  |     P
+  L     |
+  |     P
+  E
+
+table:
+{A: {P:2, C:1, (L,1), (D,1)}, C: [E], E: {A:1, ‘end’:2}, P: [(P:1)]}
+src = [(A:3),(B:2),(E:1)]
+des = [(D:1)]
+random(0,1)
+
+Input:
+ACE  1/3
+EAE  
+
+E
+EA
+
+⅔ end, ⅓ A
+
+Output:
+APPE
+ACE
+
+
+BuildModel(String[] words);
+String GeneratePseudorandomWord();
+
+
+def BuildModel(words):
+    if not words:
+	  return None 
+    src = collections.defaultdict(int)
+    chartable = {}
+    for word in words:
+   	  for i, char in enumerate(word):
+	      if i == 0:
+	          scr[char] += 1
+	      if i + 1 < len(word):
+                if char not in chartable:
+                   chartable[char] = collections.defaultdict(int)
+                   chartable[char][word[i+1]] += 1
+                else:
+                   chartable[char][word[i+1]] += 1
+		if i + 1 == len(word):
+			 chartable[char][‘end’] += 1
+	
+
+{A: {P:2, C:1, L:1, D:1}, C: [E], E: {A:1, ‘end’:2}, P: [(P:1)]}
+   
+0.4
+A:0.1, B:0.3, C:0.6
+
+import random 
+def GeneratePseudorandomWord(src, chartable):
+     randomnum = random.randint(0,1)
+     srcsum = sum(src.values())
+     temp = {}
+     for item, value in src:
+   src[item] = operater.truediv(value/srcsum)
+	   temp[src[item]] = item
+     sorted(temp)
+     pre = 0 
+     for pos, item in temp:
+         cur = pre + pos
+         if pre <= randomnum < cur:
+               result.append(item)
+		   break
+     
+     
+
