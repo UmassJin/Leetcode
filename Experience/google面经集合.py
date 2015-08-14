@@ -4778,7 +4778,43 @@ print compare_str(lists1)
 150.
 1. 字符串匹配 -> anagram -> 结合起来 不用完全的字符串匹配 只要是anagram就算成功 
 也就是有两个字符串s和word word和s的某个子字符串是anagram就行。时间复杂度 空间复杂度 尽量优化
+# http://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
+# http://www.careercup.com/question?id=5389078581215232
 '''
+
+import collections
+
+def string_anagram(lists, word): 
+    if not lists or not word or (len(lists) < len(word)):
+        return False
+    
+    m = len(lists); n = len(word)
+    target = collections.Counter(word)
+    cur = collections.Counter(lists[:n])
+    for i in xrange(n,m):
+        if target == cur:
+            return lists[i-n:i]
+        
+        cur[lists[i]] += 1
+        cur[lists[i-n]] -= 1
+        if not cur[lists[i-n]]:
+            del cur[lists[i-n]]
+    if target == cur:
+        return lists[i-n+1:]
+    return False
+
+
+l = "BACEGADCBA"
+w = "ABCD"
+print string_anagram(l, w)
+
+l1 = "cdsgsdgsa"
+w1 = "a"
+print string_anagram(l1, w1)
+
+l2 = "abcfedgsfdaf"
+w2 = "abcdefg"
+print string_anagram(l2, w2)
 
 ========================================================================================
 
